@@ -37378,14 +37378,14 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 /***/ 0:
 /*!*************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/main.js ./resources/sass/main.scss ./resources/sass/search.scss ./resources/sass/show.scss ./resources/sass/analitycs.scss ./resources/sass/sponsor.scss ***!
+  !*** multi ./resources/js/main.js ./resources/sass/search.scss ./resources/sass/main.scss ./resources/sass/show.scss ./resources/sass/analitycs.scss ./resources/sass/sponsor.scss ***!
   \*************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\project\resources\js\main.js */"./resources/js/main.js");
-__webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\project\resources\sass\main.scss */"./resources/sass/main.scss");
 __webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\project\resources\sass\search.scss */"./resources/sass/search.scss");
+__webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\project\resources\sass\main.scss */"./resources/sass/main.scss");
 __webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\project\resources\sass\show.scss */"./resources/sass/show.scss");
 __webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\project\resources\sass\analitycs.scss */"./resources/sass/analitycs.scss");
 module.exports = __webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\project\resources\sass\sponsor.scss */"./resources/sass/sponsor.scss");
