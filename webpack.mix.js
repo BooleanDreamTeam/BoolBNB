@@ -21,3 +21,4 @@ mix.js('resources/js/main.js', 'public/js')
     .sass('resources/sass/show.scss', 'public/css')
     .sass('resources/sass/analitycs.scss', 'public/css')
     .sass('resources/sass/sponsor.scss', 'public/css');
+

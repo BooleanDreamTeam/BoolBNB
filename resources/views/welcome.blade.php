@@ -8,15 +8,24 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="css/animate.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js" integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js" integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+
 
         <!-- Styles -->
         <style>
             html, body {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
-                height: 100vh;
+                height: 300vh;
                 margin: 0;
             }
 
@@ -64,7 +73,12 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+
+        <canvas id="myChart" width="400" height="400"></canvas>
+
+        <input type="search" id="address-input" placeholder="Where are we going?" />
+
+        <div class="flex-center position-ref full-height wow animate__animated animate__bounceInDown">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -83,6 +97,8 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
+
+                <p class="prova"></p>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
