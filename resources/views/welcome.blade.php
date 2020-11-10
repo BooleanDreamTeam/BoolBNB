@@ -13,19 +13,14 @@
         <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js" integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 
-
         <!-- Styles -->
         <style>
             html, body {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                align-items: center;
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
-                height: 300vh;
+                height: 100vh;
                 margin: 0;
             }
 
@@ -78,7 +73,9 @@
 
         <input type="search" id="address-input" placeholder="Where are we going?" />
 
-        <div class="flex-center position-ref full-height wow animate__animated animate__bounceInDown">
+        <p class="prova"></p>
+
+        <div class="flex-center position-ref full-height wow animate__animated animate__backInDown">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -97,8 +94,6 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
-                <p class="prova"></p>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
