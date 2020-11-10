@@ -21,5 +21,10 @@
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "chart.js": "^2.9.4",
+        "typed.js": "^2.0.11",
+        "wowjs": "^1.1.3"
     }
 }
