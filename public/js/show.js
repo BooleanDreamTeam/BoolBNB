@@ -60545,7 +60545,7 @@ var myChart = new Chart(ctx, {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\Project\resources\js\show.js */"./resources/js/show.js");
+module.exports = __webpack_require__(/*! C:\mamp_public\BoolBNB\resources\js\show.js */"./resources/js/show.js");
 
 
 /***/ })
