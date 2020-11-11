@@ -37328,7 +37328,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\Project\resources\js\sponsor.js */"./resources/js/sponsor.js");
+module.exports = __webpack_require__(/*! F:\mamp-public\BoolBNB\resources\js\sponsor.js */"./resources/js/sponsor.js");
 
 
 /***/ })
