@@ -16,7 +16,7 @@ class CreateUserTypesTable extends Migration
 
         Schema::create('user_types', function (Blueprint $table) {
             $table->id()->unsigned();
-            $table->string('name');
+            $table->string('name')->default('User');
         });
 
     }

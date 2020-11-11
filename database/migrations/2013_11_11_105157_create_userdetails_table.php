@@ -17,7 +17,7 @@ class CreateUserDetailsTable extends Migration
             $table->id()->unsigned();
             $table->date('birth_date')->nullable();
             $table->string('address')->nullable();
-            $table->string('phone_n')->nullable();
+            $table->tinyInteger('phone_n')->nullable();
             $table->string('avatar')->nullable();
         });
     }
