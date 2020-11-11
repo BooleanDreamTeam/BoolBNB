@@ -28,6 +28,7 @@ class Apartment extends Model
     public function messages(){
         return $this->hasMany('App\Message');
     }
+    
     public function sponsorships(){
         return $this->hasMany('App\Sponsorship');
     }
