@@ -60512,6 +60512,9 @@ var placesAutocomplete = places({
   apiKey: '035a9540a189547cb9889a73bf507a48',
   container: document.querySelector('#address-input')
 });
+placesAutocomplete.on('change', function (e) {
+  return console.log(e.suggestion);
+});
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
   type: 'line',

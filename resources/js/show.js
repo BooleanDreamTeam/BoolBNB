@@ -18,7 +18,9 @@ var placesAutocomplete = places({
     appId: 'pl19ZMXZ5X0L',
     apiKey: '035a9540a189547cb9889a73bf507a48',
     container: document.querySelector('#address-input')
-  });
+});
+
+placesAutocomplete.on('change', e => console.log(e.suggestion));
 
   var ctx = document.getElementById('myChart').getContext('2d');
   var myChart = new Chart(ctx, {
