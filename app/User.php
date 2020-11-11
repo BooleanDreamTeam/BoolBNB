@@ -45,7 +45,7 @@ class User extends Authenticatable
         return $this->hasOne('App\UserDetails');
     }
 
-    public function appartaments(){
-        return $this->hasMany('App\Appartament');
+    public function apartments(){
+        return $this->hasMany('App\Apartment');
     }
 }

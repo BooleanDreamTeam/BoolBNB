@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAppartamentsTable extends Migration
+class CreateApartmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAppartamentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appartaments', function (Blueprint $table) {
+        Schema::create('apartments', function (Blueprint $table) {
             
             $table->id()->unsigned();
             $table->BigInteger('host_id')->unsigned();
@@ -42,6 +42,6 @@ class CreateAppartamentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appartaments');
+        Schema::dropIfExists('apartments');
     }
 }
