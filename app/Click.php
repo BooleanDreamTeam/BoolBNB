@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Click extends Model
 {
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $fillable = [
         'id_appartament', 'browser', 'geo_location', 'ip_address', 'created_at'

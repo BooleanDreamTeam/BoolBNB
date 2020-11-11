@@ -8,7 +8,7 @@ class UserDetail extends Model
 {
     protected $table = 'user_details';
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $fillable = [
         'birth_date', 'address', 'phone_n', 'avatar'

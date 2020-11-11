@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $fillable = [
         'id_appartament', 'name', 'message', 'vote', 'created_at'

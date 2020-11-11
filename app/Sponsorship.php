@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sponsorship extends Model
 {
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $fillable = [
         'name', 'price', 'time'

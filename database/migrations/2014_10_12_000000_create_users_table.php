@@ -17,10 +17,9 @@ class CreateUsersTable extends Migration
 
             $table->id()->unsigned();
             $table->foreign('id')->references('id')->on('user_details')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('user_type_id');
+            $table->unsignedBigInteger('user_type_id')->default(2);
             $table->foreign('user_type_id')->references('id')->on('user_types')->onDelete('cascade')->onUpdate('cascade');
             $table->string('name');
-            $table->string('lastname');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();

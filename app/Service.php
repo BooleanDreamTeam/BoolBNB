@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $fillable = [
         'name'

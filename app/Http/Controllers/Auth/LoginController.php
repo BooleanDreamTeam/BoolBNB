@@ -50,7 +50,9 @@ class LoginController extends Controller
     {
         $user = Socialite::driver('facebook')->user();
 
-        $user=User::firstOrCreate([
+        $ip = $_SERVER['REMOTE_ADDR'];
+
+        $user = User::firstOrCreate([
 
             'name'=>$user->getName(),
             'email'=>$user->getEmail(),

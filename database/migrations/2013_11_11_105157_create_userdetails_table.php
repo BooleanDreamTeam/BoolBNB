@@ -15,10 +15,10 @@ class CreateUserDetailsTable extends Migration
     {
         Schema::create('user_details', function (Blueprint $table) {
             $table->id()->unsigned();
-            $table->date('birth_date');
-            $table->string('address');
-            $table->tinyInteger('phone_n');
-            $table->string('avatar');
+            $table->date('birth_date')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone_n')->nullable();
+            $table->string('avatar')->nullable();
         });
     }
 
