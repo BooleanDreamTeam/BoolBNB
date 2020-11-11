@@ -14,7 +14,7 @@ class CreateUserDetailsTable extends Migration
     public function up()
     {
         Schema::create('user_details', function (Blueprint $table) {
-            $table->id();
+            $table->id()->unsigned();
             $table->date('birth_date');
             $table->string('address');
             $table->tinyInteger('phone_n');

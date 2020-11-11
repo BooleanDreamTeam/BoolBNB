@@ -42,7 +42,7 @@ class User extends Authenticatable
     }
 
     public function user_details(){
-        return $this->belongsTo('App\User');
+        return $this->hasOne('App\UserDetails');
     }
 
     public function appartaments(){
