@@ -1,13 +1,9 @@
 {
-    "/js/analitycs.js": "/js/analitycs.js",
-    "/js/main.js": "/js/main.js",
+    "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/search.css": "/css/search.css",
     "/css/main.css": "/css/main.css",
     "/css/show.css": "/css/show.css",
     "/css/analitycs.css": "/css/analitycs.css",
-    "/css/sponsor.css": "/css/sponsor.css",
-    "/js/search.js": "/js/search.js",
-    "/js/show.js": "/js/show.js",
-    "/js/sponsor.js": "/js/sponsor.js"
+    "/css/sponsor.css": "/css/sponsor.css"
 }
