@@ -25,7 +25,6 @@ class ApartmentController extends Controller
             ['apartment_id','=', $id],
             ['cover', '=', 1]
         ])->get();
-        dd($images, $cover);
         return view('show-apartment', compact('apartment'));
     }
 
