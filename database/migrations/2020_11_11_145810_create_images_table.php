@@ -18,7 +18,7 @@ class CreateImagesTable extends Migration
             $table->unsignedBigInteger('apartment_id'); 
             $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade')->onUpdate('cascade'); 
             $table->string('imgurl');
-            $table->boolean('cover');
+            $table->boolean('cover')->default(false);
             $table->dateTime('created_at', 0);
         });
     }

@@ -24,7 +24,7 @@ class CreateApartmentsTable extends Migration
             $table->smallInteger('squaremeters');
             $table->float('latitude', 8, 4);
             $table->float('longitude', 8, 4);
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
 
             // COLLEGAMENTI
