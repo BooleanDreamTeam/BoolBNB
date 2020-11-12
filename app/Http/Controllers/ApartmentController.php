@@ -10,11 +10,13 @@ class ApartmentController extends Controller
    
     public function index()
     {
+        $apartaments = Apartment::all();
+        return view('index',compact('apartaments'));
+    }
 
-        $apartments = Apartment::all();
-
-        return view('index',compact('apartments'));
-
+    public function show($id){
+        $apartment = Apartment::find($id);
+        return view('show-apartment', compact('apartment'));
     }
 
 }

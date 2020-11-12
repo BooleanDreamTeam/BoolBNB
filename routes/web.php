@@ -14,6 +14,7 @@ use App\Apartment;
 */
 
 Route::get('/', 'ApartmentController@index');
+Route::get('apartments/show/{id}', 'ApartmentController@show')->name('apartment.show');
 
 Auth::routes();
 
