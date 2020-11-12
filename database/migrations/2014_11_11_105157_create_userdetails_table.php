@@ -19,7 +19,7 @@ class CreateUserDetailsTable extends Migration
             $table->date('birth_date')->nullable();
             $table->string('address')->nullable();
             $table->string('phone_n')->nullable();
-            $table->string('avatar')->nullable();
+            $table->string('avatar',500)->nullable();
         });
     }
 

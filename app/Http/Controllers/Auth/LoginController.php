@@ -7,7 +7,9 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use App\User;
+use App\UserDetail;
 use Auth;
+use Illuminate\Support\Facades\Storage;
 
 class LoginController extends Controller
 {
@@ -52,7 +54,9 @@ class LoginController extends Controller
 
         $ip = $_SERVER['REMOTE_ADDR'];
 
-        $user = User::firstOrCreate([
+        $id = 1;
+
+        $userCreate = User::firstOrCreate([
 
             'name'=>$user->getName(),
             'email'=>$user->getEmail(),
@@ -60,7 +64,7 @@ class LoginController extends Controller
 
         ]);
 
-        Auth::Login($user,true);
+        Auth::Login($userCreate,true);
 
         return redirect('/home');
     }
