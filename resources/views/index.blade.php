@@ -30,8 +30,6 @@
         
         <div class="card-deck">
             <div class="row">
-                @foreach ($apartments as $apartment)
-
                     {{-- CONTROLLO SPONSOR APPARTAMENTI(NON CANCELLARE!!) --}}
                     @foreach ($apartments as $apartment)
                         @php
@@ -43,7 +41,7 @@
                             @endphp
                         @endforeach
                         @if(count($apartment->sponsorships) > 0 && $exp_date > now())
-                            <p>{{$apartment->title}}</p>
+                            {{-- <p>{{$apartment->title}}</p> ESEMPIO INSERIMENTO CARD(le card vanno inserite qui)--}}
                         @endif
                     @endforeach
                     {{-----------}}
