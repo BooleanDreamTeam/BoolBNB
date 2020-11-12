@@ -32,6 +32,21 @@
             <div class="row">
                 @foreach ($apartments as $apartment)
 
+        {{-- CONTROLLO SPONSOR APPARTAMENTI(NON CANCELLARE!!) --}}
+        @foreach ($apartaments as $apartment)
+            @php
+                $sponsors = $apartment->sponsorships;    
+            @endphp
+            @foreach ($sponsors as $sponsor)
+                @php
+                    $exp_date = ($sponsor->pivot->expiration_date);
+                @endphp
+            @endforeach
+            @if(count($apartment->sponsorships) > 0 && $exp_date > now())
+                <p>{{$apartment->title}}</p>
+            @endif
+        @endforeach
+        {{-----------}}
                     <div class="card">
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
@@ -42,6 +57,15 @@
                     </div>
                 @endforeach
                 
+
+        
+            
+
+                
+
+
+
+
             </div>
         </div>
         

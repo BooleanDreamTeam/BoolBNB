@@ -13,6 +13,6 @@ class Sponsorship extends Model
     ];
 
     public function apartments(){
-        return $this->hasMany('App\Apartment');
+        return $this->belongsToMany('App\Apartment');
     }
 }

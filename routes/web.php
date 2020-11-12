@@ -13,10 +13,7 @@ use App\Apartment;
 |
 */
 
-Route::get('/', function () {
-    $apartments = Apartment::take(3)->get(); //get first 3 apartments
-    return view('index', compact('apartments'));
-});
+Route::get('/', 'ApartmentController@index');
 
 Auth::routes();
 

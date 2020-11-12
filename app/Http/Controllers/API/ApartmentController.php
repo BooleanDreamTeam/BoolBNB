@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Apartment;
+use App\Sponsorship;
 
 class ApartmentController extends Controller
 {
@@ -82,4 +83,5 @@ class ApartmentController extends Controller
 
         return response()->json(['Messaggio' => "l'appartamento con id:$apartment->id è stato cancellato correttamente!"]);
     }
+
 }
