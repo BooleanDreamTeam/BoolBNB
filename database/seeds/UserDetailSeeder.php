@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\UserDetail;
+use App\User;
 use Faker\Generator as Faker;
 
 class UserDetailSeeder extends Seeder
@@ -13,8 +14,11 @@ class UserDetailSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 10; $i++) {
+        $users = User::all();
+
+        for ($i=0; $i < count($users); $i++) {
             $details = new UserDetail;
+            $details->user_id = $i + 1 ;
             $details->birth_date = $faker->dateTime();
             $details->address = $faker->streetAddress();
             $details->phone_n = $faker->phoneNumber();

@@ -42,7 +42,7 @@ class User extends Authenticatable
     }
 
     public function user_details(){
-        return $this->hasOne('App\UserDetails');
+        return $this->hasOne('App\UserDetail');
     }
 
     public function apartments(){

@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\UserType;
 
-class usertypeSeeder extends Seeder
+class UserTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,7 +19,7 @@ class usertypeSeeder extends Seeder
             ];
     
             for ($i=0; $i < count($type); $i++) {
-                $usertypeNew = new userType;
+                $usertypeNew = new UserType;
                 $usertypeNew->name = $type[$i];
                 $usertypeNew->save();
               }

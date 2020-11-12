@@ -11,7 +11,7 @@ class UserDetail extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'birth_date', 'address', 'phone_n', 'avatar'
+        'user_id', 'birth_date', 'address', 'phone_n', 'avatar'
     ];
 
     public function user(){
