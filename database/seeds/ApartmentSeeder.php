@@ -16,10 +16,10 @@ class ApartmentSeeder extends Seeder
         for ($i=0; $i < 10; $i++) {
             $apartment = new Apartment;
             $apartment->title = $faker->sentence();
-            $apartment->n_rooms = $faker->randomDigit();
-            $apartment->n_beds = $faker->randomDigit();
-            $apartment->n_bathrooms = $faker->randomDigit();
-            $apartment->squaremeters = $faker->randomDigit();
+            $apartment->n_rooms = $faker->numberBetween(1, 6);
+            $apartment->n_beds = $faker->numberBetween(1, 6);
+            $apartment->n_bathrooms = $faker->numberBetween(1, 4);
+            $apartment->squaremeters = $faker->numberBetween(50, 400);
             $apartment->latitude = $faker->randomFloat($nbMaxDecimals = 4, $min = 0, $max = 999);
             $apartment->longitude = $faker->randomFloat($nbMaxDecimals = 4, $min = 0, $max = 999);
             $apartment->is_active = $faker->boolean();
