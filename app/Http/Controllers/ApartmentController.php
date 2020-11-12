@@ -11,9 +11,9 @@ class ApartmentController extends Controller
     public function index()
     {
 
-        $apartaments = Apartment::all();
+        $apartments = Apartment::all();
 
-        return view('index',compact('apartaments'));
+        return view('index',compact('apartments'));
 
     }
 
