@@ -1,12 +1,22 @@
 section#search {
-  height: 600px;
+  height: 400px;
   background-image: url("/../img/home-cover.jpg");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-size: contain;
+  background-attachment: fixed;
 }
 
 section#simple-ap {
   margin-top: 35px;
+}
+
+.card {
+  transition: 0.5s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 14px #000;
+  cursor: pointer;
 }
 
