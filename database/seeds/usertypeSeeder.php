@@ -22,7 +22,7 @@ class UserTypeSeeder extends Seeder
                 $usertypeNew = new UserType;
                 $usertypeNew->name = $type[$i];
                 $usertypeNew->save();
-              }
+            }
         }
     }
 }

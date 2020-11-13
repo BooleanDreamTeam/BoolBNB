@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Apartment;
+use App\User;
 use Faker\Generator as Faker;
 
 class ApartmentSeeder extends Seeder
@@ -13,6 +14,9 @@ class ApartmentSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+
+        $users = User::all();
+
         for ($i=0; $i < 20; $i++) {
             $apartment = new Apartment;
             $apartment->title = $faker->sentence();
@@ -25,7 +29,7 @@ class ApartmentSeeder extends Seeder
             $apartment->is_active = $faker->boolean();
             $apartment->created_at = now();
             $apartment->updated_at = now();
-            $apartment->host_id = 2;
+            $apartment->host_id = $users->random()->id;
             $apartment->save();
         }
     }
