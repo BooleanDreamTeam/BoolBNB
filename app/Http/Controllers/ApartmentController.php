@@ -40,7 +40,7 @@ class ApartmentController extends Controller
             ['apartment_id','=', $id],
             ['cover', '=', 1]
         ])->get();
-        return view('show-apartment', compact('apartment'));
+        return view('show-apartment', compact('apartment', 'image', 'cover'));
     }
 
 }

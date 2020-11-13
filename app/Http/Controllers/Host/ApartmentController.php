@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Apartment;
 use App\UserType;
 use App\Service;
+use Carbon\Carbon;
 
 
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class ApartmentController extends Controller
         if (Auth::user()->user_type->name == 'Host'){
             $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc');
         } 
-        return view('host.apartment.index', compact('apartments'));
+        return view('host.apartments.index', compact('apartments'));
     }
 
     /**

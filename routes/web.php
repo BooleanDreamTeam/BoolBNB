@@ -26,6 +26,10 @@ Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
 //Route degli Host registrati
+
+
+
 Route::prefix('host')->namespace('Host')->middleware('auth')->group(function() {
+    Route::get('extranet', 'ExtranetController@extranet')->name('extranet');
     Route::resource('apartments', 'ApartmentController');
 });
