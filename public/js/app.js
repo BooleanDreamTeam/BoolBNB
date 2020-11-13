@@ -60614,13 +60614,13 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\mamp-public\BoolBNB\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! F:\mamp-public\BoolBNB\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! F:\mamp-public\BoolBNB\resources\sass\search.scss */"./resources/sass/search.scss");
-__webpack_require__(/*! F:\mamp-public\BoolBNB\resources\sass\main.scss */"./resources/sass/main.scss");
-__webpack_require__(/*! F:\mamp-public\BoolBNB\resources\sass\show.scss */"./resources/sass/show.scss");
-__webpack_require__(/*! F:\mamp-public\BoolBNB\resources\sass\analitycs.scss */"./resources/sass/analitycs.scss");
-module.exports = __webpack_require__(/*! F:\mamp-public\BoolBNB\resources\sass\sponsor.scss */"./resources/sass/sponsor.scss");
+__webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\Project\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\Project\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\Project\resources\sass\search.scss */"./resources/sass/search.scss");
+__webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\Project\resources\sass\main.scss */"./resources/sass/main.scss");
+__webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\Project\resources\sass\show.scss */"./resources/sass/show.scss");
+__webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\Project\resources\sass\analitycs.scss */"./resources/sass/analitycs.scss");
+module.exports = __webpack_require__(/*! C:\Boolean\MAMP\BoolBnb_original\Project\resources\sass\sponsor.scss */"./resources/sass/sponsor.scss");
 
 
 /***/ })

@@ -50,17 +50,28 @@ class LoginController extends Controller
 
     public function handleProviderCallback()
     {
+
         $user = Socialite::driver('facebook')->user();
 
-        $ip = $_SERVER['REMOTE_ADDR'];
 
-        $id = 1;
+        // IP UTENTE
+        $ip = $_SERVER['REMOTE_ADDR'];
 
         $userCreate = User::firstOrCreate([
 
             'name'=>$user->getName(),
             'email'=>$user->getEmail(),
-            'provider_id'=>$user->getId(),
+            'provider_id'=>$user->getId()
+
+        ]);
+
+        $userDetail = UserDetail::firstOrCreate([
+
+            'user_id'=>$userCreate->id,
+            'birth_date'=>NULL,
+            'address'=>NULL,
+            'phone_n'=>NULL,
+            'avatar'=>$user->getAvatar()
 
         ]);
 
