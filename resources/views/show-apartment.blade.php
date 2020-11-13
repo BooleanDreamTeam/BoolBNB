@@ -1,6 +1,17 @@
 {{-- @dd($apartment) --}}
 @extends('layouts.app')
+
+@section('title')
+    {{$apartment->title}}
+@endsection
+
+@section('css')
+{{"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"}}
+@endsection
+
 @section('content')
+
+
 
 <!-- navbar fittizia -->
 

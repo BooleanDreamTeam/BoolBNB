@@ -1,4 +1,9 @@
 @extends('layouts.app') 
+
+@section('title')
+    Boolbnb
+@endsection
+
 @section('content')
 
   <!-- FORM DI RICERCA -->
