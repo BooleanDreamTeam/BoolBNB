@@ -13,7 +13,7 @@ class ApartmentSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 20; $i++) {
             $apartment = new Apartment;
             $apartment->title = $faker->sentence();
             $apartment->n_rooms = $faker->numberBetween(1, 6);
