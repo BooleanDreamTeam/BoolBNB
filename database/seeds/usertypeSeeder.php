@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\UserType;
+use Faker\Generator as Faker;
 
 class UserTypeSeeder extends Seeder
 {

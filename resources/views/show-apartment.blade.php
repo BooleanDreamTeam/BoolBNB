@@ -54,18 +54,24 @@
         <section class="offer bg-light">
             <div class="container py-5">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 wow animate__animated animate__fadeInLeft">
                         <img src="https://www.thespruce.com/thmb/_WJOc-34GLmc5QAzOR-3TXKumu8=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/bed-and-fireplace-in-luxury-bedroom-748316169-37b1062605034b23ab6d193be9c58ef6.jpg" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6">
-                        <h2 class="py-3">Lorem</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <div class="details wow animate__animated animate__fadeInRight">
+                            <h2 class="py-3">Lorem</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        </div>
 
-                        <h5 class="pt-5 pl-3">Bedroom</h5>
-                        <p class="pl-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <div class="detail_bedroom wow animate__animated animate__fadeInRight animate__delay-1s">
+                            <h5 class="pt-5 pl-3">Bedroom</h5>
+                            <p class="pl-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        </div>
 
-                        <h5 class="pt-5 pl-3">Bedroom</h5>
-                        <p class="pl-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        <div class="detail_rooms wow animate__animated animate__fadeInRight animate__delay-2s">
+                            <h5 class="pt-5 pl-3">Bedroom</h5>
+                            <p class="pl-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        </div>
 
                     </div>
                 </div>
@@ -76,12 +82,12 @@
 
             <div class="container py-5">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 wow animate__animated animate__flipInX animate__delay-1s">
                         <img src="https://www.ladige.it/sites/www.ladige.it/files/styles/798x457/public/google%20maps.jpg?itok=G0_VMHYd" class="img-fluid" alt="">
                     </div>
 
 
-                    <div class="col-lg-5 mb-lg-0 mb-4">
+                    <div class="col-lg-5 mb-lg-0 mb-4 wow animate__animated animate__fadeInRight animate__delay-1s">
                         <div class="card">
                             <div class="card-body">
                                 <!-- Header -->

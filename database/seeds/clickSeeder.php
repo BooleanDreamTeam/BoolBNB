@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Click;
 use App\Apartment;
+use App\Click;
 use Faker\Generator as Faker;
 
 class ClickSeeder extends Seeder
