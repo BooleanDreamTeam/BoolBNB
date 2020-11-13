@@ -5,14 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Apartment;
 use App\Image;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
+
 
 class ApartmentController extends Controller
 {
    
     public function index()
     {
-        $apartaments = Apartment::all();
-        return view('index',compact('apartaments'));
+        $apartments = Apartment::whereHas('sponsorships', function (Builder $query) {
+            $query->where('expiration_date', '>', DB::raw('now()'));
+        })->get();
+        return view('index',compact('apartments'));
     }
 
     public function show($id){
