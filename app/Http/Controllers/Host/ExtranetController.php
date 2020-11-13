@@ -29,6 +29,9 @@ class ExtranetController extends Controller
         $messages = DB::table('messages')
         ->whereIn('apartment_id', $arrayId);
 
+        $review = DB::table('reviews')
+        ->whereIn('apartment_id', $arrayId);
+
         $sponsored = DB::table('sponsorships')
             ->join('apartment_sponsorship', 'sponsorships.id', '=', 'apartment_sponsorship.sponsorship_id')
             ->join('apartments', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
