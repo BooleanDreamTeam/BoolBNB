@@ -9,6 +9,7 @@ use Socialite;
 use App\User;
 use App\UserDetail;
 use Auth;
+use File;
 use Illuminate\Support\Facades\Storage;
 
 class LoginController extends Controller
@@ -65,13 +66,20 @@ class LoginController extends Controller
 
         ]);
 
+        
+        $fileContents = file_get_contents($user->getAvatar());
+
+        Storage::disk('public')->put('img/users/' . $userCreate->id . "/avatar.jpg", $fileContents);
+
+        $url = Storage::url('img/users/' . $userCreate->id . "/avatar.jpg");   
+
         $userDetail = UserDetail::firstOrCreate([
 
             'user_id'=>$userCreate->id,
             'birth_date'=>NULL,
             'address'=>NULL,
             'phone_n'=>NULL,
-            'avatar'=>$user->getAvatar()
+            'avatar'=> $url
 
         ]);
 

@@ -12,7 +12,7 @@
         <form class="d-flex align-items-center">
             <div class="form-row">
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Dove" />
+                    <input type="search" id="address-input" class="form-control" placeholder="Dove" />
                 </div>
                 <div class="col">
                     <input type="text" class="form-control" placeholder="Numero Ospiti" />
@@ -69,7 +69,7 @@
                 @foreach ($apartments as $apartment)
 
                     <div class="col mb-4 d-flex">
-                        <div class="card card_indexflex-grow-1 wow animate__animated animate__fadeInUp">
+                        <div class="card card_index flex-grow-1 wow animate__animated animate__fadeInUp">
                             <img src="https://picsum.photos/300/300" class="card-img-top" alt="{{ $apartment->title }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $apartment->title }}</h5>
@@ -84,6 +84,7 @@
         </section>
 
     </div>
+
 @endsection
 
 

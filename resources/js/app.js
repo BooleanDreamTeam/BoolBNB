@@ -14,6 +14,7 @@ var typed = new Typed('.prova', {
     showCursor: false
 });
 
+
 var placesAutocomplete = places({
     appId: 'pl19ZMXZ5X0L',
     apiKey: '035a9540a189547cb9889a73bf507a48',
