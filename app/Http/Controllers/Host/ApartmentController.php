@@ -22,8 +22,9 @@ class ApartmentController extends Controller
     public function index()
     {   
         if (Auth::user()->user_type->name == 'Host'){
-            $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc');
+            $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->get();
         } 
+        dd($apartments);
         return view('host.apartments.index', compact('apartments'));
     }
 
