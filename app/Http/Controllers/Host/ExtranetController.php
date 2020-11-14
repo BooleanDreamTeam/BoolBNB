@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Apartment;
 use App\UserType;
 use App\Service;
+use App\Message;
+
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -22,16 +24,21 @@ class ExtranetController extends Controller
         //tutti i servizi
         $services = Service::all();
 
-        //creo un array con gli id degli appartmenti di proprietà dell'host
-        $arrayId = DB::table($apartments)->pluck('id');
-
         //filtro i messaggi arrivati per gli appartamenti di proprietà dell'host
         $messages = DB::table('messages')
-        ->whereIn('apartment_id', $arrayId);
+            ->join('apartments', 'apartments.id', '=', 'messages.apartment_id')
+            ->select('messages.*')
+            ->where('apartments.host_id', Auth::id())
+            ->get();
 
-        $review = DB::table('reviews')
-        ->whereIn('apartment_id', $arrayId);
+        //
+        $reviews = DB::table('reviews')
+            ->join('apartments', 'apartments.id', '=', 'reviews.id_apartment')
+            ->select('reviews.*')
+            ->where('apartments.host_id', Auth::id())
+            ->get();
 
+        // 
         $sponsored = DB::table('sponsorships')
             ->join('apartment_sponsorship', 'sponsorships.id', '=', 'apartment_sponsorship.sponsorship_id')
             ->join('apartments', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')

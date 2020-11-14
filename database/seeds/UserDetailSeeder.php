@@ -19,7 +19,7 @@ class UserDetailSeeder extends Seeder
         for ($i=0; $i < count($users); $i++) {
             $details = new UserDetail;
             $details->user_id = $i + 1 ;
-            $details->birth_date = $faker->dateTime();
+            $details->birth_date = $faker->date($format = 'Y-m-d', $max = 'now');
             $details->address = $faker->streetAddress();
             $details->phone_n = $faker->phoneNumber();
             $details->avatar = $faker->imageUrl();
