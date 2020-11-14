@@ -10915,11 +10915,11 @@ section#simple-ap {
   margin-top: 35px;
 }
 
-.card {
+.card.card_index {
   transition: 0.5s ease-in-out;
 }
 
-.card:hover {
+.card.card_index:hover {
   transform: scale(1.05);
   box-shadow: 0 0 14px #000;
   cursor: pointer;
