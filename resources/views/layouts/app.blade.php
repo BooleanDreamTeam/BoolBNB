@@ -20,7 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="@yield('css')" rel="stylesheet">  <!-- da rivedere -->
-   
+
 </head>
 <body>
     <div id="app">
@@ -37,7 +37,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -53,22 +53,24 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item p-0 dropdown">
+                                <a id="navbarDropdown" class="nav-link p-0 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     @if (!empty(Auth::user()->provider_id))
-                                        <img style="width:100px;" class="rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">  
-                                        
+                                        <img class="avatar rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">
+
                                         @else
 
-                                        <img style="width:20px;" src="{{Storage::url(Auth::user()->user_details->avatar)}}" alt="profile-img"> 
-                                        
-                                    @endif                                   
+                                        <img class="avatar rounted-circle" src="{{Storage::url(Auth::user()->user_details->avatar)}}" alt="profile-img">
+
+                                    @endif
+
+                                    {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{route('extranet')}}">
                                         DashBoard
-                                    </a> 
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

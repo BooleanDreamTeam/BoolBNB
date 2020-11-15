@@ -1,4 +1,4 @@
-@extends('layouts.app') 
+@extends('layouts.app')
 
 @section('title')
     Boolbnb
@@ -51,7 +51,7 @@
                                     </p>
                                 </footer>
                             </div>
-                        </a>    
+                        </a>
                     </div>
 
                 @endforeach
@@ -61,7 +61,7 @@
         </section>
 
         {{-- Blocco di immagini per appartamenti NON in evidenza--}}
-        
+
         <section id="simple-ap" class="pt-4">
 
             <h2>Appartmenti</h2>
@@ -84,7 +84,7 @@
                                 </p>
                             </footer>
                         </div>
-                    </a>    
+                    </a>
                 </div>
 
                 @endforeach
