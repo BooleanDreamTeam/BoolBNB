@@ -20,10 +20,10 @@ class ApartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         if (Auth::user()->user_type->name == 'Host'){
             $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->get();
-        } 
+        }
         return view('host.apartments.index', compact('apartments'));
     }
 
@@ -63,12 +63,12 @@ class ApartmentController extends Controller
 
         $apartmentNew = new Apartment();
 
-        $apartmentNew->fill($data); 
+        $apartmentNew->fill($data);
 
         $saved = $apartmentNew->save();
 
         if(!empty($data['services'])){
-            $postNew->services()->attach($data['services']);
+            $apartmentNew->services()->attach($data['services']);
         }
 
         if($saved){
@@ -126,8 +126,8 @@ class ApartmentController extends Controller
         }  else {
             $apartment->services()->detach();
         }
-        
-        $apartment->update($data); 
+
+        $apartment->update($data);
 
         return redirect()->route('host.apartments.index')->with('status', 'Modifiche effettuate');
     }
