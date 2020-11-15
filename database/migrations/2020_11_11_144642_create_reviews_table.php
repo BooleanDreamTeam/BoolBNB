@@ -20,7 +20,7 @@ class CreateReviewsTable extends Migration
             $table->string('name');
             $table->string('message',250);
             $table->smallInteger('vote');
-            $table->dateTime('created_at');
+            $table->dateTime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));;
         });
     }
 

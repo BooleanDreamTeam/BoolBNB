@@ -18,7 +18,7 @@ class CreateApartmentSponsorshipTable extends Migration
             $table->foreign('sponsorship_id')->references('id')->on('sponsorships')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('apartment_id');
             $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade')->onUpdate('cascade');
-            $table->dateTime('created_at');
+            $table->dateTime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));;
             $table->dateTime('started_at');
             $table->dateTime('expiration_date');
         });

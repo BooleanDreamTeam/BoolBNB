@@ -9,7 +9,7 @@ class Click extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id_appartament', 'browser', 'geo_location', 'ip_address', 'created_at'
+        'id_apartment', 'browser', 'geo_area', 'visitor'
     ];
 
     public function apartment(){

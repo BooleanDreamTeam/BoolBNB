@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('apartments','API\ApartmentController');
+
+Route::apiResource('clicks','API\ClickController');

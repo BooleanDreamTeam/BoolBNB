@@ -19,7 +19,7 @@ class CreateImagesTable extends Migration
             $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade')->onUpdate('cascade'); 
             $table->string('imgurl');
             $table->boolean('cover')->default(false);
-            $table->dateTime('created_at', 0);
+            $table->dateTime('created_at', 0)->default(DB::raw('CURRENT_TIMESTAMP'));;
         });
     }
 

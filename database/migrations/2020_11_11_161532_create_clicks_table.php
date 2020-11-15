@@ -20,7 +20,7 @@ class CreateClicksTable extends Migration
             $table->string('browser');
             $table->string('geo_area');
             $table->ipAddress('visitor');
-            $table->dateTime('created_at');
+            $table->dateTime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));;
         });
     }
 

@@ -40,9 +40,9 @@
                     <div class="col mb-4 d-flex click">
                         <a href="{{route('apartment.show',['id' => $apartment->id])}}">
                             <div data-id="{{$apartment->id}}" class="card card_index flex-grow-1 wow animate__animated animate__fadeInUp">
-                                <img src="https://picsum.photos/300/300" class="card-img-top" alt="{{ $apartment->title }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $apartment->title }}</h5>
+                            <img src="https://picsum.photos/300/300?random={{$apartment->id}}" class="card-img-top" alt="{{ $apartment->title }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $apartment->title }}</h5>
 
                                 </div>
                                 <footer class="card-footer">
@@ -73,10 +73,9 @@
                     <div class="col mb-4 d-flex click">
                         <a href="{{route('apartment.show',['id' => $apartment->id])}}">
                             <div data-id="{{$apartment->id}}" class="card card_index flex-grow-1 wow animate__animated animate__fadeInUp">
-                                <img src="https://picsum.photos/300/300" class="card-img-top" alt="{{ $apartment->title }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $apartment->title }}</h5>
-                                </div>
+                            <img src="https://picsum.photos/300/300?random={{$apartment->id}}" class="card-img-top" alt="{{ $apartment->title }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $apartment->title }}</h5>
                             </div>
                         </a>
                     </div>

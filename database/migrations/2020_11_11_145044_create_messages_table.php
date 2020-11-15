@@ -22,7 +22,7 @@ class CreateMessagesTable extends Migration
             
             $table->string('message');
             $table->string('email');
-            $table->dateTime('created_at', 0);
+            $table->dateTime('created_at', 0)->default(DB::raw('CURRENT_TIMESTAMP'));;
         });
     }
 
