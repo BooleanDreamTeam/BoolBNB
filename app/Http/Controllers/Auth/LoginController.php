@@ -85,7 +85,7 @@ class LoginController extends Controller
 
         Auth::Login($userCreate,true);
 
-        return redirect('/home');
+        return redirect('/');
     }
 
 }

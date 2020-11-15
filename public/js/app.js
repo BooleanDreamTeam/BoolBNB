@@ -60539,6 +60539,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: true
 // });
 
+window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
 /***/ }),
 
 /***/ "./resources/sass/analitycs.scss":
@@ -60556,6 +60558,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
   \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/host/extranet.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/host/extranet.scss ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -60608,9 +60621,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!**************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/search.scss ./resources/sass/main.scss ./resources/sass/show.scss ./resources/sass/analitycs.scss ./resources/sass/sponsor.scss ***!
-  \**************************************************************************************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/search.scss ./resources/sass/main.scss ./resources/sass/show.scss ./resources/sass/analitycs.scss ./resources/sass/sponsor.scss ./resources/sass/host/extranet.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -60620,7 +60633,8 @@ __webpack_require__(/*! F:\mamp-public\BoolBNB\resources\sass\search.scss */"./r
 __webpack_require__(/*! F:\mamp-public\BoolBNB\resources\sass\main.scss */"./resources/sass/main.scss");
 __webpack_require__(/*! F:\mamp-public\BoolBNB\resources\sass\show.scss */"./resources/sass/show.scss");
 __webpack_require__(/*! F:\mamp-public\BoolBNB\resources\sass\analitycs.scss */"./resources/sass/analitycs.scss");
-module.exports = __webpack_require__(/*! F:\mamp-public\BoolBNB\resources\sass\sponsor.scss */"./resources/sass/sponsor.scss");
+__webpack_require__(/*! F:\mamp-public\BoolBNB\resources\sass\sponsor.scss */"./resources/sass/sponsor.scss");
+module.exports = __webpack_require__(/*! F:\mamp-public\BoolBNB\resources\sass\host\extranet.scss */"./resources/sass/host/extranet.scss");
 
 
 /***/ })

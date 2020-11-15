@@ -55,7 +55,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     @if (!empty(Auth::user()->provider_id))
-                                        <img style="width:100px;" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">  
+                                        <img style="width:100px;" class="rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">  
                                         
                                         @else
 
@@ -65,6 +65,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{route('extranet')}}">
+                                        DashBoard
+                                    </a> 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

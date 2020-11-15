@@ -1,0 +1,89 @@
+.row{
+    overflow: hidden;
+    .sidebar-nav{
+        background-color: #4469d7;
+        min-height: 100vh;
+        color: rgba(255,255,255,.4);
+
+        .nav{
+            .hr{
+                width: 95%;
+                height: 1px;
+                background-color: rgba(255,255,255,.7);
+            
+            }
+            .nav-link{
+                color: rgba(255,255,255,.4) !important;
+                
+                i{  
+                
+                }
+                span{
+                
+                }
+
+            }
+            a.nav-link:hover{
+                color: white !important;
+            }
+            .active{
+                background-color: rgba(255,255,255,.0) !important;
+                color: white !important;
+            }
+        }
+    }
+    .rightside{
+        padding: 0 !important;
+        .topbar{
+            height: 60px;
+            padding: 5px 20px;
+
+            .nav-item{
+                
+                .messages{
+
+                }
+
+                .nav-link{
+
+                    i{
+                        font-size: 30px !important;
+                    }
+                  
+                    .badge{
+                        position: absolute;
+                        
+                        transform-origin: top right;
+                        right: 1.25rem;
+                        margin-top: -.25rem;
+                    }
+
+                    img{
+                        width:50px ;
+                    }
+                }
+                .dropdown-list{
+                    width: 500px;
+                }
+            }
+        }
+        .tab-contents{
+            height: 100% !important;
+            width: 100% !important;
+
+        }
+    
+
+    }
+
+
+}
+
+#logo {
+    width: 60px;
+    margin-left: 30px;
+}
+#bnb {
+    color: white;
+    height: 40px;
+}
