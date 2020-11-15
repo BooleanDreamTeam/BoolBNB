@@ -5,13 +5,17 @@
     {{$apartment->title}}
 @endsection
 
+@section('js')
+    {{ asset('js/click.js') }}
+@endsection
+
 @section('content')
 
 
         <!-- section titolo MOCKUP3 -->
 
         <div class="container">
-            <div class="card mb-3">
+                <div class="card mb-3" data-id="{{$apartment->id}}">
                 <img src="https://a0.muscache.com/im/pictures/a521cb47-fe9b-4d6b-b69d-6777b012edf2.jpg?aki_policy=large" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Appartamento panoramico vista mare</h5>
