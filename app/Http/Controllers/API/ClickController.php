@@ -33,7 +33,7 @@ class ClickController extends Controller
             'id_apartment' => 'required|numeric|exists:apartments,id',
             'browser' => 'required',
             'geo_area' => 'required',
-            'visitor' => 'required'
+            'visitor' => 'required',
         ]);
 
         if ($validator->fails()) {

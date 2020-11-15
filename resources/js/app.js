@@ -11,7 +11,7 @@ new WOW.WOW().init();
 
 $(document).on('click','.click',function() {
 
-    var id_apartment = $(this).data('id'); 
+    var id_apartment = $(this).children().data('id'); 
 
     $.ajax({
         type: 'GET',
@@ -38,6 +38,7 @@ function getDetailsIp(ip,browser,id_apartment) {
         success: function(data) {
             data['browser'] = browser;
             data['id_apartment'] = id_apartment;
+            console.log(data);
             postClick(data);
         }
     });
