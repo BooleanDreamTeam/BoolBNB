@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
+
+    public $timestamps = false;
+
     protected $fillable = [
         'apartment_id', 'imgurl', 'cover', 'created_at'
     ];

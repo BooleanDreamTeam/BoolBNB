@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Host;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Apartment;
 use App\UserType;
 use App\Service;
+use App\Image;
 use Carbon\Carbon;
-
-
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Auth;
 
 class ApartmentController extends Controller
 {
@@ -48,32 +48,72 @@ class ApartmentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        $latlng = $data['latlng'];
+
+        $arrayCordinates = explode(",", $latlng);
+
+        $lat = $arrayCordinates[0];
+        $lng = $arrayCordinates[1];
+
+        $data['latitude'] = $lat;
+        $data['longitude'] = $lng;
+        $data['host_id'] = Auth::id();
+
         $request->validate([
             'title' => 'required|min:5|max:255',
             'n_rooms' => 'required|min:1|max:4',
             'n_beds' => 'required|min:1|max:4',
             'n_bathrooms' => 'required|min:1|max:4',
             'squaremeters' => 'required|min:1|max:6',
-            'latitude' => 'required',
-            'longitude' => 'required',
-            'is_active' => 'required',
+            'description' => 'required|min:5|max:300',
+            'host_id' => 'numeric|exists:users,id'
         ]);
-        $data['host_id'] = Auth::id();
-        $data['updated_at'] = Carbon::now('Europe/Rome');
 
-        $apartmentNew = new Apartment();
+        $apartment = Apartment::create([
+            'host_id' => $data['host_id'],
+            'title' => $data['title'],
+            'n_rooms' => $data['n_rooms'],
+            'n_beds' => $data['n_beds'],
+            'n_bathrooms' => $data['n_bathrooms'],
+            'squaremeters' => $data['squaremeters'],
+            'latitude' => $data['latitude'],
+            'longitude' => $data['longitude'],
+            'description' => $data['description']
+        ]);
 
+<<<<<<< Updated upstream
         $apartmentNew->fill($data);
+=======
+        if ((array_key_exists('services', $data))) {
+            $apartment->services()->attach($data['services']);
+        }
+>>>>>>> Stashed changes
 
-        $saved = $apartmentNew->save();
+        if ((array_key_exists('images', $data))) {
+            foreach ($data['images'] as $key => $image) {
+                $data['images'][$key] = Storage::disk('public')->put("img/users/". Auth::id() ."/apartments/$apartment->id",$image);
 
+<<<<<<< Updated upstream
         if(!empty($data['services'])){
             $apartmentNew->services()->attach($data['services']);
         }
+=======
+                $urlImg = Storage::url($data['images'][$key]);
+>>>>>>> Stashed changes
 
-        if($saved){
-            return redirect()->route('host.apartments.index');
+                $imageToDb = Image::create([
+                    'apartment_id' => $apartment->id,
+                    'imgurl' => $urlImg,
+                    'cover' => 1,
+                ]);
+
+            }
+                
         }
+            
+        return redirect('host/extranet');
+
     }
 
     /**
