@@ -10,7 +10,7 @@
     <title>@yield('title')</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,7 +18,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="" rel="stylesheet">
     <link href="@yield('css')" rel="stylesheet">  <!-- da rivedere -->
    
 </head>
@@ -44,7 +43,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
+                            <li class="nav-item" style="display: flex;">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
@@ -55,7 +54,14 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img style="width:20px;" src="{{Storage::url(Auth::user()->user_details->avatar)}}" alt="profile-img"> 
+                                    @if (!empty(Auth::user()->provider_id))
+                                        <img style="width:100px;" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">  
+                                        
+                                        @else
+
+                                        <img style="width:20px;" src="{{Storage::url(Auth::user()->user_details->avatar)}}" alt="profile-img"> 
+                                        
+                                    @endif                                   
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
