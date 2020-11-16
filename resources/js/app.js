@@ -2,70 +2,51 @@
 require('./bootstrap');
 require('chart.js/dist/Chart.min.js');
 import WOW from 'wowjs';
-import Typed from 'typed.js';
 new WOW.WOW().init();
 //------//
 
-
-// PROVA TYPED
-var typed = new Typed('.prova', {
-    strings: ['Benvenuti a BOolbnb'],
-    typeSpeed: 100,
-    loop: true,
-    loopCount: Infinity,
-    backSpeed: 500,
-    showCursor: false
-});
-//---//
-
 // PROVA ALGOLIA
-var placesAutocomplete = places({
-    appId: 'pl19ZMXZ5X0L',
-    apiKey: '035a9540a189547cb9889a73bf507a48',
-    container: document.querySelector('#address-input')
-});
 
-placesAutocomplete.on('change', e => console.log(e.suggestion));
+$(document).ready(function() {
 
-//---//
+    if (window.location.pathname == '/') {
+        
+        // ALGOLIA INDEX
 
-// PROVA CHART
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
+        var placesAutocomplete = places({
+            appId: 'pl19ZMXZ5X0L',
+            apiKey: '035a9540a189547cb9889a73bf507a48',
+            container: document.querySelector('#address-input')
+        });
+        
+        placesAutocomplete.on('change', e => console.log(e.suggestion));
+
+        //---------//
+
     }
+
+    // MAPPA SHOW
+
+    mapShow($('.card_show').data('lat'),$('.card_show').data('lng'));
+
+      function mapShow(lat,lng) {
+        const map = L.map("map_container").setView([lat,lng], 13);
+
+        var osmLayer = new L.TileLayer(
+            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              minZoom: 1,
+              maxZoom: 13,
+              attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+            }
+        );
+
+        map.addLayer(osmLayer);
+    
+        marker = L.marker([lat, lng]).addTo(map);
+    
+        return map;
+    }
+
 });
 
 //---//

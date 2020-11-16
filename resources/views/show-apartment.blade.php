@@ -15,7 +15,7 @@
         <!-- section titolo MOCKUP3 -->
 
         <div class="container">
-            <div class="card mb-3">
+            <div class="card card_show mb-3 data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}"">
                 <img class="card-img-top" alt="">
                 <div class="card-body">
                     <h5 class="card-title">Appartamento panoramico vista mare</h5>
@@ -57,7 +57,9 @@
             <div class="container py-5">
                 <div class="row">
                     <div class="col-lg-6 wow animate__animated animate__flipInX animate__delay-1s" >
-                        <img src="https://www.ladige.it/sites/www.ladige.it/files/styles/798x457/public/google%20maps.jpg?itok=G0_VMHYd" class="img-fluid img-show" alt="">
+                        <div id="map_container" style="height:600px;">
+
+                        </div>
                     </div>
 
 
