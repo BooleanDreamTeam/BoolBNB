@@ -32,6 +32,8 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 Route::prefix('host')->namespace('Host')->middleware('auth')->group(function() {
     Route::get('extranet', 'ExtranetController@extranet')->name('extranet');
     Route::resource('apartments', 'ApartmentController');
+    Route::get('dashboard', 'ExtranetController@dashboard')->name('dashboard');
+
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'guest'],function (){

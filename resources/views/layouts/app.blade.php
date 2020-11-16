@@ -57,20 +57,25 @@
                                 <a id="navbarDropdown" class="nav-link p-0 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     @if (!empty(Auth::user()->provider_id))
                                         <img class="avatar rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">
-
-                                        @else
-
-                                        <img class="avatar rounted-circle" src="{{Storage::url(Auth::user()->user_details->avatar)}}" alt="profile-img">
-
+                                    @elseif (!(DB::table('user_details')->select('avatar')->where('user_details.user_id','=', Auth::id())->get()))
+                                        <img class="avatar rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">
+                                    @else 
+                                    <img class="avatar rounded-circle" src="" alt="profile-img">
                                     @endif
 
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{route('extranet')}}">
-                                        DashBoard
-                                    </a>
+                                    @if (Auth::user()->user_type->name == 'Host')
+                                        <a class="dropdown-item" href="{{route('dashboard')}}">
+                                            DashBoard
+                                        </a>
+                                    @elseif (Auth::user()->user_type->name == 'User')
+                                        <a class="dropdown-item" href="{{route('dashboard')}}">
+                                            Diventa Host
+                                        </a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
