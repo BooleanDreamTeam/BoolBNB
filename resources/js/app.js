@@ -42,7 +42,7 @@ $(document).ready(function() {
 
         map.addLayer(osmLayer);
     
-        marker = L.marker([lat, lng]).addTo(map);
+        L.marker([lat, lng]).addTo(map);
     
         return map;
     }

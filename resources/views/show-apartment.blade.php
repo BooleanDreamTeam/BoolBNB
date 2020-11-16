@@ -15,7 +15,7 @@
         <!-- section titolo MOCKUP3 -->
 
         <div class="container">
-            <div class="card card_show mb-3 data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}"">
+            <div class="card card_show mb-3" data-lat="{{$apartment->latitude}}"  data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}">
                 <img class="card-img-top" alt="">
                 <div class="card-body">
                     <h5 class="card-title">Appartamento panoramico vista mare</h5>

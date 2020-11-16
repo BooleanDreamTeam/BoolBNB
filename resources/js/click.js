@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 
-    var id_apartment = $('.card').data('id');
+    var id_apartment = $('.card_show').data('id');
 
     $.ajax({
         type: 'GET',
