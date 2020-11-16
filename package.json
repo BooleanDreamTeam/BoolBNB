@@ -25,9 +25,12 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.1",
+        "browser-sync": "^2.26.13",
+        "browser-sync-webpack-plugin": "^2.0.1",
         "chart.js": "^2.9.4",
         "font-awesome": "^4.7.0",
         "places.js": "^1.19.0",
+        "save-dev": "0.0.1-security",
         "typed.js": "^2.0.11",
         "wowjs": "^1.1.3"
     }

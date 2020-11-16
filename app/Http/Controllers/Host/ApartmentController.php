@@ -5,7 +5,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Apartment;
-use App\UserType;
 use App\Service;
 use App\Image;
 use Carbon\Carbon;
@@ -178,7 +177,7 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Apartment $apartment)
     {
         $apartment->delete();
         return redirect()->route('host.aparment.index')->with('status', 'Hai cancellato correttamente il tuo appartamento');
