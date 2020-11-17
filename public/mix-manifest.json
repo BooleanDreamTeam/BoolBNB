@@ -7,5 +7,7 @@
     "/css/analitycs.css": "/css/analitycs.css",
     "/css/sponsor.css": "/css/sponsor.css",
     "/css/extranet.css": "/css/extranet.css",
-    "/js/click.js": "/js/click.js"
+    "/js/click.js": "/js/click.js",
+    "/js/dashboard.js": "/js/dashboard.js",
+    "/js/extranet.js": "/js/extranet.js"
 }

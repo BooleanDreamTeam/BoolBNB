@@ -1,3 +1,13 @@
+@import 'partials/_cards';
+
+.search-box {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+.form-row {
+    padding: 12px 26px;
+}
 section#search {
     height: 400px;
     background-image: url('/../storage/img/home-cover.jpg');
@@ -27,23 +37,15 @@ section#search {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
-.card-title {
-    color: black;
-}
+
 
 section#simple-ap {
     margin-top: 35px;
 }
 
-.card.card_index {
-    transition: 0.5s ease-in-out;
-}
 
-.card.card_index:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
+
+
 
 .avatar {
     height: 35px;
