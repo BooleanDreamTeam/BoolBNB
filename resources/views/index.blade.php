@@ -31,73 +31,76 @@
     <div class="container col-md-8">
 
 
-        {{-- Blocco di immagini per appartamenti in evidenza --}}
+{{-- Blocco di immagini per appartamenti in evidenza --}}
 
-        <section id="highlighted" class="pt-4">
+<section id="highlighted" class="pt-4">
 
-            <h2>Sponsorizzati</h2>
+    <h2>Sponsorizzati</h2>
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-5">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-5">
 
-                @foreach ($sponsored as $apartment)
+        @foreach ($sponsored as $apartment)
 
-                    <div class="col mb-4 d-flex click">
-                        <a href="{{route('apartment.show',['id' => $apartment->id])}}">
-                            <div data-id="{{$apartment->id}}" class="card card_index flex-grow-1 wow animate__animated animate__fadeInUp">
-                            <img src="https://picsum.photos/300/300?random={{$apartment->id}}" class="card-img-top" alt="{{ $apartment->title }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $apartment->title }}</h5>
+            <div class="col mb-4 d-flex click card-p">
+                <a href="{{route('apartment.show',['id' => $apartment->id])}}">
+                    <div data-id="{{$apartment->id}}" class="card card_index flex-grow-1 wow animate__animated animate__fadeInUp">
+                    <img src="https://picsum.photos/300/300?random={{$apartment->id}}" class="card-img-top" alt="{{ $apartment->title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $apartment->title }}</h5>
 
-                                </div>
-                                <footer class="card-footer">
-                                    <p class="card-text">
-                                        <small class="text-muted">Stanze: {{ $apartment->n_rooms }}</small>
-                                    </p>
-                                </footer>
-                            </div>
-                        </a>
-                    </div>
-
-                @endforeach
-
-            </div>
-
-        </section>
-
-        {{-- Blocco di immagini per appartamenti NON in evidenza--}}
-
-        <section id="simple-ap" class="pt-4">
-
-            <h2>Appartmenti</h2>
-
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-5">
-
-                @foreach ($apartments as $apartment)
-
-                <div class="col mb-4 d-flex click">
-                    <a href="{{route('apartment.show',['id' => $apartment->id])}}">
-                        <div data-id="{{$apartment->id}}" class="card card_index flex-grow-1 wow animate__animated animate__fadeInUp">
-                        <img src="https://picsum.photos/300/300?random={{$apartment->id}}" class="card-img-top" alt="{{ $apartment->title }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $apartment->title }}</h5>
-
-                            </div>
-                            <footer class="card-footer">
-                                <p class="card-text">
-                                    <small class="text-muted">Stanze: {{ $apartment->n_rooms }}</small>
-                                </p>
-                            </footer>
                         </div>
-                    </a>
-                </div>
-
-                @endforeach
-
+                        <footer class="card-footer">
+                            <p class="card-text">
+                                <small class="text-muted">Stanze: {{ $apartment->n_rooms }}</small>
+                            </p>
+                        </footer>
+                    </div>
+                </a>
             </div>
 
-        </section>
+        @endforeach
 
     </div>
+
+</section>
+
+{{-- Blocco di immagini per appartamenti NON in evidenza--}}
+
+<section id="simple-ap" class="pt-4">
+
+    <h2>Appartmenti</h2>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-5">
+
+        @foreach ($apartments as $apartment)
+
+        <div class="col-lg-3 mb-4 d-flex click card-p">
+            <a href="{{route('apartment.show',['id' => $apartment->id])}}">
+                <div data-id="{{$apartment->id}}" class="card card_index flex-grow-1 wow animate__animated animate__fadeInUp">
+                    <div class="img">
+                        <img src="https://picsum.photos/300/600?random={{$apartment->id}}" class="img-fluid card-img-top" alt="{{ $apartment->title }}">
+                    </div>
+                    
+                    <div class="card-body">
+                    <h5 class="card-title">{{ $apartment->title }}</h5>
+
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-text">
+                            <small class="text-muted">Stanze: {{ $apartment->n_rooms }}</small>
+                        </p>
+                    </footer>
+                </div>
+            </a>
+        </div>
+
+        @endforeach
+
+    </div>
+
+</section>
+
+</div>
 
 @endsection
 
