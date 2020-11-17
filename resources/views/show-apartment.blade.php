@@ -1,12 +1,17 @@
 {{-- @dd($apartment) --}}
 @extends('layouts.app')
 
+@section('css')
+<link href="{{ asset('css/show.css') }}" rel="stylesheet"> 
+
+@endsection
+
 @section('title')
     {{$apartment->title}}
 @endsection
 
 @section('js')
-    {{ asset('js/click.js') }}
+<script src="{{ asset('js/click.js') }}"></script> 
 @endsection
 
 @section('content')
