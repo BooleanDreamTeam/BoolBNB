@@ -1,11 +1,15 @@
-.row{
-    overflow: hidden;
+@import '_cards';
+.row-main{
+    
     .sidebar-nav{
         background-color: #4469d7;
         min-height: 100vh;
         color: rgba(255,255,255,.4);
 
         .nav{
+            .navbar-brand{
+                width: 100%;
+            }
             .hr{
                 width: 95%;
                 height: 1px;
@@ -80,10 +84,11 @@
 }
 
 #logo {
-    width: 60px;
-    margin-left: 30px;
+    width: 30%;
+    max-height: 50px;
 }
 #bnb {
     color: white;
-    height: 40px;
+    max-height: 40px;
+    width: 70%;
 }

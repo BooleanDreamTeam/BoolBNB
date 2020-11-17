@@ -25,21 +25,22 @@
 </head>
 <body>
     <!-- sidebar -->
-<div class="row">
+<div class="row row-main">
     <div class="sidebar-nav d-flex pl-4 pt-3 col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" >
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+
                 <img class="img-fluid" id="logo" src="{{Storage::url('img/logo.png')}}" alt="logo">
-                <img class="img-fluid" id="bnb" src="{{Storage::url('img/boolbnb-white.png')}}" alt="Boolbnb">
+                <img class="img-fluid write" id="bnb" src="{{Storage::url('img/boolbnb-white.png')}}" alt="Boolbnb">
             </a>
             <div class="hr  mt-4 mb-4 mr-auto ml-auto"></div>
-            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+            <a href="{{Route('dashboard')}}" class="nav-link active" id="v-pills-home-tab" data-toggle="pill" role="tab" aria-controls="v-pills-home" aria-selected="true">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span>
             </a>
 
             <div class="hr  mt-4 mb-4 mr-auto ml-auto"></div>
-            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+            <a href="" class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                 <i class="fas fa-fw fa-user-alt"></i>
                 <span>Profile</span>
             </a>
@@ -47,7 +48,7 @@
                 <i class="fas fa-fw fa-envelope"></i>    
                 <span>Messages</span>
             </a>
-            <a class="nav-link" id="v-pills-apartments-tab" data-toggle="pill" href="#v-pills-apartments" role="tab" aria-controls="v-pills-apartments" aria-selected="false">
+            <a href="{{Route('apartments.index')}}" class="nav-link" id="v-pills-apartments-tab" data-toggle="pill" role="tab" aria-controls="v-pills-apartments" aria-selected="false">
                 <i class="fas fa-fw fa-home"></i>    
                 <span>My Apartments</span>
             </a>
@@ -62,7 +63,7 @@
         </div>
     </div>
 
-    <div class="rightside d-none d-sm-block flex-column col-12 col-sm-6 col-md-8 col-lg-9 col-xl-10">
+    <div class="rightside d-none d-sm-block flex-column col-12 col-sm-6 col-md-8  col-lg-9 col-xl-10">
         <!-- topbar -->
         <nav class="topbar pd-2 navbar navbar-expand navbar-light bg-white mb-4 static-top shadow">
             
@@ -89,7 +90,7 @@
                                 <div class="status-indicator bg-success"></div>
                             </div>
                             <div>
-                                <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                <div class="">Am I a good boy? The reason I ask is because someone
                                     told me that people say this to all dogs, even if they aren't good...</div>
                                 <div class="small text-gray-500">Chicken the Dog · 2w</div>
                             </div>
@@ -149,7 +150,7 @@
         </nav>
         
         <!-- contents -->
-        <div class="row p-4">
+        <div class="row col-xl-12 p-4">
             @yield('content')
         </div>
 
@@ -158,9 +159,6 @@
 
 
     </div>
-
- 
-
 </div>
 </body>
 </html>

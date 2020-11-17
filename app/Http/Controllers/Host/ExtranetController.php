@@ -8,6 +8,7 @@ use App\UserType;
 use App\Service;
 use App\Message;
 use App\User;
+use App\Image;
 use File; 
 
 use Illuminate\Support\Facades\DB;
@@ -48,7 +49,7 @@ class ExtranetController extends Controller
                 ->where('apartments.host_id', Auth::id())
                 ->get();
 
-            // 
+            // active sponsor
             $sponsored = DB::table('sponsorships')
                 ->join('apartment_sponsorship', 'sponsorships.id', '=', 'apartment_sponsorship.sponsorship_id')
                 ->join('apartments', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
@@ -56,7 +57,7 @@ class ExtranetController extends Controller
                 ->where('apartments.host_id', Auth::id())
                 ->where('apartment_sponsorship.expiration_date', '>', now())
                 ->get();
-
+            
             $sponsoredoff = DB::table('sponsorships')
                 ->join('apartment_sponsorship', 'sponsorships.id', '=', 'apartment_sponsorship.sponsorship_id')
                 ->join('apartments', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
@@ -65,8 +66,11 @@ class ExtranetController extends Controller
                 ->where('apartment_sponsorship.expiration_date', '<', now())
                 ->get();
 
+            $cover = Image::wherein('apartment_id', $apartmentIds)->where('cover', true)->get();
+         
+
         }           
-        return view('host.dashboard', compact('apartments', 'apartmentIds', 'services', 'messages', 'reviews', 'sponsored'));
+        return view('host.dashboard', compact('apartments', 'apartmentIds', 'services', 'messages', 'reviews', 'sponsored', 'cover'));
     }
     
 }

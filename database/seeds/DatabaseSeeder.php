@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             SponsorshipSeeder::class,
             ClickSeeder::class,
             ServiceSeeder::class,
-            ReviewSeeder::class
+            ReviewSeeder::class,
+            ImageSeeder::class
         ]);
     }
 }

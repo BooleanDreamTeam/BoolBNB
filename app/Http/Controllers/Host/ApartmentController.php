@@ -81,25 +81,15 @@ class ApartmentController extends Controller
             'description' => $data['description']
         ]);
 
-<<<<<<< Updated upstream
-        $apartmentNew->fill($data);
-=======
         if ((array_key_exists('services', $data))) {
             $apartment->services()->attach($data['services']);
         }
->>>>>>> Stashed changes
 
         if ((array_key_exists('images', $data))) {
             foreach ($data['images'] as $key => $image) {
                 $data['images'][$key] = Storage::disk('public')->put("img/users/". Auth::id() ."/apartments/$apartment->id",$image);
 
-<<<<<<< Updated upstream
-        if(!empty($data['services'])){
-            $apartmentNew->services()->attach($data['services']);
-        }
-=======
                 $urlImg = Storage::url($data['images'][$key]);
->>>>>>> Stashed changes
 
                 $imageToDb = Image::create([
                     'apartment_id' => $apartment->id,
