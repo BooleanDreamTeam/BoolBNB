@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     placesAutocomplete.on('change', function(e) {
 
-        $('#cordinates').val([e.suggestion.latlng.lat,e.suggestion.latlng.lat]);
+        $('#cordinates').val([e.suggestion.latlng.lat,e.suggestion.latlng.lng]);
 
     });
 

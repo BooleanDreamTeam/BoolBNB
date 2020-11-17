@@ -9,7 +9,7 @@ new WOW.WOW().init();
 
 $(document).ready(function() {
 
-    if (window.location.pathname == '/') {
+    if (window.location.pathname == '/'|| window.location.pathname == '/host/firstapartment/create') {
         
         // ALGOLIA INDEX
 
@@ -19,9 +19,11 @@ $(document).ready(function() {
             container: document.querySelector('#address-input')
         });
         
-        placesAutocomplete.on('change', e => console.log(e.suggestion));
+        placesAutocomplete.on('change', function(e) {
 
-        //---------//
+            $('#cordinates').val([e.suggestion.latlng.lat,e.suggestion.latlng.lng]);
+    
+        });
 
     }
 
