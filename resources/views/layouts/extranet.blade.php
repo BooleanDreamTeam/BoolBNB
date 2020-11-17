@@ -133,7 +133,7 @@
                             <a class="dropdown-item" href="">
                                 Completa il tuo profilo
                             </a>
-                            <a data-toggle="pill" href="#v-pills-apartments-new" role="tab" aria-controls="v-pills-apartments-new" class="dropdown-item" href="{{ route('logout') }}">
+                            <a href="{{route('apartments.create')}}"class="dropdown-item">
                                 Nuovo Appartamento
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}">

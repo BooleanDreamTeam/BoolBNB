@@ -16,9 +16,11 @@
 
         <div class="container">
             <div class="card card_show mb-3" data-lat="{{$apartment->latitude}}"  data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}">
-                <img class="card-img-top" alt="">
+                @foreach ($cover as $img)
+                    <img class="card-img-top" src="{{$img->imgurl}}" alt="{{$img->imgurl}}">
+                @endforeach
                 <div class="card-body">
-                    <h5 class="card-title">Appartamento panoramico vista mare</h5>
+                    <h5 class="card-title">{{$apartment->title}}</h5>
                     {{-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
                 </div>
@@ -33,8 +35,8 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="details wow animate__animated animate__fadeInRight">
-                            <h2 class="py-3">Lorem</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                            <h2 class="py-3">Descrizione</h2>
+                            <p>{{$apartment->description}}</p>
                         </div>
 
                         <div class="detail_bedroom wow animate__animated animate__fadeInRight animate__delay-1s">

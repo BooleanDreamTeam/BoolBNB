@@ -35,7 +35,7 @@ class ApartmentController extends Controller
     {
         $services = Service::all();
 
-        return view('host.apartment.create', compact('services'));
+        return view('host.apartments.create', compact('services'));
     }
 
     /**
@@ -70,6 +70,7 @@ class ApartmentController extends Controller
         ]);
 
         $apartment = Apartment::create([
+            'address' => $data['address'],
             'host_id' => $data['host_id'],
             'title' => $data['title'],
             'n_rooms' => $data['n_rooms'],
@@ -91,17 +92,27 @@ class ApartmentController extends Controller
 
                 $urlImg = Storage::url($data['images'][$key]);
 
-                $imageToDb = Image::create([
-                    'apartment_id' => $apartment->id,
-                    'imgurl' => $urlImg,
-                    'cover' => 1,
-                ]);
+                if ($key == 0) {
+                    $imageToDb = Image::create([
+                        'apartment_id' => $apartment->id,
+                        'imgurl' => $urlImg,
+                        'cover' => 1,
+                    ]);    
+                } else {
+
+                    $imageToDb = Image::create([
+                        'apartment_id' => $apartment->id,
+                        'imgurl' => $urlImg,
+                        'cover' => 0,
+                    ]);
+
+                }
 
             }
                 
         }
             
-        return redirect('host/extranet');
+        return redirect()->route('dashboard')->with('session', "Appartamento $apartment->title creato!");
 
     }
 
@@ -122,10 +133,11 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Apartment $apartment)
     {
         $services = Service::all();
-        return view('host.apartments.edit', compact('post', 'services'));
+        $apartmentImages = Image::all()->where('apartment_id',$apartment->id);
+        return view('host.apartments.edit', compact('apartment', 'services', 'apartmentImages'));
     }
 
     /**
@@ -139,15 +151,25 @@ class ApartmentController extends Controller
     {
         $data = $request->all();
 
+        $latlng = $data['latlng'];
+
+        $arrayCordinates = explode(",", $latlng);
+
+        $lat = $arrayCordinates[0];
+        $lng = $arrayCordinates[1];
+
+        $data['latitude'] = $lat;
+        $data['longitude'] = $lng;
+        $data['host_id'] = Auth::id();
+
         $request->validate([
             'title' => 'required|min:5|max:255',
             'n_rooms' => 'required|min:1|max:4',
             'n_beds' => 'required|min:1|max:4',
             'n_bathrooms' => 'required|min:1|max:4',
             'squaremeters' => 'required|min:1|max:6',
-            'latitude' => 'required',
-            'longitude' => 'required',
-            'is_active' => 'required',
+            'description' => 'required|min:5|max:300',
+            'host_id' => 'numeric|exists:users,id'
         ]);
 
         if (!empty($data['services'])){
@@ -158,7 +180,7 @@ class ApartmentController extends Controller
 
         $apartment->update($data);
 
-        return redirect()->route('host.apartments.index')->with('status', 'Modifiche effettuate');
+        return redirect()->route('dashboard')->with('session', "Modifiche all'appartamento $apartment->title  effettuate");
     }
 
     /**
@@ -170,6 +192,6 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         $apartment->delete();
-        return redirect()->route('host.aparment.index')->with('status', 'Hai cancellato correttamente il tuo appartamento');
+        return redirect()->route('dashboard')->with('session', 'Hai cancellato correttamente il tuo appartamento');
     }
 }

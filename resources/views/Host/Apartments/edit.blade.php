@@ -1,4 +1,4 @@
-@extends('layouts.extranet');
+@extends('layouts.extranet')
 
 @section('content')
 
@@ -34,16 +34,47 @@
                     </div>
                 </div>    
                 <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="Indirizzo">Indirizzo</label>
                         <input type="text" class="form-control" name="address" id="Indirizzo" value="{{$apartment->address}}">
                         <input type="hidden" name="latlng"
                         value="" id="cordinates">
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="Immagine">Immagine</label>
                         <input type="file" class="form-control" id="Immagine" name="images[]" accept="image/*" name="images"  size="20" multiple="multiple">
                         <span><em>* la prima immagine sarà l'immagine di copertina</em></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                        
+                    <div id="carouselExampleControls" class="carousel" data-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach ($apartmentImages as $image)
+
+                                @if ($image->cover == 1)
+
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" style="height:200px" src="{{$image->imgurl}}" alt="{{$image->imgurl}}">
+                                </div>
+
+                                @else
+
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" style="height:200px" src="{{$image->imgurl}}" alt="{{$image->imgurl}}">
+                                </div>
+
+                                @endif
+                            @endforeach    
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
                 </div>
                 <div class="form-row">
