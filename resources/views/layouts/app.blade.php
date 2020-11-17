@@ -11,7 +11,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="@yield('js')"></script>
+    @yield('js')
+    
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
 
@@ -22,7 +23,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="@yield('css')" rel="stylesheet">  <!-- da rivedere -->
+    @yield('css')
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
 
 </head>
@@ -31,7 +33,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img style="display:inline; width:30px; filter: drop-shadow(0 5px 8px #333);"src="{{Storage::url('img/logo.png')}}" alt="">
+                    <img style="display:inline; width:100px; filter: drop-shadow(0 5px 8px #333);"src="{{Storage::url('img/logo.png')}}" alt="">
                     <img style="display:inline; width:150px; margin-left: 20px;" class="animate__animated animate__rotateInDownRight animate__delay-1s"src="{{Storage::url('img/scrittarot.png')}}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -76,8 +78,8 @@
                                             DashBoard
                                         </a>
                                     @elseif (Auth::user()->user_type->name == 'User')
-                                        <a class="dropdown-item" href="{{route('dashboard')}}">
-                                            Diventa Host
+                                        <a class="dropdown-item" href="{{route('firstapartment.create')}}">
+                                            Inserisci un Appartamento
                                         </a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -101,5 +103,6 @@
             @yield('content')
         </main>
     </div>
+    @yield('script')
 </body>
 </html>
