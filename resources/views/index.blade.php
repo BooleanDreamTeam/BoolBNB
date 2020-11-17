@@ -10,15 +10,19 @@
 
     <section id="search" class="d-flex justify-content-center">
         <form class="d-flex align-items-center">
-            <div class="form-row">
-                <div class="col">
-                    <input type="search" id="address-input" class="form-control" placeholder="Dove" />
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Numero Ospiti" />
+            <div class="search-box">
+
+                <div class="form-row">
+                    <div class="col">
+                        <input type="search" id="address-input" class="form-control" placeholder="Dove" />
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Numero Ospiti" />
+                    </div>
+
+                    <button type="submit" class="btn btn-dark ml-2">Cerca</button>
                 </div>
 
-                <button type="submit" class="btn btn-dark ml-2">Cerca</button>
             </div>
         </form>
     </section>

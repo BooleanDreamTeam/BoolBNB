@@ -31,7 +31,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img style="display:inline; width:100px; filter: drop-shadow(0 5px 8px #333);"src="{{Storage::url('img/logo.png')}}" alt="">
+                    <img style="display:inline; width:30px; filter: drop-shadow(0 5px 8px #333);"src="{{Storage::url('img/logo.png')}}" alt="">
                     <img style="display:inline; width:150px; margin-left: 20px;" class="animate__animated animate__rotateInDownRight animate__delay-1s"src="{{Storage::url('img/scrittarot.png')}}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
