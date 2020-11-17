@@ -15,6 +15,7 @@ use App\Apartment;
 
 Route::get('/', 'ApartmentController@index');
 Route::get('apartments/show/{id}', 'ApartmentController@show')->name('apartment.show');
+Route::resource('firstapartment', 'FirstApartmentController');
 
 Auth::routes();
 
@@ -33,7 +34,8 @@ Route::prefix('host')->namespace('Host')->middleware('auth')->group(function() {
     Route::get('extranet', 'ExtranetController@extranet')->name('extranet');
     Route::resource('apartments', 'ApartmentController');
     Route::get('dashboard', 'ExtranetController@dashboard')->name('dashboard');
-    Route::resource('firstapartment', 'FirstApartmentController');
+    Route::resource('sponsorship', 'SponsorshipController');
+    Route::post('checkout', 'SponsorshipController@checkout')->name('checkout');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'guest'],function (){
