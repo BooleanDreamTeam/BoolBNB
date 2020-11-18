@@ -55,7 +55,7 @@
                 <i class="fas fa-star"></i>
                 <span>Sponsorships</span>
             </a>
-            <a href="{{route('reviews.index')}}" id="v-pills-reviews-tab" href="#v-pills-reviews" role="tab" aria-controls="v-pills-reviews" aria-selected="false">
+            <a href="{{route('myreviews')}}" class="nav-link id="v-pills-reviews-tab" href="#v-pills-reviews" role="tab" aria-controls="v-pills-reviews" aria-selected="false">
                 <i class="fas fa-fw fa-pencil-alt"></i>
                 <span>Reviews</span>
             </a>
