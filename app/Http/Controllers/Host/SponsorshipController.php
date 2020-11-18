@@ -54,77 +54,42 @@ class SponsorshipController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function store(Request $request)
-    // {
-    //     $data = $request->all();
+    public function store(Request $request)
+    {
 
-    //     $latlng = $data['latlng'];
+            $gateway = new \Braintree\Gateway([
+                'environment' => getenv('BT_ENVIRONMENT'),
+                'merchantId' => getenv('BT_MERCHANT_ID'),
+                'publicKey' => getenv('BT_PUBLIC_KEY'),
+                'privateKey' => getenv('BT_PRIVATE_KEY'),
+            ]);
 
-    //     $arrayCordinates = explode(",", $latlng);
+            $amount = $request->amount;
 
-    //     $lat = $arrayCordinates[0];
-    //     $lng = $arrayCordinates[1];
+            $nonce = $request->payment_method_nonce;
 
-    //     $data['latitude'] = $lat;
-    //     $data['longitude'] = $lng;
-    //     $data['host_id'] = Auth::id();
+            $result = $gateway->transaction()->sale([
 
-    //     $request->validate([
-    //         'title' => 'required|min:5|max:255',
-    //         'n_rooms' => 'required|min:1|max:4',
-    //         'n_beds' => 'required|min:1|max:4',
-    //         'n_bathrooms' => 'required|min:1|max:4',
-    //         'squaremeters' => 'required|min:1|max:6',
-    //         'description' => 'required|min:5|max:300',
-    //         'host_id' => 'numeric|exists:users,id'
-    //     ]);
+                'amount' => $amount,
+                'paymentMethodNonce' => $nonce,
+                'options' => [
+                    'submitForSettlement' => true
+                ]
 
-    //     $apartment = Apartment::create([
-    //         'address' => $data['address'],
-    //         'host_id' => $data['host_id'],
-    //         'title' => $data['title'],
-    //         'n_rooms' => $data['n_rooms'],
-    //         'n_beds' => $data['n_beds'],
-    //         'n_bathrooms' => $data['n_bathrooms'],
-    //         'squaremeters' => $data['squaremeters'],
-    //         'latitude' => $data['latitude'],
-    //         'longitude' => $data['longitude'],
-    //         'description' => $data['description']
-    //     ]);
+            ]);
 
-    //     if ((array_key_exists('services', $data))) {
-    //         $apartment->services()->attach($data['services']);
-    //     }
+            DB::create('update apartment_sponsorship set user_type_id = 2 where id = ?', [Auth::id()]);
 
-    //     if ((array_key_exists('images', $data))) {
-    //         foreach ($data['images'] as $key => $image) {
-    //             $data['images'][$key] = Storage::disk('public')->put("img/users/". Auth::id() ."/apartments/$apartment->id",$image);
+            $apartment = Apartment::all()->find($request->apartment);
 
-    //             $urlImg = Storage::url($data['images'][$key]);
+            $saved = $apartment->sponsorships()->attach($request->sponsorshipClicked);
 
-    //             if ($key == 0) {
-    //                 $imageToDb = Image::create([
-    //                     'apartment_id' => $apartment->id,
-    //                     'imgurl' => $urlImg,
-    //                     'cover' => 1,
-    //                 ]);    
-    //             } else {
+            if ($saved) {
+                return back()->with('success_message', 'Sposorizzazione avvenuta con successo!');
+            }
 
-    //                 $imageToDb = Image::create([
-    //                     'apartment_id' => $apartment->id,
-    //                     'imgurl' => $urlImg,
-    //                     'cover' => 0,
-    //                 ]);
 
-    //             }
-
-    //         }
-                
-    //     }
-            
-    //     return redirect()->route('dashboard')->with('session', "Appartamento $apartment->title creato!");
-
-    // }
+    }
 
     /**
      * Display the specified resource.
@@ -204,41 +169,4 @@ class SponsorshipController extends Controller
     //     $apartment->delete();
     //     return redirect()->route('dashboard')->with('session', 'Hai cancellato correttamente il tuo appartamento');
     // }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function checkout(Request $request) {
-
-        $gateway = new \Braintree\Gateway([
-            'environment' => getenv('BT_ENVIRONMENT'),
-            'merchantId' => getenv('BT_MERCHANT_ID'),
-            'publicKey' => getenv('BT_PUBLIC_KEY'),
-            'privateKey' => getenv('BT_PRIVATE_KEY'),
-        ]);
-
-        $amount = $request->amount;
-
-        $nonce = $request->payment_method_nonce;
-
-        $result = $gateway->transaction()->sale([
-
-            'amount' => $amount,
-            'paymentMethodNonce' => $nonce,
-            'options' => [
-                'submitForSettlement' => true
-            ]
-
-        ]);
-
-        if ($result->success) {
-            
-            $transaction = $result->transaction;
-
-            return back()->with('success_message', 'Transaction with success!');
-
-        }
-    }
 }

@@ -4,7 +4,7 @@
 
 {{-- ERROR --}}
 @if ($errors->any())
-<div class="alert alert-danger">
+<div class="alert alert-danger fixed-bottom">
     <ul>
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -14,7 +14,7 @@
 @endif
 
 @if (session('success_message'))
-<div class="alert alert-success">
+<div class="alert alert-success fixed-bottom">
     {{ session('success_message') }}
 </div>
 @endif
@@ -24,35 +24,58 @@
 
 
 
-<form method="post" id="payment-form" action="{{route('checkout')}}">
-    <div class="d-flex">
-    @foreach ($sponsorships as $sponsor)
-        
-        <div class="card col-md-4 sponsor" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{$sponsor->name}}</h5>
-                <p class="card-text">Price: {{$sponsor->price}}€</p>
-                <a data-price="{{$sponsor->price}}" class="card-link">Acquista</a>
-            </div>
-        </div>
-        
-    @endforeach
-    </div>
+<form method="post" id="payment-form" action="{{route('sponsorship.store')}}">
     @csrf
     <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="amount">Amount</label>
-        <input type="number" name="amount" class="form-control" id="amount">
-      </div>
-      <div class="bt-drop-in-wrapper">
-          <div id="bt-dropin">
 
-          </div>
-      </div>  
-      <div class="form-group col-md-6">
-        <input type="hidden" name="payment_method_nonce" id="nonce" value="credit-card">  
-        <button type="submit" class="btn btn-primary">Transaction</button>
-      </div>
+        <div class="flex-d">
+            <select name="apartment">
+                @foreach ($apartments as $apartment)
+                    <option value="{{$apartment->id}}">{{$apartment->title}}</option>            
+                @endforeach    
+            </select>   
+        </div>
+
+    </div>
+    
+    <div class="form-row">
+
+        <div class="d-flex">
+            @foreach ($sponsorships as $sponsor)
+                
+                <div class="card col-md-3 sponsor" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$sponsor->name}}</h5>
+                        <h3 class="card-description">Il tuo appartamento sarà sponsorizzato per {{$sponsor->time}} ore!</h3>
+                        <p class="card-text">Price: {{$sponsor->price}}€</p>
+                        <a data-price="{{$sponsor->price}}" data-id="{{$sponsor->id}}" class="card-link">Acquista</a>
+                    </div>
+                </div>
+                
+            @endforeach
+            </div>
+            <input type="hidden" name="sponsorshipClicked" id="clicked" val="">
+
+    </div>
+
+    <div class="form-raw">
+
+        <div class="form-group col-md-6">
+            <label for="amount">Amount</label>
+            <input type="number" name="amount" class="form-control" id="amount">
+        </div>
+        <div class="bt-drop-in-wrapper">
+            <div id="bt-dropin">
+
+            </div>
+        </div>  
+        <div class="form-group col-md-6">
+            <input type="hidden" name="payment_method_nonce" id="nonce" value="credit-card">  
+            <button type="submit" class="btn btn-primary">Transaction</button>
+        </div>  
+
+    </div>
+        
     
 </form>
 
@@ -83,6 +106,8 @@
      });        
 
      $('.sponsor a').click(function() {
+
+        $('#clicked').val($(this).data('id'));
 
         $('#amount').val($(this).data('price'));
 
