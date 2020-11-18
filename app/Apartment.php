@@ -28,7 +28,7 @@ class Apartment extends Model
     public function messages(){
         return $this->hasMany('App\Message');
     }
-    
+
     public function sponsorships(){
         return $this->belongsToMany('App\Sponsorship')->withPivot('expiration_date');
     }
@@ -41,5 +41,7 @@ class Apartment extends Model
         return $this->hasMany('App\Image');
     }
 
-    
+    public function cover(){
+        return $this->hasOne('App\Image')->where('cover', 1);
+    }
 }

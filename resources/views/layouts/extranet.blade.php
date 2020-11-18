@@ -11,8 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/extranet.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+    <script src="https://js.braintreegateway.com/web/dropin/1.25.0/js/dropin.min.js"></script>
+   
+    <!-- <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script> -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -34,29 +35,29 @@
                 <img class="img-fluid write" id="bnb" src="{{Storage::url('img/boolbnb-white.png')}}" alt="Boolbnb">
             </a>
             <div class="hr  mt-4 mb-4 mr-auto ml-auto"></div>
-            <a href="{{Route('dashboard')}}" class="nav-link active" id="v-pills-home-tab" data-toggle="pill" role="tab" aria-controls="v-pills-home" aria-selected="true">
+            <a href="{{Route('dashboard')}}" class="nav-link active" id="v-pills-home-tab" role="tab" aria-controls="v-pills-home" aria-selected="true">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span>
             </a>
 
             <div class="hr  mt-4 mb-4 mr-auto ml-auto"></div>
-            <a href="" class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+            <a href="" class="nav-link" id="v-pills-profile-tab" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                 <i class="fas fa-fw fa-user-alt"></i>
                 <span>Profile</span>
             </a>
-            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+            <a class="nav-link" id="v-pills-messages-tab" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                 <i class="fas fa-fw fa-envelope"></i>    
                 <span>Messages</span>
             </a>
-            <a href="{{Route('apartments.index')}}" class="nav-link" id="v-pills-apartments-tab" data-toggle="pill" role="tab" aria-controls="v-pills-apartments" aria-selected="false">
+            <a href="{{Route('apartments.index')}}" class="nav-link" id="v-pills-apartments-tab" role="tab" aria-controls="v-pills-apartments" aria-selected="false">
                 <i class="fas fa-fw fa-home"></i>    
                 <span>My Apartments</span>
             </a>
-            <a class="nav-link" id="v-pills-sponsorship-tab" data-toggle="pill" href="#v-pills-sponsorship" role="tab" aria-controls="v-pills-sponsorship" aria-selected="false">
+            <a class="nav-link" id="v-pills-sponsorship-tab" href="#v-pills-sponsorship" role="tab" aria-controls="v-pills-sponsorship" aria-selected="false">
                 <i class="fas fa-fw  fa-ad"></i>
                 <span>Advise</span>
             </a>
-            <a class="nav-link" id="v-pills-analitics-tab" data-toggle="pill" href="#v-pills-analitics" role="tab" aria-controls="v-pills-analitics" aria-selected="false">
+            <a class="nav-link" id="v-pills-analitics-tab" href="#v-pills-analitics" role="tab" aria-controls="v-pills-analitics" aria-selected="false">
                 <i class="fas fa-fw fa-chart-line"></i>
                 <span>Analitics</span>
             </a>
@@ -133,10 +134,10 @@
                             <a class="dropdown-item" href="">
                                 Completa il tuo profilo
                             </a>
-                            <a href="{{route('apartments.create')}}"class="dropdown-item">
+                            <a class="dropdown-item" href="{{ route('apartments.create') }}">
                                 Nuovo Appartamento
                             </a>
-                            <a class="dropdown-item" href="{{ route('logout') }}">
+                            <a class="dropdown-item" href="{{ route('sponsorship.create') }}">
                                 Nuova sponsorizzazione
                             </a>
 
@@ -160,6 +161,7 @@
 
     </div>
 </div>
+@yield('script')
 </body>
 </html>
 
