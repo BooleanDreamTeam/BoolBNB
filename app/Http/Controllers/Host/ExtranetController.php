@@ -24,53 +24,49 @@ class ExtranetController extends Controller
             // vediamo i nostri appartamenti
             $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->get();
            
-            //array con tutti gli id 
+            //array con tutti gli id di appartment 
             $apartmentIds = $apartments->pluck('id');
-
-             //tutti i servizi
-            $services = Service::all();
-            $myservices = DB::table('services')
-                ->join('apartment_service', 'apartment_service.service_id', '=', 'services.id')
-                ->select('apartment_service.*')
-                ->whereIn('apartment_service.apartment_id', $apartmentIds)
-                ->get();
-
-            //filtro i messaggi arrivati per gli appartamenti di proprietà dell'host
-            $messages = DB::table('messages')
-                ->join('apartments', 'apartments.id', '=', 'messages.apartment_id')
-                ->select('messages.*')
-                ->where('apartments.host_id', Auth::id())
-                ->get();
-
-                //
-            $reviews = DB::table('reviews')
-                ->join('apartments', 'apartments.id', '=', 'reviews.id_apartment')
-                ->select('reviews.*')
-                ->where('apartments.host_id', Auth::id())
-                ->get();
 
             // active sponsor
             $sponsored = DB::table('sponsorships')
                 ->join('apartment_sponsorship', 'sponsorships.id', '=', 'apartment_sponsorship.sponsorship_id')
                 ->join('apartments', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
-                ->select('sponsorships.*', 'apartments.id','apartment_sponsorship.*')
                 ->where('apartments.host_id', Auth::id())
                 ->where('apartment_sponsorship.expiration_date', '>', now())
                 ->get();
+                
             
             $sponsoredoff = DB::table('sponsorships')
                 ->join('apartment_sponsorship', 'sponsorships.id', '=', 'apartment_sponsorship.sponsorship_id')
                 ->join('apartments', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
-                ->select('sponsorships.*', 'apartments.id','apartment_sponsorship.*')
                 ->where('apartments.host_id', Auth::id())
                 ->where('apartment_sponsorship.expiration_date', '<', now())
                 ->get();
+                
 
             $cover = Image::wherein('apartment_id', $apartmentIds)->where('cover', true)->get();
-         
+            
+            //filtro i messaggi arrivati per gli appartamenti di proprietà dell'host
 
+            $messages = DB::table('messages')
+                ->join('apartments', 'messages.apartment_id', '=', 'apartments.id')
+                ->join('images', 'images.apartment_id', '=', 'apartments.id')
+                ->select('messages.*', 'images.imgurl')
+                ->where('images.cover', true)->where('apartments.host_id', Auth::id())
+                ->orderBy('created_at', 'desc')->get();
+
+            //
+            $reviews = DB::table('reviews')
+            ->join('apartments', 'apartments.id', '=', 'reviews.id_apartment')
+            ->join('images', 'images.apartment_id', '=', 'apartments.id')
+            ->select('reviews.*', 'images.imgurl')
+            ->where('apartments.host_id', Auth::id())
+            ->where('images.cover', true)
+            ->orderBy('created_at', 'desc')->get();
+
+           
         }           
-        return view('host.dashboard', compact('apartments', 'apartmentIds', 'services', 'messages', 'reviews', 'sponsored', 'cover'));
+        return view('host.dashboard', compact('apartments', 'apartmentIds', 'messages', 'reviews', 'sponsored', 'cover'));
     }
     
 }

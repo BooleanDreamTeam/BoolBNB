@@ -1,5 +1,7 @@
 @import '_cards';
 @import '_charts';
+@import '_reviews';
+
 .row-main{
     
     .sidebar-nav{
@@ -20,13 +22,6 @@
             .nav-link{
                 color: rgba(255,255,255,.4) !important;
                 
-                i{  
-                
-                }
-                span{
-                
-                }
-
             }
             a.nav-link:hover{
                 color: white !important;
@@ -46,6 +41,20 @@
             .nav-item{
                 
                 .messages{
+                    .message-text{
+                        width: 400px;
+                    }
+                    
+                    .app-img{
+                        height: 30px;
+                    }
+                    .text{
+                        
+                        p{
+                            width: 400px;
+                           
+                        }
+                    }
 
                 }
 
@@ -66,9 +75,6 @@
                     img{
                         width:50px ;
                     }
-                }
-                .dropdown-list{
-                    width: 500px;
                 }
             }
         }
