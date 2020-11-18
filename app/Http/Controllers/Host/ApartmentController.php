@@ -23,7 +23,11 @@ class ApartmentController extends Controller
         if (Auth::user()->user_type->name == 'Host'){
             $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->get();
         }
-        return view('host.apartments.index', compact('apartments'));
+        $apartmentIds = $apartments->pluck('id');
+
+        $cover = Image::wherein('apartment_id', $apartmentIds)->where('cover', true)->get();
+
+        return view('host.apartments.index', compact('apartments', 'cover'));
     }
 
     /**

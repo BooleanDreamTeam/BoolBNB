@@ -1,4 +1,3 @@
-require('./bootstrap');
 require('chart.js/dist/Chart.min.js');
 
 $(document).ready(function() {

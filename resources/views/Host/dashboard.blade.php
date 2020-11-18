@@ -19,10 +19,38 @@
                         <small>Numero letti {{$apartment->n_beds}}</small>
                         <small>Numero bagni {{$apartment->n_bathrooms}}</small>
                     </div>
+                    <a class="btn btn-primary" href="{{route('apartments.edit',$apartment->id)}}">MODIFICA</a>
+                    <form action="{{route('apartments.destroy',$apartment->id)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn w-100 btn-danger">ELIMINA</button>
+                    </form>
                 </div>
             </div>
         @endforeach
         </div>
+        <div class="col-xl-12 p-3 d-flex" id="reviews">
+            <div class="d-flex flex-column">
+                @foreach ($reviews as $review)
+                    <div class="review p-1 d-flex"> 
+                        <div class="image-rev mr-3">
+                            <img class="rounded rev-img" src="{{$review->imgurl}}" alt="">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div class="review-text">
+                            <div class="text">
+                                <p class="text-wrap">{{$review->message}}</p>
+                            </div>
+                            <div class="small text-gray-500">{{$review->name}}</div>
+                        </div>
+            
+                    </div>
+
+                @endforeach
+            </div>
+
+        </div>
+
 
 
 
@@ -33,7 +61,7 @@
   
 
 
-    <div class="chart col-12 col-sm-6 col-md-4 col-lg-3 ">
+    <div class="chart  col col-12 col-sm-6 col-md-4 col-lg-3 ">
         <!-- visualizzazioni -->
         <canvas id="myChart"></canvas>
         <hr>
