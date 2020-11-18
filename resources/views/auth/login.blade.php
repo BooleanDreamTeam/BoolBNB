@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-5">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
@@ -57,10 +57,13 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                <a href="login/facebook" class="btn btn-primary btn-lg btn-block">Login with Facebook</a>
-
+                                <a href="login/facebook" class="btn btn-primary"><i class="fab fa-facebook"></i> Login with Facebook</a>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0 mt-4">
+                            <div class="col-md-8 offset-md-4">
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a  href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
