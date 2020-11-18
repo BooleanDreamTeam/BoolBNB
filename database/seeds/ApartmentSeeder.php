@@ -17,7 +17,7 @@ class ApartmentSeeder extends Seeder
 
         $users = User::all();
 
-        for ($i=0; $i < 20; $i++) {
+        for ($i=0; $i < 30; $i++) {
             $apartment = new Apartment;
             $apartment->title = $faker->word.' '.$faker->word;
             $apartment->description = $faker->sentence();

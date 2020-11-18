@@ -34,8 +34,7 @@ class FirstApartmentController extends Controller
     public function create(User $user)
     {
         $services = Service::all();
-        
-
+    
         return view('host.firstapartment', compact('services'));
     }
 
@@ -110,11 +109,10 @@ class FirstApartmentController extends Controller
 
             }     
         }
+        
         DB::update('update users set user_type_id = 2 where id = ?', [Auth::id()]);
         
-        
         return redirect('host/dashboard');
-
     }
 
     /**

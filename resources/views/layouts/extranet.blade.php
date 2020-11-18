@@ -38,13 +38,12 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span>
             </a>
-
             <div class="hr  mt-4 mb-4 mr-auto ml-auto"></div>
             <a href="" class="nav-link" id="v-pills-profile-tab" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                 <i class="fas fa-fw fa-user-alt"></i>
                 <span>Profile</span>
             </a>
-            <a class="nav-link" id="v-pills-messages-tab" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+            <a href="{{Route('mymessages')}}" class="nav-link" id="v-pills-messages-tab"  role="tab" aria-controls="v-pills-messages" aria-selected="false">
                 <i class="fas fa-fw fa-envelope"></i>    
                 <span>Messages</span>
             </a>
@@ -52,14 +51,15 @@
                 <i class="fas fa-fw fa-home"></i>    
                 <span>My Apartments</span>
             </a>
-            <a class="nav-link" href="{{route('sponsorship.index')}}">
+            <a href="{{route('sponsorship.index')}}" class="nav-link" id="v-pills-sponsorship-tab" role="tab" aria-controls="v-pills-sponsorship" aria-selected="false">
                 <i class="fas fa-star"></i>
                 <span>Sponsorships</span>
             </a>
-            <a class="nav-link" id="v-pills-analitics-tab" href="#v-pills-analitics" role="tab" aria-controls="v-pills-analitics" aria-selected="false">
-                <i class="fas fa-fw fa-chart-line"></i>
-                <span>Analitics</span>
+            <a href="{{route('reviews.index')}}" id="v-pills-reviews-tab" href="#v-pills-reviews" role="tab" aria-controls="v-pills-reviews" aria-selected="false">
+                <i class="fas fa-fw fa-pencil-alt"></i>
+                <span>Reviews</span>
             </a>
+
         </div>
     </div>
 

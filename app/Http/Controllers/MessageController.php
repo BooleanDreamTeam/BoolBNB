@@ -36,6 +36,13 @@ class MessageController extends Controller
         } else {
             return back()->with('error_message','Messaggio non inviato causa errore!');
         }
+    }
 
+    public function index(){
+        if (Auth::user()){
+            
+            $messages = Message::getmes();
+            return view('host.messages', compact('messages'));
+        }
     }
 }

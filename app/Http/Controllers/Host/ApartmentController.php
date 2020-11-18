@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Apartment;
 use App\Service;
 use App\Image;
+use App\Message;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,12 +28,7 @@ class ApartmentController extends Controller
         $apartmentIds = $apartments->pluck('id');
         $cover = Image::wherein('apartment_id', $apartmentIds)->where('cover', true)->get();
         
-        $messages = DB::table('messages')
-        ->join('apartments', 'messages.apartment_id', '=', 'apartments.id')
-        ->join('images', 'images.apartment_id', '=', 'apartments.id')
-        ->select('messages.*', 'images.imgurl')
-        ->where('images.cover', true)->where('apartments.host_id', Auth::id())
-        ->orderBy('created_at', 'desc')->get();
+        $messages = Message::getmes();
         return view('host.apartments.index', compact('apartments', 'messages', 'cover'));
     }
 
@@ -44,12 +40,7 @@ class ApartmentController extends Controller
     public function create()
     {
         $services = Service::all();
-        $messages = DB::table('messages')
-        ->join('apartments', 'messages.apartment_id', '=', 'apartments.id')
-        ->join('images', 'images.apartment_id', '=', 'apartments.id')
-        ->select('messages.*', 'images.imgurl')
-        ->where('images.cover', true)->where('apartments.host_id', Auth::id())
-        ->orderBy('created_at', 'desc')->get();
+        $messages = Message::getmes();
 
         return view('host.apartments.create', compact('services', 'messages'));
     }
@@ -151,6 +142,7 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
+        $messages = Message::getmes();
         $services = Service::all();
         $apartmentImages = Image::all()->where('apartment_id',$apartment->id);
         return view('host.apartments.edit', compact('apartment', 'services', 'apartmentImages'));

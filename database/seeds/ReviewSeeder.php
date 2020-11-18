@@ -17,7 +17,7 @@ class ReviewSeeder extends Seeder
 
         $apartments = Apartment::all();
 
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 60; $i++) {
             $review = new Review;
             $review->id_apartment = $apartments->random()->id;
             $review->name = $faker->name();
