@@ -16,6 +16,7 @@ use App\Apartment;
 Route::get('/', 'ApartmentController@index');
 Route::get('apartments/show/{id}', 'ApartmentController@show')->name('apartment.show');
 Route::resource('firstapartment', 'FirstApartmentController');
+Route::post('message', 'MessageController@store')->name('sendMessage');
 
 Auth::routes();
 
