@@ -1,5 +1,10 @@
 @extends('layouts.extranet')
 
+@section('js')
+<script src="https://js.braintreegateway.com/web/dropin/1.25.0/js/dropin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+@endsection
+
 @section('content')
 
 {{-- ERROR --}}
@@ -54,7 +59,7 @@
                 
             @endforeach
             </div>
-            <input type="hidden" name="sponsorshipClicked" id="clicked" val="">
+            <input type="hidden" name="sponsorshipClicked" id="clicked">
 
     </div>
 

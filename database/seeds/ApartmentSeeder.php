@@ -25,6 +25,7 @@ class ApartmentSeeder extends Seeder
             $apartment->n_beds = $faker->numberBetween(1, 6);
             $apartment->n_bathrooms = $faker->numberBetween(1, 4);
             $apartment->squaremeters = $faker->numberBetween(50, 400);
+            $apartment->address = $faker->address();
             $apartment->latitude = $faker->randomFloat($nbMaxDecimals = 4, $min = 0, $max = 999);
             $apartment->longitude = $faker->randomFloat($nbMaxDecimals = 4, $min = 0, $max = 999);
             $apartment->is_active = $faker->boolean();
