@@ -15,7 +15,7 @@ use App\Apartment;
 
 Route::get('/', 'ApartmentController@index');
 Route::get('apartments/show/{id}', 'ApartmentController@show')->name('apartment.show');
-Route::resource('firstapartment', 'FirstApartmentController');
+Route::resource('firstapartment', 'FirstApartmentController')->middleware('auth');
 Route::post('message', 'MessageController@store')->name('sendMessage');
 Route::get('host.messages', 'MessageController@index')->middleware('auth')->name('mymessages');
 Route::get('host.reviews', 'ReviewController@index')->middleware('auth')->name('myreviews');
