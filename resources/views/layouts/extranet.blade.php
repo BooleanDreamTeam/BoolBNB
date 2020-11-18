@@ -11,8 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://js.braintreegateway.com/web/dropin/1.25.0/js/dropin.min.js"></script>
-   
+    <script src="{{ asset('js/extranet.js') }}"></script>
     @yield('js')
 
     <!-- Fonts -->
@@ -156,14 +155,10 @@
         <div class="row col-xl-12 p-4">
             @yield('content')
         </div>
-
-  
-
-
-
     </div>
 </div>
-@yield('script')
+    @yield('script')
 </body>
+
 </html>
 
