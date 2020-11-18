@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Host;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Sponsorship;
 use App\Apartment;
 
@@ -64,7 +65,7 @@ class SponsorshipController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {  
 
             $gateway = new \Braintree\Gateway([
                 'environment' => getenv('BT_ENVIRONMENT'),
@@ -83,17 +84,23 @@ class SponsorshipController extends Controller
                 'paymentMethodNonce' => $nonce,
                 'options' => [
                     'submitForSettlement' => true
+                ],
+                'customer' => [
+                    'firstName' => Auth::user()->name,
                 ]
 
             ]);
 
             $apartment = Apartment::all()->find($request->apartment);
 
-            $saved = $apartment->sponsorships()->attach($request->sponsorshipClicked);
+            $now = Carbon::now();
 
-            if ($saved) {
-                return back()->with('success_message', 'Sposorizzazione avvenuta con successo!');
-            }
+            $sponsorship = Sponsorship::all()->find($request->sponsorshipClicked);
+
+            $saved = $apartment->sponsorships()->attach($request->sponsorshipClicked , ['started_at' => $now, 'expiration_date' => $now->add($sponsorship->time,'hour')]);
+
+
+            return back()->with('success_message', 'Sposorizzazione avvenuta con successo!');
 
 
     }
