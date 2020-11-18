@@ -1,36 +1,33 @@
-.card-p{
+.card-p {
 
-    a{
-        .card_index{
+    a {
+        .card_index {
             transition: 0.5s ease-in-out;
-            .img{
-                height: 300px;
-                .card-img-top{
-                    height:100%;
-                }
-            }
 
-
-        
-            .card-body{
-
-            }
-            .card-title{
-                color: black;
-            }
-            .card-footer{
-               .card-text{
-                   .text-muted{
-
-                   }
-               } 
+            .card-img-top {
+                height: 100%;
             }
         }
-        .card_index:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
+
+
+
+        .card-body {}
+
+        .card-title {
+            color: black;
         }
 
+        .card-footer {
+            .card-text {
+                .text-muted {}
+            }
+        }
     }
+
+    .card_index:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+
 }

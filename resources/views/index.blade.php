@@ -20,7 +20,7 @@
                         <input type="text" class="form-control" placeholder="Numero Ospiti" />
                     </div>
 
-                    <button type="submit" class="btn btn-dark ml-2">Cerca</button>
+                    <button type="submit" class="btn btn-primary ml-2">Cerca</button>
                 </div>
 
             </div>
@@ -77,19 +77,19 @@
         <div class="col-lg-3 mb-4 d-flex click card-p">
             <a href="{{route('apartment.show',['id' => $apartment->id])}}">
                 <div data-id="{{$apartment->id}}" class="card card_index flex-grow-1 wow animate__animated animate__fadeInUp">
-                    <div class="img">
-                        <img src="https://picsum.photos/300/600?random={{$apartment->id}}" class="img-fluid card-img-top" alt="{{ $apartment->title }}">
-                    </div>
-                    
-                    <div class="card-body">
-                    <h5 class="card-title">{{ $apartment->title }}</h5>
 
-                    </div>
-                    <footer class="card-footer">
-                        <p class="card-text">
-                            <small class="text-muted">Stanze: {{ $apartment->n_rooms }}</small>
-                        </p>
-                    </footer>
+                <img src="https://picsum.photos/300/300?random={{$apartment->id}}" class="img-fluid card-img-top" alt="{{ $apartment->title }}">
+
+
+                <div class="card-body">
+                <h5 class="card-title">{{ $apartment->title }}</h5>
+
+                </div>
+                <footer class="card-footer">
+                    <p class="card-text">
+                        <small class="text-muted">Stanze: {{ $apartment->n_rooms }}</small>
+                    </p>
+                </footer>
                 </div>
             </a>
         </div>
