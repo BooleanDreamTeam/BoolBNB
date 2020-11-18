@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://js.braintreegateway.com/web/dropin/1.25.0/js/dropin.min.js"></script>
    
     <!-- <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script> -->
 
@@ -133,10 +134,10 @@
                             <a class="dropdown-item" href="">
                                 Completa il tuo profilo
                             </a>
-                            <a data-toggle="pill" href="#v-pills-apartments-new" role="tab" aria-controls="v-pills-apartments-new" class="dropdown-item" href="{{ route('logout') }}">
+                            <a class="dropdown-item" href="{{ route('apartments.create') }}">
                                 Nuovo Appartamento
                             </a>
-                            <a class="dropdown-item" href="{{ route('logout') }}">
+                            <a class="dropdown-item" href="{{ route('sponsorship.create') }}">
                                 Nuova sponsorizzazione
                             </a>
 
