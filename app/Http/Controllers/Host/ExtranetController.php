@@ -64,6 +64,8 @@ class ExtranetController extends Controller
                 ->where('images.cover', true)
                 ->orderBy('created_at', 'desc')->get();
 
+                fdefrdsfdsfsd
+
            
         }           
         return view('host.dashboard', compact('apartments', 'apartmentIds', 'messages', 'reviews', 'sponsored', 'cover'));
