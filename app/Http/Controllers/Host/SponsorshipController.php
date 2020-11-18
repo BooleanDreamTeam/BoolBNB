@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Sponsorship;
 use App\Apartment;
 
+use Illuminate\Support\Facades\DB;
+
 class SponsorshipController extends Controller
 {
     /**
@@ -42,10 +44,17 @@ class SponsorshipController extends Controller
         if (Auth::user()->user_type->name == 'Host'){
             $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->get();
         }
+        $messages = DB::table('messages')
+        ->join('apartments', 'messages.apartment_id', '=', 'apartments.id')
+        ->join('images', 'images.apartment_id', '=', 'apartments.id')
+        ->select('messages.*', 'images.imgurl')
+        ->where('images.cover', true)->where('apartments.host_id', Auth::id())
+        ->orderBy('created_at', 'desc')->get();
+
 
         $sponsorships = Sponsorship::all();
 
-        return view('host.sponsorships.create', compact('apartments','sponsorships','token'));
+        return view('host.sponsorships.create', compact('apartments','sponsorships','token', 'messages'));
     }
 
     /**
@@ -77,8 +86,6 @@ class SponsorshipController extends Controller
                 ]
 
             ]);
-
-            DB::create('update apartment_sponsorship set user_type_id = 2 where id = ?', [Auth::id()]);
 
             $apartment = Apartment::all()->find($request->apartment);
 

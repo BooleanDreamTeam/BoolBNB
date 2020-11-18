@@ -41,3 +41,4 @@ Route::prefix('host')->namespace('Host')->middleware('auth')->group(function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'guest'],function (){
     Route::get('/home', 'HomeController@index')->name('home');
 });
+

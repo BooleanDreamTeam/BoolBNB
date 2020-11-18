@@ -13,7 +13,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://js.braintreegateway.com/web/dropin/1.25.0/js/dropin.min.js"></script>
    
-    <!-- <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script> -->
+    @yield('js')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -72,7 +72,8 @@
             <ul class="navbar-nav ml-auto">
 
                 <!-- Nav Item - Messages -->
-                <li class="nav-item dropdown no-arrow mx-1">
+                <li class="nav-item dropdown no-arrow mx-1 d-flex align-items-center">
+                    <div class="nav-link">Hi {{Auth::user()->name}}</div>
                     <a class="nav-link messages dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="little-env fas fa-envelope fa-fw"></i>
                    
@@ -84,18 +85,22 @@
                         <h6 class="dropdown-header">
                             Message Center
                         </h6>
-
-                        <a class="dropdown-item d-flex align-items-center" href="#">
+                        @foreach($messages as $message )
+  
+                        
+                        <a class="messages dropdown-item d-flex align-items-center" href="">
                             <div class="dropdown-list-image mr-3">
-                                <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                                <img class="rounded app-img" src="{{$message->imgurl}}" alt="">
                                 <div class="status-indicator bg-success"></div>
                             </div>
-                            <div>
-                                <div class="">Am I a good boy? The reason I ask is because someone
-                                    told me that people say this to all dogs, even if they aren't good...</div>
-                                <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                            <div class="message-text">
+                                <div class="text">
+                                    <p class="text-wrap">{{$message->message}}</p>
+                                </div>
+                                <div class="small text-gray-500">{{$message->email}}</div>
                             </div>
                         </a>
+                        @endforeach
                         <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                     </div>
                 </li>
@@ -126,9 +131,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
                             <a class="dropdown-item" href="">
@@ -140,7 +143,6 @@
                             <a class="dropdown-item" href="{{ route('sponsorship.create') }}">
                                 Nuova sponsorizzazione
                             </a>
-
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>

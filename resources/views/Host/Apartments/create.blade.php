@@ -1,5 +1,14 @@
 @extends('layouts.extranet')
 
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>   
+    <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
+@endsection
+
+@section('script')
+    <script src="{{ asset('js/extranet.js') }}"></script>
+@endsection
+
 @section('content')
     
     {{-- INSERT APARTMENT --}}
