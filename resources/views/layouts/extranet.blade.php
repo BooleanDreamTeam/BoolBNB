@@ -52,9 +52,9 @@
                 <i class="fas fa-fw fa-home"></i>    
                 <span>My Apartments</span>
             </a>
-            <a class="nav-link" id="v-pills-sponsorship-tab" href="#v-pills-sponsorship" role="tab" aria-controls="v-pills-sponsorship" aria-selected="false">
-                <i class="fas fa-fw  fa-ad"></i>
-                <span>Advise</span>
+            <a class="nav-link" href="{{route('sponsorship.index')}}">
+                <i class="fas fa-star"></i>
+                <span>Sponsorships</span>
             </a>
             <a class="nav-link" id="v-pills-analitics-tab" href="#v-pills-analitics" role="tab" aria-controls="v-pills-analitics" aria-selected="false">
                 <i class="fas fa-fw fa-chart-line"></i>
@@ -84,7 +84,7 @@
                         <h6 class="dropdown-header">
                             Message Center
                         </h6>
-                        @foreach($messages as $message )
+                        {{-- @foreach($messages as $message )
   
                         
                         <a class="messages dropdown-item d-flex align-items-center" href="">
@@ -99,7 +99,7 @@
                                 <div class="small text-gray-500">{{$message->email}}</div>
                             </div>
                         </a>
-                        @endforeach
+                        @endforeach --}}
                         <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                     </div>
                 </li>

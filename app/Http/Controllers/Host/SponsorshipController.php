@@ -17,13 +17,13 @@ class SponsorshipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function index()
-    // {
-    //     if (Auth::user()->user_type->name == 'Host'){
-    //         $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->get();
-    //     }
-    //     return view('host.apartments.index', compact('apartments'));
-    // }
+    public function index()
+    {
+        if (Auth::user()->user_type->name == 'Host'){
+            $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->get();
+        }
+        return view('host.sponsorships.index', compact('apartments'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -178,9 +178,10 @@ class SponsorshipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function destroy(Apartment $apartment)
-    // {
-    //     $apartment->delete();
-    //     return redirect()->route('dashboard')->with('session', 'Hai cancellato correttamente il tuo appartamento');
-    // }
+    public function destroy(Request $request)
+    {
+        dd($request);
+
+        return back()->with('session', 'Hai cancellato correttamente la tua sponsorship!');
+    }
 }
