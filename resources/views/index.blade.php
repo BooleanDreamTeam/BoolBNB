@@ -38,32 +38,45 @@
         </form>
     </section>
 
-<div class="bg-fluid"></div>
 
-    <div class="container col-md-8">
+
+<div class="container col-md-8">
 
 
 {{-- Blocco di immagini per appartamenti in evidenza --}}
 
-<section id="highlighted" class="pt-4">
+    <section id="highlighted" class="pt-4">
 
-    <h2 class="text-center">Appartamenti in vista</h2>
+        <h2 class="text-center">Appartamenti in vista</h2>
 
-    @include('partials.apartments-row', ['apartments'=> $sponsored])
+        @include('partials.apartments-row', ['apartments'=> $sponsored])
 
-</section>
+    </section>
+</div>
+
+<div class="promo pt-3">
+    <h2 class="text-center">Roba da mettere come titolo</h2>
+    <div class="col-md-3">
+        <span>iconcina</span> <span>Numerone</span> <span>iconcina</span>
+        <p>testo sotto</p>
+    </div>
+</div>
+
+<div class="container col-md-8">
 
 {{-- Blocco di immagini per appartamenti NON in evidenza--}}
 
-<section id="simple-ap" class="pt-4">
+    <section id="simple-ap" class="pt-4">
 
-    <h2 class="text-center">Appartmenti</h2>
+        <h2 class="text-center">Appartmenti</h2>
 
-    @include('partials.apartments-row', ['apartments'=> $apartments])
+        @include('partials.apartments-row', ['apartments'=> $apartments])
 
-</section>
+    </section>
 
 </div>
+
+@include('partials.footer')
 
 @endsection
 
