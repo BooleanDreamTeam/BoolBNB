@@ -62,33 +62,33 @@ class ApartmentController extends Controller
         $lat = $arrayCordinates[0];
         $lng = $arrayCordinates[1];
 
-        $apartments = Apartment::all();
 
         if($request['radius']){
             $radius = $request['radius'] * 1000;
         } else {
-            $radius = 20000;
+            $radius = 10000;
         }
 
-        $apartmentByRange = [];
+        $apartments = Apartment::select(
+            // https://gis.stackexchange.com/a/31629  // il codice 6371 serve per il calcolo in km
+            DB::raw("
+            *, (
+            6371 * acos (
+            cos ( radians($lat) )
+            * cos( radians( latitude ) )
+            * cos( radians( longitude ) - radians($lng) )
+            + sin ( radians($lat) )
+            * sin( radians( latitude ) )
+            )
+            ) AS distance
+            ")
+            )
+            ->having('distance', '<=', $radius)
+            ->get();
+            dd($apartments);
 
-        foreach ($apartments as $apartment) {
-            
-            $appLat = $apartment->latitude;
-            $appLng = $apartment->longitude;
-
-            $range = N::getDistance($lat,$lng,$appLat,$appLng);
-
-            if ($range <= $radius) {
-                array_push($apartmentByRange,$apartment);
-            }
+            return view('search', compact('apartments'));
 
         }
-
-        ksort($apartmentByRange);
-
-        dd($apartmentByRange);
-    
-    }
 
 }
