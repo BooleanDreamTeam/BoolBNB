@@ -12,7 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('js')
-    
+
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
 
@@ -24,7 +24,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
 
 </head>
@@ -32,8 +32,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img style="display:inline; width:100px; filter: drop-shadow(0 5px 8px #333);"src="{{Storage::url('img/logo.png')}}" alt="">
+                <a class="navbar-brand p-0" href="{{ url('/') }}">
+                    <img style="display:inline; height:40px;" src="{{Storage::url('img/logo.png')}}" alt="">
                     <img style="display:inline; width:150px; margin-left: 20px;" class="animate__animated animate__rotateInDownRight animate__delay-1s"src="{{Storage::url('img/scrittarot.png')}}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -65,7 +65,7 @@
                                         <img class="avatar rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">
                                     @elseif (!(DB::table('user_details')->select('avatar')->where('user_details.user_id','=', Auth::id())->get()))
                                         <img class="avatar rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">
-                                    @else 
+                                    @else
                                     <img class="avatar rounded-circle" src="" alt="profile-img">
                                     @endif
 

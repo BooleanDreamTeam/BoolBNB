@@ -11,11 +11,11 @@ use Illuminate\Support\Facades\DB;
 
 class ApartmentController extends Controller
 {
-   
+
     public function index()
-    {   
+    {
         // prendo 4 appartamenti con almeno una sponsorship attiva
-        $sponsored = Apartment::whereHas('sponsorships', function (Builder $query) { 
+        $sponsored = Apartment::whereHas('sponsorships', function (Builder $query) {
             $query->where('expiration_date', '>', DB::raw('now()'));
         })->take(4)->get();
 
@@ -23,7 +23,7 @@ class ApartmentController extends Controller
         $toremove = Apartment::whereHas('sponsorships', function (Builder $query) {
         $query->where('expiration_date', '>', DB::raw('now()'));
         })->pluck('id');
-        
+
         // estraggo 4 appartamenti sottraendo gli id degli appartamenti con spons. attiva
         $apartments = Apartment::whereNotIn('id', $toremove)->take(7)->get();
 
@@ -36,7 +36,7 @@ class ApartmentController extends Controller
             ['apartment_id','=', $id],
             ['cover', '=', 0]
         ])->get();
-        $cover = Image::where([             
+        $cover = Image::where([
             ['apartment_id','=', $id],
             ['cover', '=', 1]
         ])->get();

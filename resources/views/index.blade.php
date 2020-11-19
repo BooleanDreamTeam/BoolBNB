@@ -8,16 +8,28 @@
 
   <!-- FORM DI RICERCA -->
 
-    <section id="search" class="d-flex justify-content-center">
-        <form class="d-flex align-items-center">
+
+
+
+
+    <section id="intro">
+        <div id="slider" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('{{ Storage::url('img/home-slide1.jpeg') }}')">
+                </div>
+                <div class="carousel-item" style="background-image: url('{{ Storage::url('img/home-slide2.jpeg') }}')">
+                </div>
+                <div class="carousel-item" style="background-image: url('{{ Storage::url('img/home-slide3.jpeg') }}')">
+
+                </div>
+            </div>
+        </div>
+        <form id="search">
             <div class="search-box">
 
                 <div class="form-row">
                     <div class="col">
-                        <input type="search" id="address-input" class="form-control" placeholder="Dove" />
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Numero Ospiti" />
+                        <input type="search" id="address-input" class="form-control" placeholder="Dove vuoi andare" />
                     </div>
 
                     <button type="submit" class="btn btn-primary ml-2">Cerca</button>
@@ -27,6 +39,7 @@
         </form>
     </section>
 
+<div class="bg-fluid"></div>
 
     <div class="container col-md-8">
 
@@ -35,34 +48,9 @@
 
 <section id="highlighted" class="pt-4">
 
-    <h2>Sponsorizzati</h2>
+    <h2 class="text-center">Sponsorizzati</h2>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-5">
-
-        @foreach ($sponsored as $apartment)
-
-            <div class="col mb-4 d-flex click card-p">
-                <a href="{{route('apartment.show',['id' => $apartment->id])}}">
-                    <div data-id="{{$apartment->id}}" class="card card_index flex-grow-1 wow animate__animated animate__fadeInUp">
-                    @if($apartment->cover)
-                        <img src="{{$apartment->cover->imgurl}}" class="img-fluid card-img-top" alt="{{ $apartment->title }}">
-                    @endif
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $apartment->title }}</h5>
-
-                        </div>
-                        <footer class="card-footer">
-                            <p class="card-text">
-                                <small class="text-muted">Stanze: {{ $apartment->n_rooms }}</small>
-                            </p>
-                        </footer>
-                    </div>
-                </a>
-            </div>
-
-        @endforeach
-
-    </div>
+    @include('partials.apartments-row', ['apartments'=> $sponsored])
 
 </section>
 
@@ -72,33 +60,7 @@
 
     <h2>Appartmenti</h2>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-5">
-
-        @foreach ($apartments as $apartment)
-
-        <div class="col-lg-3 mb-4 d-flex click card-p">
-            <a href="{{route('apartment.show',['id' => $apartment->id])}}">
-                <div data-id="{{$apartment->id}}" class="card card_index flex-grow-1 wow animate__animated animate__fadeInUp">
-
-                @if($apartment->cover)
-                    <img src="{{$apartment->cover->imgurl}}" class="img-fluid card-img-top" alt="{{ $apartment->title }}">
-                @endif
-                <div class="card-body">
-                <h5 class="card-title">{{ $apartment->title }}</h5>
-
-                </div>
-                <footer class="card-footer">
-                    <p class="card-text">
-                        <small class="text-muted">Stanze: {{ $apartment->n_rooms }}</small>
-                    </p>
-                </footer>
-                </div>
-            </a>
-        </div>
-
-        @endforeach
-
-    </div>
+    @include('partials.apartments-row', ['apartments'=> $apartments])
 
 </section>
 
