@@ -72,7 +72,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right wow animate__animated animate__bounceInDown" aria-labelledby="navbarDropdown">
                                     @if (Auth::user()->user_type->name == 'Host')
                                         <a class="dropdown-item" href="{{route('dashboard')}}">
                                             DashBoard

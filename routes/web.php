@@ -24,6 +24,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/search', 'ApartmentController@searching')->name('search');
+
 // ROUTE SOCIALIZE
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
