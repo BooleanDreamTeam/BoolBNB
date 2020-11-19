@@ -1,12 +1,16 @@
 @extends('layouts.extranet')
 
+@section('script')
+    <script src="{{ asset('js/input-validation.js') }}"></script>
+@endsection
+
 @section('content')
 
 {{-- MODIFY APARTMENT --}}
 
     <div class="advise content">
         <div class="container">
-            <form method="post" action="{{route('apartments.update',$apartment->id)}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('apartments.update',$apartment->id)}}" enctype="multipart/form-data" novalidate>
                 @csrf
                 @method('PATCH')
                 <div class="form-row">

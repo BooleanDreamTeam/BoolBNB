@@ -17062,6 +17062,10 @@ readers do not read off random characters that represent icons */
   cursor: pointer;
 }
 
+.status {
+  width: 50vw;
+}
+
 #slider {
   height: 500px;
   position: relative;

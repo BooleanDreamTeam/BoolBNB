@@ -29,7 +29,7 @@
                 <div class="form-row">
                     <div class="col d-flex justify-content-center">
                         @csrf
-                        <input type="search" id="address-input" name="address" class="form-control" placeholder="Dove vuoi andare"/>
+                        <input type="search" id="address-input" name="address" class="form-control" placeholder="Dove vuoi andare" required/>
                         <input type="hidden" name="cordinates" id="cordinates" >
                         <button type="submit" class="btn btn-primary ml-2">Cerca</button>
                     </div>
