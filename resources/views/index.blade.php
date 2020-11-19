@@ -48,7 +48,7 @@
 
 <section id="highlighted" class="pt-4">
 
-    <h2 class="text-center">Sponsorizzati</h2>
+    <h2 class="text-center">Appartamenti in vista</h2>
 
     @include('partials.apartments-row', ['apartments'=> $sponsored])
 
@@ -58,7 +58,7 @@
 
 <section id="simple-ap" class="pt-4">
 
-    <h2>Appartmenti</h2>
+    <h2 class="text-center">Appartmenti</h2>
 
     @include('partials.apartments-row', ['apartments'=> $apartments])
 

@@ -25,7 +25,7 @@ class ApartmentController extends Controller
         })->pluck('id');
 
         // estraggo 4 appartamenti sottraendo gli id degli appartamenti con spons. attiva
-        $apartments = Apartment::whereNotIn('id', $toremove)->take(7)->get();
+        $apartments = Apartment::whereNotIn('id', $toremove)->take(8)->get();
 
         return view('index',compact('sponsored', 'apartments'));
     }
