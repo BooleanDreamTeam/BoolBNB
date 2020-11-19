@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Sponsorship;
 use App\Apartment;
+use App\Message;
 
 use Illuminate\Support\Facades\DB;
 
@@ -21,8 +22,9 @@ class SponsorshipController extends Controller
     {
         if (Auth::user()->user_type->name == 'Host'){
             $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->get();
+            $messages = Message::getmes()->take(4);
         }
-        return view('host.sponsorships.index', compact('apartments'));
+        return view('host.sponsorships.index', compact('apartments', 'messages'));
     }
 
     /**
@@ -45,12 +47,7 @@ class SponsorshipController extends Controller
         if (Auth::user()->user_type->name == 'Host'){
             $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->get();
         }
-        $messages = DB::table('messages')
-        ->join('apartments', 'messages.apartment_id', '=', 'apartments.id')
-        ->join('images', 'images.apartment_id', '=', 'apartments.id')
-        ->select('messages.*', 'images.imgurl')
-        ->where('images.cover', true)->where('apartments.host_id', Auth::id())
-        ->orderBy('created_at', 'desc')->get();
+        $messages = Message::getmes()->take(4);
 
 
         $sponsorships = Sponsorship::all();

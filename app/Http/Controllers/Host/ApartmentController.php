@@ -28,7 +28,7 @@ class ApartmentController extends Controller
         $apartmentIds = $apartments->pluck('id');
         $cover = Image::wherein('apartment_id', $apartmentIds)->where('cover', true)->get();
         
-        $messages = Message::getmes();
+        $messages = Message::getmes()->take(4);
         return view('host.apartments.index', compact('apartments', 'messages', 'cover'));
     }
 
@@ -40,7 +40,7 @@ class ApartmentController extends Controller
     public function create()
     {
         $services = Service::all();
-        $messages = Message::getmes();
+        $messages = Message::getmes()->take(4);
 
         return view('host.apartments.create', compact('services', 'messages'));
     }
@@ -142,7 +142,7 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        $messages = Message::getmes();
+        $messages = Message::getmes()->take(4);
         $services = Service::all();
         $apartmentImages = Image::all()->where('apartment_id',$apartment->id);
         return view('host.apartments.edit', compact('apartment', 'services', 'apartmentImages'));

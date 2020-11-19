@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Host;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Apartment;
-use App\UserType;
-use App\Service;
-use App\Message;
-use App\User;
-use App\Image;
-use App\Sponsorship;
-use App\Review;
-use File; 
 use Illuminate\Support\Facades\Auth;
+use App\Apartment;
+use App\Sponsorship;
+use App\Image;
+use App\Message;
+use App\Review;
+use App\Click;
+
+use App\User;
+
+use File; 
+
 class ExtranetController extends Controller
 {
     public function dashboard()
@@ -32,12 +34,14 @@ class ExtranetController extends Controller
             $sponsoredoff = Sponsorship::nosponsored();
 
             $cover = Image::wherein('apartment_id', $apartmentIds)->where('cover', true)->get();
-            
+ 
             //filtro i messaggi arrivati per gli appartamenti di proprietà dell'host
             $messages = Message::getmes()->take(4);
 
             //
             $reviews = Review::reviews()->take(5);
+            
+            
         }           
         return view('host.dashboard', compact('apartments', 'apartmentIds', 'messages', 'reviews', 'sponsored', 'cover'));
     }

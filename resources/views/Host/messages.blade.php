@@ -2,7 +2,7 @@
 
 @section('content')
 
-@foreach($messages as $message )                     
+@foreach($allmessages as $message )                     
   <a class="messages dropdown-item d-flex align-items-center" href="">
       <div class="dropdown-list-image mr-3">
           <img class="rounded app-img" src="{{$message->imgurl}}" alt="">

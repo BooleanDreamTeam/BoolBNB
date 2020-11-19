@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/extranet.js') }}"></script>
+    
     @yield('js')
 
     <!-- Fonts -->
@@ -25,21 +25,20 @@
 </head>
 <body>
     <!-- sidebar -->
-<div class="row row-main">
+<div class="row row-main" id="sidebar">
     <div class="sidebar-nav d-flex pl-4 pt-3 col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" >
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-
                 <img class="img-fluid" id="logo" src="{{Storage::url('img/logo.png')}}" alt="logo">
                 <img class="img-fluid write" id="bnb" src="{{Storage::url('img/boolbnb-white.png')}}" alt="Boolbnb">
             </a>
             <div class="hr  mt-4 mb-4 mr-auto ml-auto"></div>
-            <a href="{{Route('dashboard')}}" class="nav-link active" id="v-pills-home-tab" role="tab" aria-controls="v-pills-home" aria-selected="true">
+            <a href="{{Route('dashboard')}}" class="nav_item nav-link active" id="v-pills-home-tab" role="tab" aria-controls="v-pills-home" aria-selected="true">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span>
             </a>
             <div class="hr  mt-4 mb-4 mr-auto ml-auto"></div>
-            <a href="" class="nav-link" id="v-pills-profile-tab" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+            <a href="#" class="nav_item nav-link" id="v-pills-profile-tab" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                 <i class="fas fa-fw fa-user-alt"></i>
                 <span>Profile</span>
             </a>
@@ -84,7 +83,7 @@
                         <h6 class="dropdown-header">
                             Message Center
                         </h6>
-                        {{-- @foreach($messages as $message )
+                        @foreach($messages as $message )
   
                         
                         <a class="messages dropdown-item d-flex align-items-center" href="">
@@ -99,7 +98,7 @@
                                 <div class="small text-gray-500">{{$message->email}}</div>
                             </div>
                         </a>
-                        @endforeach --}}
+                        @endforeach
                         <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                     </div>
                 </li>

@@ -1,6 +1,8 @@
 <?php
 
 namespace App;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,4 +18,6 @@ class Image extends Model
     public function apartment(){
         return $this->belongsTo('App\User');
     }
+
+
 }

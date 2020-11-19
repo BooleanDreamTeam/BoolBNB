@@ -2,15 +2,31 @@
 
         
 @section('content')
-    <div class="box col-12 col-sm-6 col-md-8  col-lg-9 col-xl-9 pb-3">
-        <!-- appartamenti -->
+    <div class="box col-12 ">
+        
+    <div class="chart d-flex col-12">
+        <!-- visualizzazioni -->
+        <div class="bar col-md-6">
+        <canvas class="" id="myChart"></canvas>
+        </div>
+        <div class="bar col-md-6">
+        <canvas class="" id="myChart2"></canvas>
+
+        </div>
+        
+      
+        
+        
+    </div>
+    <hr>
+    <!-- appartamenti -->
         <h2>My Appartments</h2>
         <div class="apartments d-flex flex-wrap">
         
-        @foreach($apartments as $key=>$apartment)
+        @foreach($apartments as $apartment)
             <div class="col-lg-3 mt-4 d-flex">
                 <div class="card card-e">
-                    <img src="{{$cover[$key]->imgurl}}" class="card-img-top card-e-img-top" alt="{{ $apartment->title }}">
+                    <div class="card-e-img-top" style="background-image: url({{$apartment->cover->imgurl}}"></div>
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">{{ $apartment->title }}</h6>
                     </div>
@@ -58,21 +74,6 @@
 
     </div>
   
-
-
-    <div class="chart  col col-12 col-sm-6 col-md-4 col-lg-3 ">
-        <!-- visualizzazioni -->
-        <canvas id="myChart"></canvas>
-        <hr>
-        <canvas id="myChart2"></canvas>
-        <hr>
-    </div>
-    
-    
-  
-
-
-
 
 @endsection
 
