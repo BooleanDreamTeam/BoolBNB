@@ -3,18 +3,19 @@
     a {
         .card_index {
             transition: 0.5s ease-in-out;
-
-            .card-img-top {
-                height: 100%;
-            }
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
         }
 
+        .img-box {
+            // height: 250px;
+        }
 
-
-        .card-body {}
+        .card-body {
+            min-height: 96px;
+        }
 
         .card-title {
-            color: black;
+            // color: black;
         }
 
         .card-footer {

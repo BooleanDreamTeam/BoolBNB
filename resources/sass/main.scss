@@ -1,34 +1,61 @@
 @import 'partials/_cards';
 
-section#search {
+#slider {
     height: 400px;
-    background-image: url('/../storage/img/home-cover.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     position: relative;
 }
 
-#search::before {
+.carousel-inner {
+    height: 100%;
+}
+
+.carousel-item {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+
+section#intro {
+    position: relative;
+}
+
+
+#intro::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    // background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 100;
+}
+
+form#search {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+    z-index: 200;
 }
 
 .form-row {
-    padding: 12px 26px;
+    padding: 12px 35px;
 }
 
 .search-box {
     background-color: #fff;
-    border-radius: 20px;
+    border-radius: 25px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
+.bg-fluid {
+    height: 60px;
+    background-color: #ECECEC;
+    border: 1px solid lightgrey;
+}
 
 section#simple-ap {
     margin-top: 35px;
