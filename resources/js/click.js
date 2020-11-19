@@ -14,6 +14,8 @@ $(document).ready(function() {
         }
     });
 
+    
+
 });
 
 function getDetailsIp(ip,browser,id_apartment) {

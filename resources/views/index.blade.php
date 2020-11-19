@@ -24,17 +24,16 @@
                 </div>
             </div>
         </div>
-        <form id="search">
+        <form id="search" action="{{route('search')}}" method="get">
             <div class="search-box">
-
                 <div class="form-row">
-                    <div class="col">
-                        <input type="search" id="address-input" class="form-control" placeholder="Dove vuoi andare" />
+                    <div class="col d-flex justify-content-center">
+                        @csrf
+                        <input type="search" id="address-input" name="address" class="form-control" placeholder="Dove vuoi andare"/>
+                        <input type="hidden" name="cordinates" id="cordinates" >
+                        <button type="submit" class="btn btn-primary ml-2">Cerca</button>
                     </div>
-
-                    <button type="submit" class="btn btn-primary ml-2">Cerca</button>
                 </div>
-
             </div>
         </form>
     </section>

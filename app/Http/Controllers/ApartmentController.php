@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Treffynnon\Navigator as N;
 use App\Apartment;
 use App\Image;
 use Illuminate\Database\Eloquent\Builder;
@@ -41,6 +43,52 @@ class ApartmentController extends Controller
             ['cover', '=', 1]
         ])->get();
         return view('show-apartment', compact('apartment', 'images', 'cover'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function searching(Request $request) {
+
+        $latlng = $request['cordinates'];
+
+        $arrayCordinates = explode(",", $latlng);
+
+        $lat = $arrayCordinates[0];
+        $lng = $arrayCordinates[1];
+
+        $apartments = Apartment::all();
+
+        if($request['radius']){
+            $radius = $request['radius'] * 1000;
+        } else {
+            $radius = 20000;
+        }
+
+        $apartmentByRange = [];
+
+        foreach ($apartments as $apartment) {
+            
+            $appLat = $apartment->latitude;
+            $appLng = $apartment->longitude;
+
+            $range = N::getDistance($lat,$lng,$appLat,$appLng);
+
+            if ($range <= $radius) {
+                array_push($apartmentByRange,$apartment);
+            }
+
+        }
+
+        ksort($apartmentByRange);
+
+        dd($apartmentByRange);
+    
     }
 
 }

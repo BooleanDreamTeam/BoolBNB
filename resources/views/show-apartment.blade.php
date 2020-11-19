@@ -116,7 +116,11 @@
                                 <input type="hidden" name="apartment_id" value="{{$apartment->id}}">
                                 <div class="md-form">
                                     <i class="fas fa-envelope prefix grey-text"></i>
-                                    <input type="text" name="email" id="form-email" class="form-control">
+                                    @guest
+                                        <input type="text" name="email" id="form-email" class="form-control">
+                                    @else
+                                        <input type="text" name="email" id="form-email" value="{{Auth::user()->email}}" class="form-control">
+                                    @endguest    
                                     <label for="form-email">Your email</label>
                                 </div>
 
