@@ -64,6 +64,13 @@ class SponsorshipController extends Controller
     public function store(Request $request)
     {  
 
+            $request->validate([
+                'amount' => 'numeric|required|min:1|',
+                'payment_method_nonce' => 'required',
+                'apartment' => 'required|exists:apartments,id',
+                'sponsorshipClicked' => 'required',
+            ]);
+
             $gateway = new \Braintree\Gateway([
                 'environment' => getenv('BT_ENVIRONMENT'),
                 'merchantId' => getenv('BT_MERCHANT_ID'),
@@ -97,8 +104,11 @@ class SponsorshipController extends Controller
             $saved = $apartment->sponsorships()->attach($request->sponsorshipClicked , ['started_at' => $now, 'expiration_date' => $now->add($sponsorship->time,'hour')]);
 
 
-            return back()->with('success_message', 'Sposorizzazione avvenuta con successo!');
-
+            if ($result) {
+                return back()->with('status', 'Sposorizzazione avvenuta con successo!');
+            } else {
+                return back()->with('error', 'Sposorizzazione negata!');
+            }
 
     }
 

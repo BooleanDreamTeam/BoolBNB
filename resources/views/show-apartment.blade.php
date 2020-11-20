@@ -16,10 +16,29 @@
 
 @section('content')
 
-
         <!-- section titolo MOCKUP3 -->
 
         <div class="container">
+
+            {{-- ERROR --}}
+            @if ($errors->any())
+            <div class="alert alert-danger status mx-auto fixed-top m-5">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
+            @if (session('status'))
+            <div class="alert alert-success status mx-auto fixed-top m-5">
+                {{ session('status') }}
+            </div>
+            @endif
+            {{-- ERROR--}}
+
+
             <div class="card card_show mb-3" data-lat="{{$apartment->latitude}}"  data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}">
                 @foreach ($cover as $img)
                     <img class="card-img-top img-height" src="{{$img->imgurl}}" alt="{{$img->imgurl}}">
@@ -117,16 +136,16 @@
                                 <div class="md-form">
                                     <i class="fas fa-envelope prefix grey-text"></i>
                                     @guest
-                                        <input type="text" name="email" id="form-email" class="form-control">
+                                        <input type="text" name="email" id="form-email" class="form-control" required>
                                     @else
-                                        <input type="text" name="email" id="form-email" value="{{Auth::user()->email}}" class="form-control">
+                                        <input type="text" name="email" id="form-email" value="{{Auth::user()->email}}" class="form-control" required>
                                     @endguest    
                                     <label for="form-email">Your email</label>
                                 </div>
 
                                 <div class="md-form">
                                     <i class="fas fa-pencil-alt prefix grey-text"></i>
-                                    <textarea id="form-text" name="message" class="form-control md-textarea" rows="3"></textarea>
+                                    <textarea id="form-text" name="message" class="form-control md-textarea" rows="3" required></textarea>
                                     <label for="form-text">Message</label>
                                 </div>
 

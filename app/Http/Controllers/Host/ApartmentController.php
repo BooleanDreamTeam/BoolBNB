@@ -118,8 +118,8 @@ class ApartmentController extends Controller
             }
                 
         }
-            
-        return redirect()->route('dashboard')->with('session', "Appartamento $apartment->title creato!");
+
+        return redirect()->route('dashboard')->with('status', "Appartamento $apartment->title creato!");   
 
     }
 
@@ -188,7 +188,7 @@ class ApartmentController extends Controller
 
         $apartment->update($data);
 
-        return redirect()->route('dashboard')->with('session', "Modifiche all'appartamento $apartment->title  effettuate");
+        return redirect()->route('dashboard')->with('status', "Modifiche all'appartamento $apartment->title  effettuate");
     }
 
     /**
@@ -200,6 +200,7 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         $apartment->delete();
-        return redirect()->route('dashboard')->with('session', 'Hai cancellato correttamente il tuo appartamento');
+        
+        return redirect()->route('dashboard')->with('status', 'Hai cancellato correttamente il tuo appartamento');
     }
 }

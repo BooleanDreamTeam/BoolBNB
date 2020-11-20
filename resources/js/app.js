@@ -2,6 +2,7 @@
 require('./bootstrap');
 require('chart.js/dist/Chart.min.js');
 import WOW from 'wowjs';
+import Typed from 'typed.js';
 new WOW.WOW().init();
 //------//
 
@@ -12,6 +13,13 @@ $(document).ready(function() {
     if (window.location.pathname == '/'|| window.location.pathname == '/host/firstapartment/create') {
         
         // ALGOLIA INDEX
+
+        var typed = new Typed('#smart-write', {
+            strings: ["Benvenuti in ^1000 BoolBNB", "Cerca l'appartamento dei tuoi sogni!"],
+            typeSpeed: 70,
+            smartBackspace: true,
+            backSpeed: 70,
+          });          
 
         var placesAutocomplete = places({
             appId: 'pl19ZMXZ5X0L',

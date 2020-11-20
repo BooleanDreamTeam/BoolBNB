@@ -2,7 +2,6 @@
 
         
 @section('content')
-    <div class="box col-12 ">
         
     <div class="chart d-flex col-12">
         <!-- visualizzazioni -->
@@ -20,6 +19,26 @@
     </div>
     <hr>
     <!-- appartamenti -->
+    <div class="box col-12 col-sm-6 col-md-8  col-lg-9 col-xl-9 pb-3">
+
+        {{-- ERROR --}}
+        <div class="alert alert-danger status mx-auto fixed-top m-5">
+        @if ($errors->any())
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        @if (session('status'))
+        <div class="alert alert-success status mx-auto fixed-top m-5">
+            {{ session('status') }}
+        </div>
+        @endif
+        {{-- ERROR--}}
+
         <h2>My Appartments</h2>
         <div class="apartments d-flex flex-wrap">
         
