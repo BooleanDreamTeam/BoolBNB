@@ -8,10 +8,6 @@
 
   <!-- FORM DI RICERCA -->
 
-
-
-
-
     <section id="intro">
         <div id="slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -31,7 +27,7 @@
                         @csrf
                         <input type="search" id="address-input" name="address" class="form-control" placeholder="Dove vuoi andare"/>
                         <input type="hidden" name="cordinates" id="cordinates" >
-                        <button type="submit" class="btn btn-primary ml-2">Cerca</button>
+                        <button type="submit" class="btn btn-primary ml-3">C</button>
                     </div>
                 </div>
             </div>
@@ -54,7 +50,7 @@
     </section>
 </div>
 
-<div class="promo pt-3">
+<div class="promo mt-4 pt-4">
     <h2 class="text-center">Roba da mettere come titolo</h2>
     <div class="col-md-3">
         <span>iconcina</span> <span>Numerone</span> <span>iconcina</span>
