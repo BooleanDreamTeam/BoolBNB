@@ -18,7 +18,7 @@
     <div class="sx">
 
         <div class="btn-group m-4">
-          <button type="button" class="btn btn-danger dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="btn dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Servizi
           </button>
           <div class="dropdown-menu">
@@ -30,7 +30,7 @@
               @endforeach
           </div>
 
-          <button type="button" class="btn btn-danger dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="btn dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Stanze
           </button>
           <div class="dropdown-menu">
@@ -41,7 +41,7 @@
             <a class="dropdown-item" href="#">Separated link</a>
           </div>
 
-          <button type="button" class="btn btn-danger dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="btn dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Posti Letto
           </button>
           <div class="dropdown-menu">
@@ -52,7 +52,7 @@
             <a class="dropdown-item" href="#">Separated link</a>
           </div>
 
-          <button type="button" class="btn btn-danger dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="btn dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Raggio
           </button>
           <div class="dropdown-menu">
