@@ -19,6 +19,7 @@ $(document).ready(function() {
             typeSpeed: 70,
             smartBackspace: true,
             backSpeed: 70,
+            showCursor: false
           });          
 
         var placesAutocomplete = places({
@@ -75,8 +76,6 @@ $(document).ready(function() {
         if (apartments) {
           
           for (let i = 0; i < apartments.length; i++) {
-
-            console.log('ciao');
 
             var marker = L.marker(apartments[i]);
             marker.addTo(map);
