@@ -15,7 +15,7 @@
                 </div>
                 <div class="carousel-item" style="background-image: url('{{ Storage::url('img/home-slide2.jpeg') }}')">
                 </div>
-                <div class="carousel-item" style="background-image: url('{{ Storage::url('img/home-slide3.jpeg') }}')">
+                <div class="carousel-item" style="background-image: url('{{ Storage::url('img/home-slide4.jpeg') }}')">
 
                 </div>
             </div>
@@ -73,7 +73,7 @@
 
 </div>
 
-@include('partials.footer')
+{{-- @include('partials.footer') --}}
 
 @endsection
 
