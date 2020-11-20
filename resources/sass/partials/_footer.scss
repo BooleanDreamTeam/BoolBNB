@@ -1,0 +1,20 @@
+.info {
+    height: 220px;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.bg-fluid {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.credits {
+    border-top: 1px solid black;
+    color: #7f8693;
+    font-size: 14px;
+
+    .jm_social-icon .fab {
+        padding-left: 8px;
+        padding-right: 8px;
+        color: #7f8693;
+    }
+}

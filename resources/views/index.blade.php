@@ -8,10 +8,6 @@
 
   <!-- FORM DI RICERCA -->
 
-
-
-
-
     <section id="intro">
         <div id="slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -31,39 +27,52 @@
                         @csrf
                         <input type="search" id="address-input" name="address" class="form-control" placeholder="Dove vuoi andare"/>
                         <input type="hidden" name="cordinates" id="cordinates" >
-                        <button type="submit" class="btn btn-primary ml-2">Cerca</button>
+                        <button type="submit" class="btn btn-primary ml-3">C</button>
                     </div>
                 </div>
             </div>
         </form>
     </section>
 
-<div class="bg-fluid"></div>
 
-    <div class="container col-md-8">
+
+<div class="container col-md-8">
 
 
 {{-- Blocco di immagini per appartamenti in evidenza --}}
 
-<section id="highlighted" class="pt-4">
+    <section id="highlighted" class="pt-4">
 
-    <h2 class="text-center">Appartamenti in vista</h2>
+        <h2 class="text-center">Appartamenti in vista</h2>
 
-    @include('partials.apartments-row', ['apartments'=> $sponsored])
+        @include('partials.apartments-row', ['apartments'=> $sponsored])
 
-</section>
+    </section>
+</div>
+
+<div class="promo mt-4 pt-4">
+    <h2 class="text-center">Roba da mettere come titolo</h2>
+    <div class="col-md-3">
+        <span>iconcina</span> <span>Numerone</span> <span>iconcina</span>
+        <p>testo sotto</p>
+    </div>
+</div>
+
+<div class="container col-md-8">
 
 {{-- Blocco di immagini per appartamenti NON in evidenza--}}
 
-<section id="simple-ap" class="pt-4">
+    <section id="simple-ap" class="pt-4">
 
-    <h2 class="text-center">Appartmenti</h2>
+        <h2 class="text-center">Appartmenti</h2>
 
-    @include('partials.apartments-row', ['apartments'=> $apartments])
+        @include('partials.apartments-row', ['apartments'=> $apartments])
 
-</section>
+    </section>
 
 </div>
+
+@include('partials.footer')
 
 @endsection
 
