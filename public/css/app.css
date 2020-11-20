@@ -17123,19 +17123,29 @@ form#search {
 }
 
 .form-row {
-  padding: 12px 35px;
+  padding: 10px 40px;
+}
+
+.form-row .form-control {
+  border: none;
+  border-radius: 20px;
+}
+
+.form-row .btn {
+  border-radius: 80%;
 }
 
 .search-box {
   background-color: #fff;
-  border-radius: 25px;
+  border-radius: 30px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
-.bg-fluid {
-  height: 60px;
-  background-color: #ECECEC;
-  border: 1px solid lightgrey;
+.promo {
+  background-color: #00B3B3;
+  color: white;
+  height: 250px;
+  opacity: 0.8;
 }
 
 section#simple-ap {
@@ -17145,5 +17155,26 @@ section#simple-ap {
 .avatar {
   height: 35px;
   margin-right: 10px;
+}
+
+.info {
+  height: 220px;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.bg-fluid {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.credits {
+  border-top: 1px solid black;
+  color: #7f8693;
+  font-size: 14px;
+}
+
+.credits .jm_social-icon .fab {
+  padding-left: 8px;
+  padding-right: 8px;
+  color: #7f8693;
 }
 
