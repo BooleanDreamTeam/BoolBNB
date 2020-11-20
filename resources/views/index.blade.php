@@ -20,19 +20,23 @@
                 </div>
             </div>
         </div>
-        <form id="search" action="{{route('search')}}" method="get">
-            <h2 id="smart-write" class="m-3 col-md-12"></h2>
-            <div class="search-box">
-                <div class="form-row">
-                    <div class="col d-flex justify-content-around col-md-12">
-                        @csrf
-                        <input type="search" id="address-input" name="address" class="form-control" placeholder="Dove vuoi andare" required/>
-                        <input type="hidden" name="cordinates" id="cordinates" >
-                        <button type="submit" class="btn btn-primary ml-3">C</button>
+        <div class="search-wrapper d-flex flex-column justify-content-center align-items-center">
+            <h2 id="smart-write"></h2>
+            <form id="search" action="{{route('search')}}" method="get">
+                <div class="search-box">
+                    <div class="form-row">
+                        <div class="col d-flex justify-content-around col-md-12">
+                            @csrf
+                            <input type="search" id="address-input" name="address" class="form-control" placeholder="Dove vuoi andare" required/>
+                            <input type="hidden" name="cordinates" id="cordinates" >
+                            <button type="submit" class="btn btn-primary ml-3">
+                                <i class="fas fa-search-location"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </section>
 
 

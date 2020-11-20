@@ -17071,17 +17071,6 @@ readers do not read off random characters that represent icons */
   height: 60px;
 }
 
-#search {
-  min-height: 40vh;
-}
-
-#search h2 {
-  text-align: center;
-  font-size: 3em;
-  color: white;
-  text-shadow: 1px 1px #ffffff;
-}
-
 #slider {
   height: 80vh;
   position: relative;
@@ -17113,13 +17102,21 @@ section#intro {
   z-index: 100;
 }
 
-form#search {
+.search-wrapper {
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.9;
   z-index: 200;
+}
+
+.search-wrapper h2 {
+  height: 51px;
+  text-align: center;
+  font-size: 3em;
+  color: white;
+  margin-bottom: 80px;
+  text-shadow: 1px 1px #ffffff;
 }
 
 .form-row {
@@ -17136,9 +17133,11 @@ form#search {
 }
 
 .search-box {
+  max-width: 350px;
   background-color: #fff;
   border-radius: 30px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
 }
 
 .promo {
