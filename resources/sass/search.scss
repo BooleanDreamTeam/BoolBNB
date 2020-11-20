@@ -12,13 +12,9 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
-
-
-.top {
-    height: 10vh;
-    width: 100vw;
-    background-color: red;
+.btn-group {
+    display: flex;
+    justify-content: space-between;
 }
 
 .search-apartment {
@@ -42,7 +38,7 @@
     width: 100%;
 }
 
-.card {
+.card, button {
     box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
 }
 
