@@ -35,11 +35,28 @@ $(document).ready(function() {
 
     }
 
+    if (window.location.pathname == '/search') {
+
+      var apartments = $('.card_apartment_search');
+
+      var arrayApartments = [];
+
+      for (let i = 0; i < apartments.length; i++) {
+        arrayApartments.push({lat : apartments[i].dataset.lat, lng : apartments[i].dataset.lng});
+      }
+      
+      mapShow($('#map_container').data('lat'),$('#map_container').data('lng'),arrayApartments);
+
+      
+
+    }
+
     // MAPPA SHOW
 
     mapShow($('.card_show').data('lat'),$('.card_show').data('lng'));
 
-      function mapShow(lat,lng) {
+    function mapShow(lat,lng,apartments) {    
+
         const map = L.map("map_container").setView([lat,lng], 13);
 
         var osmLayer = new L.TileLayer(
@@ -53,10 +70,23 @@ $(document).ready(function() {
         map.addLayer(osmLayer);
     
         L.marker([lat, lng]).addTo(map);
+
+
+        if (apartments) {
+          
+          for (let i = 0; i < apartments.length; i++) {
+
+            console.log('ciao');
+
+            var marker = L.marker(apartments[i]);
+            marker.addTo(map);
+    
+          }
+
+        }
     
         return map;
     }
-    
 
 
 });

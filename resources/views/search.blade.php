@@ -8,12 +8,10 @@
 @endsection
 
 @section('script')
-
+<script src="{{ asset('js/app.js') }}"></script>
 @endsection
 
 @section('content')
-
-
 
 
 <section class="search-apartment">
@@ -21,7 +19,19 @@
 
         <div class="btn-group m-4">
           <button type="button" class="btn btn-danger dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Action
+            Servizi
+          </button>
+          <div class="dropdown-menu">
+              @foreach ($services as $service)
+              <div class="dropdown-item">
+                <label for="{{$service->name}}"></label>
+                <input type="checkbox" name="{{$service->name}}" id="{{$service->name}}">
+              </div>
+              @endforeach
+          </div>
+
+          <button type="button" class="btn btn-danger dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Stanze
           </button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">Action</a>
@@ -32,7 +42,7 @@
           </div>
 
           <button type="button" class="btn btn-danger dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Action
+            Posti Letto
           </button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">Action</a>
@@ -43,18 +53,7 @@
           </div>
 
           <button type="button" class="btn btn-danger dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Action
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-
-          <button type="button" class="btn btn-danger dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Action
+            Raggio
           </button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">Action</a>
@@ -67,114 +66,31 @@
         </div>
 
 
-
+        @foreach ($apartments as $apartment)
         <div class="bs-example m-4 rounded">
-            <div class="card">
+            <div class="card card_apartment_search" data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}">
                 <div class="row no-gutters">
                     <div class="col-sm-5">
-                        <img src="https://dhqbz5vfue3y3.cloudfront.net/fotobbit/53016/4/z_20191219_113335415.jpg?rfh=2" class="card-img-top img-fluid" alt="...">
+                        <img src="{{$apartment->cover->imgurl}}" class="card-img-top img-fluid" alt="{{$apartment->cover->imgurl}}">
                     </div>
                     <div class="col-sm-7">
                         <div class="card-body">
-                            <h5 class="card-title">Alice Liddel</h5>
-                            <p class="card-text">Alice is a freelance web designer and developer based in London. She is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.</p>
+                            <h5 class="card-title">{{$apartment->title}}</h5>
+                            <p class="card-text">{{$apartment->description}}</p>
                             <a href="#" class="btn btn-primary stretched-link">View Profile</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="bs-example m-4">
-            <div class="card">
-                <div class="row no-gutters">
-                    <div class="col-sm-5">
-                        <img src="https://dhqbz5vfue3y3.cloudfront.net/fotobbit/53016/4/z_20191219_113335415.jpg?rfh=2" class="card-img-top img-fluid" alt="...">                            </div>
-                    <div class="col-sm-7">
-                        <div class="card-body">
-                            <h5 class="card-title">Alice Liddel</h5>
-                            <p class="card-text">Alice is a freelance web designer and developer based in London. She is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.</p>
-                            <a href="#" class="btn btn-primary stretched-link">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bs-example m-4">
-            <div class="card">
-                <div class="row no-gutters">
-                    <div class="col-sm-5">
-                        <img src="https://dhqbz5vfue3y3.cloudfront.net/fotobbit/53016/4/z_20191219_113335415.jpg?rfh=2" class="card-img-top img-fluid" alt="...">
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="card-body">
-                            <h5 class="card-title">Alice Liddel</h5>
-                            <p class="card-text">Alice is a freelance web designer and developer based in London. She is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.</p>
-                            <a href="#" class="btn btn-primary stretched-link">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bs-example m-4">
-            <div class="card">
-                <div class="row no-gutters">
-                    <div class="col-sm-5">
-                        <img src="https://dhqbz5vfue3y3.cloudfront.net/fotobbit/53016/4/z_20191219_113335415.jpg?rfh=2" class="card-img-top img-fluid" alt="...">
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="card-body">
-                            <h5 class="card-title">Alice Liddel</h5>
-                            <p class="card-text">Alice is a freelance web designer and developer based in London. She is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.</p>
-                            <a href="#" class="btn btn-primary stretched-link">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bs-example m-4">
-            <div class="card">
-                <div class="row no-gutters">
-                    <div class="col-sm-5">
-                        <img src="https://dhqbz5vfue3y3.cloudfront.net/fotobbit/53016/4/z_20191219_113335415.jpg?rfh=2" class="card-img-top img-fluid" alt="...">
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="card-body">
-                            <h5 class="card-title">Alice Liddel</h5>
-                            <p class="card-text">Alice is a freelance web designer and developer based in London. She is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.</p>
-                            <a href="#" class="btn btn-primary stretched-link">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bs-example m-4">
-            <div class="card">
-                <div class="row no-gutters">
-                    <div class="col-sm-5">
-                        <img src="https://dhqbz5vfue3y3.cloudfront.net/fotobbit/53016/4/z_20191219_113335415.jpg?rfh=2" class="card-img-top img-fluid" alt="...">
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="card-body">
-                            <h5 class="card-title">Alice Liddel</h5>
-                            <p class="card-text">Alice is a freelance web designer and developer based in London. She is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.</p>
-                            <a href="#" class="btn btn-primary stretched-link">View Profile</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
 
     </div>
 
     <div class="dx">
 
-            <div class="col wow animate__animated animate__flipInX animate__delay-1s" >
-                <div id="map_container">
+            <div class="col" >
+                <div id="map_container" data-lat="{{$lat}}" data-lng="{{$lng}}">
 
                 </div>
             </div>

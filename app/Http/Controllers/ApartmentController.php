@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Treffynnon\Navigator as N;
 use App\Apartment;
 use App\Image;
+use App\Service;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
@@ -55,6 +56,8 @@ class ApartmentController extends Controller
 
     public function searching(Request $request) {
 
+        $services = Service::all();
+
         $latlng = $request['cordinates'];
 
         $arrayCordinates = explode(",", $latlng);
@@ -85,9 +88,8 @@ class ApartmentController extends Controller
             )
             ->having('distance', '<=', $radius)
             ->get();
-            // dd($apartments);
 
-            return view('search', compact('apartments'));
+            return view('search', compact('apartments','services','lat','lng'));
 
         }
 
