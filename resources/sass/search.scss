@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sx::-webkit-scrollbar {
+  display: none;
+}
+
+.sx {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+
+.top {
+    height: 10vh;
+    width: 100vw;
+    background-color: red;
+}
+
+.search-apartment {
+    display: flex;
+}
+.sx {
+    height: 90vh;
+    width: 60vw;
+    overflow-y: scroll;
+}
+
+.dx {
+    height: 90vh;
+    width: 40vw;
+    display: flex;
+
+}
+
+#map_container {
+    height: 100%;
+    width: 100%;
+}
+
+.card {
+    box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
+}
+
+/* media query */
+@media screen and (max-width: 768px) {
+    .dx {
+        display: none;
+    }
+
+    .sx {
+        width: 100vw;
+    }
+}

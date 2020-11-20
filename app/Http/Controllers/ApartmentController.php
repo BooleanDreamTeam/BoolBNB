@@ -85,7 +85,7 @@ class ApartmentController extends Controller
             )
             ->having('distance', '<=', $radius)
             ->get();
-            dd($apartments);
+            // dd($apartments);
 
             return view('search', compact('apartments'));
 
