@@ -48,7 +48,7 @@
     <div class="apartments d-flex flew-wrap">
     @foreach($apartments as $apartment)
         <div class="d-cont d-flex">
-            <div class="card-e m-2 ">
+            <div class="d-card-e m-2 ">
                 <div class="card-e-img-top d-flex justify-content-end" style="background-image: url({{$apartment->imgurl}}">
                     <div class="pt-2 pr-1">
                         <div class="d-vote p-1 rounded">{{round($apartment->vote, 1)}}</div>
