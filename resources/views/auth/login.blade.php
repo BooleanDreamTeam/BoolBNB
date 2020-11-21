@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center mt-5">
-        <div class="col-md-8">
+        <div class="col-md-8 col_login">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
@@ -57,7 +57,7 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                <a href="login/facebook" class="btn btn-primary"><i class="fab fa-facebook"></i> Login with Facebook</a>
+                                <a href="login/facebook" class="btn btn-primary btn_facebook"><i class="fab fa-facebook"></i> Login with Facebook</a>
                             </div>
                         </div>
                         <div class="form-group row mb-0 mt-4">

@@ -3,67 +3,84 @@
 @section('css')
     <link rel="stylesheet" href="{{asset('css/search.css')}}">
 @endsection
+
 @section('title')
     Boolbnb
-@endsection
-
-@section('script')
-<script src="{{ asset('js/app.js') }}"></script>
 @endsection
 
 @section('content')
 
 
 <section class="search-apartment">
+
     <div class="sx">
 
-        <div class="btn-group m-4">
-          <button type="button" class="btn dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <form method="GET" action="{{route('apiSearchingApartment')}}" class="btn-group-search d-flex justify-content-center align-items-center">
+        <div class="btn-group m-4 dropdown">
+          <button type="button" class="btn dropdown-toggle mr-4" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Servizi
           </button>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               @foreach ($services as $service)
               <div class="dropdown-item">
-                <label for="{{$service->name}}"></label>
-                <input type="checkbox" name="{{$service->name}}" id="{{$service->name}}">
+                <input type="checkbox" name="services[]" id="{{$service->name}}" value="{{$service->id}}">
+                <label for="{{$service->name}}">{{$service->name}}</label>
               </div>
               @endforeach
           </div>
+        </div>  
 
+        <div class="btn-group m-4 dropdown">
           <button type="button" class="btn dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Stanze
           </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+          <div class="dropdown-menu p-2">
+            <label for="Stanze">N. Stanze</label>
+            <div class="range d-flex justify-content-between">
+              <span>{{$RangeRooms[0]}}</span>
+              <input type="range" class="input_range_service" name="stanze" min="{{$RangeRooms[0]}}" max="{{$RangeRooms[1]}}" step="1" id="">
+              <span>{{$RangeRooms[1]}}</span>
+            </div>
           </div>
+        </div>
 
+        <div class="col-md-4 p-2">
+          <div class="range d-flex justify-content-between">
+            <input id="address-input" type="text" value="{{$addressSearch}}" class="p-4" name="address">
+            <input type="hidden" name="cordinates" id="cordinates" value="{{$arrayCordinates[0]}},{{$arrayCordinates[1]}}">
+          </div>
+        </div>
+
+
+        <div class="btn-group m-4 dropdown">
           <button type="button" class="btn dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Posti Letto
           </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+          <div class="dropdown-menu p-2">
+            <label for="Stanze">N. Letti</label>
+            <div class="range d-flex justify-content-between">
+              <span>{{$RangeBeds[0]}}</span>
+              <input type="range" class="input_range_service" name="postiletto" min="{{$RangeBeds[0]}}" max="{{$RangeBeds[1]}}" step="1" id="">
+              <span>{{$RangeBeds[1]}}</span>
+            </div>
           </div>
-
+        </div>
+        
+        
+        <div class="btn-group m-4 dropdown">
           <button type="button" class="btn dropdown-toggle mr-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Raggio
           </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+          <div class="dropdown-menu p-2">
+            <label for="Stanze">Raggio</label>
+            <div class="range d-flex justify-content-between">
+              <span>1</span>
+              <input type="range" class="input_range_service" name="range" min="1" max="100" step="1" id="">
+              <span>100</span>
           </div>
-
         </div>
+      </div>  
+    </form>  
 
 
         @foreach ($apartments as $apartment)

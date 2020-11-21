@@ -58,7 +58,13 @@ class ApartmentController extends Controller
 
         $services = Service::all();
 
+        $RangeRooms = [DB::table('apartments')->min('n_rooms'),DB::table('apartments')->max('n_rooms')];
+
+        $RangeBeds = [DB::table('apartments')->min('n_beds'),DB::table('apartments')->max('n_beds')];
+
         $latlng = $request['cordinates'];
+
+        $addressSearch = $request['address'];
 
         $arrayCordinates = explode(",", $latlng);
 
@@ -85,7 +91,7 @@ class ApartmentController extends Controller
             ->having('distance', '<=', $radius)
             ->get();
 
-            return view('search', compact('apartments','services','lat','lng'));
+            return view('search', compact('arrayCordinates','apartments','services','lat','lng','RangeRooms','RangeBeds','addressSearch'));
 
         }
 

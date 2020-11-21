@@ -7,7 +7,7 @@ $(document).ready(function() {
 
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
         labels: ["App1", "App2", "App3", "App4"],
         datasets: [

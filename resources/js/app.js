@@ -38,6 +38,14 @@ $(document).ready(function() {
 
     if (window.location.pathname == '/search') {
 
+      var placesAutocomplete = places({
+          appId: 'pl19ZMXZ5X0L',
+          apiKey: '035a9540a189547cb9889a73bf507a48',
+          container: document.querySelector('#address-input')
+      });
+
+      // MARKER APPARTAMENTI MAPPA
+
       var apartments = $('.card_apartment_search');
 
       var arrayApartments = [];
@@ -48,7 +56,25 @@ $(document).ready(function() {
       
       mapShow($('#map_container').data('lat'),$('#map_container').data('lng'),arrayApartments);
 
-      
+      //----------------//
+
+      $('input').on('change',function() {
+
+        placesAutocomplete.on('change', function(e) {
+
+          $('#cordinates').val([e.suggestion.latlng.lat,e.suggestion.latlng.lng]);
+
+        });
+
+        var form = $('.btn-group-search');
+
+        form.submit();
+
+      });
+
+      // API CALL
+
+
 
     }
 
@@ -69,9 +95,10 @@ $(document).ready(function() {
         );
 
         map.addLayer(osmLayer);
-    
-        L.marker([lat, lng]).addTo(map);
 
+        if (window.location.pathname != '/search') {
+          L.marker([lat, lng]).addTo(map); 
+        }
 
         if (apartments) {
           
@@ -87,6 +114,12 @@ $(document).ready(function() {
         return map;
     }
 
+
+});
+
+$(document).on('click','img.leaflet-marker-icon', function() {
+
+  
 
 });
 

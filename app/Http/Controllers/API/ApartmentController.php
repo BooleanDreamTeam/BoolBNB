@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Apartment;
@@ -82,6 +84,55 @@ class ApartmentController extends Controller
         $apartment->delete();
 
         return response()->json(['Messaggio' => "l'appartamento con id:$apartment->id è stato cancellato correttamente!"]);
+    }
+
+    public function searching(Request $request)
+    {       
+
+        $n_rooms = $request['stanze'];
+        $services = $request['services'];
+        $n_beds = $request['postiLetto'];
+        $range = $request['range'];
+        $address = $request['address'];
+        $cordinates = $request['cordinates'];
+
+        $arrayCordinates = explode(",", $cordinates);
+
+        $lat = $arrayCordinates[0];
+        $lng = $arrayCordinates[1];
+
+        $queryApartment = Apartment::query();
+
+        // foreach ($services as $service) {
+        //     $queryApartment->whereHas('services', function($q) {
+        //         $q->where('service_id', $service);
+        // });
+
+        $queryApartment->where('n_rooms', '>=' ,$n_rooms);
+        $queryApartment->where('n_beds', '>=' ,$n_beds);
+
+        $queryApartment->select(
+        DB::raw("
+        *, (
+        6371 * acos (
+        cos ( radians($lat) )
+        * cos( radians( latitude ) )
+        * cos( radians( longitude ) - radians($lng) )
+        + sin ( radians($lat) )
+        * sin( radians( latitude ) )
+        )
+        ) AS distance
+        ")
+        )
+        ->having('distance', '<=', $range)
+        ->get();
+
+        $Apartments = $queryApartment->paginate(15);
+
+        return response()->json(['apartments' => $Apartments]);
+
+        
+
     }
 
 }

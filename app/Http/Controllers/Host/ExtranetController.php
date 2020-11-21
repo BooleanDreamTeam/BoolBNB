@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Host;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Apartment;
@@ -46,9 +47,21 @@ class ExtranetController extends Controller
 
    
             
-            
+            $clicks = DB::table('clicks')
+                        ->select(DB::raw("count(*) as clicks, clicks.geo_area"))
+                        ->join('apartments', 'apartments.id', '=', 'clicks.id_apartment')
+                        ->join('users', 'users.id', '=', 'apartments.host_id')
+                        ->where('users.id', '=', Auth::id())
+                        ->groupBy('clicks.geo_area')
+                        ->get();
+
+
         }           
+<<<<<<< Updated upstream
         return view('host.dashboard', compact('apartments', 'apartmentIds', 'messages', 'reviews', 'sponsored' ));
+=======
+        return view('host.dashboard', compact('apartments', 'apartmentIds', 'messages', 'reviews', 'sponsored', 'cover', 'clicks'));
+>>>>>>> Stashed changes
     }
     
 }

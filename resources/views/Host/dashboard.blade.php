@@ -8,6 +8,12 @@
         
 @section('content')
 
+@foreach ($clicks as $click)
+    <p>{{$click->geo_area}}</p>
+@endforeach
+
+
+
 {{-- ERROR --}}
     @if ($errors->any())
     <div class="alert alert-danger status mx-auto fixed-top m-5">

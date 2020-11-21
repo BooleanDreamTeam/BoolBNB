@@ -10,12 +10,6 @@ $(document).ready(function() {
 
         $('#cordinates').val([e.suggestion.latlng.lat,e.suggestion.latlng.lng]);
 
-    });
-
-    
-
-    
-
-    
+    });    
 
 });

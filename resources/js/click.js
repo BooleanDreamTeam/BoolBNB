@@ -9,7 +9,7 @@ $(document).ready(function() {
         url: 'https://jsonip.com',
         success: function(data) {
             var ip = data.ip;
-            var browser = navigator.userAgent;
+            browser = checkBrowser(navigator.userAgent);
             getDetailsIp(ip,browser,id_apartment);
         }
     });
@@ -26,9 +26,9 @@ function getDetailsIp(ip,browser,id_apartment) {
             access_key : '9c7bb63fc1fe38664d28c9bf1e2dc75f',
         },
         success: function(data) {
-            data['browser'] = browser;
+            var browserChecked = checkBrowser(browser);
+            data['browser'] = browserChecked;
             data['id_apartment'] = id_apartment;
-            console.log(data);
             postClick(data);
         }
     });
@@ -48,6 +48,24 @@ function postClick(data) {
             console.log(data); 
         }
     });
+}
+
+function checkBrowser(string) {
+
+    if (string.includes('Edg')) {
+        string = 'Microsoft Edge';
+    } else if (string.includes('Firefox')){
+        string = 'Firefox';
+    } else if (string.includes('Chrome')){
+        string = 'Chrome';
+    } else if (string.includes('Opera')){
+        string = 'Opera';
+    } else {
+        string = 'Sconosciuto';
+    }
+
+    return string;
+
 }
 
 //---//
