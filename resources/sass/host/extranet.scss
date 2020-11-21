@@ -3,27 +3,28 @@
 @import '_cardsdashboard';
 @import '_cardsap';
 
-.row-main{
-    
+
     .sidebar-nav{
         background-color: #00b3b3;
         min-height: 100vh;
         color: rgba(255,255,255,.4);
         box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
-
         .nav{
+            width:95%;
+            overflow: hidden;
             .navbar-brand{
                 width: 100%;
+                img{
+                    margin: 0 auto;  
+                }
             }
             .hr{
                 width: 95%;
                 height: 1px;
                 background-color: rgba(255,255,255,.7);
-            
             }
             .nav-link{
-                color: rgba(255,255,255,.4) !important;
-                
+                color: white !important;  
             }
             a.nav-link:hover{
                 color: white !important;
@@ -39,9 +40,7 @@
         .topbar{
             height: 60px;
             padding: 5px 20px;
-
             .nav-item{
-                
                 .messages{
                     .message-text{
                         width: 400px;
@@ -54,18 +53,13 @@
                         
                         p{
                             width: 400px;
-                           
                         }
                     }
-
                 }
-
                 .nav-link{
-
                     i{
                         font-size: 30px !important;
                     }
-                  
                     .badge{
                         position: absolute;
                         
@@ -73,7 +67,6 @@
                         right: 1.25rem;
                         margin-top: -.25rem;
                     }
-
                     img{
                         width:50px ;
                     }
@@ -83,17 +76,12 @@
         .tab-contents{
             height: 100% !important;
             width: 100% !important;
-
         }
-    
-
     }
 
 
-}
-
 #logo {
-    width: 30%;
+    width: auto;
     max-height: 50px;
 }
 #bnb {
@@ -105,3 +93,5 @@
 button,input {
     box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
 }
+
+
