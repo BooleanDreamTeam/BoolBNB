@@ -15,7 +15,7 @@
             <div class="d-flex i-card-e mb-3 rounded ">
                 <div class="i-card-e-img-top" style="background-image: url({{$apartment->imgurl}}"></div>
               
-                <div class="i-card-body d-flex justify-content-between">
+                <div class="i-card-body p-2 d-flex ">
                     <div class="i-left d-flex flex-column justify-content-between">
                         <div class="i-top-card">
                             <h6 class="m-0 font-weight-bold text-primary">{{ $apartment->title }}</h6>
