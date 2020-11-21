@@ -19,8 +19,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <!-- Styles -->
+    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/extranet.css') }}" rel="stylesheet">
+    @yield('css')
    
 </head>
 <body>

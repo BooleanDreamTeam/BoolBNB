@@ -1,6 +1,7 @@
-@import '_cards';
 @import '_charts';
 @import '_reviews';
+@import '_cardsdashboard';
+@import '_cardsap';
 
 .row-main{
     
@@ -8,6 +9,7 @@
         background-color: #00b3b3;
         min-height: 100vh;
         color: rgba(255,255,255,.4);
+        box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
 
         .nav{
             .navbar-brand{

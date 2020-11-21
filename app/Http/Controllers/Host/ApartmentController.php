@@ -6,11 +6,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Apartment;
 use App\Service;
-use App\Image;
 use App\Message;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 
 class ApartmentController extends Controller
@@ -23,13 +22,13 @@ class ApartmentController extends Controller
     public function index()
     {
         if (Auth::user()->user_type->name == 'Host'){
-            $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->get();
+            $apartments = Apartment::details();
+
+            $messages = Message::getmes()->take(4);
+            return view('host.apartments.index', compact('apartments', 'messages'));
         }
-        $apartmentIds = $apartments->pluck('id');
-        $cover = Image::wherein('apartment_id', $apartmentIds)->where('cover', true)->get();
         
-        $messages = Message::getmes()->take(4);
-        return view('host.apartments.index', compact('apartments', 'messages', 'cover'));
+
     }
 
     /**

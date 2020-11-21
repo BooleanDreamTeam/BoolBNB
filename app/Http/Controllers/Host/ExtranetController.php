@@ -12,6 +12,7 @@ use App\Review;
 use App\Click;
 
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 use File; 
 
@@ -23,7 +24,7 @@ class ExtranetController extends Controller
         if (Auth::user()->user_type->name == 'Host'){
 
             // vediamo i nostri appartamenti
-            $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->take(4)->get();
+            $apartments = Apartment::details()->take(4);
            
             //array con tutti gli id di appartment 
             $apartmentIds = $apartments->pluck('id');
@@ -33,17 +34,21 @@ class ExtranetController extends Controller
             $sponsored = Sponsorship::sponsored();
             $sponsoredoff = Sponsorship::nosponsored();
 
-            $cover = Image::wherein('apartment_id', $apartmentIds)->where('cover', true)->get();
+            
  
             //filtro i messaggi arrivati per gli appartamenti di proprietà dell'host
             $messages = Message::getmes()->take(4);
 
             //
             $reviews = Review::reviews()->take(5);
+
+            
+
+   
             
             
         }           
-        return view('host.dashboard', compact('apartments', 'apartmentIds', 'messages', 'reviews', 'sponsored', 'cover'));
+        return view('host.dashboard', compact('apartments', 'apartmentIds', 'messages', 'reviews', 'sponsored' ));
     }
     
 }

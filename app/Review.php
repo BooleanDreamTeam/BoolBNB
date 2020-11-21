@@ -18,6 +18,7 @@ class Review extends Model
         return $this->belongsTo('App\Apartment');
     }
 
+ 
     public static function reviews(){
         return DB::table('reviews')
         ->join('apartments', 'apartments.id', '=', 'reviews.id_apartment')
@@ -28,23 +29,8 @@ class Review extends Model
         ->orderBy('created_at', 'desc')->get();
     }
 
-    // public function avgvote($app){
-    //     if (Auth::user()){
 
-    //         $myap = Apartment::where('host_id', Auth::id())->pluck('id');
 
-    //         $votes = DB::table('reviews')->where('id_apartment', '=', $app)
-    //             ->select('vote')->get();
-            
-    //         $qt = count($votes);
-    //         $res = 0;
-    //         foreach ($votes as $vote) {
-    //             $res += $vote;
-    //         }
-
-    //         return $myap;
-    //     }
-        
-    // }
 
 }
+

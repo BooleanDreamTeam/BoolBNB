@@ -1,6 +1,9 @@
 <?php
 
 namespace App;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -44,4 +47,18 @@ class Apartment extends Model
     public function cover(){
         return $this->hasOne('App\Image')->where('cover', 1);
     }
+
+    public static function details(){
+        return DB::table('reviews')
+        ->join('apartments', 'apartments.id', '=', 'id_apartment')
+        ->join('images', 'images.apartment_id', '=', 'reviews.id_apartment')
+        ->select('images.imgurl', DB::raw('AVG(vote) as vote'), 'apartments.*')
+        ->where('apartments.host_id', Auth::id())
+        ->where('images.cover', true)
+        ->groupBy('id_apartment', 'images.imgurl')
+        ->orderby('created_at', 'desc')
+        ->get();
+    }
+
 }
+
