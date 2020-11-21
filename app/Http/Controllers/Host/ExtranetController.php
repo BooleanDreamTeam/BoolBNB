@@ -38,9 +38,7 @@ class ExtranetController extends Controller
 
                 
             $clicks = Click::statistics();
-            dd($clicks);
-
-
+            
         }           
         return view('host.dashboard', compact('apartments', 'messages', 'reviews', 'sponsored', 'clicks'));
     }
