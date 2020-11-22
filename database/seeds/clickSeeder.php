@@ -15,7 +15,7 @@ class ClickSeeder extends Seeder
     public function run(Faker $faker)
     {
         $apartments = Apartment::all();
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 200; $i++) {
             $clickNew = new Click;
             $clickNew->id_apartment = $apartments->random()->id;
             $clickNew->browser = $faker->userAgent;

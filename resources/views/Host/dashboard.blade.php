@@ -44,9 +44,9 @@
     </div>
     <hr>
     <!-- appartamenti -->
-    <div class="d-cont-left container">
+    <div class="d-cont-left d-flex flex-column">
         <h2>My Appartments</h2>
-        <div id="apartments" class="apartments d-flex flew-wrap mb-4">
+        <div id="apartments" class="apartments d-flex flew-wrap mb-4 pb-4 border-bottom">
         @foreach($apartments as $apartment)
             <div class="d-cont d-flex">
                 <div class="d-card-e m-2 ">
@@ -78,7 +78,7 @@
         @endforeach
         </div>
         <h2>Last Reviews</h2>
-        <div id="reviews" class="container">
+        <div id="reviews" class="">
             <div class="table-responsive">
                 <table class="table">
                     <thead>

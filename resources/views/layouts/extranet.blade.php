@@ -28,18 +28,18 @@
 <body>
     <!-- sidebar -->
 <div class="row row-main d-flex" id="all" >
-    <div id="sidebar" class="sidebar-nav d-flex p-4 col-2 col-sm-4 col-lg-3 col-xl-2" >
+    <div id="sidebar" class="sidebar-nav d-flex px-sm-1 px-md-3 px-lg-4 col-2 col-sm-4 col-lg-3 col-xl-2" >
         <div class="nav flex-column align-center nav-pills " id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                <img class="" id="logo" src="{{Storage::url('img/logo.png')}}" alt="logo">
+                <img class="" src="{{Storage::url('img/logo.png')}}" alt="logo">
                 <!-- <img class="img-fluid write d-none d-sm-block" id="bnb" src="{{Storage::url('img/boolbnb-white.png')}}" alt="Boolbnb"> -->
             </a>
-            <div class="hr  mt-4 mb-4 mr-auto ml-auto"></div>
+            
             <a href="{{Route('dashboard')}}" class="nav_item nav-link active" id="v-pills-home-tab" role="tab" aria-controls="v-pills-home" aria-selected="true">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span class="d-none d-sm-inline">Dashboard</span>
             </a>
-            <div class="hr  mt-4 mb-4 mr-auto ml-auto"></div>
+            
             <a href="#" class="nav_item nav-link" id="v-pills-profile-tab" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                 <i class="fas fa-fw fa-user-alt"></i>
                 <span class="d-none d-sm-inline">Profile</span>

@@ -1,7 +1,7 @@
 @extends('layouts.extranet') 
 
 @section ('css')
-<link href="{{ asset('css/partials/_cardsap.css') }}" rel="stylesheet">
+
 @endsection
 
         
@@ -11,7 +11,7 @@
     @foreach($apartments as $apartment)
      
             <div class="d-flex i-card-e mb-3 rounded ">
-                <div class="i-card-e-img-top" style="background-image: url({{$apartment->imgurl}}"></div>
+                <div class="i-card-e-img-top" style="background-image: url({{$apartment->cover->imgurl}}"></div>
                 <div class="i-card-body p-2 d-flex ">
                     <div class="i-left d-flex flex-column justify-content-between">
                         <div class="i-top-card">
@@ -28,7 +28,7 @@
 
                     <div class="i-right d-flex flex-column justify-content-between">
                         <div class="d-flex justify-content-end w-100">
-                            <div class="i-vote text-center rounded">{{round($apartment->vote, 1)}}</div>
+                            <div class="i-vote text-center rounded">{{round($apartment::details($apartment->id)[0]->vote)}}</div>
                         </div>
                         
                         <div class="buttons">

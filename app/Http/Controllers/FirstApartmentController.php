@@ -45,14 +45,14 @@ class FirstApartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, User $user)
+    public function store(Request $request)
     {
         $data = $request->all();
 
         $latlng = $data['latlng'];
-        
+
         $arrayCordinates = explode(",", $latlng);
-        
+
         $lat = $arrayCordinates[0];
         $lng = $arrayCordinates[1];
 
@@ -71,6 +71,7 @@ class FirstApartmentController extends Controller
         ]);
 
         $apartment = Apartment::create([
+            'address' => $data['address'],
             'host_id' => $data['host_id'],
             'title' => $data['title'],
             'n_rooms' => $data['n_rooms'],
@@ -99,20 +100,21 @@ class FirstApartmentController extends Controller
                         'cover' => 1,
                     ]);    
                 } else {
+
                     $imageToDb = Image::create([
                         'apartment_id' => $apartment->id,
                         'imgurl' => $urlImg,
                         'cover' => 0,
                     ]);
+
                 }
 
-
-            }     
-        }
-        
+            }
+                
+        }  
         DB::update('update users set user_type_id = 2 where id = ?', [Auth::id()]);
         
-        return redirect('host/dashboard');
+        return redirect()->route('apartment.show', $apartment->id);   
     }
 
     /**
@@ -123,7 +125,7 @@ class FirstApartmentController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -134,7 +136,7 @@ class FirstApartmentController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -146,7 +148,7 @@ class FirstApartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -159,4 +161,11 @@ class FirstApartmentController extends Controller
     {
         //
     }
+
+    public function behost()
+    {
+        User::where('id', Auth::id())->update('user_tipe_id', 2);
+        return view('/');
+    }
+
 }

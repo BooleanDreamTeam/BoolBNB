@@ -36,7 +36,7 @@
             @endif
             {{-- ERROR--}}
 
-                <form method="post" action="{{route('apartments.store')}}" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <form method="post" action="{{route('firstapartment.store')}}" enctype="multipart/form-data" class="needs-validation" novalidate>
                     @csrf
                     @method('POST')
                     <div class="form-row">

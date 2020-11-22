@@ -17,6 +17,7 @@ use App\Apartment;
 Route::get('/', 'ApartmentController@index');
 Route::get('apartments/show/{id}', 'ApartmentController@show')->name('apartment.show');
 Route::resource('firstapartment', 'FirstApartmentController')->middleware('auth');
+
 Route::post('message', 'MessageController@store')->name('sendMessage');
 Route::get('host.messages', 'MessageController@index')->middleware('auth')->name('mymessages');
 Route::get('host.reviews', 'ReviewController@index')->middleware('auth')->name('myreviews');
@@ -33,9 +34,6 @@ Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
 //Route degli Host registrati
-
-
-
 Route::prefix('host')->namespace('Host')->middleware('auth')->group(function() {
     Route::get('extranet', 'ExtranetController@extranet')->name('extranet');
     Route::resource('apartments', 'ApartmentController');
@@ -47,4 +45,6 @@ Route::prefix('host')->namespace('Host')->middleware('auth')->group(function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'guest'],function (){
     Route::get('/home', 'HomeController@index')->name('home');
 });
+
+//Route degli user
 

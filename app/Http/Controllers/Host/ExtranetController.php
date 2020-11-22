@@ -11,16 +11,16 @@ use App\Message;
 use App\Review;
 use App\Click;
 use App\User;
-
+use Illuminate\Support\Facades\DB;
 use File; 
 
 class ExtranetController extends Controller
 {
     public function dashboard()
-    {
+    {   
         //tutti gli appartamenti di proprietà dell'host
         if (Auth::user()->user_type->name == 'Host'){
-
+                
             // vediamo i nostri appartamenti
             $apartments = Apartment::where('host_id', Auth::id())->take(4)->get();
             
@@ -39,7 +39,7 @@ class ExtranetController extends Controller
 
                 
             $clicks = Click::statistics();
-            
+                 
         }           
         return view('host.dashboard', compact('apartments', 'messages', 'reviews', 'sponsored', 'clicks'));
     }

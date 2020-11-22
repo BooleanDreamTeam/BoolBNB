@@ -23,7 +23,7 @@ class ApartmentController extends Controller
     public function index()
     {
         if (Auth::user()->user_type->name == 'Host'){
-            $apartments = Apartment::details();
+            $apartments = Apartment::where('host_id', Auth::id())->get();
 
             $messages = Message::getmes()->take(4);
             return view('host.apartments.index', compact('apartments', 'messages'));

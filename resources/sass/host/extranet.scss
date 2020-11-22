@@ -14,19 +14,18 @@
         color: rgba(255,255,255,.4);
         box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
         .nav{
-            width:95%;
-            overflow: hidden;
+
+
             .navbar-brand{
                 width: 100%;
                 img{
-                    margin: 0 auto;  
+                    margin: 0 auto; 
+                    width: 100%;
+                    max-width: 250px;
+                    height: auto;
                 }
             }
-            .hr{
-                width: 95%;
-                height: 1px;
-                background-color: rgba(255,255,255,.7);
-            }
+
             .nav-link{
                 color: white !important;  
             }
@@ -83,11 +82,6 @@
         }
     }
 
-
-#logo {
-    width: auto;
-    max-height: 50px;
-}
 #bnb {
     color: white;
     max-height: 40px;
@@ -97,5 +91,4 @@
 button,input {
     box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
 }
-
 
