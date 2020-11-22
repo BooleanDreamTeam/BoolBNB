@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Apartment;
@@ -82,6 +84,59 @@ class ApartmentController extends Controller
         $apartment->delete();
 
         return response()->json(['Messaggio' => "l'appartamento con id:$apartment->id è stato cancellato correttamente!"]);
+    }
+
+    public function searching(Request $request)
+    {       
+      
+        $n_rooms = $request['stanze'];
+        $services = $request['services'];
+        $n_beds = $request['postiletto'];
+        $range = $request['range'];
+        $address = $request['address'];
+        $cordinates = $request['cordinates'];
+
+        $arrayCordinates = explode(",", $cordinates);
+
+        $lat = $arrayCordinates[0];
+        $lng = $arrayCordinates[1];
+
+        $queryApartment = Apartment::query();
+
+        if (array_key_exists('services',$request->all())) {
+            $queryApartment->join('apartment_service','apartment_service.apartment_id','=','apartments.id');
+            foreach ($services as $service) {
+                $queryApartment->where('service_id','=',$service);
+            }
+        }
+
+        $queryApartment->where('n_rooms', '>=' ,$n_rooms);
+        $queryApartment->where('n_beds', '>=' ,$n_beds);
+
+        $queryApartment->join('images','images.apartment_id','=','apartments.id')
+                        ->where('images.cover','=','1');
+
+        $queryApartment->select(
+        DB::raw("
+        apartments.*,images.imgurl, (
+        6371 * acos (
+        cos ( radians($lat) )
+        * cos( radians( latitude ) )
+        * cos( radians( longitude ) - radians($lng) )
+        + sin ( radians($lat) )
+        * sin( radians( latitude ) )
+        )
+        ) AS distance
+        ")
+        )
+        ->having('distance', '<=', $range)
+        ->orderby('distance')
+        ->get();
+
+        $Apartments = $queryApartment->paginate(15);
+
+        return response()->json(['apartments' => $Apartments]);
+
     }
 
 }

@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/extranet.js') }}"></script>
+    
     @yield('js')
 
     <!-- Fonts -->
@@ -19,51 +19,52 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <!-- Styles -->
+    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/extranet.css') }}" rel="stylesheet">
+    @yield('css')
    
 </head>
 <body>
     <!-- sidebar -->
-<div class="row row-main">
-    <div class="sidebar-nav d-flex pl-4 pt-3 col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" >
-        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+<div class="row row-main d-flex" id="all" >
+    <div id="sidebar" class="sidebar-nav d-flex p-4 col-2 col-sm-4 col-lg-3 col-xl-2" >
+        <div class="nav flex-column align-center nav-pills " id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-
-                <img class="img-fluid" id="logo" src="{{Storage::url('img/logo.png')}}" alt="logo">
-                <img class="img-fluid write" id="bnb" src="{{Storage::url('img/boolbnb-white.png')}}" alt="Boolbnb">
+                <img class="" id="logo" src="{{Storage::url('img/logo.png')}}" alt="logo">
+                <!-- <img class="img-fluid write d-none d-sm-block" id="bnb" src="{{Storage::url('img/boolbnb-white.png')}}" alt="Boolbnb"> -->
             </a>
             <div class="hr  mt-4 mb-4 mr-auto ml-auto"></div>
-            <a href="{{Route('dashboard')}}" class="nav-link active" id="v-pills-home-tab" role="tab" aria-controls="v-pills-home" aria-selected="true">
+            <a href="{{Route('dashboard')}}" class="nav_item nav-link active" id="v-pills-home-tab" role="tab" aria-controls="v-pills-home" aria-selected="true">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span>
+                <span class="d-none d-sm-inline">Dashboard</span>
             </a>
             <div class="hr  mt-4 mb-4 mr-auto ml-auto"></div>
-            <a href="" class="nav-link" id="v-pills-profile-tab" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+            <a href="#" class="nav_item nav-link" id="v-pills-profile-tab" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                 <i class="fas fa-fw fa-user-alt"></i>
-                <span>Profile</span>
+                <span class="d-none d-sm-inline">Profile</span>
             </a>
             <a href="{{Route('mymessages')}}" class="nav-link" id="v-pills-messages-tab"  role="tab" aria-controls="v-pills-messages" aria-selected="false">
                 <i class="fas fa-fw fa-envelope"></i>    
-                <span>Messages</span>
+                <span class="d-none d-sm-inline">Messages</span>
             </a>
             <a href="{{Route('apartments.index')}}" class="nav-link" id="v-pills-apartments-tab" role="tab" aria-controls="v-pills-apartments" aria-selected="false">
                 <i class="fas fa-fw fa-home"></i>    
-                <span>My Apartments</span>
+                <span class="d-none d-sm-inline">My Apartments</span>
             </a>
             <a href="{{route('sponsorship.index')}}" class="nav-link" id="v-pills-sponsorship-tab" role="tab" aria-controls="v-pills-sponsorship" aria-selected="false">
                 <i class="fas fa-star"></i>
-                <span>Sponsorships</span>
+                <span class="d-none d-sm-inline">Sponsorships</span>
             </a>
             <a href="{{route('myreviews')}}" class="nav-link id="v-pills-reviews-tab" href="#v-pills-reviews" role="tab" aria-controls="v-pills-reviews" aria-selected="false">
                 <i class="fas fa-fw fa-pencil-alt"></i>
-                <span>Reviews</span>
+                <span class="d-none d-sm-inline">Reviews</span>
             </a>
 
         </div>
     </div>
 
-    <div class="rightside d-none d-sm-block flex-column col-12 col-sm-6 col-md-8  col-lg-9 col-xl-10">
+    <div class="rightside flex-column col-10 col-sm-8 col-lg-9 col-xl-10">
         <!-- topbar -->
         <nav class="topbar pd-2 navbar navbar-expand navbar-light bg-white mb-4 static-top shadow">
             
@@ -77,14 +78,14 @@
                         <i class="little-env fas fa-envelope fa-fw"></i>
                    
                         <!-- Counter - Messages -->
-                        <span class="badge badge-danger badge-counter">7</span>
+                        <!-- <span class="badge badge-danger badge-counter">7</span> -->
                     </a>
                     <!-- Dropdown - Messages -->
                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow" aria-labelledby="messagesDropdown">
                         <h6 class="dropdown-header">
                             Message Center
                         </h6>
-                        {{-- @foreach($messages as $message )
+                        @foreach($messages as $message )
   
                         
                         <a class="messages dropdown-item d-flex align-items-center" href="">
@@ -99,7 +100,7 @@
                                 <div class="small text-gray-500">{{$message->email}}</div>
                             </div>
                         </a>
-                        @endforeach --}}
+                        @endforeach
                         <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                     </div>
                 </li>

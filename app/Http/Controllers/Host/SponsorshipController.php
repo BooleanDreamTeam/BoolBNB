@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Sponsorship;
 use App\Apartment;
+use App\Message;
 
 use Illuminate\Support\Facades\DB;
 
@@ -21,8 +22,9 @@ class SponsorshipController extends Controller
     {
         if (Auth::user()->user_type->name == 'Host'){
             $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->get();
+            $messages = Message::getmes()->take(4);
         }
-        return view('host.sponsorships.index', compact('apartments'));
+        return view('host.sponsorships.index', compact('apartments', 'messages'));
     }
 
     /**
@@ -45,12 +47,7 @@ class SponsorshipController extends Controller
         if (Auth::user()->user_type->name == 'Host'){
             $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->get();
         }
-        $messages = DB::table('messages')
-        ->join('apartments', 'messages.apartment_id', '=', 'apartments.id')
-        ->join('images', 'images.apartment_id', '=', 'apartments.id')
-        ->select('messages.*', 'images.imgurl')
-        ->where('images.cover', true)->where('apartments.host_id', Auth::id())
-        ->orderBy('created_at', 'desc')->get();
+        $messages = Message::getmes()->take(4);
 
 
         $sponsorships = Sponsorship::all();
@@ -66,6 +63,13 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {  
+
+            $request->validate([
+                'amount' => 'numeric|required|min:1|',
+                'payment_method_nonce' => 'required',
+                'apartment' => 'required|exists:apartments,id',
+                'sponsorshipClicked' => 'required',
+            ]);
 
             $gateway = new \Braintree\Gateway([
                 'environment' => getenv('BT_ENVIRONMENT'),
@@ -100,8 +104,11 @@ class SponsorshipController extends Controller
             $saved = $apartment->sponsorships()->attach($request->sponsorshipClicked , ['started_at' => $now, 'expiration_date' => $now->add($sponsorship->time,'hour')]);
 
 
-            return back()->with('success_message', 'Sposorizzazione avvenuta con successo!');
-
+            if ($result) {
+                return back()->with('status', 'Sposorizzazione avvenuta con successo!');
+            } else {
+                return back()->with('error', 'Sposorizzazione negata!');
+            }
 
     }
 

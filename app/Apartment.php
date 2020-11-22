@@ -1,6 +1,9 @@
 <?php
 
 namespace App;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -44,4 +47,13 @@ class Apartment extends Model
     public function cover(){
         return $this->hasOne('App\Image')->where('cover', 1);
     }
+
+    public static function details($apid){
+        return DB::table('reviews')
+        ->select(DB::raw('AVG(vote) as vote'))
+        ->where('id_apartment', $apid)
+        ->get();
+    }
+
 }
+

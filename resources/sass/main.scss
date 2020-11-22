@@ -1,7 +1,28 @@
 @import 'partials/_cards';
 
+.status {
+    width: 50vw;
+}
+
+.navbar-brand img {
+    display: inline;
+    height: 60px;
+}
+
+.btn-nav {
+    background-color: #fff;
+    border: 1px solid #00B3B3;
+    border-radius: 6px;
+    padding: 10px, 14px;
+
+    .btn.nav:hover {
+        background-color: #00B3B3;
+        color: white;
+    }
+}
+
 #slider {
-    height: 500px;
+    height: 80vh;
     position: relative;
 }
 
@@ -32,13 +53,22 @@ section#intro {
     z-index: 100;
 }
 
-form#search {
+
+.search-wrapper {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.9;
     z-index: 200;
+
+    h2 {
+        height: 51px;
+        text-align: center;
+        font-size: 3em;
+        color: white;
+        margin-bottom: 80px;
+        text-shadow: 1px 1px #ffffff;
+    }
 }
 
 .form-row {
@@ -49,7 +79,7 @@ form#search {
         border-radius: 20px;
     }
 
-    .btn {
+    .btn-search {
         border-radius: 80%;
     }
 }
@@ -57,16 +87,53 @@ form#search {
 
 
 .search-box {
+    max-width: 48vw;
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+}
+
+.featured h2 {
+    margin-right: 6px;
+    margin-left: 6px;
+
+    i {
+        margin-left: 6px;
+        margin-right: 6px;
+        color: #00B3B3;
+        font-size: 14px;
+    }
+
+}
+
+.featured::before,
+.featured::after {
+    content: '';
+    width: 41%;
+    height: 1px;
+    background-color: #00B3B3;
+    border-radius: 1px;
+    display: inline-block;
+    margin-top: 20px;
+
 }
 
 .promo {
-    background-color: #00B3B3;
-    color: white;
-    height: 250px;
-    opacity: 0.8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    height: 380px;
+
+    .title {
+        // border-top: 1px solid #00B3B3;
+        // border-bottom: 1px solid #00B3B3;
+        height: 130px;
+        background-color: #00B3B3;
+        color: white;
+
+        h2 {
+            padding-top: 20px;
+        }
+    }
 }
 
 section#simple-ap {
@@ -77,4 +144,14 @@ section#simple-ap {
 .avatar {
     height: 35px;
     margin-right: 10px;
+}
+
+// LOGIN
+
+.col_login {
+    margin: 100px 0; 
+}
+
+.btn_facebook {
+    background-color: #036ee4;
 }

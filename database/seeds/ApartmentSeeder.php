@@ -17,7 +17,7 @@ class ApartmentSeeder extends Seeder
 
         $users = User::all();
 
-        for ($i=0; $i < 30; $i++) {
+        for ($i=0; $i < 60; $i++) {
             $apartment = new Apartment;
             $apartment->title = $faker->word.' '.$faker->word;
             $apartment->description = $faker->sentence();
@@ -26,8 +26,8 @@ class ApartmentSeeder extends Seeder
             $apartment->n_bathrooms = $faker->numberBetween(1, 4);
             $apartment->squaremeters = $faker->numberBetween(50, 400);
             $apartment->address = $faker->address();
-            $apartment->latitude = $faker->randomFloat($nbMaxDecimals = 4, $min = 0, $max = 999);
-            $apartment->longitude = $faker->randomFloat($nbMaxDecimals = 4, $min = 0, $max = 999);
+            $apartment->latitude = $faker->randomFloat($nbMaxDecimals = 4, $min = 38, $max = 40);
+            $apartment->longitude = $faker->randomFloat($nbMaxDecimals = 4, $min = 15, $max = 17);
             $apartment->is_active = $faker->boolean();
             $apartment->created_at = now();
             $apartment->updated_at = now();

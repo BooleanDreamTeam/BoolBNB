@@ -48,7 +48,7 @@
                                 <a href="#">Diventa host</a>
                             </li>
                             <li>
-                                <a href="#">Lorem</a>
+                                <a href="#">Case in 80 mila città</a>
                             </li>
                             <li>
                                 <a href="#">Lorem</a>
@@ -62,16 +62,16 @@
                         <h6>Contatti</h6>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="#">Lorem</a>
+                                <a href="#">I paesi più in voga su BoolBnB</a>
                             </li>
                             <li>
-                                <a href="#">Lorem</a>
+                                <a href="#">Cosa copre l'assicurazione BoolBnB</a>
                             </li>
                             <li>
-                                <a href="#">Lorem</a>
+                                <a href="#">Dove siamo</a>
                             </li>
                             <li>
-                                <a href="#">Lorem</a>
+                                <a href="#">Informativa</a>
                             </li>
                         </ul>
                     </div>

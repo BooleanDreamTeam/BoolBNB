@@ -33,8 +33,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand p-0" href="{{ url('/') }}">
-                    <img style="display:inline; height:40px;" src="{{Storage::url('img/logo.png')}}" alt="">
-                    <img style="display:inline; width:150px; margin-left: 20px;" class="animate__animated animate__rotateInDownRight animate__delay-1s"src="{{Storage::url('img/scrittarot.png')}}" alt="">
+                    <img src="{{Storage::url('img/logo.png')}}" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -51,11 +50,15 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item" style="display: flex;">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <button class="btn-nav mr-3">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </button>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <button class="btn-nav">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </button>
                                 </li>
                             @endif
                         @else
@@ -104,5 +107,6 @@
         </main>
     </div>
     @yield('script')
+    @include('partials.footer')
 </body>
 </html>

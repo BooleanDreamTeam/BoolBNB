@@ -20,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('apartments','API\ApartmentController');
 
+Route::get('search','API\ApartmentController@searching')->name('apiSearchingApartment');
+
 Route::get('services','API\ServiceController@index');
 
 Route::apiResource('clicks','API\ClickController');

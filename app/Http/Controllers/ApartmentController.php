@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Treffynnon\Navigator as N;
 use App\Apartment;
 use App\Image;
+use App\Service;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
@@ -55,7 +56,15 @@ class ApartmentController extends Controller
 
     public function searching(Request $request) {
 
+        $services = Service::all();
+
+        $RangeRooms = [DB::table('apartments')->min('n_rooms'),DB::table('apartments')->max('n_rooms')];
+
+        $RangeBeds = [DB::table('apartments')->min('n_beds'),DB::table('apartments')->max('n_beds')];
+
         $latlng = $request['cordinates'];
+
+        $addressSearch = $request['address'];
 
         $arrayCordinates = explode(",", $latlng);
 
@@ -63,11 +72,7 @@ class ApartmentController extends Controller
         $lng = $arrayCordinates[1];
 
 
-        if($request['radius']){
-            $radius = $request['radius'] * 1000;
-        } else {
-            $radius = 10000;
-        }
+        $radius = 10;
 
         $apartments = Apartment::select(
             // https://gis.stackexchange.com/a/31629  // il codice 6371 serve per il calcolo in km
@@ -85,9 +90,8 @@ class ApartmentController extends Controller
             )
             ->having('distance', '<=', $radius)
             ->get();
-            dd($apartments);
 
-            return view('search', compact('apartments'));
+            return view('search', compact('arrayCordinates','apartments','services','lat','lng','RangeRooms','RangeBeds','addressSearch'));
 
         }
 

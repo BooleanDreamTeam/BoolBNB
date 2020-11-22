@@ -5,11 +5,16 @@
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 @endsection
 
+@section('script')
+    <script src="{{ asset('js/input-validation.js') }}"></script>
+@endsection
+
+
 @section('content')
 
 {{-- ERROR --}}
 @if ($errors->any())
-<div class="alert alert-danger fixed-bottom">
+<div class="alert alert-danger status mx-auto fixed-top m-5">
     <ul>
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -18,27 +23,37 @@
 </div>
 @endif
 
-@if (session('success_message'))
-<div class="alert alert-success fixed-bottom">
-    {{ session('success_message') }}
+@if (session('status'))
+<div class="alert alert-success status mx-auto fixed-top m-5">
+    {{ session('status') }}
 </div>
 @endif
 
-
+@if (session('error'))
+<div class="alert alert-danger status mx-auto fixed-top m-5">
+    {{ session('error') }}
+</div>
+@endif
 {{-- ERROR--}}
 
 
 
-<form method="post" id="payment-form" action="{{route('sponsorship.store')}}">
+<form method="post" id="payment-form" action="{{route('sponsorship.store')}}" class="needs-validation" novalidate>
     @csrf
     <div class="form-row">
 
         <div class="flex-d">
-            <select name="apartment">
+            <select class="custom-select" name="apartment">
                 @foreach ($apartments as $apartment)
-                    <option value="{{$apartment->id}}">{{$apartment->title}}</option>            
+                    <option value="{{$apartment->id}}">{{$apartment->title}} | {{$apartment->address}}</option>            
                 @endforeach    
-            </select>   
+            </select>
+            <div class="valid-feedback">
+                Appartamento selezionato!
+            </div>
+            <div class="invalid-feedback">
+                Seleziona un appartamento!
+            </div>
         </div>
 
     </div>
@@ -63,11 +78,17 @@
 
     </div>
 
-    <div class="form-raw">
+    <div class="form-row">
 
         <div class="form-group col-md-6">
             <label for="amount">Amount</label>
-            <input type="number" name="amount" class="form-control" id="amount">
+            <input  name="amount" class="form-control" id="amount" required>
+            <div class="valid-feedback">
+                Prezzo corretto!
+            </div>
+            <div class="invalid-feedback">
+                Inserisci un prezzo!
+            </div>
         </div>
         <div class="bt-drop-in-wrapper">
             <div id="bt-dropin">

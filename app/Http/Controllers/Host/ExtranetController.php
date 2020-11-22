@@ -3,16 +3,17 @@
 namespace App\Http\Controllers\Host;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Apartment;
-use App\UserType;
-use App\Service;
-use App\Message;
-use App\User;
-use App\Image;
-use App\Sponsorship;
-use App\Review;
-use File; 
 use Illuminate\Support\Facades\Auth;
+use App\Apartment;
+use App\Sponsorship;
+use App\Image;
+use App\Message;
+use App\Review;
+use App\Click;
+use App\User;
+
+use File; 
+
 class ExtranetController extends Controller
 {
     public function dashboard()
@@ -21,25 +22,26 @@ class ExtranetController extends Controller
         if (Auth::user()->user_type->name == 'Host'){
 
             // vediamo i nostri appartamenti
-            $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->take(4)->get();
-           
-            //array con tutti gli id di appartment 
-            $apartmentIds = $apartments->pluck('id');
+            $apartments = Apartment::where('host_id', Auth::id())->take(4)->get();
+            
+            // $apartments = Apartment::details()->take(4);
 
             // active sponsor
 
             $sponsored = Sponsorship::sponsored();
             $sponsoredoff = Sponsorship::nosponsored();
 
-            $cover = Image::wherein('apartment_id', $apartmentIds)->where('cover', true)->get();
-            
             //filtro i messaggi arrivati per gli appartamenti di proprietà dell'host
             $messages = Message::getmes()->take(4);
 
             //
             $reviews = Review::reviews()->take(5);
+
+                
+            $clicks = Click::statistics();
+            
         }           
-        return view('host.dashboard', compact('apartments', 'apartmentIds', 'messages', 'reviews', 'sponsored', 'cover'));
+        return view('host.dashboard', compact('apartments', 'messages', 'reviews', 'sponsored', 'clicks'));
     }
     
 }

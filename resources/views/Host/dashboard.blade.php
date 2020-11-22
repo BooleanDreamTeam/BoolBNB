@@ -1,25 +1,73 @@
 @extends('layouts.extranet')    
 
+@section('script')
+    <script src="{{ asset('js/input-validation.js') }}"></script>
+    <script src="{{ asset('js/dashboard.js') }}"></script>
+@endsection
+
         
 @section('content')
-    <div class="box col-12 col-sm-6 col-md-8  col-lg-9 col-xl-9 pb-3">
-        <!-- appartamenti -->
+
+@foreach ($clicks as $click)
+    <p>{{$click->geo_area}}</p>
+@endforeach
+
+
+
+{{-- ERROR --}}
+    @if ($errors->any())
+    <div class="alert alert-danger status mx-auto fixed-top m-5">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+@if (session('status'))
+<div class="alert alert-success status mx-auto fixed-top m-5">
+    {{ session('status') }}
+</div>
+@endif
+{{-- ERROR--}}
+
+<div class="box col-12 ">
+    <div class="chart d-flex flex-column flex-md-row">
+        <!-- visualizzazioni -->
+        <div class="bar col-sm-12 col-lg-6">
+            <canvas class="" id="myChart"></canvas>
+        </div>
+        <div class="bar col-sm-12 col-lg-6">
+            <canvas class="" id="myChart2"></canvas>
+        </div>
+    </div>
+    <hr>
+    <!-- appartamenti -->
+    <div class="d-cont-left container">
         <h2>My Appartments</h2>
-        <div class="apartments d-flex flex-wrap">
-        
-        @foreach($apartments as $key=>$apartment)
-            <div class="col-lg-3 mt-4 d-flex">
-                <div class="card card-e">
-                    <img src="{{$cover[$key]->imgurl}}" class="card-img-top card-e-img-top" alt="{{ $apartment->title }}">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">{{ $apartment->title }}</h6>
+        <div id="apartments" class="apartments d-flex flew-wrap mb-4">
+        @foreach($apartments as $apartment)
+            <div class="d-cont d-flex">
+                <div class="d-card-e m-2 ">
+                    <a href="{{route('apartment.show',['id' => $apartment->id])}}">
+                    <div class="card-e-img-top d-flex justify-content-end" style="background-image: url({{$apartment->cover->imgurl}}">
+                        <div class="pt-2 pr-1">
+                            <div class="d-vote p-1 rounded">{{round($apartment::details($apartment->id)[0]->vote)}}</div>
+                        </div>    
+                    
                     </div>
-                    <div class="card-body d-flex flex-column">
-                        <small>Numero stanze {{$apartment->n_rooms}}</small>
-                        <small>Numero letti {{$apartment->n_beds}}</small>
-                        <small>Numero bagni {{$apartment->n_bathrooms}}</small>
+                    <div class="d-card-header p-2">
+                        <h6 class="font-weight-bold text-primary">{{ $apartment->title }}</h6>
                     </div>
-                    <a class="btn btn-primary" href="{{route('apartments.edit',$apartment->id)}}">MODIFICA</a>
+                    <div class="d-card-body p-2 d-flex flex-column">
+                        <small>{{$apartment->n_rooms}} Stanze</small>
+                        <small><i class="fas fa-bed"></i> {{$apartment->n_beds}}</small>
+                        <small><i class="fas fa-bath"></i> {{$apartment->n_bathrooms}}</small>
+                    </div>
+                    </a>
+                    
+                    <a class="btn btn-primary w-100" href="{{route('apartments.edit',$apartment->id)}}">MODIFICA</a>
                     <form action="{{route('apartments.destroy',$apartment->id)}}" method="post">
                         @csrf
                         @method('DELETE')
@@ -29,54 +77,34 @@
             </div>
         @endforeach
         </div>
-        <div class="col-xl-12 p-3 d-flex" id="reviews">
-            <div class="d-flex flex-column">
-                @foreach ($reviews as $review)
-                    <div class="review p-1 d-flex"> 
-                        <div class="image-rev mr-3">
-                            <img class="rounded rev-img" src="{{$review->imgurl}}" alt="">
-                            <div class="status-indicator bg-success"></div>
-                        </div>
-                        <div class="review-text">
-                            <div class="text">
-                                <p class="text-wrap">{{$review->message}}</p>
-                            </div>
-                            <div class="small text-gray-500">{{$review->name}}</div>
-                        </div>
-            
-                    </div>
-                @endforeach
+        <h2>Last Reviews</h2>
+        <div id="reviews" class="container">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Apartment</th>
+                            <th scope="col">Received</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Text</th>
+                        </tr> 
+                    </thead>
+                    <tbody> 
+                        @foreach ($reviews as $review)
+                        <tr>
+                            <td scope="row"><img class="rounded rev-img" src="{{$review->imgurl}}" alt="image"></td>
+                            <td>{{$review->created_at}}</td>
+                            <td>{{$review->name}}</td>
+                            <td>{{$review->message}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-
         </div>
-
-
-
-
-
-
-
-    </div>
+    </div>    
+    
+</div>
   
 
-
-    <div class="chart  col col-12 col-sm-6 col-md-4 col-lg-3 ">
-        <!-- visualizzazioni -->
-        <canvas id="myChart"></canvas>
-        <hr>
-        <canvas id="myChart2"></canvas>
-        <hr>
-    </div>
-    
-    
-  
-
-
-
-
-@endsection
-
-
-@section('script')
-<script src="{{ asset('js/dashboard.js') }}"></script>
 @endsection

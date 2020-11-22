@@ -5,12 +5,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Apartment;
-use App\Service;
 use App\Image;
+use App\Service;
 use App\Message;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 
 class ApartmentController extends Controller
@@ -23,13 +23,13 @@ class ApartmentController extends Controller
     public function index()
     {
         if (Auth::user()->user_type->name == 'Host'){
-            $apartments = Apartment::where('host_id', Auth::id())->orderBy('created_at', 'desc')->get();
+            $apartments = Apartment::details();
+
+            $messages = Message::getmes()->take(4);
+            return view('host.apartments.index', compact('apartments', 'messages'));
         }
-        $apartmentIds = $apartments->pluck('id');
-        $cover = Image::wherein('apartment_id', $apartmentIds)->where('cover', true)->get();
         
-        $messages = Message::getmes();
-        return view('host.apartments.index', compact('apartments', 'messages', 'cover'));
+
     }
 
     /**
@@ -40,7 +40,7 @@ class ApartmentController extends Controller
     public function create()
     {
         $services = Service::all();
-        $messages = Message::getmes();
+        $messages = Message::getmes()->take(4);
 
         return view('host.apartments.create', compact('services', 'messages'));
     }
@@ -118,8 +118,8 @@ class ApartmentController extends Controller
             }
                 
         }
-            
-        return redirect()->route('dashboard')->with('session', "Appartamento $apartment->title creato!");
+
+        return redirect()->route('dashboard')->with('status', "Appartamento $apartment->title creato!");   
 
     }
 
@@ -142,9 +142,9 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        $messages = Message::getmes();
+        $messages = Message::getmes()->take(4);
         $services = Service::all();
-        $apartmentImages = Image::all()->where('apartment_id',$apartment->id);
+        $apartmentImages = Image::all()->where('apartment_id', $apartment->id);
         return view('host.apartments.edit', compact('apartment', 'services', 'apartmentImages'));
     }
 
@@ -188,7 +188,7 @@ class ApartmentController extends Controller
 
         $apartment->update($data);
 
-        return redirect()->route('dashboard')->with('session', "Modifiche all'appartamento $apartment->title  effettuate");
+        return redirect()->route('dashboard')->with('status', "Modifiche all'appartamento $apartment->title  effettuate");
     }
 
     /**
@@ -200,6 +200,7 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         $apartment->delete();
-        return redirect()->route('dashboard')->with('session', 'Hai cancellato correttamente il tuo appartamento');
+        
+        return redirect()->route('dashboard')->with('status', 'Hai cancellato correttamente il tuo appartamento');
     }
 }

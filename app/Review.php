@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Apartment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
@@ -17,6 +18,7 @@ class Review extends Model
         return $this->belongsTo('App\Apartment');
     }
 
+ 
     public static function reviews(){
         return DB::table('reviews')
         ->join('apartments', 'apartments.id', '=', 'reviews.id_apartment')
@@ -27,4 +29,8 @@ class Review extends Model
         ->orderBy('created_at', 'desc')->get();
     }
 
+
+
+
 }
+
