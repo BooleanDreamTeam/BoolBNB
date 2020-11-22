@@ -17042,9 +17042,23 @@ readers do not read off random characters that represent icons */
   font-weight: 900;
 }
 
+.card-p a {
+  display: block;
+  flex: 1;
+  text-decoration: none;
+}
+
 .card-p a .card_index {
   transition: 0.5s ease-in-out;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+.card-p a .card-img-bg {
+  min-height: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .card-p a .card-body {
@@ -17123,7 +17137,6 @@ section#intro {
   font-size: 3em;
   color: white;
   margin-bottom: 80px;
-  text-shadow: 1px 1px #ffffff;
 }
 
 .form-row {
@@ -17203,7 +17216,6 @@ section#simple-ap {
 }
 
 .info {
-  height: 220px;
   background-color: rgba(0, 0, 0, 0.03);
 }
 

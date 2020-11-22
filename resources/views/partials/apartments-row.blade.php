@@ -1,15 +1,15 @@
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-5">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 mt-5">
 
         @foreach ($apartments as $apartment)
 
-            <div class="col mb-4 d-flex click card-p">
+            <div class="col p-2 mb-4 d-flex click card-p">
                 <a href="{{route('apartment.show',['id' => $apartment->id])}}">
                     <div data-id="{{$apartment->id}}" class="card card_index flex-grow-1 wow animate__animated animate__fadeInUp">
-                    <div class="img-box">
-                        @if($apartment->cover)
-                        <img src="{{$apartment->cover->imgurl}}" class="img-fluid card-img-top" alt="{{ $apartment->title }}">
+
+                    @if($apartment->cover)
+                    <div class="card-img-top card-img-bg" style="background-image: url('{{$apartment->cover->imgurl}}')"></div>
                     @endif
-                    </div>
+
                     <div class="card-body">
                         <h5 class="card-title">{{ $apartment->title }}</h5>
 
@@ -25,4 +25,4 @@
 
         @endforeach
 
-    </div>
+</div>
