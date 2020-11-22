@@ -58,13 +58,15 @@ $(document).ready(function() {
 
       //----------------//
 
+      placesAutocomplete.on('change', function(e) {
+
+        $('#cordinates').val([e.suggestion.latlng.lat,e.suggestion.latlng.lng]);
+        callApiApartmentSearch();
+      });
+      
       $('input').on('change',function() {
 
-        placesAutocomplete.on('change', function(e) {
-
-          $('#cordinates').val([e.suggestion.latlng.lat,e.suggestion.latlng.lng]);
-
-        });
+        
 
         callApiApartmentSearch();
 
@@ -84,35 +86,59 @@ $(document).ready(function() {
             'cordinates' : $('input[name=cordinates]').val(),
           },
           success: function(data) {
-              refreshApartments(data);
+
+
+            $('.bs-example').empty();
+
+
+            refreshApartments(data);
           }
         });
       }
 
       function refreshApartments(data) {
-
+        
         var source = $('#template').html();
         var template = Handlebars.compile(source);
-
+        
         var apartments = data.apartments.data;
+    
+        console.log(apartments);
 
-        for (let i = 0; i < apartments.length; i++) {
-          
+  
+        apartments.forEach(apartment => {
           var context = {
-            latitude: apartments[i].latitude,
-            longitude: apartments[i].longitude,
-            title: apartments[i].title,
-            description: apartments[i].description,
-            cover: apartments[i].imgurl
+            latitude: apartment.latitude,
+            longitude: apartment.longitude,
+            title: apartment.title,
+            description: apartment.description,
+            cover: apartment.imgurl
           };
 
           var html = template(context);
 
-          $('.bs-example').empty();
+
 
           $('.bs-example').append(html);
           
-        }
+        });
+        // for (var i = 0; i < apartments.lenght; i++) {
+      
+        //   var context = {
+        //     latitude: apartments[i].latitude,
+        //     longitude: apartments[i].longitude,
+        //     title: apartments[i].title,
+        //     description: apartments[i].description,
+        //     cover: apartments[i].imgurl
+        //   };
+
+        //   var html = template(context);
+
+
+
+        //   $('.bs-example').append(html);
+          
+        // }
 
       }
 

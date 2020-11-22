@@ -88,7 +88,7 @@ class ApartmentController extends Controller
 
     public function searching(Request $request)
     {       
-
+      
         $n_rooms = $request['stanze'];
         $services = $request['services'];
         $n_beds = $request['postiletto'];
@@ -130,6 +130,7 @@ class ApartmentController extends Controller
         ")
         )
         ->having('distance', '<=', $range)
+        ->orderby('distance')
         ->get();
 
         $Apartments = $queryApartment->paginate(15);
