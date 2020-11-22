@@ -9,6 +9,17 @@
     height: 60px;
 }
 
+.btn-nav {
+    background-color: #fff;
+    border: 1px solid #00B3B3;
+    border-radius: 6px;
+    padding: 10px, 14px;
+
+    .btn.nav:hover {
+        background-color: #00B3B3;
+        color: white;
+    }
+}
 
 #slider {
     height: 80vh;
@@ -68,7 +79,7 @@ section#intro {
         border-radius: 20px;
     }
 
-    .btn {
+    .btn-search {
         border-radius: 80%;
     }
 }
@@ -76,18 +87,53 @@ section#intro {
 
 
 .search-box {
-    max-width: 350px;
+    max-width: 48vw;
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
     opacity: 0.9;
 }
 
-.promo {
+.featured h2 {
+    margin-right: 6px;
+    margin-left: 6px;
+
+    i {
+        margin-left: 6px;
+        margin-right: 6px;
+        color: #00B3B3;
+        font-size: 14px;
+    }
+
+}
+
+.featured::before,
+.featured::after {
+    content: '';
+    width: 41%;
+    height: 1px;
     background-color: #00B3B3;
-    color: white;
-    height: 250px;
-    opacity: 0.8;
+    border-radius: 1px;
+    display: inline-block;
+    margin-top: 20px;
+
+}
+
+.promo {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    height: 380px;
+
+    .title {
+        // border-top: 1px solid #00B3B3;
+        // border-bottom: 1px solid #00B3B3;
+        height: 130px;
+        background-color: #00B3B3;
+        color: white;
+
+        h2 {
+            padding-top: 20px;
+        }
+    }
 }
 
 section#simple-ap {
