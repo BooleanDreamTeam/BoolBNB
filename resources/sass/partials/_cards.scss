@@ -1,13 +1,21 @@
 .card-p {
 
     a {
+        display: block;
+        flex: 1;
+        text-decoration: none;
+
         .card_index {
             transition: 0.5s ease-in-out;
             box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+            border: none;
         }
 
-        .img-box {
-            // height: 250px;
+        .card-img-bg {
+            min-height: 200px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
         }
 
         .card-body {
