@@ -2,8 +2,12 @@
 @import '_reviews';
 @import '_cardsdashboard';
 @import '_cardsap';
+@import '_messages';
 
-
+#all{
+    width: 100vw;
+    overflow-x: hidden;
+}
     .sidebar-nav{
         background-color: #00b3b3;
         min-height: 100vh;

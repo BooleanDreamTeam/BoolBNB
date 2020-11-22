@@ -2,19 +2,32 @@
 
 @section('content')
 
-@foreach($allmessages as $message )                     
-  <a class="messages dropdown-item d-flex align-items-center" href="">
-      <div class="dropdown-list-image mr-3">
-          <img class="rounded app-img" src="{{$message->imgurl}}" alt="">
-          <div class="status-indicator bg-success"></div>
-      </div>
-      <div class="message-text">
-          <div class="text">
-              <p class="text-wrap">{{$message->message}}</p>
-          </div>
-          <div class="small text-gray-500">{{$message->email}}</div>
-      </div>
-  </a>
-@endforeach
+
+<div id="reviews" class="container">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Apartment</th>
+                    <th scope="col">Received</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Message</th>
+                </tr> 
+            </thead>
+            <tbody> 
+                @foreach ($allmessages as $message)
+                <tr>
+                    <td scope="row"><img class="rounded rev-img" src="{{$message->imgurl}}" alt="image"></td>
+                    <td>{{$message->created_at}}</td>
+                    <td>{{$message->email}}</td>
+                    <td>{{$message->message}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
 
 @endsection

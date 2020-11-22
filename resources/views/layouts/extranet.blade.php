@@ -27,8 +27,8 @@
 </head>
 <body>
     <!-- sidebar -->
-<div class="row row-main d-flex" id="sidebar">
-    <div class="sidebar-nav d-flex p-4 col-2 col-sm-4 col-lg-3 col-xl-2" >
+<div class="row row-main d-flex" id="all" >
+    <div id="sidebar" class="sidebar-nav d-flex p-4 col-2 col-sm-4 col-lg-3 col-xl-2" >
         <div class="nav flex-column align-center nav-pills " id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <img class="" id="logo" src="{{Storage::url('img/logo.png')}}" alt="logo">

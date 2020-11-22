@@ -48,15 +48,10 @@ class Apartment extends Model
         return $this->hasOne('App\Image')->where('cover', 1);
     }
 
-    public static function details(){
+    public static function details($apid){
         return DB::table('reviews')
-        ->join('apartments', 'apartments.id', '=', 'id_apartment')
-        ->join('images', 'images.apartment_id', '=', 'reviews.id_apartment')
-        ->select('images.imgurl', DB::raw('AVG(vote) as vote'), 'apartments.*')
-        ->where('apartments.host_id', Auth::id())
-        ->where('images.cover', true)
-        ->groupBy('id_apartment', 'images.imgurl')
-        ->orderby('created_at', 'desc')
+        ->select(DB::raw('AVG(vote) as vote'))
+        ->where('id_apartment', $apid)
         ->get();
     }
 

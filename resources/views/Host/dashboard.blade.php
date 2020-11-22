@@ -46,13 +46,14 @@
     <!-- appartamenti -->
     <div class="d-cont-left container">
         <h2>My Appartments</h2>
-        <div class="apartments d-flex flew-wrap">
+        <div id="apartments" class="apartments d-flex flew-wrap mb-4">
         @foreach($apartments as $apartment)
             <div class="d-cont d-flex">
                 <div class="d-card-e m-2 ">
-                    <div class="card-e-img-top d-flex justify-content-end" style="background-image: url({{$apartment->imgurl}}">
+                    <a href="{{route('apartment.show',['id' => $apartment->id])}}">
+                    <div class="card-e-img-top d-flex justify-content-end" style="background-image: url({{$apartment->cover->imgurl}}">
                         <div class="pt-2 pr-1">
-                            <div class="d-vote p-1 rounded">{{round($apartment->vote, 1)}}</div>
+                            <div class="d-vote p-1 rounded">{{round($apartment::details($apartment->id)[0]->vote)}}</div>
                         </div>    
                     
                     </div>
@@ -64,6 +65,8 @@
                         <small><i class="fas fa-bed"></i> {{$apartment->n_beds}}</small>
                         <small><i class="fas fa-bath"></i> {{$apartment->n_bathrooms}}</small>
                     </div>
+                    </a>
+                    
                     <a class="btn btn-primary w-100" href="{{route('apartments.edit',$apartment->id)}}">MODIFICA</a>
                     <form action="{{route('apartments.destroy',$apartment->id)}}" method="post">
                         @csrf
@@ -74,23 +77,29 @@
             </div>
         @endforeach
         </div>
-        <h2>Reviews</h2>
-        <div class="col-xl-12 p-3 d-flex" id="reviews">
-            <div class="d-flex flex-column">
-                @foreach ($reviews as $review)
-                    <div class="review p-1 d-flex"> 
-                        <div class="image-rev mr-3">
-                            <img class="rounded rev-img" src="{{$review->imgurl}}" alt="">
-                            <div class="status-indicator bg-success"></div>
-                        </div>
-                        <div class="review-text">
-                            <div class="text">
-                                <p class="text-wrap">{{$review->message}}</p>
-                            </div>
-                            <div class="small text-gray-500">{{$review->name}}</div>
-                        </div>
-                    </div>
-                @endforeach
+        <h2>Last Reviews</h2>
+        <div id="reviews" class="container">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Apartment</th>
+                            <th scope="col">Received</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Text</th>
+                        </tr> 
+                    </thead>
+                    <tbody> 
+                        @foreach ($reviews as $review)
+                        <tr>
+                            <td scope="row"><img class="rounded rev-img" src="{{$review->imgurl}}" alt="image"></td>
+                            <td>{{$review->created_at}}</td>
+                            <td>{{$review->name}}</td>
+                            <td>{{$review->message}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>    

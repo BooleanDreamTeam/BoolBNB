@@ -9,12 +9,9 @@
 <h2 >My Appartments</h2>
     <div id="apartment"class="apartments container d-flex flex-column">
     @foreach($apartments as $apartment)
-
-
-       
+     
             <div class="d-flex i-card-e mb-3 rounded ">
                 <div class="i-card-e-img-top" style="background-image: url({{$apartment->imgurl}}"></div>
-              
                 <div class="i-card-body p-2 d-flex ">
                     <div class="i-left d-flex flex-column justify-content-between">
                         <div class="i-top-card">

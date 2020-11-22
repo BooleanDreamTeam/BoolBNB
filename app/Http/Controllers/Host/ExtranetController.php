@@ -22,7 +22,9 @@ class ExtranetController extends Controller
         if (Auth::user()->user_type->name == 'Host'){
 
             // vediamo i nostri appartamenti
-            $apartments = Apartment::details()->take(4);
+            $apartments = Apartment::where('host_id', Auth::id())->take(4)->get();
+            
+            // $apartments = Apartment::details()->take(4);
 
             // active sponsor
 

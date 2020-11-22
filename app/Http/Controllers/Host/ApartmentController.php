@@ -8,6 +8,7 @@ use App\Apartment;
 use App\Image;
 use App\Service;
 use App\Message;
+use App\Image;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -144,7 +145,7 @@ class ApartmentController extends Controller
     {
         $messages = Message::getmes()->take(4);
         $services = Service::all();
-        $apartmentImages = Image::all()->where('apartment_id',$apartment->id);
+        $apartmentImages = Image::all()->where('apartment_id', $apartment->id);
         return view('host.apartments.edit', compact('apartment', 'services', 'apartmentImages'));
     }
 
