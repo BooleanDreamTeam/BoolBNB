@@ -66,13 +66,55 @@ $(document).ready(function() {
 
         });
 
-        var form = $('.btn-group-search');
-
-        form.submit();
+        callApiApartmentSearch();
 
       });
 
       // API CALL
+      function callApiApartmentSearch() {
+        $.ajax({
+          method: 'GET',
+          url: 'http://localhost:8000/api/search',
+          data: {
+            'stanze' : $('input[name=stanze]').val(), 
+            'services' : $('input[name=services').val(),
+            'postiletto' : $('input[name=postiletto]').val(),
+            'range' : $('input[name=range]').val(),
+            'address' : $('input[name=address]').val(),
+            'cordinates' : $('input[name=cordinates]').val(),
+          },
+          success: function(data) {
+              refreshApartments(data);
+          }
+        });
+      }
+
+      function refreshApartments(data) {
+
+        var source = $('#template').html();
+        var template = Handlebars.compile(source);
+
+        var apartments = data.apartments.data;
+
+        for (let i = 0; i < apartments.length; i++) {
+          
+          var context = {
+            latitude: apartments[i].latitude,
+            longitude: apartments[i].longitude,
+            title: apartments[i].title,
+            description: apartments[i].description,
+            cover: apartments[i].imgurl
+          };
+
+          var html = template(context);
+
+          $('.bs-example').empty();
+
+          $('.bs-example').append(html);
+          
+        }
+
+      }
 
 
 

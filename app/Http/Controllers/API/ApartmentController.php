@@ -91,7 +91,7 @@ class ApartmentController extends Controller
 
         $n_rooms = $request['stanze'];
         $services = $request['services'];
-        $n_beds = $request['postiLetto'];
+        $n_beds = $request['postiletto'];
         $range = $request['range'];
         $address = $request['address'];
         $cordinates = $request['cordinates'];
@@ -103,17 +103,22 @@ class ApartmentController extends Controller
 
         $queryApartment = Apartment::query();
 
-        // foreach ($services as $service) {
-        //     $queryApartment->whereHas('services', function($q) {
-        //         $q->where('service_id', $service);
-        // });
+        if (array_key_exists('services',$request->all())) {
+            $queryApartment->join('apartment_service','apartment_service.apartment_id','=','apartments.id');
+            foreach ($services as $service) {
+                $queryApartment->where('service_id','=',$service);
+            }
+        }
 
         $queryApartment->where('n_rooms', '>=' ,$n_rooms);
         $queryApartment->where('n_beds', '>=' ,$n_beds);
 
+        $queryApartment->join('images','images.apartment_id','=','apartments.id')
+                        ->where('images.cover','=','1');
+
         $queryApartment->select(
         DB::raw("
-        *, (
+        apartments.*,images.imgurl, (
         6371 * acos (
         cos ( radians($lat) )
         * cos( radians( latitude ) )
@@ -130,8 +135,6 @@ class ApartmentController extends Controller
         $Apartments = $queryApartment->paginate(15);
 
         return response()->json(['apartments' => $Apartments]);
-
-        
 
     }
 

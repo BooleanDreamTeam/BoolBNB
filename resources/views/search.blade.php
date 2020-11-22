@@ -15,7 +15,7 @@
 
     <div class="sx">
 
-      <form method="GET" action="{{route('apiSearchingApartment')}}" class="btn-group-search d-flex justify-content-center align-items-center">
+      <form class="btn-group-search d-flex justify-content-center align-items-center">
         <div class="btn-group m-4 dropdown">
           <button type="button" class="btn dropdown-toggle mr-4" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Servizi
@@ -112,5 +112,29 @@
                 </div>
             </div>
     </div>
+
+    {{-- TEMPLATE HANDLEBARS --}}
+
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+<script id="template" type="text/x-handlebars-template">
+    <div class="bs-example m-4 rounded">
+      <div class="card card_apartment_search" data-lat="@{{latitude}}" data-lng="@{{longitude}}">
+          <div class="row no-gutters">
+              <div class="col-sm-5">
+                <img src="@{{cover}}" class="card-img-top img-fluid" alt="@{{cover}}">
+              </div>
+              <div class="col-sm-7">
+                  <div class="card-body">
+                      <h5 class="card-title">@{{title}}</h5>
+                      <p class="card-text">@{{description}}</p>
+                      <a href="#" class="btn btn-primary stretched-link">View Profile</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</script>
+
 </section>
 @endsection
