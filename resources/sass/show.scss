@@ -5,3 +5,36 @@
 .img-height {
     height: 400px;
 }
+
+#up {
+    height: 500px;
+    width: 100vw;
+    padding: 0;
+}
+
+.ctn-first {
+    height: 100%;
+}
+
+.img {
+    height: 100%;
+    width: 100%;
+    background-image: url('https://q-xx.bstatic.com/xdata/images/hotel/840x460/248963502.jpg?k=309d99860c910fbf7844859b09feca1483f39c0c79a9906e65e994ab2c1daef1&o=');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+.img-ret {
+    height: 50%;
+}
+
+.img-qdr {
+    height: 50%;
+}
+
+.space {
+    height: 200px;
+    background-color: #00B3B3;
+}
