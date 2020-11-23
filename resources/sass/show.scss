@@ -1,14 +1,7 @@
-.img-show {
-    background-size: cover;
-}
 
-.img-height {
-    height: 400px;
-}
 
 #up {
     height: 500px;
-    width: 100vw;
     padding: 0;
 }
 
@@ -34,7 +27,22 @@
     height: 50%;
 }
 
-.space {
-    height: 200px;
-    background-color: #00B3B3;
+.d-block {
+    height: 300px;
+}
+
+.list-group {
+    list-style: none;
+}
+
+.jumbotron {
+    height: 450px;
+}
+
+.review {
+    overflow-x: scroll;
+}
+
+.review::-webkit-scrollbar {
+  display: none;
 }

@@ -92,11 +92,11 @@
 
                         <div class="detail_bedroom wow animate__animated animate__fadeInRight animate__delay-1s">
                             <ul class="list-group">
-                                <li class="list-group-item list-group-item-light"><i class="fas fa-bed"></i></li>
-                                <li class="list-group-item list-group-item-light"><i class="fas fa-wifi"></i></li>
-                                <li class="list-group-item list-group-item-light"><i class="fas fa-bed"></i></li>
-                                <li class="list-group-item list-group-item-light"><i class="fas fa-wifi"></i></li>
-                                <li class="list-group-item list-group-item-light"><i class="fas fa-bed"></i></li>
+                                <li><i class="fas fa-bed"></i></li>
+                                <li><i class="fas fa-wifi"></i></li>
+                                <li><i class="fas fa-bed"></i></li>
+                                <li><i class="fas fa-bed"></i></li>
+                                <li><i class="fas fa-wifi"></i></li>
                             </ul>
                             {{-- <h5 class="pt-5 pl-3">Bedroom</h5>
                             <p class="pl-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p> --}}
@@ -113,11 +113,11 @@
 
             <div class="container py-5">
                 <div class="row">
-                    <div class="col-lg-6 wow animate__animated animate__flipInX animate__delay-1s" >
+                    {{-- <div class="col-lg-6 wow animate__animated animate__flipInX animate__delay-1s" >
                         <div id="map_container" style="height:600px;">
 
                         </div>
-                    </div>
+                    </div> --}}
 
 
                     <form method="post" action="{{route('sendMessage')}}" class="col-lg-5 mb-lg-0 mb-4 wow animate__animated animate__fadeInRight animate__delay-1s">
@@ -194,7 +194,7 @@
             </div>
         </section>
 
-        <section id="mobile" class="container d-block d-md-none">
+        <section id="mobile" class="container d-block d-md-none p-0 mb-5">
             <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
                   <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -224,16 +224,26 @@
 
 
 
-        <section id="" class="container  d-md-flex flex-column">
+        <section id="" class="container  d-md-flex p-0">
             <div class="col-lg-12 col-md-12 col-sm-12 p-2">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Descrione</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <h5 class="card-title">Servizi</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="description">
+                            <h5 class="card-title">Descrione</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                        <div class="services ">
+                            <h5 class="card-title">Servizi</h5>
+                            <ul class="list-group d-flex flex-row">
+                                <li><i class="fas fa-bed pr-5"></i></li>
+                                <li><i class="fas fa-wifi pr-5"></i></li>
+                                <li><i class="fas fa-bed pr-5"></i></li>
+                                <li><i class="fas fa-bed pr-5"></i></li>
+                                <li><i class="fas fa-wifi pr-5"></i></li>
+                            </ul>
+                        </div>
+
 
                     </div>
                 </div>
@@ -242,47 +252,48 @@
         </section>
 
 
-        <section id="" class="container  d-md-flex flex-column">
-
+        <section id="" class="container  d-md-flex flex-column p-0 ">
             <div class="col-lg-12 col-md-12 col-sm-12 p-2">
-                <div class="jumbotron">
-                    <h2 class="display-4">MAPPA!</h2>
-                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                    <hr class="my-4">
-                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                    <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                    </p>
-                </div>
+                {{-- <div class="jumbotron"> --}}
+                    <div id="map_container" style="height:600px;">
+
+                    </div>
+                {{-- </div> --}}
             </div>
         </section>
 
-        <section id="" class="container  d-md-flex">
+        <section id="" class="container  d-md-flex p-0">
 
-            
+
                 <div class="col-lg-6 col-md-6 col-sm-12 p-2">
                     <div class="jumbotron">
-                        <h2 class="display-4">Write To Us!</h2>
-                        <label for="exampleInputEmail1">Email address</label>
+                        <h3 class="mt-2"><i class="fas fa-envelope"></i> Write to us:</h3>
+
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                         <hr class="my-4">
-                        <label for="exampleFormControlTextarea1">Example textarea</label>
+                        <i class="fas fa-pencil-alt prefix grey-text"></i>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Submit</a>
+                            <a class="btn btn-primary btn-lg mt-5" href="#" role="button">Submit</a>
                         </p>
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-12 p-2">
-                    <div class="jumbotron">
-                        <h2 class="display-4">Write To Us!</h2>
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <hr class="my-4">
+                    <div class="jumbotron review">
+                        <h3 class="">Scrivi una recesione!</h3>
                         <label for="exampleFormControlTextarea1">Example textarea</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            <a class="btn btn-primary btn-lg" href="#" role="button">Submit</a>
+                            <a class="btn btn-primary btn-lg mt-5" href="#" role="button">Submit</a>
                         </p>
+                        <hr class="my-4">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
                     </div>
                 </div>
         </section>
