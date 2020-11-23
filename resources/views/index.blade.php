@@ -68,7 +68,7 @@
         <h2 class="text-center">Vai alla scoperta con BoolBnB</h2>
         <h6 class="text-center">BoolBnB offre annunci in oltre 191 paesi</h6>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 d-flex justify-content-center">
 
         <p>testo sotto</p>
     </div>

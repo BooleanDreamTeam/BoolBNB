@@ -1,5 +1,5 @@
 <section class="info bg-fluid mt-5 pt-4 text-center">
-    <div class="container col-md-8 col-md-offset-2">
+    <div class="container col-md-8 col-md-offset-2 pb-1">
         <div class="row">
             <div class="col">
                 <div class="nest-row row">
@@ -80,7 +80,7 @@
     </section>
 
     <section class="bg-fluid pb-2">
-        <div class="credits container col-md-8 pb-5">
+        <div class="credits container col-md-8 pb-3">
             <div class="row pt-2">
                 <div class="jm_logo col-md-6 col-xs-12">
                     <img src="{{Storage::url('img/logo.png')}}" alt="logo-boolbnb" style="height: 25px">

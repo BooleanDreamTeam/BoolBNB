@@ -1,11 +1,11 @@
-@extends('layouts.extranet')    
+@extends('layouts.extranet')
 
 @section('script')
     <script src="{{ asset('js/input-validation.js') }}"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
 @endsection
 
-        
+
 @section('content')
 
 @foreach ($clicks as $click)
@@ -51,11 +51,11 @@
             <div class="d-cont d-flex">
                 <div class="d-card-e m-2 ">
                     <a href="{{route('apartment.show',['id' => $apartment->id])}}">
-                    <div class="card-e-img-top d-flex justify-content-end" style="background-image: url({{$apartment->cover->imgurl}}">
+                    <div class="card-e-img-top d-flex justify-content-end" style="background-image: url({{ $apartment->cover->imgurl }}">
                         <div class="pt-2 pr-1">
-                            <div class="d-vote p-1 rounded">{{round($apartment::details($apartment->id)[0]->vote)}}</div>
-                        </div>    
-                    
+                            <div class="d-vote p-1 rounded">{{ $apartment->rating() }}</div>
+                        </div>
+
                     </div>
                     <div class="d-card-header p-2">
                         <h6 class="font-weight-bold text-primary">{{ $apartment->title }}</h6>
@@ -66,7 +66,7 @@
                         <small><i class="fas fa-bath"></i> {{$apartment->n_bathrooms}}</small>
                     </div>
                     </a>
-                    
+
                     <a class="btn btn-primary w-100" href="{{route('apartments.edit',$apartment->id)}}">MODIFICA</a>
                     <form action="{{route('apartments.destroy',$apartment->id)}}" method="post">
                         @csrf
@@ -87,9 +87,9 @@
                             <th scope="col">Received</th>
                             <th scope="col">Name</th>
                             <th scope="col">Text</th>
-                        </tr> 
+                        </tr>
                     </thead>
-                    <tbody> 
+                    <tbody>
                         @foreach ($reviews as $review)
                         <tr>
                             <td scope="row"><img class="rounded rev-img" src="{{$review->imgurl}}" alt="image"></td>
@@ -102,9 +102,9 @@
                 </table>
             </div>
         </div>
-    </div>    
-    
+    </div>
+
 </div>
-  
+
 
 @endsection

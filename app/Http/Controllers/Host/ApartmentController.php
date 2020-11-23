@@ -28,7 +28,7 @@ class ApartmentController extends Controller
             $messages = Message::getmes()->take(4);
             return view('host.apartments.index', compact('apartments', 'messages'));
         }
-        
+
 
     }
 
@@ -104,7 +104,7 @@ class ApartmentController extends Controller
                         'apartment_id' => $apartment->id,
                         'imgurl' => $urlImg,
                         'cover' => 1,
-                    ]);    
+                    ]);
                 } else {
 
                     $imageToDb = Image::create([
@@ -116,10 +116,10 @@ class ApartmentController extends Controller
                 }
 
             }
-                
+
         }
 
-        return redirect()->route('dashboard')->with('status', "Appartamento $apartment->title creato!");   
+        return redirect()->route('dashboard')->with('status', "Appartamento $apartment->title creato!");
 
     }
 
@@ -145,7 +145,7 @@ class ApartmentController extends Controller
         $messages = Message::getmes()->take(4);
         $services = Service::all();
         $apartmentImages = Image::all()->where('apartment_id', $apartment->id);
-        return view('host.apartments.edit', compact('apartment', 'services', 'apartmentImages'));
+        return view('host.apartments.edit', compact('apartment', 'services', 'apartmentImages', 'messages'));
     }
 
     /**
@@ -200,7 +200,7 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         $apartment->delete();
-        
+
         return redirect()->route('dashboard')->with('status', 'Hai cancellato correttamente il tuo appartamento');
     }
 }

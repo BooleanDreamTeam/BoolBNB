@@ -20,7 +20,7 @@ class Apartment extends Model
     }
 
     public function reviews(){
-        return $this->hasMany('App\Review');
+        return $this->hasMany('App\Review', 'id_apartment');
     }
 
     public function services()
@@ -48,12 +48,16 @@ class Apartment extends Model
         return $this->hasOne('App\Image')->where('cover', 1);
     }
 
-    public static function details($apid){
-        return DB::table('reviews')
-        ->select(DB::raw('AVG(vote) as vote'))
-        ->where('id_apartment', $apid)
-        ->get();
+    public function rating() {
+        return round($this->reviews()->avg('vote'));
     }
+
+    // public static function details($apid){
+    //     return DB::table('reviews')
+    //     ->select(DB::raw('AVG(vote) as vote'))
+    //     ->where('id_apartment', $apid)
+    //     ->get();
+    // }
 
 }
 

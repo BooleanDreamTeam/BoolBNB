@@ -1,15 +1,15 @@
-@extends('layouts.extranet') 
+@extends('layouts.extranet')
 
 @section ('css')
 
 @endsection
 
-        
+
 @section('content')
 <h2 >My Appartments</h2>
     <div id="apartment"class="apartments container d-flex flex-column">
     @foreach($apartments as $apartment)
-     
+
             <div class="d-flex i-card-e mb-3 rounded ">
                 <div class="i-card-e-img-top" style="background-image: url({{$apartment->cover->imgurl}}"></div>
                 <div class="i-card-body p-2 d-flex ">
@@ -28,9 +28,9 @@
 
                     <div class="i-right d-flex flex-column justify-content-between">
                         <div class="d-flex justify-content-end w-100">
-                            <div class="i-vote text-center rounded">{{round($apartment::details($apartment->id)[0]->vote)}}</div>
+                            <div class="i-vote text-center rounded">{{ $apartment->rating() }}</div>
                         </div>
-                        
+
                         <div class="buttons">
                             <a class="btn btn-primary" href="{{route('apartments.edit',$apartment->id)}}">MODIFICA</a>
                             <form action="{{route('apartments.destroy',$apartment->id)}}" method="post">
