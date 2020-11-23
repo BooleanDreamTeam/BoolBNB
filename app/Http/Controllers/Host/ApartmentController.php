@@ -157,17 +157,21 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, Apartment $apartment)
     {
+        //dd($request->all());
         $data = $request->all();
 
         $latlng = $data['latlng'];
 
-        $arrayCordinates = explode(",", $latlng);
+        if($latlng) {
+            $arrayCordinates = explode(",", $latlng);
 
-        $lat = $arrayCordinates[0];
-        $lng = $arrayCordinates[1];
+            $lat = $arrayCordinates[0];
+            $lng = $arrayCordinates[1];
 
-        $data['latitude'] = $lat;
-        $data['longitude'] = $lng;
+            $data['latitude'] = $lat;
+            $data['longitude'] = $lng;
+        }
+
         $data['host_id'] = Auth::id();
 
         $request->validate([
@@ -180,6 +184,11 @@ class ApartmentController extends Controller
             'host_id' => 'numeric|exists:users,id'
         ]);
 
+        if($data['cover_image_id']) {
+            Image::where('apartment_id', $apartment->id)->update(['cover' => 0]);
+            Image::where('id', $data['cover_image_id'])->update(['cover' => 1]);
+        }
+
         if (!empty($data['services'])){
             $apartment->services()->sync($data['services']);
         }  else {
@@ -189,6 +198,20 @@ class ApartmentController extends Controller
         $apartment->update($data);
 
         return redirect()->route('dashboard')->with('status', "Modifiche all'appartamento $apartment->title  effettuate");
+    }
+
+    public function deleteImage(Image $image) {
+
+        if($image->cover) {
+            $image->delete();
+            $images = Image::where(['apartment_id' => $image->apartment_id])->get();
+            if(isset($images[0])) {
+                $images[0]->cover = 1;
+                $images[0]->save();
+            }
+        }
+
+        return redirect()->route('apartments.edit', $image->apartment_id)->with('status', 'Immagine cancellata correttamente');
     }
 
     /**

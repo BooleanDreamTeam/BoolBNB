@@ -37,6 +37,8 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 Route::prefix('host')->namespace('Host')->middleware('auth')->group(function() {
     Route::get('extranet', 'ExtranetController@extranet')->name('extranet');
     Route::resource('apartments', 'ApartmentController');
+    Route::get('apartments/delete-image/{image}', 'ApartmentController@deleteImage')->name('delete-image');
+
     Route::get('dashboard', 'ExtranetController@dashboard')->name('dashboard');
     Route::resource('sponsorship', 'SponsorshipController');
     Route::post('checkout', 'SponsorshipController@checkout')->name('checkout');

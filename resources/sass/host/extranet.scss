@@ -3,6 +3,7 @@
 @import '_cardsdashboard';
 @import '_cardsap';
 @import '_messages';
+@import '_apform';
 
 #all{
     width: 100vw;
@@ -19,7 +20,7 @@
             .navbar-brand{
                 width: 100%;
                 img{
-                    margin: 0 auto; 
+                    margin: 0 auto;
                     width: 100%;
                     max-width: 250px;
                     height: auto;
@@ -27,7 +28,7 @@
             }
 
             .nav-link{
-                color: white !important;  
+                color: white !important;
             }
             a.nav-link:hover{
                 color: white !important;
@@ -48,12 +49,12 @@
                     .message-text{
                         width: 400px;
                     }
-                    
+
                     .app-img{
                         height: 30px;
                     }
                     .text{
-                        
+
                         p{
                             width: 400px;
                         }
@@ -65,7 +66,7 @@
                     }
                     .badge{
                         position: absolute;
-                        
+
                         transform-origin: top right;
                         right: 1.25rem;
                         margin-top: -.25rem;

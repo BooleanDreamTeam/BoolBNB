@@ -1,0 +1,31 @@
+form {
+
+    .apartment-images {
+        width: 100%;
+
+        .apartment-image {
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+            position: relative;
+
+            .apartment-image-bg {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                min-height: 200px;
+                margin-bottom: 15px;
+            }
+
+            .apartment-image-delete {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+
+        }
+
+
+    }
+
+}
