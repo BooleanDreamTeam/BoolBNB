@@ -15,7 +15,7 @@
 
     <div class="sx">
 
-      <form class="btn-group-search d-flex justify-content-center align-items-center">
+      <form oninput='outputStanze.value = stanze.valueAsNumber,outputPostiletto.value = postiletto.valueAsNumber,outputRange.value = range.valueAsNumber' class="btn-group-search d-flex justify-content-center align-items-center">
           <div class="btn-group m-4 dropdown">
             <button type="button" class="btn dropdown-toggle mr-4" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Servizi
@@ -23,7 +23,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 @foreach ($services as $service)
                 <div class="dropdown-item">
-                  <input type="checkbox" name="services[]" id="{{$service->name}}" value="{{$service->id}}">
+                  <input type="checkbox" name="services" id="{{$service->name}}" value="{{$service->id}}">
                   <label for="{{$service->name}}">{{$service->name}}</label>
                 </div>
                 @endforeach
@@ -38,8 +38,12 @@
               <label for="Stanze">N. Stanze</label>
               <div class="range d-flex justify-content-between">
                 <span>{{$RangeRooms[0]}}</span>
-                <input type="range" class="input_range_service" name="stanze" min="{{$RangeRooms[0]}}" max="{{$RangeRooms[1]}}" step="1" id="">
+                <input type="range" class="input_range_service" name="stanze" value="1" min="{{$RangeRooms[0]}}" max="{{$RangeRooms[1]}}" step="1" id="stanze">
                 <span>{{$RangeRooms[1]}}</span>
+              </div>
+              <div class="text-center">
+                <i class="fas fa-door-open"></i>
+                <output name="outputStanze" for="stanze"></output>
               </div>
             </div>
           </div>
@@ -60,8 +64,12 @@
               <label for="Stanze">N. Letti</label>
               <div class="range d-flex justify-content-between">
                 <span>{{$RangeBeds[0]}}</span>
-                <input type="range" class="input_range_service" name="postiletto" min="{{$RangeBeds[0]}}" max="{{$RangeBeds[1]}}" step="1" id="">
+                <input type="range" class="input_range_service" name="postiletto" value="1" min="{{$RangeBeds[0]}}" max="{{$RangeBeds[1]}}" step="1" id="">
                 <span>{{$RangeBeds[1]}}</span>
+              </div>
+              <div class="text-center">
+                <i class="fas fa-bed"></i>
+                <output name="outputPostiletto" for="postiletto"></output>
               </div>
             </div>
           </div>
@@ -75,8 +83,12 @@
             <label for="Stanze">Raggio</label>
             <div class="range d-flex justify-content-between">
               <span>1</span>
-              <input type="range" class="input_range_service" name="range" min="1" max="100" step="1" id="">
+              <input type="range" class="input_range_service" value="1" name="range" min="1" max="100" step="1" id="">
               <span>100</span>
+            </div>
+            <div class="text-center">
+              <i class="fas fa-street-view"></i>
+              <output name="outputRange" for="range"></output>
             </div>
           </div>
         </div>  

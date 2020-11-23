@@ -22,7 +22,7 @@
         </div>
         <div class="search-wrapper d-flex flex-column justify-content-center align-items-center">
             <h2 id="smart-write"></h2>
-            <form id="search" action="{{route('search')}}" method="get">
+            <form id="search" action="{{route('search')}}" method="get" class=" search_bar wow animate__animated animate__bounceInUp">
                 <div class="search-box">
                     <div class="form-row">
                         <div class="col d-flex justify-content-around col-md-12">

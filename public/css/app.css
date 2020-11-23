@@ -17215,6 +17215,10 @@ section#simple-ap {
   background-color: #036ee4;
 }
 
+.leaflet-marker-icon {
+  color: #00B3B3;
+}
+
 .info {
   background-color: rgba(0, 0, 0, 0.03);
 }

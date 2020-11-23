@@ -88,7 +88,6 @@ class ApartmentController extends Controller
 
     public function searching(Request $request)
     {       
-      
         $n_rooms = $request['stanze'];
         $services = $request['services'];
         $n_beds = $request['postiletto'];
@@ -103,22 +102,39 @@ class ApartmentController extends Controller
 
         $queryApartment = Apartment::query();
 
-        if (array_key_exists('services',$request->all())) {
-            $queryApartment->join('apartment_service','apartment_service.apartment_id','=','apartments.id');
-            foreach ($services as $service) {
-                $queryApartment->where('service_id','=',$service);
-            }
-        }
-
         $queryApartment->where('n_rooms', '>=' ,$n_rooms);
         $queryApartment->where('n_beds', '>=' ,$n_beds);
 
         $queryApartment->join('images','images.apartment_id','=','apartments.id')
-                        ->where('images.cover','=','1');
+                        ->where('images.cover','=',1)
+                        ->get();
+                        
+
+        if (array_key_exists('services',$request->all())) {
+
+            $servicesCollection = '';
+
+            for ($i = 0; $i < count($services); $i++) {
+                
+                if ($i == 0) {
+                    $servicesCollection = $servicesCollection."apartment_service.service_id = $services[$i]";
+                } else {
+                    $servicesCollection = $servicesCollection." OR apartment_service.service_id = $services[$i]";
+                }
+
+            }
+
+            $queryApartment->whereRaw("(SELECT COUNT(*) 
+                  FROM apartment_service 
+                  WHERE apartment_service.apartment_id = apartments.id 
+                  AND ($servicesCollection)) =".count($services)
+                );
+
+        };    
 
         $queryApartment->select(
         DB::raw("
-        apartments.*,images.imgurl, (
+        distinct apartments.*,images.imgurl,(
         6371 * acos (
         cos ( radians($lat) )
         * cos( radians( latitude ) )
@@ -135,7 +151,12 @@ class ApartmentController extends Controller
 
         $Apartments = $queryApartment->paginate(15);
 
-        return response()->json(['apartments' => $Apartments]);
+        return response()->json([
+            'apartments' => $Apartments,
+            'lat' => $lat,
+            'lng' => $lng,
+            'range' => $range
+        ]);
 
     }
 

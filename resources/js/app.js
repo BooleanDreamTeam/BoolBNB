@@ -3,6 +3,7 @@ require('./bootstrap');
 require('chart.js/dist/Chart.min.js');
 import WOW from 'wowjs';
 import Typed from 'typed.js';
+import { map } from 'jquery';
 new WOW.WOW().init();
 //------//
 
@@ -54,19 +55,21 @@ $(document).ready(function() {
         arrayApartments.push({lat : apartments[i].dataset.lat, lng : apartments[i].dataset.lng});
       }
       
-      mapShow($('#map_container').data('lat'),$('#map_container').data('lng'),arrayApartments);
+      var startMap = mapShow($('#map_container').data('lat'),$('#map_container').data('lng'),arrayApartments);
 
       //----------------//
 
       placesAutocomplete.on('change', function(e) {
 
         $('#cordinates').val([e.suggestion.latlng.lat,e.suggestion.latlng.lng]);
+
         callApiApartmentSearch();
+
       });
+
+      var markers = [];
       
       $('input').on('change',function() {
-
-        
 
         callApiApartmentSearch();
 
@@ -74,12 +77,19 @@ $(document).ready(function() {
 
       // API CALL
       function callApiApartmentSearch() {
+
+        var services = [];
+
+        $("input[name='services']:checked").each(function() {
+          services.push($(this).val());
+        });
+
         $.ajax({
           method: 'GET',
           url: 'http://localhost:8000/api/search',
           data: {
             'stanze' : $('input[name=stanze]').val(), 
-            'services' : $('input[name=services').val(),
+            'services' : services,
             'postiletto' : $('input[name=postiletto]').val(),
             'range' : $('input[name=range]').val(),
             'address' : $('input[name=address]').val(),
@@ -102,9 +112,10 @@ $(document).ready(function() {
         var template = Handlebars.compile(source);
         
         var apartments = data.apartments.data;
-    
-        console.log(apartments);
 
+        var rangeView = data.range;
+
+        mapRefresh(data.lat,data.lng,apartments,rangeView);
   
         apartments.forEach(apartment => {
           var context = {
@@ -117,29 +128,39 @@ $(document).ready(function() {
 
           var html = template(context);
 
-
-
           $('.bs-example').append(html);
           
         });
-        // for (var i = 0; i < apartments.lenght; i++) {
-      
-        //   var context = {
-        //     latitude: apartments[i].latitude,
-        //     longitude: apartments[i].longitude,
-        //     title: apartments[i].title,
-        //     description: apartments[i].description,
-        //     cover: apartments[i].imgurl
-        //   };
 
-        //   var html = template(context);
+      }
 
+      function mapRefresh(lat,lng,apartments,rangeView) {
 
+        startMap.invalidateSize();
 
-        //   $('.bs-example').append(html);
-          
-        // }
+        startMap.setView([lat,lng],15);
 
+        markers.forEach(marker => {
+
+          removeMarker(marker);
+        
+        });
+
+        markers = [];
+  
+        apartments.forEach(apartment => {
+          addMarker(apartment.latitude,apartment.longitude);
+        });
+  
+      }
+  
+      function addMarker(lat,lng) {
+        var marker = L.marker([lat,lng]).addTo(startMap);
+        markers.push(marker);
+      }
+
+      function removeMarker(marker) {
+        startMap.removeLayer(marker);
       }
 
 
@@ -147,17 +168,16 @@ $(document).ready(function() {
     }
 
     // MAPPA SHOW
-
     mapShow($('.card_show').data('lat'),$('.card_show').data('lng'));
 
     function mapShow(lat,lng,apartments) {    
 
-        const map = L.map("map_container").setView([lat,lng], 13);
+        var map = L.map("map_container").setView([lat,lng], 13);
 
         var osmLayer = new L.TileLayer(
             'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-              minZoom: 1,
-              maxZoom: 13,
+              minZoom: 10,
+              maxZoom: 20,
               attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
             }
         );
@@ -170,11 +190,11 @@ $(document).ready(function() {
 
         if (apartments) {
           
-          for (let i = 0; i < apartments.length; i++) {
+          for (var i = 0; i < apartments.length; i++) {
+            
+            var marker = L.marker([apartments[i].lat,apartments[i].lng]).addTo(map);
+            
 
-            var marker = L.marker(apartments[i]);
-            marker.addTo(map);
-    
           }
 
         }
@@ -182,6 +202,10 @@ $(document).ready(function() {
         return map;
     }
 
+    function addMarkerInitial(lat,lng) {
+      var marker = L.marker([lat,lng]).addTo(startMap);
+      markers.push(marker);
+    }
 
 });
 
