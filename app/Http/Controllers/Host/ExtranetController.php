@@ -10,6 +10,7 @@ use App\Image;
 use App\Message;
 use App\Review;
 use App\Click;
+use Carbon\Carbon;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use File; 
@@ -23,11 +24,11 @@ class ExtranetController extends Controller
                 
             // vediamo i nostri appartamenti
             $apartments = Apartment::where('host_id', Auth::id())->take(4)->get();
-            
+            $apids= Apartment::where('host_id', Auth::id())->pluck('id');
+        
             // $apartments = Apartment::details()->take(4);
 
             // active sponsor
-
             $sponsored = Sponsorship::sponsored();
             $sponsoredoff = Sponsorship::nosponsored();
 
@@ -39,9 +40,13 @@ class ExtranetController extends Controller
 
                 
             $clicks = Click::statistics();
+            $brows = Click::brows();
+            
+            $views = Click::views();
+            
                  
         }           
-        return view('host.dashboard', compact('apartments', 'messages', 'reviews', 'sponsored', 'clicks'));
+        return view('host.dashboard', compact('apartments', 'messages', 'reviews', 'sponsored', 'clicks', 'brows'));
     }
     
 }

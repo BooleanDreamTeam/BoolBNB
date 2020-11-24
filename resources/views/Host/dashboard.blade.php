@@ -1,4 +1,6 @@
-@extends('layouts.extranet')
+
+
+@extends('layouts.extranet')    
 
 @section('script')
     <script src="{{ asset('js/input-validation.js') }}"></script>
@@ -7,11 +9,6 @@
 
 
 @section('content')
-
-@foreach ($clicks as $click)
-    <p>{{$click->geo_area}}</p>
-@endforeach
-
 
 
 {{-- ERROR --}}
@@ -33,16 +30,6 @@
 {{-- ERROR--}}
 
 <div class="box col-12 ">
-    <div class="chart d-flex flex-column flex-md-row">
-        <!-- visualizzazioni -->
-        <div class="bar col-sm-12 col-lg-6">
-            <canvas class="" id="myChart"></canvas>
-        </div>
-        <div class="bar col-sm-12 col-lg-6">
-            <canvas class="" id="myChart2"></canvas>
-        </div>
-    </div>
-    <hr>
     <!-- appartamenti -->
     <div class="d-cont-left d-flex flex-column">
         <h2>My Appartments</h2>
@@ -102,9 +89,96 @@
                 </table>
             </div>
         </div>
-    </div>
-
+        <div class=" d-flex">
+            <div id="geoarea" class="geo col-6">
+                <h2>Geo Area Views</h2>
+                <table class="table table-striped table-dark">
+                    <thead>
+                        <tr>
+                        <th scope="col">Country</th>
+                        <th scope="col">Total view</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($clicks as $click)
+                        <tr>
+                            <th scope="row">{{$click->geo_area}}</th>
+                            <td>{{$click->clicks}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="chart d-flex flex-column">
+            <!-- visualizzazioni -->
+                <div class="bar">
+                    <canvas class="col-12" id="myChart"></canvas>
+                </div>
+                <div class="bar ">
+                    <canvas class="col-12" id="myChart2"></canvas>
+                </div>
+            </div>
+        <hr>
+        </div>
+    </div>    
 </div>
 
+<script>
 
+    
+// torta
+    var ctx = document.getElementById("myChart2").getContext("2d");
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: [
+                @foreach($brows as $brow)
+                '{{$brow->browser}}',
+                @endforeach
+            ],
+            datasets: [
+                {
+                    label: "browser",
+                    data: [
+                        @foreach($brows as $brow)
+                            '{{$brow->clicks}}',
+                        @endforeach
+                        ],
+                    backgroundColor: [
+                        "rgba(255, 99, 132, 0.2)",
+                        "rgba(54, 162, 235, 0.2)",
+                        "rgba(255, 206, 86, 0.2)",
+                        "rgba(75, 192, 192, 0.2)",
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        "rgba(255, 99, 132, 1)",
+                        "rgba(54, 162, 235, 1)",
+                        "rgba(255, 206, 86, 1)",
+                        "rgba(75, 192, 192, 1)",
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [
+                    {
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }
+                ]
+            }
+        }
+    });
+
+    
+ 
+</script>
 @endsection
+
