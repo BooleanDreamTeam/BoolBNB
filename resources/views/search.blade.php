@@ -131,7 +131,7 @@
 
 <script id="template" type="text/x-handlebars-template">
 
-      <div class="card card_apartment_search" data-lat="@{{latitude}}" data-lng="@{{longitude}}">
+      <div class="card card_apartment_search" data-lat="@{{latitude}}" data-lng="@{{longitude}}" data-id="@{{id}}">
           <div class="row no-gutters">
               <div class="col-sm-5">
                 <img src="@{{cover}}" class="card-img-top img-fluid" alt="@{{cover}}">

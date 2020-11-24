@@ -54,6 +54,8 @@ $(document).ready(function() {
       for (let i = 0; i < apartments.length; i++) {
         arrayApartments.push({lat : apartments[i].dataset.lat, lng : apartments[i].dataset.lng});
       }
+
+      var markers = [];
       
       var startMap = mapShow($('#map_container').data('lat'),$('#map_container').data('lng'),arrayApartments);
 
@@ -66,8 +68,6 @@ $(document).ready(function() {
         callApiApartmentSearch();
 
       });
-
-      var markers = [];
       
       $('input').on('change',function() {
 
@@ -123,7 +123,8 @@ $(document).ready(function() {
             longitude: apartment.longitude,
             title: apartment.title,
             description: apartment.description,
-            cover: apartment.imgurl
+            cover: apartment.imgurl,
+            id: apartment.id
           };
 
           var html = template(context);
@@ -149,13 +150,14 @@ $(document).ready(function() {
         markers = [];
   
         apartments.forEach(apartment => {
-          addMarker(apartment.latitude,apartment.longitude);
+          addMarker(apartment.latitude,apartment.longitude,apartment);
         });
   
       }
   
-      function addMarker(lat,lng) {
+      function addMarker(lat,lng,apartment) {
         var marker = L.marker([lat,lng]).addTo(startMap);
+
         markers.push(marker);
       }
 
@@ -191,9 +193,9 @@ $(document).ready(function() {
         if (apartments) {
           
           for (var i = 0; i < apartments.length; i++) {
-            
+
             var marker = L.marker([apartments[i].lat,apartments[i].lng]).addTo(map);
-            
+            markers.push(marker);
 
           }
 
@@ -202,16 +204,97 @@ $(document).ready(function() {
         return map;
     }
 
-    function addMarkerInitial(lat,lng) {
-      var marker = L.marker([lat,lng]).addTo(startMap);
-      markers.push(marker);
-    }
+    reviewsLoad();
 
-});
+    $('.reviews_send').click(function() {
 
-$(document).on('click','img.leaflet-marker-icon', function() {
 
+
+    });
+
+    function reviewsLoad() {
+
+      $.ajax({
+        method: 'GET',
+        url: 'http://localhost:8000/api/reviews',
+        data: {
+          'id' : $('input[name=apartment_id]').val() 
+        },
+        success: function(data) {
   
+          $('.reviews_container').empty();
+  
+          var source = $('#template_reviews').html();
+          var template = Handlebars.compile(source);
+  
+          var reviews = data.reviews;
+
+          for (let i = 0; i < reviews.length; i++) {
+            
+            var context = {
+              name: reviews[i].name,
+              message: reviews[i].message,
+              created_at: reviews[i].created_at,
+              vote: reviews[i].vote
+            };
+  
+            var html = template(context);
+  
+            $('.reviews_container').append(html);
+            
+          }
+  
+        }
+    });
+
+    $('.reviews_send').click(function() {
+
+      if ($('input[name=user_name]')) {
+        var user_name = $('input[name=user_name]').val();
+
+        $.ajax({
+          method: 'POST',
+          url: 'http://localhost:8000/api/reviews',
+          data: {
+            'id_apartment' : $('input#id_apartment').val(),
+            'message' : $('#message').val(),
+            'vote' : $('input[name=vote]').val(),
+            'user' : user_name
+          },
+          success: function(data) {
+    
+            reviewsLoad();
+    
+    
+          }
+        });
+      }  else {
+
+        $.ajax({
+          method: 'POST',
+          url: 'http://localhost:8000/api/reviews',
+          data: {
+            'id_apartment' : $('input#id_apartment').val(),
+            'message' : $('#message').val(),
+            'vote' : $('input[name=vote]').val()
+          },
+          success: function(data) {
+    
+            reviewsLoad();
+    
+    
+          }
+        });
+
+      }
+
+     
+
+    });
+
+}
+
+    //----//
 
 });
 

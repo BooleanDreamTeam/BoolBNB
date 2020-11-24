@@ -24,4 +24,7 @@ Route::get('search','API\ApartmentController@searching')->name('apiSearchingApar
 
 Route::get('services','API\ServiceController@index');
 
+Route::get('reviews','API\ReviewController@reviews');
+Route::post('reviews','API\ReviewController@store')->name('store.reviews');
+
 Route::apiResource('clicks','API\ClickController');

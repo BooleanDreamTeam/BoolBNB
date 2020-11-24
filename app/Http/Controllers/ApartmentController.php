@@ -8,6 +8,7 @@ use Treffynnon\Navigator as N;
 use App\Apartment;
 use App\Image;
 use App\Service;
+use App\Review;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
@@ -38,11 +39,12 @@ class ApartmentController extends Controller
         $images = Image::where([
             ['apartment_id','=', $id],
             ['cover', '=', 0]
-        ])->get();
+        ])->take(4)->get();
         $cover = Image::where([
             ['apartment_id','=', $id],
             ['cover', '=', 1]
         ])->get();
+
         return view('show-apartment', compact('apartment', 'images', 'cover'));
     }
 

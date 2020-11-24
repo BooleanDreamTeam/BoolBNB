@@ -135,6 +135,17 @@ input[type=range] {
     }
   }
 
+  // SEARCH PAGE APARTMENT SELECTED
+
+  .selected {
+    border: 1px solid #52c3d4;
+    transform: scale(1.01);
+  }
+
+  .card_apartment_search {
+    transition: 1s all ease-in-out;
+  }
+
 //--------------//
 
 /* media query */

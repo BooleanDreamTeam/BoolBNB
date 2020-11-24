@@ -17,28 +17,28 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="Titolo">Titolo</label>
-                        <input type="text" class="form-control" name="title" id="Titolo" value="{{ $apartment->title }}">
+                        <input type="text" class="form-control" name="title" id="Titolo" value="{{ $apartment->title }}" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="Stanze">N.Stanze</label>
                         <input type="number" class="form-control" name="n_rooms" id="Stanze"
-                            value="{{ $apartment->n_rooms }}">
+                            value="{{ $apartment->n_rooms }}" required>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="Letti">N.Letti</label>
-                        <input type="number" class="form-control" name="n_beds" id="Letti" value="{{ $apartment->n_beds }}">
+                        <input type="number" class="form-control" name="n_beds" id="Letti" value="{{ $apartment->n_beds }}" required>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="Bagni">N.Bagni</label>
                         <input type="number" class="form-control" name="n_bathrooms" id="Bagni"
-                            value="{{ $apartment->n_bathrooms }}">
+                            value="{{ $apartment->n_bathrooms }}" required>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="Metri-Quadrati">M.quadrati</label>
                         <input type="number" class="form-control" name="squaremeters" id="Metri-Quadrati"
-                            value="{{ $apartment->squaremeters }}">
+                            value="{{ $apartment->squaremeters }}" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -46,12 +46,12 @@
                         <label for="Indirizzo">Indirizzo</label>
                         <input type="text" class="form-control" name="address" id="Indirizzo"
                             value="{{ $apartment->address }}">
-                        <input type="hidden" name="latlng" value="" id="cordinates">
+                        <input type="hidden" name="latlng" value="" id="cordinates" required>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="Immagine">Immagine</label>
                         <input type="file" class="form-control" id="Immagine" name="images[]" accept="image/*" name="images"
-                            size="20" multiple="multiple">
+                            size="20" multiple="multiple" required>
                         <span><em>* la prima immagine sarà l'immagine di copertina</em></span>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                     <div class="form-group col-md-6">
                         <label for="Descrizione">Descrizione</label>
                         <textarea rows="5" class="form-control" name="description"
-                            id="Descrizione">{{ $apartment->description }}</textarea>
+                            id="Descrizione" required>{{ $apartment->description }}</textarea>
                     </div>
                 </div>
                 <div class="form-group">

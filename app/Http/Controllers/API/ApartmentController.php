@@ -124,7 +124,7 @@ class ApartmentController extends Controller
 
             }
 
-            $queryApartment->whereRaw("(SELECT COUNT(*) 
+            $queryApartment->whereRaw("(SELECT COUNT(*),apartments.id 
                   FROM apartment_service 
                   WHERE apartment_service.apartment_id = apartments.id 
                   AND ($servicesCollection)) =".count($services)

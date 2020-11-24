@@ -1,4 +1,4 @@
-
+@import 'host/_reviews'; 
 
 #up {
     height: 500px;
@@ -12,7 +12,6 @@
 .img {
     height: 100%;
     width: 100%;
-    background-image: url('https://q-xx.bstatic.com/xdata/images/hotel/840x460/248963502.jpg?k=309d99860c910fbf7844859b09feca1483f39c0c79a9906e65e994ab2c1daef1&o=');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -40,7 +39,9 @@
 }
 
 .review {
-    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
 }
 
 .review::-webkit-scrollbar {

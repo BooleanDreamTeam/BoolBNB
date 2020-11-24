@@ -16,177 +16,28 @@
 
 @section('content')
 
-        <!-- section titolo MOCKUP3 -->
-
-        <div class="container">
-
-            {{-- ERROR --}}
-            @if ($errors->any())
-            <div class="alert alert-danger status mx-auto fixed-top m-5">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-
-            @if (session('status'))
-            <div class="alert alert-success status mx-auto fixed-top m-5">
-                {{ session('status') }}
-            </div>
-            @endif
-            {{-- ERROR--}}
-
-
-            <div class="card card_show mb-3" data-lat="{{$apartment->latitude}}"  data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}">
-                @foreach ($cover as $img)
-                    <img class="card-img-top img-height" src="{{$img->imgurl}}" alt="{{$img->imgurl}}">
-                @endforeach
-                <div class="card-body">
-                    <h5 class="card-title">{{$apartment->title}}</h5>
-                    {{-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
-                </div>
-
-        </div>
-
-        <section class="offer bg-light">
-            <div class="container py-5">
-                <div class="row">
-                    <div class="col-lg-6 wow animate__animated animate__fadeInLeft">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                              <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                              </ol>
-                              <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                  <img class="d-block w-100" src="https://www.thespruce.com/thmb/_WJOc-34GLmc5QAzOR-3TXKumu8=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/bed-and-fireplace-in-luxury-bedroom-748316169-37b1062605034b23ab6d193be9c58ef6.jpg" alt="First slide">
-                                </div>
-                                <div class="carousel-item">
-                                  <img class="d-block w-100" src="https://www.thespruce.com/thmb/_WJOc-34GLmc5QAzOR-3TXKumu8=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/bed-and-fireplace-in-luxury-bedroom-748316169-37b1062605034b23ab6d193be9c58ef6.jpg" alt="Second slide">
-                                </div>
-                                <div class="carousel-item">
-                                  <img class="d-block w-100" src="https://www.thespruce.com/thmb/_WJOc-34GLmc5QAzOR-3TXKumu8=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/bed-and-fireplace-in-luxury-bedroom-748316169-37b1062605034b23ab6d193be9c58ef6.jpg" alt="Third slide">
-                                </div>
-                              </div>
-                              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                              </a>
-                              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                              </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="details wow animate__animated animate__fadeInRight">
-                            <h2 class="py-3">Descrizione</h2>
-                            <p>{{$apartment->description}}</p>
-                        </div>
-
-
-
-                        <div class="detail_bedroom wow animate__animated animate__fadeInRight animate__delay-1s">
-                            <ul class="list-group">
-                                <li><i class="fas fa-bed"></i></li>
-                                <li><i class="fas fa-wifi"></i></li>
-                                <li><i class="fas fa-bed"></i></li>
-                                <li><i class="fas fa-bed"></i></li>
-                                <li><i class="fas fa-wifi"></i></li>
-                            </ul>
-                            {{-- <h5 class="pt-5 pl-3">Bedroom</h5>
-                            <p class="pl-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p> --}}
-                        </div>
-
-
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="offer bg-light">
-
-            <div class="container py-5">
-                <div class="row">
-                    {{-- <div class="col-lg-6 wow animate__animated animate__flipInX animate__delay-1s" >
-                        <div id="map_container" style="height:600px;">
-
-                        </div>
-                    </div> --}}
-
-
-                    <form method="post" action="{{route('sendMessage')}}" class="col-lg-5 mb-lg-0 mb-4 wow animate__animated animate__fadeInRight animate__delay-1s">
-                        @csrf
-                        <div class="card">
-                            <div class="card-body">
-                                <!-- Header -->
-                                <div class="form-header blue accent-1">
-                                    <h3 class="mt-2"><i class="fas fa-envelope"></i> Write to us:</h3>
-                                </div>
-
-                                <p class="dark-grey-text">We'll write rarely, but only the best content.</p>
-
-                                  <!-- Body -->
-                                <input type="hidden" name="apartment_id" value="{{$apartment->id}}">
-                                <div class="md-form">
-                                    <i class="fas fa-envelope prefix grey-text"></i>
-                                    @guest
-                                        <input type="text" name="email" id="form-email" class="form-control" required>
-                                    @else
-                                        <input type="text" name="email" id="form-email" value="{{Auth::user()->email}}" class="form-control" required>
-                                    @endguest
-                                    <label for="form-email">Your email</label>
-                                </div>
-
-                                <div class="md-form">
-                                    <i class="fas fa-pencil-alt prefix grey-text"></i>
-                                    <textarea id="form-text" name="message" class="form-control md-textarea" rows="3" required></textarea>
-                                    <label for="form-text">Message</label>
-                                </div>
-
-                                <div class="text-center">
-                                    <button class="btn btn-light-blue">Submit</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-
-
-
-
-
-
 
         <section id="up" class="container d-none d-md-flex">
             <div class="ctn-first col-6 py-2 pl-2 pr-1">
-                <div class="img p-5">
+                <div class="img p-5" style="background-image: url({{$cover[0]->imgurl}})">
 
                 </div>
             </div>
 
             <div class="cont-second col-6 d-flex flex-column pl-1 pt-2 pr-2 pb-2">
                 <div class="img-ret pb-1">
-                    <div class="img">
+                    <div class="img" style="background-image: url({{$images[0]->imgurl}})">
 
                     </div>
                 </div>
                 <div class="img-qdr d-flex m-0">
                     <div class="col-6 uno pt-1 px-0 pr-1">
-                        <div class="img">
+                        <div class="img" style="background-image: url({{$images[1]->imgurl}})">
 
                         </div>
                     </div>
                     <div class="col-6 due pt-1 px-0 pl-1">
-                        <div class="img">
+                        <div class="img" style="background-image: url({{$images[2]->imgurl}})">
 
                         </div>
                     </div>
@@ -197,18 +48,24 @@
         <section id="mobile" class="container d-block d-md-none p-0 mb-5">
             <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
                   <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img class="d-block w-100" src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/248963502.jpg?k=309d99860c910fbf7844859b09feca1483f39c0c79a9906e65e994ab2c1daef1&o=" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                      <img class="d-block w-100" src="https://cf.bstatic.com/images/hotel/max1024x768/161/161745727.jpg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                      <img class="d-block w-100" src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/248963502.jpg?k=309d99860c910fbf7844859b09feca1483f39c0c79a9906e65e994ab2c1daef1&o=" alt="Third slide">
-                    </div>
-                    <div class="carousel-item">
-                      <img class="d-block w-100" src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/248963502.jpg?k=309d99860c910fbf7844859b09feca1483f39c0c79a9906e65e994ab2c1daef1&o=" alt="Fourth slide">
-                    </div>
+                    
+                    @foreach ($images as $key => $image)
+
+                        @if ($key == 0)
+
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
+                            </div>    
+
+                        @else    
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
+                            </div>    
+                        @endif
+                        
+
+                    @endforeach
+
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -226,21 +83,20 @@
 
         <section id="" class="container  d-md-flex p-0">
             <div class="col-lg-12 col-md-12 col-sm-12 p-2">
-                <div class="card">
+                <div class="card card_show" data-lat="{{$apartment->latitude}}"  data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}">
                     <div class="card-body">
                         <div class="description">
-                            <h5 class="card-title">Descrione</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 class="card-title">Descrizione</h5>
+                            <p class="card-text">{{$apartment->description}}</p>
                         </div>
-                        <div class="services ">
+                        <div class="services mt-3">
                             <h5 class="card-title">Servizi</h5>
                             <ul class="list-group d-flex flex-row">
-                                <li><i class="fas fa-bed pr-5"></i></li>
-                                <li><i class="fas fa-wifi pr-5"></i></li>
-                                <li><i class="fas fa-bed pr-5"></i></li>
-                                <li><i class="fas fa-bed pr-5"></i></li>
-                                <li><i class="fas fa-wifi pr-5"></i></li>
+                                @foreach ($apartment->services as $service)
+                                    
+                                    <li>{{$service->name}} | </li>
+
+                                @endforeach
                             </ul>
                         </div>
 
@@ -254,7 +110,7 @@
 
         <section id="" class="container  d-md-flex flex-column p-0 ">
             <div class="col-lg-12 col-md-12 col-sm-12 p-2">
-                {{-- <div class="jumbotron"> --}}
+
                     <div id="map_container" style="height:600px;">
 
                     </div>
@@ -265,38 +121,74 @@
         <section id="" class="container  d-md-flex p-0">
 
 
-                <div class="col-lg-6 col-md-6 col-sm-12 p-2">
+                <form method="post" action="{{route('sendMessage')}}" class="col-lg-6 mb-lg-0 mb-4 p-2 wow animate__animated animate__fadeInLeft animate__delay-1s">
+                    @csrf
                     <div class="jumbotron">
                         <h3 class="mt-2"><i class="fas fa-envelope"></i> Write to us:</h3>
-
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        @guest
+                            <input type="text" name="email" id="form-email" class="form-control" required>
+                        @else
+                            <input type="text" name="email" id="form-email" value="{{Auth::user()->email}}" class="form-control" required>
+                        @endguest
                         <hr class="my-4">
                         <i class="fas fa-pencil-alt prefix grey-text"></i>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            <a class="btn btn-primary btn-lg mt-5" href="#" role="button">Submit</a>
-                        </p>
+                        <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                        <button type="submit" class="btn btn-primary btn-lg mt-5" href="#" role="button">Submit</button>
+                        <input type="hidden" name="apartment_id" value="{{$apartment->id}}">
+                        @auth
+
+                        <input type="hidden" name="user_name" value="{{Auth::user()->name}}">
+                            
+                        @endauth
                     </div>
-                </div>
+                </form>
 
-                <div class="col-lg-6 col-md-6 col-sm-12 p-2">
+                <div class="col-lg-6 col-md-6 col-sm-12 p-2 wow animate__animated animate__fadeInRight animate__delay-1s">
                     <div class="jumbotron review">
-                        <h3 class="">Scrivi una recesione!</h3>
-                        <label for="exampleFormControlTextarea1">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            <a class="btn btn-primary btn-lg mt-5" href="#" role="button">Submit</a>
-                        </p>
+                        <form>
+                            <input type="hidden" id="id_apartment" value="{{$apartment->id}}">
+                            <h3 class="">Scrivi una recesione!</h3>
+                            <textarea class="form-control" name="message" id="message" rows="3" required></textarea>
+                            <input type="range" name="vote" min="1" max="5" id="">
+                            <a class="btn reviews_send btn-primary btn-lg mt-5" role="button">Submit</a>
+                        </form>
                         <hr class="my-4">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
+                        <div id="reviews" class="">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Text</th>
+                                            <th scope="col">Received</th>
+                                            <th scope="col">Vote</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="reviews_container">
+                                          
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
         </section>
+
+         {{-- TEMPLATE HANDLEBARS --}}
+
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+<script id="template_reviews" type="text/x-handlebars-template">
+
+    <tr>                                             
+        <td>@{{name}}</td>
+        <td>@{{message}}</td>
+        <td>@{{created_at}}</td>
+        <td>@{{vote}}</td>
+    </tr>    
+    
+
+</script>
 
 
 

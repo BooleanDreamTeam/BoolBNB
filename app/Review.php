@@ -11,7 +11,7 @@ class Review extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id_appartament', 'name', 'message', 'vote', 'created_at'
+        'id_apartment', 'name', 'message', 'vote', 'created_at'
     ];
 
     public function apartment(){
