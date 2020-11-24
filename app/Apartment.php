@@ -51,7 +51,7 @@ class Apartment extends Model
     public function rating() {
         return round($this->reviews()->avg('vote'));
     }
-    
+
     public static function details($aid){
         return DB::table('reviews')
         ->select(DB::raw('AVG(vote) as vote'))

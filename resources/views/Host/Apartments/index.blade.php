@@ -6,8 +6,9 @@
 
 
 @section('content')
-<h2 >My Appartments</h2>
+
     <div id="apartment"class="apartments container d-flex flex-column">
+    <h2 >My Apartments</h2>
     @foreach($apartments as $apartment)
 
             <div class="d-flex i-card-e mb-3 rounded ">
@@ -28,7 +29,7 @@
 
                     <div class="i-right d-flex flex-column justify-content-between">
                         <div class="d-flex justify-content-end w-100">
-                            <div class="i-vote text-center rounded">{{ $apartment->rating() }}</div>
+                            <div class="i-vote text-center rounded">{{$apartment->rating()}}</div>
                         </div>
 
                         <div class="buttons">
@@ -41,6 +42,7 @@
                         </div>
 
                     </div>
+                    
 
                 </div>
 

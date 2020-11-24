@@ -95,7 +95,7 @@
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
-                        <th scope="col">Country</th>
+                        <th scope="col">Region</th>
                         <th scope="col">Total view</th>
                         </tr>
                     </thead>
@@ -109,7 +109,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="chart d-flex flex-column">
+            <div class="chart col-6 d-flex flex-column">
             <!-- visualizzazioni -->
                 <div class="bar">
                     <canvas class="col-12" id="myChart"></canvas>
@@ -165,19 +165,37 @@
             ]
         },
         options: {
-            scales: {
-                yAxes: [
-                    {
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }
-                ]
-            }
+        title: {
+            display: true,
+            text: "Visite per Browser"
         }
+    }
     });
 
-    
+    new Chart(document.getElementById("myChart"), {
+  type: 'line',
+  data: {
+    labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Jun', 'Lug', 'Ago', 'Set', 'Ott', 'Nov'],
+    datasets: [{ 
+        data: [
+            @foreach($views as $view)
+            {{$view->views}},
+            @endforeach
+        ],
+        label: "Views",
+        borderColor: "#3e95cd",
+        fill: false
+      }
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Visite Mensili'
+    }
+  }
+});
+
  
 </script>
 @endsection

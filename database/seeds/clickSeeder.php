@@ -57,7 +57,7 @@ class ClickSeeder extends Seeder
             $clickNew = new Click;
             $clickNew->id_apartment = $apartments->random()->id;
             $clickNew->browser = Arr::random($browser);
-            $clickNew->geo_area = Arr::random($region);
+            $clickNew->geo_area = Arr::random($regions);
             $clickNew->visitor = $faker->ipv4;
             $clickNew->created_at = $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now');
             $clickNew->save();

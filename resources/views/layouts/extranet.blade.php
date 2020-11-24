@@ -43,14 +43,12 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span class="d-none d-sm-inline">Dashboard</span>
                 </a>
-
-                <a href="#" class="nav_item nav-link" id="v-pills-profile-tab" href="#v-pills-profile" role="tab"
-                    aria-controls="v-pills-profile" aria-selected="false">
+                            
+                <a href="{{route('user.show', ['user' => Auth::id()])}}" class="nav-link" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                     <i class="fas fa-fw fa-user-alt"></i>
                     <span class="d-none d-sm-inline">Profile</span>
                 </a>
-                <a href="{{ Route('mymessages') }}" class="nav-link" id="v-pills-messages-tab" role="tab"
-                    aria-controls="v-pills-messages" aria-selected="false">
+                <a href="{{ Route('mymessages') }}" class="nav-link" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                     <i class="fas fa-fw fa-envelope"></i>
                     <span class="d-none d-sm-inline">Messages</span>
                 </a>

@@ -43,10 +43,9 @@ class ExtranetController extends Controller
             $brows = Click::brows();
             
             $views = Click::views();
-            
                  
         }           
-        return view('host.dashboard', compact('apartments', 'messages', 'reviews', 'sponsored', 'clicks', 'brows'));
+        return view('host.dashboard', compact('apartments', 'messages', 'reviews', 'sponsored', 'clicks', 'brows', 'views'));
     }
     
 }

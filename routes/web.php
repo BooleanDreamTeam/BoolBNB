@@ -14,6 +14,8 @@ use App\Apartment;
 |
 */
 
+
+
 Route::get('/', 'ApartmentController@index');
 Route::get('apartments/show/{id}', 'ApartmentController@show')->name('apartment.show');
 Route::resource('firstapartment', 'FirstApartmentController')->middleware('auth');
@@ -21,6 +23,8 @@ Route::resource('firstapartment', 'FirstApartmentController')->middleware('auth'
 Route::post('message', 'MessageController@store')->name('sendMessage');
 Route::get('host.messages', 'MessageController@index')->middleware('auth')->name('mymessages');
 Route::get('host.reviews', 'ReviewController@index')->middleware('auth')->name('myreviews');
+
+
 
 Auth::routes();
 
@@ -33,6 +37,8 @@ Route::get('/search', 'ApartmentController@searching')->name('search');
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
+Route::resource('user', 'UserController')->middleware('auth');
+
 //Route degli Host registrati
 Route::prefix('host')->namespace('Host')->middleware('auth')->group(function() {
     Route::get('extranet', 'ExtranetController@extranet')->name('extranet');
@@ -40,6 +46,7 @@ Route::prefix('host')->namespace('Host')->middleware('auth')->group(function() {
     Route::get('apartments/delete-image/{image}', 'ApartmentController@deleteImage')->name('delete-image');
 
     Route::get('dashboard', 'ExtranetController@dashboard')->name('dashboard');
+
     Route::resource('sponsorship', 'SponsorshipController');
     Route::post('checkout', 'SponsorshipController@checkout')->name('checkout');
 });

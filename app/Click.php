@@ -45,9 +45,9 @@ class Click extends Model
     public static function views(){
          return DB::table('clicks')
         ->join('apartments', 'clicks.id_apartment', '=', 'apartments.id')
-        ->selectRaw('MONTH(clicks.created_at) as mon, YEAR (clicks.created_at) AS yr , count(id_apartment) as views, id_apartment, apartments.title')
+        ->selectRaw('MONTH(clicks.created_at) as mon, YEAR (clicks.created_at) AS yr , count(id_apartment) as views')
         ->where('apartments.host_id', Auth::id())
-        ->groupby('mon', 'yr', 'id_apartment', 'apartments.title')
+        ->groupby('mon', 'yr')
         ->havingRaw('yr = 2020')
         ->orderby('mon')
         ->get();

@@ -10,6 +10,7 @@
                     <th scope="col">Received</th>
                     <th scope="col">Name</th>
                     <th scope="col">Text</th>
+                    <th scope="col">Vote</th>
                 </tr> 
             </thead>
             <tbody> 
@@ -19,6 +20,7 @@
                     <td>{{$review->created_at}}</td>
                     <td>{{$review->name}}</td>
                     <td>{{$review->message}}</td>
+                    <td>{{$review->vote}}</td>
                 </tr>
                 @endforeach
             </tbody>
