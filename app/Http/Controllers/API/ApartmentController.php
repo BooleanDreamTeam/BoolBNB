@@ -58,7 +58,12 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-        return response()->json(Apartment::where('id',$id)->get(),200);
+        return response()->json(Apartment::select(DB::raw("
+          images.imgurl, apartments.*
+        "))
+        ->join('images','images.apartment_id','=','apartments.id')
+        ->where('apartments.id',$id)
+        ->get(),200);
     }
 
     /**

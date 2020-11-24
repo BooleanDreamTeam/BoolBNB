@@ -4,12 +4,15 @@
     <link rel="stylesheet" href="{{asset('css/search.css')}}">
 @endsection
 
+@section('js')
+    <script src="https://cdn-webgl.wrld3d.com/wrldjs/dist/latest/wrld.js"></script>
+@endsection
+
 @section('title')
     Boolbnb
 @endsection
 
 @section('content')
-
 
 <section class="search-apartment">
 
@@ -83,7 +86,7 @@
             <label for="Stanze">Raggio</label>
             <div class="range d-flex justify-content-between">
               <span>1</span>
-              <input type="range" class="input_range_service" value="1" name="range" min="1" max="100" step="1" id="">
+              <input type="range" class="input_range_service" value="50" name="range" min="1" max="100" step="1" id="">
               <span>100</span>
             </div>
             <div class="text-center">
@@ -97,7 +100,7 @@
       <div class="bs-example m-4 rounded">
           @foreach ($apartments as $apartment)
 
-            <div class="card card_apartment_search" data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}">
+            <div class="card card_apartment_search" data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}">
                 <div class="row no-gutters">
                     <div class="col-sm-5">
                         <img src="{{$apartment->cover->imgurl}}" class="card-img-top img-fluid" alt="{{$apartment->cover->imgurl}}">

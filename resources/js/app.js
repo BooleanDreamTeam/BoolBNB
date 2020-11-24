@@ -52,7 +52,7 @@ $(document).ready(function() {
       var arrayApartments = [];
 
       for (let i = 0; i < apartments.length; i++) {
-        arrayApartments.push({lat : apartments[i].dataset.lat, lng : apartments[i].dataset.lng});
+        arrayApartments.push({lat : apartments[i].dataset.lat,lng : apartments[i].dataset.lng,id : apartments[i].dataset.id});
       }
 
       var markers = [];
@@ -150,13 +150,36 @@ $(document).ready(function() {
         markers = [];
   
         apartments.forEach(apartment => {
-          addMarker(apartment.latitude,apartment.longitude,apartment);
+          addMarker(apartment);
         });
   
       }
   
-      function addMarker(lat,lng,apartment) {
-        var marker = L.marker([lat,lng]).addTo(startMap);
+      function addMarker(apartment) {
+
+        var marker = L.marker([apartment.latitude,apartment.longitude]).addTo(startMap);
+
+        marker.bindPopup(
+          `
+    <div class="card card_popup" style="width: 14rem;">
+                <img class="card-img-top" src="` + apartment.imgurl + `"alt="` + apartment.imgurl + `">
+                <div class="card-body">
+                <h5 class="card-title">` + apartment.title + `</h5>
+                <p class="card-text">` + apartment.description + `</p>
+                <p class="card text p-2">` + apartment.address + `</p>
+                <div class="card-footer d-flex justify-content-between align-items -center">
+                  <div class="d-flex justify-content-center align-items">
+                    <i class="fas fa-bed"> ` + apartment.n_beds + ` </i>
+                  </div>
+                  <div class="d-flex justify-content-center align-items">
+                    <i class="fas fa-door-closed"> ` + apartment.n_rooms + ` </i>
+                  </div>
+                  <div class="d-flex justify-content-center align-items">
+                    <i class="fas fa-toilet"> ` + apartment.n_bathrooms + ` </i>
+                  </div>
+                </div>
+              </div>
+            </div>`)
 
         markers.push(marker);
       }
@@ -170,9 +193,9 @@ $(document).ready(function() {
     }
 
     // MAPPA SHOW
-    mapShow($('.card_show').data('lat'),$('.card_show').data('lng'));
+    mapShow($('.card_show').data('lat'),$('.card_show').data('lng'),apartments);
 
-    function mapShow(lat,lng,apartments) {    
+    function mapShow(lat,lng,apartments) { 
 
         var map = L.map("map_container").setView([lat,lng], 13);
 
@@ -195,6 +218,36 @@ $(document).ready(function() {
           for (var i = 0; i < apartments.length; i++) {
 
             var marker = L.marker([apartments[i].lat,apartments[i].lng]).addTo(map);
+
+            $.ajax({
+              type: "GET",
+              url: "http://localhost:8000/api/apartments/" + apartments[i].id,
+              success: function (data) {
+      
+                marker.bindPopup(
+                  `
+            <div class="card card_popup" style="width: 14rem;">
+                        <img class="card-img-top" src="` + data[0].imgurl + `"alt="` + data[0].imgurl + `">
+                        <div class="card-body">
+                        <h5 class="card-title">` + data[0].title + `</h5>
+                        <p class="card-text">` + data[0].description + `</p>
+                        <p class="card text p-2">` + data[0].address + `</p>
+                        <div class="card-footer d-flex justify-content-between align-items -center">
+                          <div class="d-flex justify-content-center align-items">
+                            <i class="fas fa-bed"> ` + data[0].n_beds + ` </i>
+                          </div>
+                          <div class="d-flex justify-content-center align-items">
+                            <i class="fas fa-door-closed"> ` + data[0].n_rooms + ` </i>
+                          </div>
+                          <div class="d-flex justify-content-center align-items">
+                            <i class="fas fa-toilet"> ` + data[0].n_bathrooms + ` </i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>`)
+              }
+            });
+        
             markers.push(marker);
 
           }
@@ -204,13 +257,9 @@ $(document).ready(function() {
         return map;
     }
 
+    
+
     reviewsLoad();
-
-    $('.reviews_send').click(function() {
-
-
-
-    });
 
     function reviewsLoad() {
 
