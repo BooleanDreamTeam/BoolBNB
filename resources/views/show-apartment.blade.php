@@ -171,12 +171,23 @@
 
                 <div class="col-lg-6 col-md-6 col-sm-12 p-2 wow animate__animated animate__fadeInRight animate__delay-1s">
                     <div class="jumbotron review">
-                        <form>
-                            <input type="hidden" id="id_apartment" value="{{$apartment->id}}">
+                        <form oninput="outputvote.value = vote_review.valueAsNumber">
+                            <input type="hidden" id="id_apartment_review" value="{{$apartment->id}}">
                             <h3 class="">Scrivi una recesione!</h3>
-                            <textarea class="form-control" name="message" id="message" rows="3" required></textarea>
-                            <input type="range" name="vote" min="1" max="5" id="">
-                            <a class="btn reviews_send btn-primary btn-lg mt-5" role="button">Submit</a>
+                            <textarea class="form-control" name="message" id="message_review" rows="3" required></textarea>
+                            <div class="text-center d-flex flex-column justify-content-center align-items-center">
+                                <input type="range" value="1" min="1" max="5" name="vote_review" id="vote_review">
+                                <i class="fas fa-star"></i>
+                                <output name="outputvote" for="vote">1</output>
+                            </div>
+                            @auth
+                                <input type="hidden" name="user_name_reviews" value="{{Auth::user()->name}}">
+                            @endauth
+                            @guest
+                                <input type="hidden" name="user_name_reviews" value="sconosciuto">
+                            @endguest
+                                
+                            <a class="btn reviews_send btn-primary btn-lg mt-5">Submit</a>
                         </form>
                         <hr class="my-4">
                         <div id="reviews" class="">

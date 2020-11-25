@@ -7,9 +7,9 @@ import { map } from 'jquery';
 new WOW.WOW().init();
 //------//
 
-// PROVA ALGOLIA
+$(document).ready( function() {
 
-$(document).ready(function() {
+  reviewsLoad();
 
     if (window.location.pathname == '/'|| window.location.pathname == '/host/firstapartment/create') {
         
@@ -152,6 +152,9 @@ $(document).ready(function() {
         apartments.forEach(apartment => {
           addMarker(apartment);
         });
+
+        var featureGroup = L.featureGroup(markers);
+        startMap.fitBounds(featureGroup.getBounds().pad(0.5), {animate: false});
   
       }
   
@@ -159,9 +162,8 @@ $(document).ready(function() {
 
         var marker = L.marker([apartment.latitude,apartment.longitude]).addTo(startMap);
 
-        marker.bindPopup(
-          `
-    <div class="card card_popup" style="width: 14rem;">
+        marker.bindPopup(`
+              <a href="http://localhost:8000/apartments/show/` + apartment.id + `">
                 <img class="card-img-top" src="` + apartment.imgurl + `"alt="` + apartment.imgurl + `">
                 <div class="card-body">
                 <h5 class="card-title">` + apartment.title + `</h5>
@@ -179,7 +181,8 @@ $(document).ready(function() {
                   </div>
                 </div>
               </div>
-            </div>`)
+            </a>  
+            `)
 
         markers.push(marker);
       }
@@ -226,7 +229,7 @@ $(document).ready(function() {
       
                 marker.bindPopup(
                   `
-            <div class="card card_popup" style="width: 14rem;">
+              <div class="card card_popup d-flex" style="width: 10rem;">
                         <img class="card-img-top" src="` + data[0].imgurl + `"alt="` + data[0].imgurl + `">
                         <div class="card-body">
                         <h5 class="card-title">` + data[0].title + `</h5>
@@ -257,10 +260,6 @@ $(document).ready(function() {
         return map;
     }
 
-    
-
-    reviewsLoad();
-
     function reviewsLoad() {
 
       $.ajax({
@@ -290,61 +289,39 @@ $(document).ready(function() {
             var html = template(context);
   
             $('.reviews_container').append(html);
+
+          }  
             
-          }
-  
         }
-    });
+  
+      });
+    }
 
-    $('.reviews_send').click(function() {
+    $(document).on('click','.reviews_send', function() {
+      
+        var user_name = $('input[name=user_name_reviews]').val();
 
-      if ($('input[name=user_name]')) {
-        var user_name = $('input[name=user_name]').val();
+        ajaxReview(user_name);
 
-        $.ajax({
-          method: 'POST',
-          url: 'http://localhost:8000/api/reviews',
-          data: {
-            'id_apartment' : $('input#id_apartment').val(),
-            'message' : $('#message').val(),
-            'vote' : $('input[name=vote]').val(),
-            'user' : user_name
-          },
-          success: function(data) {
-    
-            reviewsLoad();
-    
-    
-          }
-        });
-      }  else {
-
-        $.ajax({
-          method: 'POST',
-          url: 'http://localhost:8000/api/reviews',
-          data: {
-            'id_apartment' : $('input#id_apartment').val(),
-            'message' : $('#message').val(),
-            'vote' : $('input[name=vote]').val()
-          },
-          success: function(data) {
-    
-            reviewsLoad();
-    
-    
-          }
-        });
-
-      }
-
-     
+        reviewsLoad();  
 
     });
 
-}
+    function ajaxReview(user_name) {
 
-    //----//
+      $.ajax({
+        method: 'POST',
+        url: 'http://localhost:8000/api/reviews',
+        data: {
+          'id_apartment' : $('input#id_apartment_review').val(),
+          'message' : $('#message_review').val(),
+          'vote' : $('input#vote_review').val(),
+          'user' : user_name,
+        }
+      });
+
+    }
 
 });
 
-//---//
+    

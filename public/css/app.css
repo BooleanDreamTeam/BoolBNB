@@ -17062,7 +17062,7 @@ readers do not read off random characters that represent icons */
 }
 
 .card-p a .card-body {
-  min-height: 70px;
+  min-height: 96px;
 }
 
 .card-p a .card-footer {
@@ -17143,9 +17143,12 @@ section#intro {
   margin-bottom: 80px;
 }
 
+.main-search {
+  width: 470px;
+}
+
 .form-row {
   padding: 10px 40px;
-  width: 35vw;
 }
 
 .form-row .form-control {
@@ -17202,8 +17205,24 @@ section#intro {
   padding-top: 20px;
 }
 
+.promo .title hr {
+  width: 90px;
+  border: 0;
+  border-top: 1px solid white;
+}
+
+.promo .promo-center {
+  height: calc(380px - 130px);
+}
+
 section#simple-ap {
   margin-top: 35px;
+}
+
+section#simple-ap hr {
+  width: 80px;
+  border: 0;
+  border-top: 1px solid #00B3B3;
 }
 
 .avatar {
@@ -17234,6 +17253,10 @@ section#simple-ap {
 
 .info ul li {
   padding-top: 8px;
+}
+
+.info ul li a:hover {
+  text-decoration: none;
 }
 
 .bg-fluid {
