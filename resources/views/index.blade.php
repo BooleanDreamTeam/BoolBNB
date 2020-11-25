@@ -69,9 +69,25 @@
         <hr class="mb-3 mt-2 d-flex justify-content-center mx-auto">
         <h6 class="text-center">BoolBnB offre annunci in oltre 191 paesi</h6>
     </div>
-    <div class="col-md-3 d-flex justify-content-center">
+    <div class="promo-center d-flex justify-content-center align-items-center">
+        <div class="col-md-8 d-flex text-center">
 
-        <p>testo sotto</p>
+            <div class="col-md-4 d-flex flex-column">
+                <div>iconcina</div>
+                <div>testo</div>
+            </div>
+
+            <div class="col-md-4 d-flex flex-column">
+                <div>iconcina</div>
+                <div>testo</div>
+            </div>
+
+            <div class="col-md-4 d-flex flex-column">
+                <div>iconcina</div>
+                <div>testo</div>
+            </div>
+
+        </div>
     </div>
 </div>
 

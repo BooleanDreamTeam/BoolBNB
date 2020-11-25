@@ -64,7 +64,7 @@
                                     <div class="apartment-image">
 
                                         <a href="{{ route('delete-image', $image->id) }}"
-                                            class="btn btn-danger apartment-image-delete">
+                                            class="btn btn-delete-img apartment-image-delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
 

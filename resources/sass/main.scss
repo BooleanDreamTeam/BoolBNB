@@ -72,7 +72,6 @@ section#intro {
 
 .form-row {
     padding: 10px 40px;
-    width: 35vw;
 
     .form-control {
         border: none;
@@ -140,6 +139,10 @@ section#intro {
             border-top: 1px solid white;
         }
 
+    }
+
+    .promo-center {
+        height: calc(380px - 130px);
     }
 }
 
