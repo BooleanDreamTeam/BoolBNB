@@ -132,7 +132,7 @@ class UserController extends Controller
                     $url = Storage::url($image); 
                 }
     
-                $dateDet['avatar'] = $url;
+                $dataDet['avatar'] = $url;
             }
 
                   

@@ -40,12 +40,15 @@ class ApartmentController extends Controller
             ['apartment_id','=', $id],
             ['cover', '=', 0]
         ])->take(4)->get();
+
         $cover = Image::where([
             ['apartment_id','=', $id],
             ['cover', '=', 1]
         ])->get();
 
-        return view('show-apartment', compact('apartment', 'images', 'cover'));
+        $n = count(Image::where('apartment_id', $id)->get());
+
+        return view('show-apartment', compact('apartment', 'images', 'cover', 'n'));
     }
 
     /**

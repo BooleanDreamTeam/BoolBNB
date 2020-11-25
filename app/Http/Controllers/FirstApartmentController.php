@@ -114,7 +114,7 @@ class FirstApartmentController extends Controller
         }  
         DB::update('update users set user_type_id = 2 where id = ?', [Auth::id()]);
         
-        return redirect()->route('dashboard');   
+        return redirect()->route('apartment.show', $apartment->id);   
     }
 
     /**

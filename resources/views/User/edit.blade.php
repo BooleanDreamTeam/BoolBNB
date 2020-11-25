@@ -1,5 +1,9 @@
 @extends('layouts.extranet')
 
+@section('script')
+<script src="{{ asset('js/uservalidation.js') }}"></script>
+@endsection
+
 @section('content')
 <div class="container">
         <div class="row d-flex justify-content-center">
@@ -10,7 +14,7 @@
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <li>{{ $error }}</li>  
                         @endforeach
                     </ul>
                 </div>
@@ -30,7 +34,6 @@
 
                         <div class="form-group">
                             <label for="password">Modifica la tua password</label>
-                            <small id="emailHelp" class="form-text text-muted"></small>
                             <input type="password" class="form-control" name="password" id="password">
                         </div>
 
@@ -59,7 +62,7 @@
                             <input type="file" class="form-control-file" name="avatar" id="avatar">
                         </div>
                         @endif
-                        <button type="submit" class="btn btn-primary">Invia modifiche</button>
+                        <button type="submit" class="btn btn-primary" id="send">Invia modifiche</button>
                     </form>
             </div>
         </div>
