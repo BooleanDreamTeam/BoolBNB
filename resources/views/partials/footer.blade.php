@@ -1,24 +1,36 @@
-<section class="info bg-fluid mt-5 pt-4 text-center">
-    <div class="container col-md-8 col-md-offset-2 pb-1">
+<section class="info bg-fluid mt-4 pt-5 text-center">
+    <div class="container col-md-8 col-md-offset-2 pb-1 text-left">
         <div class="row">
             <div class="col">
                 <div class="nest-row row">
                     <div class="col-md-3 col-sm-6">
-                        <h6>Chi siamo</h6>
+                        <h6>Informazioni</h6>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="#">About</a>
+                                <a href="#">Come funziona BoolBnB</a>
                             </li>
 
                             <li>
                                 <a href="#">Blog</a>
                             </li>
                             <li>
-                                <a href="#">Servizi aggiuntivi</a>
+                                <a href="#">BoolBnB Plus</a>
                             </li>
 
                             <li>
-                                <a href="/legal/">Lavora con noi</a>
+                                <a href="#">BoolBnB for Work</a>
+                            </li>
+                            <li>
+                                <a href="#">BoolBnB Luxe</a>
+                            </li>
+                            <li>
+                                <a href="#">Newsroom</a>
+                            </li>
+                            <li>
+                                <a href="#">Servizi aggiuntivi</a>
+                            </li>
+                            <li>
+                                <a href="#">Lavora con noi</a>
                             </li>
 
                         </ul>
@@ -28,15 +40,23 @@
                         <h6>Comunity</h6>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="#">Associates</a>
+                                <a href="#">Alloggi per l'emergenza</a>
                             </li>
                             <li>
-                                <a href="#">Lorem</a>
+                                <a href="#">Diversità e appartenenza</a>
                             </li>
                             <li>
-                                <a href="#">Lorem</a>
+                                <a href="#">Accessibilità</a>
                             </li>
-                                <a href="#">Lorem</a>
+                            <li>
+                                <a href="#">Invita degli amici</a>
+                            </li>
+                            </li>
+                            <li>
+                                <a href="#">BoolBnb Associates</a>
+                            </li>
+                            <li>
+                                <a href="#">Scopri di più</a>
                             </li>
                         </ul>
                     </div>
@@ -45,33 +65,43 @@
                         <h6>Hosting</h6>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="#">Diventa host</a>
+                                <a href="#">Diventa un host</a>
                             </li>
                             <li>
-                                <a href="#">Case in 80 mila città</a>
+                                <a href="#">Offri un'Esperienza online</a>
                             </li>
                             <li>
-                                <a href="#">Lorem</a>
+                                <a href="#">Offri un'Esperienza</a>
                             </li>
                             <li>
-                                <a href="#">Lorem</a>
+                                <a href="#">Ospitare responsabilmente</a>
+                            </li>
+                            <li>
+                                <a href="#">Open Homes</a>
+                            </li><li>
+                                <a href="#">Centro Risorse</a>
+                            </li><li>
+                                <a href="#">Community Center</a>
                             </li>
                     </div>
 
                     <div class="col-md-3 col-sm-6">
-                        <h6>Contatti</h6>
+                        <h6>Assistenza</h6>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="#">I paesi più in voga su BoolBnB</a>
+                                <a href="#">La nostra risposta all'emergenza COVID</a>
                             </li>
                             <li>
-                                <a href="#">Cosa copre l'assicurazione BoolBnB</a>
+                                <a href="#">Centro Assistenza</a>
                             </li>
                             <li>
-                                <a href="#">Dove siamo</a>
+                                <a href="#">Opzioni di cancellazione</a>
                             </li>
                             <li>
-                                <a href="#">Informativa</a>
+                                <a href="#">Servizio di supporto al vicinato</a>
+                            </li>
+                            <li>
+                                <a href="#">Affidabilità e sicurezza</a>
                             </li>
                         </ul>
                     </div>
@@ -79,7 +109,7 @@
             </div>
     </section>
 
-    <section class="bg-fluid pb-2">
+    <section class="bg-fluid pb-3">
         <div class="credits container col-md-8 pb-3">
             <div class="row pt-2">
                 <div class="jm_logo col-md-6 col-xs-12">
@@ -88,11 +118,11 @@
                 </div>
                 <div class="col-md-6 col-xs-12">
                     <div class="jm_social-icon text-right">
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-facebook-square"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-youtube"></i>
-                        <i class="fab fa-linkedin"></i>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-square"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>

@@ -197,7 +197,7 @@ class ApartmentController extends Controller
 
         $apartment->update($data);
 
-        return redirect()->route('dashboard')->with('status', "Modifiche all'appartamento $apartment->title  effettuate");
+        return redirect()->route('dashboard')->with('status', "Modifiche all'appartamento $apartment->title  effettuate con successo");
     }
 
     public function deleteImage(Image $image) {

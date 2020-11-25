@@ -16,7 +16,7 @@
                         </div>
                         <footer class="card-footer">
                             <p class="card-text">
-                                <small class="text-muted">stanze: {{ $apartment->n_rooms }}</small>
+                                <small class="text-muted"><i class="fas fa-map-marker-alt" ></i> {{ $apartment->address}}</small>
                             </p>
                         </footer>
                     </div>

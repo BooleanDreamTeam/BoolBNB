@@ -72,6 +72,7 @@ section#intro {
 
 .form-row {
     padding: 10px 40px;
+    width: 35vw;
 
     .form-control {
         border: none;
@@ -86,7 +87,7 @@ section#intro {
 
 
 .search-box {
-    max-width: 48vw;
+    // max-width: 48vw;
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
@@ -132,6 +133,8 @@ section#intro {
         h2 {
             padding-top: 20px;
         }
+
+
     }
 }
 

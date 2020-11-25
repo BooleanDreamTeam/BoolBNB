@@ -19,7 +19,7 @@
         }
 
         .card-body {
-            min-height: 96px;
+            min-height: 70px;
         }
 
         .card-title {
@@ -27,6 +27,8 @@
         }
 
         .card-footer {
+            min-height: 50px;
+
             .card-text {
                 .text-muted {}
             }
