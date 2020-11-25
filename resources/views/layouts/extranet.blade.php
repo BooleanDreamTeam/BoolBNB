@@ -33,7 +33,7 @@
         <div id="sidebar" class="sidebar-nav d-flex px-sm-1 px-md-3 px-lg-4 col-2 col-sm-4 col-lg-3 col-xl-2">
             <div class="nav flex-column align-center nav-pills " id="v-pills-tab" role="tablist"
                 aria-orientation="vertical">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                <a class="navbar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
                     <img class="" src="{{ Storage::url('img/logo.png') }}" alt="logo">
                     <!-- <img class="img-fluid write d-none d-sm-block" id="bnb" src="{{ Storage::url('img/boolbnb-white.png') }}" alt="Boolbnb"> -->
                 </a>
@@ -94,10 +94,12 @@
                             <h6 class="dropdown-header">
                                 Message Center
                             </h6>
+                            
+                            @if(empty($messages))
+                            <p>Non ci sono messaggi</p>
+                            @else
                             @foreach ($messages as $message)
-
-
-                                <a class="messages dropdown-item d-flex align-items-center" href="">
+                                <a class="messages dropdown-item d-flex align-items-center" href="{{route('mymessages')}}">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded app-img" src="{{ $message->imgurl }}" alt="">
                                         <div class="status-indicator bg-success"></div>
@@ -110,7 +112,7 @@
                                     </div>
                                 </a>
                             @endforeach
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            @endif
                         </div>
                     </li>
 

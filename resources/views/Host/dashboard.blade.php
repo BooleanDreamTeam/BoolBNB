@@ -32,12 +32,12 @@
 <div class="box col-12 ">
     <!-- appartamenti -->
     <div class="d-cont-left d-flex flex-column">
-        <div class="chart col-lg-12 d-flex">
-            <div class="bar">
-                <canvas class="col-lg-162" id="myChart"></canvas>
+        <div id="charts" class="chart d-flex">
+            <div class=" col-6 line">
+                <canvas class="col-12" id="myChart"></canvas>
             </div>
-            <div class="bar ">
-                <canvas class="col-lg-6" id="myChart2"></canvas>
+            <div class="col-6 doughnut ">
+                <canvas class="col-12" id="myChart2"></canvas>
             </div>
         </div>
         <hr>
