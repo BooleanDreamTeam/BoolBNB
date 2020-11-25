@@ -66,10 +66,8 @@
                                 <a id="navbarDropdown" class="nav-link p-0 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     @if (!empty(Auth::user()->provider_id))
                                         <img class="avatar rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">
-                                    @elseif (!(DB::table('user_details')->select('avatar')->where('user_details.user_id','=', Auth::id())->get()))
-                                        <img class="avatar rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">
                                     @else
-                                    <img class="avatar rounded-circle" src="" alt="profile-img">
+                                        <img class="avatar rounded-circle" src="{{"storage/".Auth::user()->user_details->avatar}}" alt="profile-img">
                                     @endif
 
                                     {{ Auth::user()->name }}
