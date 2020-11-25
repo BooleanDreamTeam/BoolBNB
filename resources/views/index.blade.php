@@ -24,7 +24,7 @@
             <h2 id="smart-write"></h2>
             <form id="search" action="{{route('search')}}" method="get" class=" search_bar wow animate__animated animate__bounceInUp">
                 <div class="search-box">
-                    <div class="form-row">
+                    <div class="form-row main-search">
                         <div class="col d-flex justify-content-around col-md-12">
                             @csrf
                             <input type="search" id="address-input" name="address" class="form-control" placeholder="Dove vuoi andare" required/>

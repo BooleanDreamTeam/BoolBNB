@@ -70,6 +70,10 @@ section#intro {
     }
 }
 
+.main-search {
+    width: 470px;
+}
+
 .form-row {
     padding: 10px 40px;
 
@@ -86,7 +90,6 @@ section#intro {
 
 
 .search-box {
-    // max-width: 48vw;
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
