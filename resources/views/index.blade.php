@@ -66,7 +66,7 @@
 <div class="promo mt-4 pt-4">
     <div class="title">
         <h2 class="text-center">Unisciti a milioni di Host su BoolBnB</h2>
-        <hr>
+
         <h6 class="text-center">BoolBnB offre annunci in oltre 191 paesi</h6>
     </div>
     <div class="col-md-3 d-flex justify-content-center">
