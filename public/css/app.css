@@ -17062,7 +17062,11 @@ readers do not read off random characters that represent icons */
 }
 
 .card-p a .card-body {
-  min-height: 96px;
+  min-height: 70px;
+}
+
+.card-p a .card-footer {
+  min-height: 50px;
 }
 
 .card-p .card_index:hover {
@@ -17141,6 +17145,7 @@ section#intro {
 
 .form-row {
   padding: 10px 40px;
+  width: 35vw;
 }
 
 .form-row .form-control {
@@ -17153,7 +17158,6 @@ section#intro {
 }
 
 .search-box {
-  max-width: 48vw;
   background-color: #fff;
   border-radius: 30px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
@@ -17221,6 +17225,15 @@ section#simple-ap {
 
 .info {
   background-color: rgba(0, 0, 0, 0.03);
+  font-size: 12px;
+}
+
+.info h6 {
+  padding-bottom: 4px;
+}
+
+.info ul li {
+  padding-top: 8px;
 }
 
 .bg-fluid {
@@ -17228,15 +17241,19 @@ section#simple-ap {
 }
 
 .credits {
-  border-top: 1px solid black;
+  border-top: 1px solid #7f8693;
   color: #7f8693;
   font-size: 12px;
 }
 
-.credits .jm_social-icon .fab {
+.credits .jm_social-icon a {
   padding-left: 8px;
   padding-right: 8px;
-  color: #7f8693;
   font-size: 14px;
+  color: #7f8693;
+}
+
+.credits .jm_social-icon a:hover {
+  color: #00B3B3;
 }
 

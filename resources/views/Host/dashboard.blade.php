@@ -32,6 +32,15 @@
 <div class="box col-12 ">
     <!-- appartamenti -->
     <div class="d-cont-left d-flex flex-column">
+        <div class="chart col-lg-12 d-flex">
+            <div class="bar">
+                <canvas class="col-lg-162" id="myChart"></canvas>
+            </div>
+            <div class="bar ">
+                <canvas class="col-lg-6" id="myChart2"></canvas>
+            </div>
+        </div>
+        <hr>
         <h2>My Appartments</h2>
         <div id="apartments" class="apartments d-flex flew-wrap mb-4 pb-4 border-bottom">
         @foreach($apartments as $apartment)
@@ -109,16 +118,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="chart col-6 d-flex flex-column">
-            <!-- visualizzazioni -->
-                <div class="bar">
-                    <canvas class="col-12" id="myChart"></canvas>
-                </div>
-                <div class="bar ">
-                    <canvas class="col-12" id="myChart2"></canvas>
-                </div>
-            </div>
-        <hr>
+
         </div>
     </div>    
 </div>

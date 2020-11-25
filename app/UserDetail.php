@@ -10,6 +10,8 @@ class UserDetail extends Model
 
     public $timestamps = false;
 
+    protected $primaryKey = 'user_id';
+
     protected $fillable = [
         'user_id', 'birth_date', 'address', 'phone_n', 'avatar'
     ];
