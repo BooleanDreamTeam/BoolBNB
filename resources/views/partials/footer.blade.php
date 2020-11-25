@@ -11,7 +11,7 @@
                             </li>
 
                             <li>
-                                <a href="#">Blog</a>
+                                <a href="#">Newsroom</a>
                             </li>
                             <li>
                                 <a href="#">BoolBnB Plus</a>
@@ -24,7 +24,7 @@
                                 <a href="#">BoolBnB Luxe</a>
                             </li>
                             <li>
-                                <a href="#">Newsroom</a>
+                                <a href="#">Blog</a>
                             </li>
                             <li>
                                 <a href="#">Servizi aggiuntivi</a>

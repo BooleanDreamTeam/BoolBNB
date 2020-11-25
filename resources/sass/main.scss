@@ -134,12 +134,24 @@ section#intro {
             padding-top: 20px;
         }
 
+        hr {
+            width: 90px;
+            border: 0;
+            border-top: 1px solid white;
+        }
 
     }
 }
 
 section#simple-ap {
     margin-top: 35px;
+
+    hr {
+        width: 80px;
+        border: 0;
+        border-top: 1px solid #00B3B3;
+    }
+
 }
 
 

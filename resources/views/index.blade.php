@@ -65,8 +65,8 @@
 
 <div class="promo mt-4 pt-4">
     <div class="title">
-        <h2 class="text-center">Unisciti a milioni di Host su BoolBnB</h2>
-
+        <h2 class="text-center">Unisciti a milioni di host su BoolBnB</h2>
+        <hr class="mb-3 mt-2 d-flex justify-content-center mx-auto">
         <h6 class="text-center">BoolBnB offre annunci in oltre 191 paesi</h6>
     </div>
     <div class="col-md-3 d-flex justify-content-center">
@@ -82,7 +82,7 @@
     <section id="simple-ap" class="pt-4">
 
         <h2 class="text-center">Appartamenti</h2>
-
+        <hr class="mb-3 mt-2 d-flex justify-content-center mx-auto">
         @include('partials.apartments-row', ['apartments'=> $apartments])
 
     </section>
