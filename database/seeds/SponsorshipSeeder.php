@@ -56,7 +56,6 @@ class SponsorshipSeeder extends Seeder
                         'expiration_date' => $now->clone()->addDays($faker->numberBetween(7, 20))   // faccio il clone di $now in modo da 
                                                                                                     // lasciare intatto il punto di partenza al 
                                                                                                     // quale aggiungere in seguito i giorni
-
                     ]
                 ]
             );

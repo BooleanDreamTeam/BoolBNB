@@ -9,7 +9,7 @@
 
 
 @section('content')
-
+<span id="under">Dashboard</span>
 
 {{-- ERROR --}}
     @if ($errors->any())

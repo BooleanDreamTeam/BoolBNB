@@ -4,6 +4,9 @@
 @endsection
 
 @section('content')
+
+    <span id="under">{{Auth::user()->name}}</span>
+
     <div id="profile " class="d-flex w-100">
         <div class="col-sm-6">
             <div class="card mb-3" style="max-width: 540px;">
