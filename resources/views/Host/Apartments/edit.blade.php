@@ -6,6 +6,12 @@
 
 @section('content')
 
+@if (session('status'))
+<div class="alert alert-success status mx-auto fixed-top m-5">
+    {{ session('status') }}
+</div>
+@endif  
+
     {{-- MODIFY APARTMENT --}}
 
     <div class="advise content w-100">
