@@ -109,12 +109,12 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <input type="file" class="custom-file-input" id="Immagine" name="images[]" accept="image/*" name="images"  size="20" multiple="multiple" required>
+                            <input type="file" class="custom-file-input" id="Immagine" name="images[]" accept="image/*" name="images" size="20" multiple="multiple" required>
                             <div class="valid-feedback">
                                 Immaggini inserite correttamente!
                             </div>
                             <div class="invalid-feedback">
-                                Inserisci almeno un immagine!
+                                Inserisci almeno quattro immagini!
                             </div>
                             <label class="custom-file-label" for="Immagine">Choose file</label>
                             <span><em>* la prima immagine sarà l'immagine di copertina</em></span>

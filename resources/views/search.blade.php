@@ -85,9 +85,9 @@
           <div class="dropdown-menu p-2">
             <label for="Stanze">Raggio</label>
             <div class="range d-flex justify-content-between">
-              <span>1</span>
+              <span>-</span>
               <input type="range" class="input_range_service" value="50" name="range" min="1" max="100" step="1" id="">
-              <span>100</span>
+              <span>+</span>
             </div>
             <div class="text-center">
               <i class="fas fa-street-view"></i>

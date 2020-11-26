@@ -34,9 +34,7 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-
-        if ($request['user']){
-
+        
             $review = Review::create([
                 'id_apartment' => $request['id_apartment'],
                 'name' => $request['user'],
@@ -44,18 +42,6 @@ class ReviewController extends Controller
                 'vote' => $request['vote'],
                 'created_at' => Carbon::now('Europe/London')
             ]);
-            
-        } else {
-
-            $review = Review::create([
-                'id_apartment' => $request['id_apartment'],
-                'name' => Auth::user()->name,
-                'message' => $request['message'],
-                'vote' => $request['vote'],
-                'created_at' => Carbon::now('Europe/London')
-            ]);
-
-        }
 
         return response()->json($review,201);
 

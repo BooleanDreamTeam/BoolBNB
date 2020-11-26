@@ -17,12 +17,14 @@
         box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
         .nav{
             width: 100%;
-            .navbar-brand{
-                width: 100%;
+            a.navbar-brand{
+                margin-right: 0;
+                width: 50%;
                 height: 200px;
                 img{
                     margin: 0 auto;
-                    height: 100%;
+                    height: auto;
+                    width: 100%;
                 }
             }
 
@@ -90,5 +92,20 @@
 
 button,input {
     box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
+}
+
+canvas {
+    width: 100%;
+}
+
+@media screen and(max-width : 580px) {
+
+    #messagesDropdown {
+        display: none;
+    }
+
+    .sidebar-nav .nav a.navbar-brand{
+        width: 100%;
+    }
 }
 

@@ -32,26 +32,25 @@
 <div class="box col-12 ">
     <!-- appartamenti -->
     <div class="d-cont-left d-flex flex-column">
-        <div id="charts" class="chart d-flex">
-            <div class=" col-6 line">
-                <canvas class="col-12" id="myChart"></canvas>
+        <div id="charts" class="chart d-flex col-12 flex-column flex-md-row">
+            <div class="col-sm-12 col-md-6 line">
+                <canvas id="myChart"></canvas>
             </div>
-            <div class="col-6 doughnut ">
-                <canvas class="col-12" id="myChart2"></canvas>
+            <div class="col-sm-12 col-md-6 doughnut ">
+                <canvas id="myChart2"></canvas>
             </div>
         </div>
         <hr>
-        <h2>My Appartments</h2>
-        <div id="apartments" class="apartments d-flex flew-wrap mb-4 pb-4 border-bottom">
+        <h2 class="text-center">My Appartments</h2>
+        <div id="apartments" class="apartments mb-4 pb-4 border-bottom card-group d-flex flex-column flex-md-row">
         @foreach($apartments as $apartment)
-            <div class="d-cont d-flex">
-                <div class="d-card-e m-2 ">
+            <div class="d-cont d-flex col-12 col-sm-12 col-md-12 col-lg-3 text-center">
+                <div class="d-card-e m-2">
                     <a href="{{route('apartment.show',['id' => $apartment->id])}}">
                     <div class="card-e-img-top d-flex justify-content-end" style="background-image: url({{ $apartment->cover->imgurl }}">
                         <div class="pt-2 pr-1">
                             <div class="d-vote p-1 rounded">{{ $apartment->rating() }}</div>
                         </div>
-
                     </div>
                     <div class="d-card-header p-2">
                         <h6 class="font-weight-bold text-primary">{{ $apartment->title }}</h6>
@@ -62,7 +61,6 @@
                         <small><i class="fas fa-bath"></i> {{$apartment->n_bathrooms}}</small>
                     </div>
                     </a>
-
                     <a class="btn btn-primary w-100" href="{{route('apartments.edit',$apartment->id)}}">MODIFICA</a>
                     <form action="{{route('apartments.destroy',$apartment->id)}}" method="post">
                         @csrf
@@ -73,53 +71,55 @@
             </div>
         @endforeach
         </div>
-        <h2>Last Reviews</h2>
-        <div id="reviews" class="">
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Apartment</th>
-                            <th scope="col">Received</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Text</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($reviews as $review)
-                        <tr>
-                            <td scope="row"><img class="rounded rev-img" src="{{$review->imgurl}}" alt="image"></td>
-                            <td>{{$review->created_at}}</td>
-                            <td>{{$review->name}}</td>
-                            <td>{{$review->message}}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+          <div class="d-flex flex-md-row flex-column">
+                <div id="reviews" class="col-12 col-md-6">
+                <h2>Last Reviews</h2>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Apartment</th>
+                                <th scope="col">Received</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Text</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($reviews as $review)
+                            <tr>
+                                <td scope="row"><img class="rounded rev-img" src="{{$review->imgurl}}" alt="image"></td>
+                                <td>{{$review->created_at}}</td>
+                                <td>{{$review->name}}</td>
+                                <td>{{$review->message}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class=" d-flex">
-            <div id="geoarea" class="geo col-6">
-                <h2>Geo Area Views</h2>
-                <table class="table table-striped table-dark">
-                    <thead>
-                        <tr>
-                        <th scope="col">Region</th>
-                        <th scope="col">Total view</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($clicks as $click)
-                        <tr>
-                            <th scope="row">{{$click->geo_area}}</th>
-                            <td>{{$click->clicks}}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+            <div class=" d-flex col-12 col-md-6">
+                <div id="geoarea" class="geo col-12 col-md-12">
+                    <h2>Geo Area Views</h2>
+                    <table class="table table-striped table-dark">
+                        <thead>
+                            <tr>
+                            <th scope="col">Region</th>
+                            <th scope="col">Total view</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($clicks as $click)
+                            <tr>
+                                <th scope="row">{{$click->geo_area}}</th>
+                                <td>{{$click->clicks}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
 
-        </div>
+            </div>
+          </div>
     </div>    
 </div>
 
@@ -165,6 +165,8 @@
             ]
         },
         options: {
+        responsive: true,
+        maintainAspectRatio: false,
         title: {
             display: true,
             text: "Visite per Browser"
@@ -189,6 +191,8 @@
     ]
   },
   options: {
+    responsive: true,
+    maintainAspectRatio: false,
     title: {
       display: true,
       text: 'Visite Mensili'
