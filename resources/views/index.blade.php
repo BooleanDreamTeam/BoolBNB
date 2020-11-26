@@ -73,18 +73,38 @@
         <div class="col-md-8 d-flex text-center">
 
             <div class="col-md-4 d-flex flex-column">
-                <div>iconcina</div>
-                <div>testo</div>
+                <div class="icon"><i class="fas fa-globe-europe"></i></div>
+                <div class="txt">
+                    <h5>
+                       <span>6 Milioni</span> di annunci nel mondo
+                    </h5>
+                    <p><span><i class="far fa-smile-beam"></i></span> Oltre 650.000 host nel mondo</p>
+                    <p><span><i class="far fa-smile-beam"></i></span> 65.000 città su BoolBnB</p>
+                </div>
             </div>
 
             <div class="col-md-4 d-flex flex-column">
-                <div>iconcina</div>
-                <div>testo</div>
+                <div class="welcome-icon">
+                    <img src="{{ Storage::url('img/welcome.jpeg') }}" alt="welcome-icon">
+                </div>
+                <div class="txt">
+                    <h5>
+                       Diventa un <span>Host</span>
+                    </h5>
+                    <p> <span><i class="far fa-smile-beam"></i></span> Offri un'esperienza</p>
+                    <p> <span><i class="far fa-smile-beam"></i></span> 65.000 città presenti su BoolBnB</p>
+                </div>
             </div>
 
             <div class="col-md-4 d-flex flex-column">
-                <div>iconcina</div>
-                <div>testo</div>
+                <div class="icon"><i class="fab fa-connectdevelop"></i></div>
+                <div class="txt">
+                    <h5>
+                       Esperienza <span>Online</span>
+                    </h5>
+                    <p> <span><i class="far fa-smile-beam"></i></span> Offri un'esperienza online</p>
+                    <p> <span><i class="far fa-smile-beam"></i></span> Get connected</p>
+                </div>
             </div>
 
         </div>
