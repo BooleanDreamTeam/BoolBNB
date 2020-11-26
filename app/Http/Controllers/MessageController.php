@@ -40,7 +40,6 @@ class MessageController extends Controller
 
     public function index(){
         if (Auth::user()){
-            
             $messages = Message::getmes()->take(4);
             $allmessages = Message::getmes();
             return view('host.messages', compact('messages', 'allmessages'));

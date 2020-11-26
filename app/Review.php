@@ -28,9 +28,5 @@ class Review extends Model
         ->where('images.cover', true)
         ->orderBy('created_at', 'desc')->get();
     }
-
-
-
-
 }
 

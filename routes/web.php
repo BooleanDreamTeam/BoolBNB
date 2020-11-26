@@ -14,23 +14,13 @@ use App\Apartment;
 |
 */
 
-
-
 Route::get('/', 'ApartmentController@index');
 Route::get('apartments/show/{id}', 'ApartmentController@show')->name('apartment.show');
+Route::get('/search', 'ApartmentController@searching')->name('search');
 Route::resource('firstapartment', 'FirstApartmentController')->middleware('auth');
-
 Route::post('message', 'MessageController@store')->name('sendMessage');
-Route::get('host.messages', 'MessageController@index')->middleware('auth')->name('mymessages');
-Route::get('host.reviews', 'ReviewController@index')->middleware('auth')->name('myreviews');
-
-
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/search', 'ApartmentController@searching')->name('search');
 
 // ROUTE SOCIALIZE
 
@@ -45,12 +35,12 @@ Route::prefix('host')->namespace('Host')->middleware('auth')->group(function() {
     Route::resource('apartments', 'ApartmentController');
     Route::get('apartments/delete-image/{image}', 'ApartmentController@deleteImage')->name('delete-image');
     Route::patch('apartments/active/{apartment}', 'ApartmentController@active')->name('active');
-
     Route::get('dashboard', 'ExtranetController@dashboard')->name('dashboard');
-
     Route::resource('sponsorship', 'SponsorshipController');
     Route::post('checkout', 'SponsorshipController@checkout')->name('checkout');
 });
+Route::get('host.messages', 'MessageController@index')->middleware('auth')->name('mymessages');
+Route::get('host.reviews', 'ReviewController@index')->middleware('auth')->name('myreviews');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'guest'],function (){
     Route::get('/home', 'HomeController@index')->name('home');

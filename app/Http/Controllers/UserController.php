@@ -73,7 +73,6 @@ class UserController extends Controller
             $user = Auth::user();
             $messages = Message::getmes()->take(4);  
             $user_details = UserDetail::where('user_id', Auth::id())->get();
-              
             return view('user.edit', compact('user', 'messages', 'user_details'));
         } 
     }

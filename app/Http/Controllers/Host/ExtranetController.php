@@ -28,24 +28,19 @@ class ExtranetController extends Controller
         
             // $apartments = Apartment::details()->take(4);
 
-            // active sponsor
-            $sponsored = Sponsorship::sponsored();
-            $sponsoredoff = Sponsorship::nosponsored();
-
             //filtro i messaggi arrivati per gli appartamenti di proprietà dell'host
             $messages = Message::getmes()->take(4);
 
-            //
+            //filtro le ultime reviews
             $reviews = Review::reviews()->take(5);
 
-                
+            //filtro i dati per le statistiche 
             $clicks = Click::statistics();
             $brows = Click::brows();
-            
             $views = Click::views()->take(12);
                  
         }           
-        return view('host.dashboard', compact('apartments', 'messages', 'reviews', 'sponsored', 'clicks', 'brows', 'views'));
+        return view('host.dashboard', compact('apartments', 'messages', 'reviews', 'clicks', 'brows', 'views'));
     }
     
 }

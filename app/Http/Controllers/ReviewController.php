@@ -14,9 +14,7 @@ class ReviewController extends Controller
     public function index(){
         if (Auth::user()){
             $reviews = Review::reviews();
-            
             $messages = Message::getmes()->take(4);
-           
             return view('host.reviews', compact('reviews', 'messages'));
         }
     }
