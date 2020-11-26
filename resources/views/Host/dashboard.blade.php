@@ -185,12 +185,19 @@
     }
     });
 
+
     new Chart(document.getElementById("myChart"), {
-    type: 'line',
-    data: {
-        labels: [
+  type: 'line',
+  data: {
+    labels: [
             @foreach($views as $view)       
                 {{($view->mon)}},
+            @endforeach
+        ],
+    datasets: [{ 
+        data: [
+            @foreach($views as $view)
+            {{$view->views}},
             @endforeach
         ],
         label: "Views",
@@ -206,7 +213,8 @@
       display: true,
       text: 'Visite Mensili'
     }
-    });
+  }
+});
 
     
     </script>

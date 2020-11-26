@@ -33,7 +33,7 @@
         <div id="sidebar" class="sidebar-nav d-flex px-sm-1 px-md-3 px-lg-4 col-2 col-sm-4 col-lg-3 col-xl-2">
             <div class="nav flex-column align-center nav-pills" id="v-pills-tab" role="tablist"
                 aria-orientation="vertical">
-                <a class="navbar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
+                <a class="navbar-brand m-0 d-flex align-items-center justify-content-center" href="{{ url('/') }}">
                     <img class="" src="{{ Storage::url('img/logo.png') }}" alt="logo">
                     <!-- <img class="img-fluid write d-none d-sm-block" id="bnb" src="{{ Storage::url('img/boolbnb-white.png') }}" alt="Boolbnb"> -->
                 </a>
