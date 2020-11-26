@@ -55,7 +55,6 @@ class UserController extends Controller
         if (Auth::user()){
             
             $user = Auth::user();
-            
             $messages = Message::getmes()->take(4);
            
             return view('user.show', compact('user', 'messages'));
