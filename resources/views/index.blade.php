@@ -118,7 +118,7 @@
     <section id="simple-ap" class="pt-4">
 
         <h2 class="text-center">Appartamenti</h2>
-        <hr class="mb-3 mt-2 d-flex justify-content-center mx-auto">
+        <hr class=" underline mb-3 mt-2 d-flex justify-content-center mx-auto">
         @include('partials.apartments-row', ['apartments'=> $apartments])
 
     </section>

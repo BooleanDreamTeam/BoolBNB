@@ -185,144 +185,144 @@ section#intro {
 
 
     }
+}
 
-    section#simple-ap {
-        margin-top: 35px;
+section#simple-ap {
+    margin-top: 35px;
 
-        hr {
-            width: 80px;
-            border: 0;
-            border-top: 1px solid #00B3B3;
-        }
-
+    hr {
+        width: 80px;
+        border: 0;
+        border-top: 1px solid #00B3B3;
     }
 
+}
 
-    .avatar {
-        height: 50px;
-        margin-right: 10px;
-    }
 
-    // LOGIN
+.avatar {
+    height: 50px;
+    margin-right: 10px;
+}
 
-    .col_login {
-        margin: 100px 0;
-    }
+// LOGIN
 
-    .btn_facebook {
-        background-color: #036ee4;
-    }
+.col_login {
+    margin: 100px 0;
+}
 
-    // ALGOLIA MARKERS
+.btn_facebook {
+    background-color: #036ee4;
+}
 
-    .leaflet-marker-icon {
-        color: #00B3B3;
-    }
+// ALGOLIA MARKERS
 
-    // INPUT RANGE
+.leaflet-marker-icon {
+    color: #00B3B3;
+}
 
-    input[type=range] {
-        width: 60%;
-        margin: 5.3px 0;
-        background-color: transparent;
-        -webkit-appearance: none;
-    }
+// INPUT RANGE
 
-    input[type=range]:focus {
-        outline: none;
-    }
+input[type=range] {
+    width: 60%;
+    margin: 5.3px 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+}
 
-    input[type=range]::-webkit-slider-runnable-track {
-        background: #ffffff;
-        border: 0.2px solid #52c3d4;
-        border-radius: 1.3px;
-        width: 100%;
-        height: 8.4px;
-        cursor: pointer;
-    }
+input[type=range]:focus {
+    outline: none;
+}
 
-    input[type=range]::-webkit-slider-thumb {
-        margin-top: -5.5px;
-        width: 18px;
-        height: 19px;
-        background: #52c3d4;
-        border: 1px solid #ffffff;
-        border-radius: 14px;
-        cursor: pointer;
-        -webkit-appearance: none;
-    }
+input[type=range]::-webkit-slider-runnable-track {
+    background: #ffffff;
+    border: 0.2px solid #52c3d4;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+}
 
-    input[type=range]:focus::-webkit-slider-runnable-track {
-        background: #ffffff;
-    }
+input[type=range]::-webkit-slider-thumb {
+    margin-top: -5.5px;
+    width: 18px;
+    height: 19px;
+    background: #52c3d4;
+    border: 1px solid #ffffff;
+    border-radius: 14px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
 
-    input[type=range]::-moz-range-track {
-        background: #ffffff;
-        border: 0.2px solid #52c3d4;
-        border-radius: 1.3px;
-        width: 100%;
-        height: 8.4px;
-        cursor: pointer;
-    }
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ffffff;
+}
 
-    input[type=range]::-moz-range-thumb {
-        width: 18px;
-        height: 19px;
-        background: #52c3d4;
-        border: 1px solid #ffffff;
-        border-radius: 14px;
-        cursor: pointer;
-    }
+input[type=range]::-moz-range-track {
+    background: #ffffff;
+    border: 0.2px solid #52c3d4;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+}
 
-    input[type=range]::-ms-track {
-        background: transparent;
-        border-color: transparent;
-        border-width: 6.3px 0;
-        color: transparent;
-        width: 100%;
-        height: 8.4px;
-        cursor: pointer;
-    }
+input[type=range]::-moz-range-thumb {
+    width: 18px;
+    height: 19px;
+    background: #52c3d4;
+    border: 1px solid #ffffff;
+    border-radius: 14px;
+    cursor: pointer;
+}
 
-    input[type=range]::-ms-fill-lower {
-        background: #ffffff;
-        border: 0.2px solid #52c3d4;
-        border-radius: 2.6px;
-    }
+input[type=range]::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    border-width: 6.3px 0;
+    color: transparent;
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+}
 
-    input[type=range]::-ms-fill-upper {
-        background: #ffffff;
-        border: 0.2px solid #52c3d4;
-        border-radius: 2.6px;
-    }
+input[type=range]::-ms-fill-lower {
+    background: #ffffff;
+    border: 0.2px solid #52c3d4;
+    border-radius: 2.6px;
+}
 
-    input[type=range]::-ms-thumb {
-        width: 18px;
-        height: 19px;
-        background: #52c3d4;
-        border: 1px solid #ffffff;
-        border-radius: 14px;
-        cursor: pointer;
-        margin-top: 0px;
-        /*Needed to keep the Edge thumb centred*/
-    }
+input[type=range]::-ms-fill-upper {
+    background: #ffffff;
+    border: 0.2px solid #52c3d4;
+    border-radius: 2.6px;
+}
 
-    input[type=range]:focus::-ms-fill-lower {
-        background: #ffffff;
-    }
+input[type=range]::-ms-thumb {
+    width: 18px;
+    height: 19px;
+    background: #52c3d4;
+    border: 1px solid #ffffff;
+    border-radius: 14px;
+    cursor: pointer;
+    margin-top: 0px;
+    /*Needed to keep the Edge thumb centred*/
+}
 
-    input[type=range]:focus::-ms-fill-upper {
-        background: #ffffff;
-    }
+input[type=range]:focus::-ms-fill-lower {
+    background: #ffffff;
+}
 
-    /*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+input[type=range]:focus::-ms-fill-upper {
+    background: #ffffff;
+}
+
+/*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
   how to remove the virtical space around the range input in IE*/
-    @supports (-ms-ime-align:auto) {
+@supports (-ms-ime-align:auto) {
 
-        /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
-        input[type=range] {
-            margin: 0;
-            /*Edge starts the margin from the thumb, not the track as other browsers do*/
-        }
+    /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+    input[type=range] {
+        margin: 0;
+        /*Edge starts the margin from the thumb, not the track as other browsers do*/
     }
 }
