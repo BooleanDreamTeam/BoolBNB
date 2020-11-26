@@ -231,7 +231,7 @@ class ApartmentController extends Controller
     {
         $data = $request->all();
         $apartment->update($data);
-        if($request->is_active === true){
+        if($request->is_active !== false){
             return redirect()->route('apartments.edit', $apartment->id)->with('status', "Ora il tuo appartmento è attivo, controlla le tue modifiche");
         }else{
             return redirect()->route('apartments.edit', $apartment->id)->with('status', "Il tuo appartamento non è più attivo");

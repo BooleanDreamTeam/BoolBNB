@@ -10,7 +10,7 @@
 <span id="under">My Apartments</span>
 
 <div id="apartment" class="apartments col-12">
-    <h1 class="text-primary">My Apartments</h2>
+<h1 class="text-primary">My Apartments</h2>
     <div class="row d-flex flewx-wrap">
     @foreach($apartments as $apartment)
 

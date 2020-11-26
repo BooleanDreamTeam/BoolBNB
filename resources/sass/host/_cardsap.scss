@@ -1,11 +1,9 @@
 #apartment{
     .i-card-e{
         padding-right: 5px;
-       
         box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
-        
-        .i-card-e-img-top{
 
+        .i-card-e-img-top{
             width: 200px;
             height: 160px;
             border-radius: 5px 0 0 5px;
@@ -13,9 +11,7 @@
             background-size: cover;
         }
         .i-card-body{
-            
             .i-left{
-                
                 .i-top-card{
                     h6{
                         text-transform: capitalize;

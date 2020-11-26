@@ -49,7 +49,18 @@
                     <a href="{{route('apartment.show',['id' => $apartment->id])}}">
                     <div class="card-e-img-top d-flex justify-content-end" style="background-image: url({{ $apartment->cover->imgurl }}">
                         <div class="pt-2 pr-1">
-                            <div class="d-vote p-1 rounded">{{ $apartment->rating() }}</div>
+                            @if($apartment->rating() > 3)
+                                <div class="d-vote px-2 py-1 rounded d-flex justify-content-center align-items-center">
+                                    <span class="p-1">{{ $apartment->rating() }}</span>
+                                    <i class="far fa-smile"></i>
+                                </div>          
+                            @else ($apartment->rating() <= 3)
+                                <div class="d-vote px-2 py-1 rounded d-flex justify-content-center align-items-center">
+                                    <span class="p-1">{{ $apartment->rating() }}</span>
+                                    <i class="far fa-frown"></i>
+                                </div>
+                            @endif
+
                         </div>
                     </div>
                     <div class="d-card-header p-2">
@@ -145,12 +156,12 @@
                         @endforeach
                         ],
                     backgroundColor: [
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        "rgba(255, 99, 132, 0.4)",
+                        "rgba(54, 162, 235, 0.4)",
+                        "rgba(255, 206, 86, 0.4)",
+                        "rgba(75, 192, 192, 0.4)",
+                        'rgba(153, 102, 255, 0.4)',
+                        'rgba(255, 159, 64, 0.4)'
                     ],
                     borderColor: [
                         "rgba(255, 99, 132, 1)",
@@ -175,13 +186,11 @@
     });
 
     new Chart(document.getElementById("myChart"), {
-  type: 'line',
-  data: {
-    labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Jun', 'Lug', 'Ago', 'Set', 'Ott', 'Nov'],
-    datasets: [{ 
-        data: [
-            @foreach($views as $view)
-            {{$view->views}},
+    type: 'line',
+    data: {
+        labels: [
+            @foreach($views as $view)       
+                {{($view->mon)}},
             @endforeach
         ],
         label: "Views",
@@ -197,10 +206,9 @@
       display: true,
       text: 'Visite Mensili'
     }
-  }
-});
+    });
 
- 
-</script>
+    
+    </script>
 @endsection
 

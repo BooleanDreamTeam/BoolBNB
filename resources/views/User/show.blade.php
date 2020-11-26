@@ -9,10 +9,14 @@
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        @if(!empty($user->provider_id))
-                        <img src="{{($user->user_details->avatar)}}" class="card-img" alt="{{$user->name}}">
+                         @if (!empty(Auth::user()->provider_id))
+                            <img class="card-img" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">
                         @else
-                        <img src="/storage/{{($user->user_details->avatar)}}" class="card-img" alt="{{$user->name}}">
+                            @if(strpos(Auth::user()->user_details->avatar, 'storage') !== false)
+                                <img class="card-img" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">
+                            @else
+                                <img class="card-img" src="storage/{{Auth::user()->user_details->avatar}}" alt="profile-img">
+                            @endif
                         @endif
                     </div>
                     <div class="col-md-8">

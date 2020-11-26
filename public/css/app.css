@@ -17066,7 +17066,7 @@ readers do not read off random characters that represent icons */
 }
 
 .card-p a .card-footer {
-  min-height: 50px;
+  min-height: 70px;
 }
 
 .card-p .card_index:hover {
@@ -17149,7 +17149,7 @@ section#intro {
 }
 
 .main-search {
-  width: 470px;
+  width: 35vw;
 }
 
 .form-row {

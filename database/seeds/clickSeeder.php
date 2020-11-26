@@ -17,23 +17,17 @@ class ClickSeeder extends Seeder
     {
         $browser = [
             'Internet Explorer',
-			'Internet Explorer',
 			'Firefox',
 			'Safari',
 			'Chrome',
 			'Edge',
 			'Opera',
-			'Netscape',
-			'Maxthon',
-			'Konqueror',
-			'UC Browser',
-			'Handheld Browser'
+			'Netscape'
         ];
         $regions = [
             'Abruzzo',
-            'Aosta Valley',
             'Valle d\'Aosta',
-            'Apulia',
+            'Puglia',
             'Basilicata',
             'Calabria',
             'Campania',
@@ -41,14 +35,14 @@ class ClickSeeder extends Seeder
             'Friuli Venezia Giulia',
             'Lazio',
             'Liguria',
-            'Lombardy',
+            'Lombardia',
             'Marche',
             'Molise',
-            'Piedmont',
-            'Sardinia',
-            'Sicily',
-            'Trentino-South Tyrol',
-            'Tuscany',
+            'Piemonte',
+            'Sardegna',
+            'Sicilia',
+            'Trentino-Alto-Adige',
+            'Toscana',
             'Umbria',
             'Veneto'
         ];

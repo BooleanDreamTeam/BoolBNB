@@ -19,9 +19,9 @@ class ApartmentController extends Controller
     public function index()
     {
         // prendo 4 appartamenti con almeno una sponsorship attiva
-        $sponsored = Apartment::whereHas('sponsorships', function (Builder $query) {
+        $sponsored = Apartment::where('is_active', true)->whereHas('sponsorships', function (Builder $query) {
             $query->where('expiration_date', '>', DB::raw('now()'));
-        })->take(4)->get();
+        })->inRandomOrder()->take(4)->get();
 
         // salvo in una variabile tutti gli id degli appartamenti che hanno almeno una sponsorship attiva
         $toremove = Apartment::whereHas('sponsorships', function (Builder $query) {
@@ -29,7 +29,7 @@ class ApartmentController extends Controller
         })->pluck('id');
 
         // estraggo 4 appartamenti sottraendo gli id degli appartamenti con spons. attiva
-        $apartments = Apartment::whereNotIn('id', $toremove)->take(8)->get();
+        $apartments = Apartment::where('is_active', true)->whereNotIn('id', $toremove)->inRandomOrder()->take(8)->get();
 
         return view('index',compact('sponsored', 'apartments'));
     }
