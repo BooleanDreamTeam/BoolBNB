@@ -18,3 +18,12 @@
         }
     }
 }
+
+#under {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    font-size: 140px;
+    color: rgba($color: #00B3B3, $alpha: 0.1);
+    z-index: -1;
+}

@@ -2,8 +2,10 @@
 
 @section('content')
 
+<span id="under">My Apartments</span>
 
 <div id="reviews" class="container">
+    <h1 class="text-primary">My Messages</h1>
     <div class="table-responsive">
         <table class="table">
             <thead>

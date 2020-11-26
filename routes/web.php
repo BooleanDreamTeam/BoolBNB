@@ -44,6 +44,7 @@ Route::prefix('host')->namespace('Host')->middleware('auth')->group(function() {
     Route::get('extranet', 'ExtranetController@extranet')->name('extranet');
     Route::resource('apartments', 'ApartmentController');
     Route::get('apartments/delete-image/{image}', 'ApartmentController@deleteImage')->name('delete-image');
+    Route::patch('apartments/active/{apartment}', 'ApartmentController@active')->name('active');
 
     Route::get('dashboard', 'ExtranetController@dashboard')->name('dashboard');
 

@@ -157,7 +157,7 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, Apartment $apartment)
     {
-        //dd($request->all());
+        
         $data = $request->all();
 
         $latlng = $data['latlng'];
@@ -225,5 +225,17 @@ class ApartmentController extends Controller
         $apartment->delete();
 
         return redirect()->route('dashboard')->with('status', 'Hai cancellato correttamente il tuo appartamento');
+    }
+
+    public function active(Request $request, Apartment $apartment)
+    {
+        $data = $request->all();
+        $apartment->update($data);
+        if($request->is_active === true){
+            return redirect()->route('apartments.edit', $apartment->id)->with('status', "Ora il tuo appartmento è attivo, controlla le tue modifiche");
+        }else{
+            return redirect()->route('apartments.edit', $apartment->id)->with('status', "Il tuo appartamento non è più attivo");
+        }
+        
     }
 }
