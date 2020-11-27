@@ -118,10 +118,10 @@
                 </div>
             {{-- SONO SEGNAPOSTI PER LE NOSTRE FOTO TONDE --}}
                 <div class="credits-dream-team col-12 col-md-4 d-flex justify-content-center px-4">
-                    <img src="{{Storage::url('img/logo.png')}}" alt="logo-boolbnb" style="height: 35px">
-                    <img src="{{Storage::url('img/logo.png')}}" alt="logo-boolbnb" style="height: 35px">
-                    <img src="{{Storage::url('img/logo.png')}}" alt="logo-boolbnb" style="height: 35px">
-                    <img src="{{Storage::url('img/logo.png')}}" alt="logo-boolbnb" style="height: 35px">
+                    <img src="{{Storage::url('img/jm-avatar.jpeg')}}" alt="jm-avatar" class="rounded-circle" style="height: 60px">
+                    <img src="{{Storage::url('img/vs-avatar.jpg')}}" alt="vs-avatar" class="rounded-circle" style="height: 60px">
+                    <img src="{{Storage::url('img/ga-avatar.jpg')}}" alt="ga-avatar" class="rounded-circle" style="height: 60px">
+                    <img src="{{Storage::url('img/cz-avatar.jpeg')}}" alt="cz-avatar" class="rounded-circle" style="height: 60px">
                 </div>
 
                 <div class="col-12 col-md-4">
