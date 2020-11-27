@@ -23,7 +23,7 @@ class ExtranetController extends Controller
         if (Auth::user()->user_type->name == 'Host'){
                 
             // vediamo i nostri appartamenti
-            $apartments = Apartment::where('host_id', Auth::id())->take(4)->get();
+            $apartments = Apartment::where('host_id', Auth::id())->orderby('created_at', 'desc')->take(4)->get();
             $apids= Apartment::where('host_id', Auth::id())->pluck('id');
         
             // $apartments = Apartment::details()->take(4);

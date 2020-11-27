@@ -106,7 +106,6 @@ class ApartmentController extends Controller
                         'cover' => 1,
                     ]);
                 } else {
-
                     $imageToDb = Image::create([
                         'apartment_id' => $apartment->id,
                         'imgurl' => $urlImg,

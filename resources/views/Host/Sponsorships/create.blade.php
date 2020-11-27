@@ -59,17 +59,20 @@
     </div>
     
     <div class="form-row">
-        <div class="d-flex">
+        <div class="d-flex flex-wrap">
             @foreach ($sponsorships as $sponsor) 
-            <div class="card col-md-3 sponsor m-2 p-0" style="width: 18rem;">
-                <div class="box-title w-100 d-flex align-items-center justify-content-center">
+            <div class="card col-lg-3 col-md-12 sponsor m-2 p-0" style="width: 18rem;">
+                <div class="box-title {{$sponsor->name}} w-100 d-flex align-items-center justify-content-center">
                     <h2 class="card-title m-0">{{$sponsor->name}}</h2>
                 </div>
-                <div class="card-body">
+                <div class="card-body text-center">
                     
-                    <h3 class="card-description">Il tuo appartamento sarà sponsorizzato per {{$sponsor->time}} ore!</h3>
-                    <p class="card-text">Price: {{$sponsor->price}}€</p>
-                    <a data-price="{{$sponsor->price}}" data-id="{{$sponsor->id}}" class="card-link">Acquista</a>
+                    <h5 class="card-description">Metti in risalto il tuo appartamento per le prossime {{$sponsor->time}} ore!</h5>
+                    
+                    <p class="card-text"><i class="fas fa-shopping-cart"></i>{{$sponsor->price}}€</p>
+                    <a data-price="{{$sponsor->price}}" data-id="{{$sponsor->id}}" class="card-link">
+                        <button class="btn btn-primary ">Acquista</button>  
+                    </a>
                 </div>
             </div>
             @endforeach

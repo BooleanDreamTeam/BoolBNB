@@ -115,6 +115,14 @@ a {
     }
 }
 
+#geoarea{
+    table{
+        tr:nth-child(even){
+            background-color: #00b3b31f; 
+        }
+    }
+}
+
 @media screen and(max-width : 580px) {
 
     #messagesDropdown {

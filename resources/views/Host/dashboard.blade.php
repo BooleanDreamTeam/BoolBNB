@@ -131,11 +131,11 @@
             <div class=" d-flex col-12 col-md-6">
                 <div id="geoarea" class="geo col-12 col-md-12">
                     <h2>Geo Area Views</h2>
-                    <table class="table table-striped table-dark">
+                    <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col">Region</th>
-                            <th scope="col">Total view</th>
+                                <th scope="col" class="text-primary">Regione</th>
+                                <th scope="col" class="text-primary">Visite Totali</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -219,7 +219,7 @@
             @endforeach
         ],
         label: "Views",
-        borderColor: "#3e95cd",
+        borderColor: "#00b3b3",
         fill: false
       }
     ]

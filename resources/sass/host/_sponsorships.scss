@@ -36,8 +36,7 @@
 
   .card{
     .box-title{
-      height: 50px;
-      background-color: gold;
+      height: 50px;      
       .card-title{
         text-transform: uppercase;
       }
@@ -48,9 +47,69 @@
       .card-description{
       
       }
+      .card-text{
+        font-weight: 600;
+        font-size: 25px;
+
+      }
+      
 
     }
     
   }
 
 }
+
+.gold {
+  background-image: linear-gradient(to right, #F7971E 0%, #FFD200  51%, #F7971E  100%);
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  display: block;
+}
+
+.silver {
+  background-image: linear-gradient(to right, #abbaab 0%, #ffffff  51%, #abbaab  100%);
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  display: block;
+}
+
+.platinum {
+  background-image: linear-gradient(to right, #1c92d2 0%, #f2fcfe  51%, #1c92d2  100%);
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+    
+
+
+
+
+
+   .box-title:hover {
+     background-position: right center; /* change the direction of the change here */
+     color: #fff;
+     text-decoration: none;
+   }
+  
+
+
+  
