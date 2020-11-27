@@ -70,9 +70,9 @@
         <h6 class="text-center">BoolBnB offre annunci in oltre 191 paesi</h6>
     </div>
     <div class="promo-center d-flex justify-content-center align-items-center">
-        <div class="col-md-8 d-flex text-center">
+        <div class="col-12 col-md-8 d-flex text-center flex-wrap">
 
-            <div class="col-md-4 d-flex flex-column">
+            <div class="col-12 col-md-4 d-flex flex-column">
                 <div class="icon"><i class="fas fa-globe-europe"></i></div>
                 <div class="txt">
                     <h5>
@@ -83,10 +83,8 @@
                 </div>
             </div>
 
-            <div class="col-md-4 d-flex flex-column">
-                <div class="welcome-icon">
-                    <img src="{{ Storage::url('img/welcome.jpeg') }}" alt="welcome-icon">
-                </div>
+            <div class="col-12 col-md-4 d-flex flex-column">
+                <div class="icon"><i class="fas fa-home"></i></i></div>
                 <div class="txt">
                     <h5>
                        Diventa un <span>Host</span>
@@ -96,7 +94,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 d-flex flex-column">
+            <div class="col-12 col-md-4 d-flex flex-column">
                 <div class="icon"><i class="fab fa-connectdevelop"></i></div>
                 <div class="txt">
                     <h5>

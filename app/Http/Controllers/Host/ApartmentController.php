@@ -157,7 +157,7 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, Apartment $apartment)
     {
-        
+
         $data = $request->all();
 
         $latlng = $data['latlng'];
@@ -187,6 +187,22 @@ class ApartmentController extends Controller
         if($data['cover_image_id']) {
             Image::where('apartment_id', $apartment->id)->update(['cover' => 0]);
             Image::where('id', $data['cover_image_id'])->update(['cover' => 1]);
+        }
+
+        if ((array_key_exists('images', $data))) {
+            foreach ($data['images'] as $key => $image) {
+                $data['images'][$key] = Storage::disk('public')->put("img/users/". Auth::id() ."/apartments/$apartment->id",$image);
+
+                $urlImg = Storage::url($data['images'][$key]);
+
+                $imageToDb = Image::create([
+                    'apartment_id' => $apartment->id,
+                    'imgurl' => $urlImg,
+                    'cover' => 0,
+                ]);
+
+            }
+
         }
 
         if (!empty($data['services'])){
@@ -236,6 +252,6 @@ class ApartmentController extends Controller
         }else{
             return redirect()->route('apartments.edit', $apartment->id)->with('status', "Il tuo appartamento non è più attivo");
         }
-        
+
     }
 }

@@ -10,7 +10,7 @@
 <div class="alert alert-success status mx-auto fixed-top m-5">
     {{ session('status') }}
 </div>
-@endif  
+@endif
 
     {{-- MODIFY APARTMENT --}}
 
@@ -58,7 +58,7 @@
                         <label for="Immagine">Immagine</label>
                         <input type="file" class="form-control" id="Immagine" name="images[]" accept="image/*" name="images"
                             size="20" multiple="multiple" required>
-                        <span><em>* la prima immagine sarà l'immagine di copertina</em></span>
+
                     </div>
                 </div>
                 <div class="form-row">
@@ -105,7 +105,7 @@
                         </label>
                     @endforeach
                 </div>
-                <button type="submit" class="btn btn-primary">Inserisci</button>
+                <button type="submit" class="btn btn-primary">Modifica</button>
             </form>
         </div>
     </div>
