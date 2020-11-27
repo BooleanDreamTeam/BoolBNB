@@ -326,3 +326,25 @@ input[type=range]:focus::-ms-fill-upper {
         /*Edge starts the margin from the thumb, not the track as other browsers do*/
     }
 }
+
+@media screen and (max-width: 823px) {
+    .search-wrapper {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 200;
+
+        h2 {
+            height: 51px;
+            text-align: center;
+            font-size: 3em;
+            color: white;
+            margin-bottom: 120px;
+        }
+    }
+
+    .main-search {
+        width: 300px;
+    }
+}
