@@ -225,7 +225,8 @@ class ApartmentController extends Controller
                 $images[0]->cover = 1;
                 $images[0]->save();
             }
-        }
+        } else {$image->delete();
+            }
 
         return redirect()->route('apartments.edit', $image->apartment_id)->with('status', 'Immagine cancellata correttamente');
     }
