@@ -122,6 +122,7 @@
                     <img src="{{Storage::url('img/vs-avatar.jpg')}}" alt="vs-avatar" class="rounded-circle" style="height: 60px">
                     <img src="{{Storage::url('img/ga-avatar.jpg')}}" alt="ga-avatar" class="rounded-circle" style="height: 60px">
                     <img src="{{Storage::url('img/cz-avatar.jpeg')}}" alt="cz-avatar" class="rounded-circle" style="height: 60px">
+                    <img src="{{Storage::url('img/gs-avatar.jpg')}}" alt="gs-avatar" class="rounded-circle giorgio" style="height: 60px">
                 </div>
 
                 <div class="col-12 col-md-4">
