@@ -17,7 +17,11 @@
 @section('content')
 
     @if($n > 3)
-        <section id="up" class="container d-none d-md-flex">
+        <div class="name-apartment my-5">
+            <h2 class="text-center text-primary" >{{$apartment->title}}</h2>
+        </div>
+
+        <section id="up" class="d-none d-md-flex m-5">
             <div class="ctn-first col-6 py-2 pl-2 pr-1">
                 <div class="img p-5" style="background-image: url({{$cover[0]->imgurl}})">
 
@@ -47,21 +51,21 @@
         <section id="mobile" class="container d-block d-md-none p-0 mb-5">
             <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
                   <div class="carousel-inner">
-                    
+
                     @foreach ($images as $key => $image)
 
                         @if ($key == 0)
 
                             <div class="carousel-item active">
                                 <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
-                            </div>    
+                            </div>
 
-                        @else    
+                        @else
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
-                            </div>    
+                            </div>
                         @endif
-                        
+
 
                     @endforeach
 
@@ -171,13 +175,12 @@
         </section>
 
 
-        <section id="" class="container  d-md-flex flex-column p-0 ">
+        <section id="" class="container  d-md-flex flex-column p-0 mb-5">
             <div class="col-lg-12 col-md-12 col-sm-12 p-2">
 
                     <div id="map_container" style="height:600px;">
 
-                    </div>
-                {{-- </div> --}}
+                </div>
             </div>
         </section>
 
@@ -212,7 +215,7 @@
                             <input type="hidden" id="id_apartment_review" value="{{$apartment->id}}">
                             <h3 class="">Scrivi una recesione!</h3>
                             <textarea class="form-control" name="message" id="message_review" rows="3" required></textarea>
-                            <div class="text-center d-flex flex-column justify-content-center align-items-center">
+                            <div class="text-center d-flex flex-column justify-content-center align-items-center mt-3">
                                 <input type="range" name="vote_review" value="1" min="1" max="5" id="vote_review">
                                 <i class="fas fa-star"></i>
                                 <output name="outputvote" for="vote">1</output>

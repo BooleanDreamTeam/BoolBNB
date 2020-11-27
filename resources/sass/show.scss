@@ -1,8 +1,12 @@
-@import 'host/_reviews'; 
+@import 'host/_reviews';
 
 #up {
     height: 500px;
     padding: 0;
+}
+
+#map_container {
+    height: 400px;
 }
 
 .ctn-first {
@@ -34,6 +38,7 @@
     list-style: none;
 }
 
+
 .jumbotron {
     height: 450px;
 }
@@ -46,4 +51,8 @@
 
 .review::-webkit-scrollbar {
   display: none;
+}
+
+.name-apartment {
+    text-transform: uppercase;
 }
