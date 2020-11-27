@@ -17065,6 +17065,10 @@ readers do not read off random characters that represent icons */
   min-height: 96px;
 }
 
+.card-p a .card-title {
+  text-transform: capitalize;
+}
+
 .card-p a .card-footer {
   min-height: 70px;
 }
@@ -17192,7 +17196,7 @@ section#intro {
 .featured::before,
 .featured::after {
   content: "";
-  width: 41%;
+  width: 46%;
   height: 1px;
   background-color: #00B3B3;
   border-radius: 1px;

@@ -12,7 +12,7 @@ $(document).ready( function() {
     if (window.location.pathname == '/'|| window.location.pathname == '/host/firstapartment/create') {
         // ALGOLIA INDEX
         var typed = new Typed('#smart-write', {
-            strings: ["Benvenuti in ^1000 BoolBNB!", "Cerca l'appartamento dei tuoi sogni!"],
+            strings: ["Benvenuto in ^500 BoolBNB!", "Cerca l'appartamento dei tuoi sogni!"],
             typeSpeed: 70,
             smartBackspace: true,
             backSpeed: 70,
@@ -69,7 +69,7 @@ $(document).ready( function() {
           success: function(data) {
             $('.bs-example').empty();
             if (data.apartments.total == 0) {
-              $('.apartment_searched').html("<h3 class='text-center'>oops..sembra che non ci siano appartamenti</h3>");
+              $('.apartment_searched').html("<h3 class='text-center wow animate__animated animate__pulse'>oops..<i class='far fa-grin-beam-sweat'></i> sembra che non ci siano appartamenti!</h3>");
               return;
             }
             refreshApartments(data);

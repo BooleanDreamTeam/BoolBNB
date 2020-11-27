@@ -88,7 +88,7 @@
 
         @if (count($apartments) <= 0)
                 
-              <h3 class="text-center">Non ci sono risultati..</h3>
+              <h3 class="text-center wow animate__animated animate__pulse">Non ci sono risultati..<i class='far fa-grin-beam-sweat'></i></h3>
 
          @endif
 
