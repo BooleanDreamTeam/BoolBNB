@@ -154,9 +154,8 @@ $(document).ready( function() {
               type: "GET",
               url: "http://localhost:8000/api/apartments/" + apartments[i].id,
               success: function (data) {
-                marker.bindPopup(
-                  `
-                  <a href="http://localhost:8000/apartments/show/` + data[0].id + `">
+              marker.bindPopup(`
+              <a href="http://localhost:8000/apartments/show/` + data[0].id + `">
                         <img class="card-img-top" src="` + data[0].imgurl + `"alt="` + data[0].imgurl + `">
                         <div class="card-body">
                         <h5 class="card-title">` + data[0].title + `</h5>
@@ -174,8 +173,9 @@ $(document).ready( function() {
                           </div>
                         </div>
                       </div>
-                    </a>
-                `)
+                    </div>
+              </a>      
+              `)
               }
             });
             markers.push(marker);

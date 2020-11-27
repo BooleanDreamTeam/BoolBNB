@@ -17080,6 +17080,11 @@ readers do not read off random characters that represent icons */
   text-decoration: none;
 }
 
+.leaflet-container a:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .status {
   width: 50vw;
 }
@@ -17264,6 +17269,14 @@ section#simple-ap hr {
 }
 
 .btn_facebook {
+  background-color: #036ee4;
+}
+
+.btn_facebook:hover {
+  background-color: #036ee4;
+}
+
+.btn_facebook:focus {
   background-color: #036ee4;
 }
 

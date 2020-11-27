@@ -72,7 +72,7 @@
     <div class="promo-center d-flex justify-content-center align-items-center">
         <div class="col-12 col-md-8 d-flex text-center flex-wrap">
 
-            <div class="col-12 col-md-4 d-flex flex-column">
+            <div class="col-md-4 d-flex flex-column wow animate__animated animate__fadeInLeft">
                 <div class="icon"><i class="fas fa-globe-europe"></i></div>
                 <div class="txt">
                     <h5>
@@ -83,8 +83,10 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-4 d-flex flex-column">
-                <div class="icon"><i class="fas fa-home"></i></i></div>
+            <div class="col-md-4 d-flex flex-column wow animate__animated animate__fadeInUp">
+                <div class="welcome-icon">
+                    <img src="{{ Storage::url('img/welcome.png') }}" alt="welcome-icon">
+                </div>
                 <div class="txt">
                     <h5>
                        Diventa un <span>Host</span>
@@ -94,7 +96,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-4 d-flex flex-column">
+            <div class="col-md-4 d-flex flex-column wow animate__animated animate__fadeInRight">
                 <div class="icon"><i class="fab fa-connectdevelop"></i></div>
                 <div class="txt">
                     <h5>

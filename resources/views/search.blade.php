@@ -98,6 +98,9 @@
       </form>  
 
       <div class="bs-example m-4 rounded">
+        <div class="text center">
+          <h4 class="results"></h4>
+        </div>
           @foreach ($apartments as $apartment)
 
             <div class="card card_apartment_search" data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}">

@@ -3,6 +3,11 @@
 .leaflet-container a {
     color: black;
     text-decoration: none;
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: none;
+    }
 }
 
 .status {
@@ -205,6 +210,14 @@ section#simple-ap {
 
 .btn_facebook {
     background-color: #036ee4;
+
+    &:hover {
+        background-color: #036ee4;
+    }
+
+    &:focus {
+        background-color: #036ee4;
+    }
 }
 
 // ALGOLIA MARKERS
