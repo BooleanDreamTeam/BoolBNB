@@ -29,7 +29,7 @@
     
             @foreach ($apartments as $apartment)
             @if (count($apartment->sponsorships) > 0)
-            <div class="s-card p-0 rounded">
+            <div class="s-card p-0 m-2 rounded">
                 <div class="s-image rounded" style="background-image: url({{$apartment->cover->imgurl}})">
 
                 </div>
@@ -43,7 +43,7 @@
                     <p class="card-text"></p>
                     <div class="s-time d-flex justify-content-center align-items-center">
                         <i class="fas fa-hourglass-half pr-3"></i>
-                        <span class="expiration_date_output">Scadenza: {{now()->diff($sponsor->pivot->expiration_date)->format('%H')}}H</span>
+                        <span class="expiration_date_output">Scade tra {{now()->diff($sponsor->pivot->expiration_date)->format('%H')}} ore</span>
                     </div>
                 @endforeach
                 </div>

@@ -42,7 +42,7 @@
     @csrf
     <div class="form-row">
 
-        <div class="flex-d">
+        <div class=" ">
             <select class="custom-select" name="apartment">
                 @foreach ($apartments as $apartment)
                     <option value="{{$apartment->id}}">{{$apartment->title}} | {{$apartment->address}}</option>            
@@ -59,23 +59,22 @@
     </div>
     
     <div class="form-row">
-
         <div class="d-flex">
-            @foreach ($sponsorships as $sponsor)
-                
-                <div class="card col-md-3 sponsor" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{$sponsor->name}}</h5>
-                        <h3 class="card-description">Il tuo appartamento sarà sponsorizzato per {{$sponsor->time}} ore!</h3>
-                        <p class="card-text">Price: {{$sponsor->price}}€</p>
-                        <a data-price="{{$sponsor->price}}" data-id="{{$sponsor->id}}" class="card-link">Acquista</a>
-                    </div>
+            @foreach ($sponsorships as $sponsor) 
+            <div class="card col-md-3 sponsor m-2 p-0" style="width: 18rem;">
+                <div class="box-title w-100 d-flex align-items-center justify-content-center">
+                    <h2 class="card-title m-0">{{$sponsor->name}}</h2>
                 </div>
-                
-            @endforeach
+                <div class="card-body">
+                    
+                    <h3 class="card-description">Il tuo appartamento sarà sponsorizzato per {{$sponsor->time}} ore!</h3>
+                    <p class="card-text">Price: {{$sponsor->price}}€</p>
+                    <a data-price="{{$sponsor->price}}" data-id="{{$sponsor->id}}" class="card-link">Acquista</a>
+                </div>
             </div>
-            <input type="hidden" name="sponsorshipClicked" id="clicked">
-
+            @endforeach
+        </div>
+        <input type="hidden" name="sponsorshipClicked" id="clicked">
     </div>
 
     <div class="form-row">

@@ -17,8 +17,7 @@
 @section('content')
 
     @if($n > 3)
-        <div class="name-apartment my-5">
-            <h2 class="text-center text-primary" >{{$apartment->title}}</h2>
+    <div class="name-apartment my-">
         </div>
 
         <section id="up" class="d-none d-md-flex m-5">
@@ -112,43 +111,9 @@
 
         </section>
     @endif
-        <!-- <section id="mobile" class="container d-block d-md-none p-0 mb-5">
-            <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
-                  <div class="carousel-inner">
-
-                    @foreach ($images as $key => $image)
-
-                        @if ($key == 0)
-
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
-                            </div>
-
-                        @else
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
-                            </div>
-                        @endif
-
-
-                    @endforeach
-
-                  </div>
-                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
-            </div>
-
-        </section> -->
-
-
-
-        <section id="info-card" class="container  d-md-flex p-0 rounded mb-5">
+        <h2 class="text-center text-primary" >{{$apartment->title}}</h2>
+        <section id="" class="container  d-md-flex p-0">
+        
             <div class="col-lg-12 col-md-12 col-sm-12 p-2">
                 <div class="card card_show" data-lat="{{$apartment->latitude}}"  data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}">
                     <div class="card-body">
