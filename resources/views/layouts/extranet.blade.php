@@ -133,14 +133,14 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if (!empty(Auth::user()->provider_id))
-                                        <img class="avatar rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">
+                                        <img class="avatar rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img1">
+                                @else
+                                    @if(strpos(Auth::user()->user_details->avatar, 'storage') !== false)
+                                        <img class="avatar rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img2">
                                     @else
-                                        @if(strpos(Auth::user()->user_details->avatar, 'storage') !== false)
-                                            <img class="avatar rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">
-                                        @else
-                                            <img class="avatar rounded-circle" src="storage/{{Auth::user()->user_details->avatar}}" alt="profile-img">
-                                        @endif
+                                        <img class="avatar rounded-circle" src="{{Storage::url(Auth::user()->user_details->avatar)}}" alt="profile-img3">
                                     @endif
+                                @endif
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

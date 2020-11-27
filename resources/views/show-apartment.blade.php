@@ -44,33 +44,6 @@
                 </div>
             </div>
         </section>
-    @else
-    <section id="mobile" class="container d-block d-none d-md-flex p-0 mb-5">
-        <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
-            <div class="carousel-inner">
-
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{$cover[0]->imgurl}}" alt="First slide">
-                </div>   
-            
-            @foreach ($images as $key => $image)
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{$images->imgurl}}" alt="First slide">
-                </div>   
-            @endforeach
-
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-    </div>
-    </section>
-    @endif
         <section id="mobile" class="container d-block d-md-none p-0 mb-5">
             <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
                   <div class="carousel-inner">
@@ -104,6 +77,70 @@
             </div>
 
         </section>
+    @else
+        <section id="mobile" class="container d-block p-0 mb-5">
+            <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
+                <div class="carousel-inner">
+                    
+                    @foreach ($images as $key => $image)
+
+                        @if ($key == 0)
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
+                            </div>    
+                        @else    
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
+                            </div>    
+                        @endif
+                    @endforeach
+
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+            </div>
+
+        </section>
+    @endif
+        <!-- <section id="mobile" class="container d-block d-md-none p-0 mb-5">
+            <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
+                  <div class="carousel-inner">
+                    
+                    @foreach ($images as $key => $image)
+
+                        @if ($key == 0)
+
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
+                            </div>    
+
+                        @else    
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
+                            </div>    
+                        @endif
+                        
+
+                    @endforeach
+
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+            </div>
+
+        </section> -->
 
 
 

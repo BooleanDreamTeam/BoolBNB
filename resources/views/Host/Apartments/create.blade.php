@@ -40,16 +40,16 @@
                     @csrf
                     @method('POST')
                     <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="Titolo">Titolo</label>
-                        <input type="text" class="form-control" name="title" id="Titolo" placeholder="Titolo.." required>
-                        <div class="valid-feedback">
-                            Titolo corretto!
+                        <div class="form-group col-md-6">
+                            <label for="Titolo">Titolo</label>
+                            <input type="text" class="form-control" name="title" id="Titolo" placeholder="Titolo.." required>
+                            <div class="valid-feedback">
+                                Titolo corretto!
+                            </div>
+                            <div class="invalid-feedback">
+                                Titolo invalido!
+                            </div>
                         </div>
-                        <div class="invalid-feedback">
-                            Titolo invalido!
-                        </div>
-                    </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-3">
