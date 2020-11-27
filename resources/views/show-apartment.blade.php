@@ -85,17 +85,17 @@
         <section id="mobile" class="container d-block p-0 mb-5">
             <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
                 <div class="carousel-inner">
-                    
+
                     @foreach ($images as $key => $image)
 
                         @if ($key == 0)
                             <div class="carousel-item active">
                                 <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
-                            </div>    
-                        @else    
+                            </div>
+                        @else
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
-                            </div>    
+                            </div>
                         @endif
                     @endforeach
 
@@ -148,7 +148,7 @@
 
 
 
-        <section id="" class="container  d-md-flex p-0">
+        <section id="info-card" class="container  d-md-flex p-0 rounded mb-5">
             <div class="col-lg-12 col-md-12 col-sm-12 p-2">
                 <div class="card card_show" data-lat="{{$apartment->latitude}}"  data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}">
                     <div class="card-body">
@@ -187,7 +187,7 @@
         <section id="" class="container  d-md-flex p-0">
 
 
-                <form method="post" action="{{route('sendMessage')}}" class="col-lg-6 mb-lg-0 mb-4 p-2 wow animate__animated animate__fadeInLeft animate__delay-1s">
+                <form method="post" action="{{route('sendMessage')}}" class="col-lg-6 col-md-6 col-sm-12 p-2 mb-4  wow animate__animated animate__fadeInLeft animate__delay-1s">
                     @csrf
                     <div class="jumbotron">
                         <h3 class="mt-2"><i class="fas fa-envelope"></i> Write to us:</h3>
