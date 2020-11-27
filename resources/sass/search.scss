@@ -61,6 +61,14 @@ a {
     transition: border 0.6s linear;
 
   }
+
+.list-icon-card-search{
+    font-size: 20px;
+}  
+
+.list-icon-card-search i {
+    color: #00B3B3;
+}
 //--------------//
 /* media query */
 @media screen and (max-width: 768px) {

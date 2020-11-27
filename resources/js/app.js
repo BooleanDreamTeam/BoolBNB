@@ -89,7 +89,11 @@ $(document).ready( function() {
             title: apartment.title,
             description: apartment.description,
             cover: apartment.imgurl,
-            id: apartment.id
+            id: apartment.id,
+            rooms: apartment.n_rooms,
+            beds: apartment.n_beds,
+            bathrooms: apartment.n_bathrooms,
+            servizi: apartment.servizi
           };
           var html = template(context);
           $('.bs-example').append(html);

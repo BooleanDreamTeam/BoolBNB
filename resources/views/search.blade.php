@@ -103,17 +103,17 @@
                     </div>
                     <div class="col-lg-5 col-md-5 col-sm-5 d-flex flex-column justify-content-between">
 
-                            <h5 class="card-title ml-3 mt-3">{{$apartment->title}}</h5>
+                            <h3 class="card-title ml-3 mt-3">{{$apartment->title}}</h3>
                             <p class="card-text ml-3">{{$apartment->description}}</p>
-                            <ul class="list-inline ml-3">
-                                <li class="list-inline-item"></li>
-                                <li class="list-inline-item"></li>
-                                <li class="list-inline-item"></li>
+                            <ul class="list-inline ml-3 list-icon-card-search p-2">
+                                <li class="list-inline-item"><i class="fas fa-bed"></i> {{$apartment->n_beds}}</li>
+                                <li class="list-inline-item"><i class="fas fa-door-open"></i> {{$apartment->n_rooms}}</li>
+                                <li class="list-inline-item"><i class="fas fa-toilet"></i> {{$apartment->n_bathrooms}}</li>
                             </ul>
                             <ul class="list-inline ml-3">
-                                <li class="list-inline-item"></li>
-                                <li class="list-inline-item"></li>
-                                <li class="list-inline-item"></li>
+                              @foreach ($apartment->services as $service)
+                                <li class="list-inline-item text-uppercase">{{$service->name}}</li>
+                              @endforeach
                             </ul>
 
 
@@ -139,20 +139,16 @@
               </div>
               <div class="col-lg-5 col-md-5 col-sm-5 d-flex flex-column justify-content-between">
 
-                      <h5 class="card-title ml-3 mt-3">@{{title}}</h5>
+                      <h3 class="card-title ml-3 mt-3">@{{title}}</h3>
                       <p class="card-text ml-3">@{{description}}</p>
-                      <ul class="list-inline ml-3">
-                          <li class="list-inline-item"></li>
-                          <li class="list-inline-item"></li>
-                          <li class="list-inline-item"></li>
+                      <ul class="list-inline ml-3 list-icon-card-search p-2">
+                          <li class="list-inline-item"><i class="fas fa-bed"></i> @{{beds}}</li>
+                          <li class="list-inline-item"><i class="fas fa-door-open"></i> @{{rooms}}</li>
+                          <li class="list-inline-item"><i class="fas fa-toilet"></i> @{{bathrooms}}</li>
                       </ul>
                       <ul class="list-inline ml-3">
-                          <li class="list-inline-item"></li>
-                          <li class="list-inline-item"></li>
-                          <li class="list-inline-item"></li>
+                          <li class="list-inline-item text-uppercase">@{{servizi}}</li>
                       </ul>
-
-
               </div>
           </div>
       </div>

@@ -17435,6 +17435,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .info ul li a:hover {
   text-decoration: none;
+  color: #036464;
 }
 
 .bg-fluid {
@@ -17445,6 +17446,10 @@ input[type=range]:focus::-ms-fill-upper {
   border-top: 1px solid #7f8693;
   color: #7f8693;
   font-size: 12px;
+}
+
+.credits .credits-dream-team img {
+  padding-right: 8px;
 }
 
 .credits .jm_social-icon a {

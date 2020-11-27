@@ -112,7 +112,9 @@ class ApartmentController extends Controller
 
         $queryApartment->join('images','images.apartment_id','=','apartments.id')
                         ->where('images.cover','=',1)
-                        ->get();
+                        ->get();                      
+                        
+                      
                         
 
         if (array_key_exists('services',$request->all())) {
@@ -140,6 +142,12 @@ class ApartmentController extends Controller
         $queryApartment->select(
         DB::raw("
         distinct apartments.*,images.imgurl,(
+            SELECT GROUP_CONCAT(services.name SEPARATOR ' ')
+            FROM apartment_service
+            INNER JOIN services ON services.id = apartment_service.service_id
+            INNER JOIN apartments AS apconcat ON apconcat.id = apartment_service.apartment_id
+            WHERE apartment_service.apartment_id = apartments.id
+            ) AS servizi,(
         6371 * acos (
         cos ( radians($lat) )
         * cos( radians( latitude ) )
