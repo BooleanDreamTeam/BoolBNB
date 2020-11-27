@@ -111,21 +111,21 @@
         <!-- <section id="mobile" class="container d-block d-md-none p-0 mb-5">
             <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
                   <div class="carousel-inner">
-                    
+
                     @foreach ($images as $key => $image)
 
                         @if ($key == 0)
 
                             <div class="carousel-item active">
                                 <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
-                            </div>    
+                            </div>
 
-                        @else    
+                        @else
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
-                            </div>    
+                            </div>
                         @endif
-                        
+
 
                     @endforeach
 
@@ -156,7 +156,7 @@
                             <h5 class="card-title">Servizi</h5>
                             <ul class="list-group d-flex flex-row">
                                 @foreach ($apartment->services as $service)
-                                    
+
                                     <li>{{$service->name}} | </li>
 
                                 @endforeach
@@ -201,7 +201,7 @@
                         @auth
 
                         <input type="hidden" name="user_name" value="{{Auth::user()->name}}">
-                            
+
                         @endauth
                     </div>
                 </form>
@@ -223,7 +223,7 @@
                             @guest
                                 <input type="hidden" name="user_name_reviews" value="sconosciuto">
                             @endguest
-                                
+
                             <a class="btn reviews_send btn-primary btn-lg mt-5" role="button">Submit</a>
                         </form>
                         <hr class="my-4">
@@ -239,7 +239,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="reviews_container">
-                                          
+
                                     </tbody>
                                 </table>
                             </div>
@@ -254,13 +254,13 @@
 
 <script id="template_reviews" type="text/x-handlebars-template">
 
-    <tr>                                             
+    <tr>
         <td>@{{name}}</td>
         <td>@{{message}}</td>
         <td>@{{created_at}}</td>
         <td>@{{vote}}</td>
-    </tr>    
-    
+    </tr>
+
 
 </script>
 
