@@ -49,16 +49,36 @@
                     <a href="{{route('apartment.show',['id' => $apartment->id])}}">
                     <div class="card-e-img-top d-flex justify-content-end" style="background-image: url({{ $apartment->cover->imgurl }}">
                         <div class="pt-2 pr-1">
-                            @if($apartment->rating() > 3)
+                            @if($apartment->rating() < 1)
                                 <div class="d-vote px-2 py-1 rounded d-flex justify-content-center align-items-center">
                                     <span class="p-1">{{ $apartment->rating() }}</span>
-                                    <i class="far fa-smile"></i>
+                                    <i class="fas fa-poo"></i>
                                 </div>          
-                            @else ($apartment->rating() <= 3)
+                            @elseif ($apartment->rating() < 2 )
                                 <div class="d-vote px-2 py-1 rounded d-flex justify-content-center align-items-center">
                                     <span class="p-1">{{ $apartment->rating() }}</span>
-                                    <i class="far fa-frown"></i>
+                                    <i class="far fa-sad-cry"></i>
                                 </div>
+                            @elseif ($apartment->rating() < 3 )
+                            <div class="d-vote px-2 py-1 rounded d-flex justify-content-center align-items-center">
+                                <span class="p-1">{{ $apartment->rating() }}</span>
+                                <i class="far fa-sad-tear"></i>
+                            </div>
+                            @elseif ($apartment->rating() < 4 )
+                            <div class="d-vote px-2 py-1 rounded d-flex justify-content-center align-items-center">
+                                <span class="p-1">{{ $apartment->rating() }}</span>
+                                <i class="far fa-meh"></i>
+                            </div>
+                            @elseif ($apartment->rating() < 5 )
+                            <div class="d-vote px-2 py-1 rounded d-flex justify-content-center align-items-center">
+                                <span class="p-1">{{ $apartment->rating() }}</span>
+                                <i class="far fa-smile"></i>
+                            </div>
+                            @else 
+                            <div class="d-vote px-2 py-1 rounded d-flex justify-content-center align-items-center">
+                                <span class="p-1">{{ $apartment->rating() }}</span>
+                                <i class="far fa-laugh-beam"></i>
+                            </div>
                             @endif
 
                         </div>
