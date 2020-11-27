@@ -11,7 +11,7 @@
 @section('content')
 <section class="search-apartment">
     <div class="sx">
-      <form oninput='outputStanze.value = stanze.valueAsNumber,outputPostiletto.value = postiletto.valueAsNumber,outputRange.value = range.valueAsNumber' class="btn-group-search d-flex justify-content-center align-items-center">
+      <form oninput='outputStanze.value = stanze.valueAsNumber,outputPostiletto.value = postiletto.valueAsNumber,outputRange.value = range.valueAsNumber' class="btn-group-search d-flex justify-content-center align-items-center flex-wrap">
           <div class="btn-group m-4 dropdown">
             <button type="button" class="btn dropdown-toggle mr-4" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Servizi
@@ -43,7 +43,7 @@
             </div>
           </div>
           <div class="col-md-4 p-2">
-            <div class="range d-flex justify-content-between">
+            <div class="range range-address d-flex justify-content-between">
               <input id="address-input" type="text" value="{{$addressSearch}}" class="p-4" name="address">
               <input type="hidden" name="cordinates" id="cordinates" value="{{$arrayCordinates[0]}},{{$arrayCordinates[1]}}">
             </div>
@@ -81,8 +81,8 @@
               <output name="outputRange" for="range"></output>
             </div>
           </div>
-        </div>  
-      </form>  
+        </div>
+      </form>
 
       <div class="bs-example apartment_searched m-4 rounded">
 
@@ -94,24 +94,29 @@
 
           @foreach ($apartments as $apartment)
 
-            <div class="card card_apartment_search" data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}" 
+            <div class="card card_apartment_search my-5" data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}"
               data-img="{{$apartment->cover->imgurl}}"
               data-title="{{$apartment->title}}" data-description="{{$apartment->description}}" data-address="{{$apartment->address}}" data-beds="{{$apartment->n_beds}}" data-rooms="{{$apartment->n_rooms}}" data-bathrooms="{{$apartment->n_bathrooms}}">
                 <div class="row no-gutters">
-                    <div class="col-lg-7 col-md-7 col-sm-7">
-                        <img src="{{$apartment->cover->imgurl}}" class="card-img-top img-fluid" alt="{{$apartment->cover->imgurl}}">
+                    <div class="card-img-search col-lg-7 col-md-7 col-sm-7 card-img-top img-fluid" style="background-image: url('{{$apartment->cover->imgurl}}')">
+
                     </div>
                     <div class="col-lg-5 col-md-5 col-sm-5 d-flex flex-column justify-content-between">
-                        {{-- <div class="card-body"> --}}
+
                             <h5 class="card-title ml-3 mt-3">{{$apartment->title}}</h5>
                             <p class="card-text ml-3">{{$apartment->description}}</p>
                             <ul class="list-inline ml-3">
-                                <li class="list-inline-item">Lorem ipsum</li>
-                                <li class="list-inline-item">Phasellus iaculis</li>
-                                <li class="list-inline-item">Nulla volutpat</li>
+                                <li class="list-inline-item"></li>
+                                <li class="list-inline-item"></li>
+                                <li class="list-inline-item"></li>
+                            </ul>
+                            <ul class="list-inline ml-3">
+                                <li class="list-inline-item"></li>
+                                <li class="list-inline-item"></li>
+                                <li class="list-inline-item"></li>
                             </ul>
 
-                        {{-- </div> --}}
+
                     </div>
                 </div>
             </div>
@@ -127,17 +132,27 @@
     {{-- TEMPLATE HANDLEBARS --}}
 <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 <script id="template" type="text/x-handlebars-template">
-      <div class="card card_apartment_search" data-lat="@{{latitude}}" data-lng="@{{longitude}}" data-id="@{{id}}">
+      <div class="card card_apartment_search my-5" data-lat="@{{latitude}}" data-lng="@{{longitude}}" data-id="@{{id}}">
           <div class="row no-gutters">
-              <div class="col-sm-5">
-                <img src="@{{cover}}" class="card-img-top img-fluid" alt="@{{cover}}">
+              <div class="card-img-search col-lg-7 col-md-7 col-sm-7 card-img-top img-fluid " style="background-image: url('@{{cover}}')">
+
               </div>
-              <div class="col-sm-7">
-                  <div class="card-body">
-                      <h5 class="card-title">@{{title}}</h5>
-                      <p class="card-text">@{{description}}</p>
-                      <a href="#" class="btn btn-primary stretched-link">View Profile</a>
-                  </div>
+              <div class="col-lg-5 col-md-5 col-sm-5 d-flex flex-column justify-content-between">
+
+                      <h5 class="card-title ml-3 mt-3">@{{title}}</h5>
+                      <p class="card-text ml-3">@{{description}}</p>
+                      <ul class="list-inline ml-3">
+                          <li class="list-inline-item"></li>
+                          <li class="list-inline-item"></li>
+                          <li class="list-inline-item"></li>
+                      </ul>
+                      <ul class="list-inline ml-3">
+                          <li class="list-inline-item"></li>
+                          <li class="list-inline-item"></li>
+                          <li class="list-inline-item"></li>
+                      </ul>
+
+
               </div>
           </div>
       </div>
