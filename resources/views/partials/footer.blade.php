@@ -111,12 +111,20 @@
 
     <section class="bg-fluid pb-3">
         <div class="credits container col-md-8 pb-3">
-            <div class="row pt-2">
-                <div class="jm_logo col-md-6 col-xs-12">
+            <div class="row pt-2 d-flex justify-content-between">
+                <div class="jm_logo col-md-4 col-xs-12">
                     <img src="{{Storage::url('img/logo.png')}}" alt="logo-boolbnb" style="height: 25px">
                     <span>© 2020 BoolBnB. All rights reserved.</span>
                 </div>
-                <div class="col-md-6 col-xs-12">
+            {{-- SONO SEGNAPOSTI PER LE NOSTRE FOTO TONDE --}}
+                <div class="credits-dream-team col-12 col-md-4 d-flex justify-content-center px-4">
+                    <img src="{{Storage::url('img/logo.png')}}" alt="logo-boolbnb" style="height: 35px">
+                    <img src="{{Storage::url('img/logo.png')}}" alt="logo-boolbnb" style="height: 35px">
+                    <img src="{{Storage::url('img/logo.png')}}" alt="logo-boolbnb" style="height: 35px">
+                    <img src="{{Storage::url('img/logo.png')}}" alt="logo-boolbnb" style="height: 35px">
+                </div>
+
+                <div class="col-12 col-md-4">
                     <div class="jm_social-icon text-right">
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-facebook-square"></i></a>
