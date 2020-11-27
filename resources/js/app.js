@@ -7,6 +7,7 @@ import { map } from 'jquery';
 new WOW.WOW().init();
 //------//
 $(document).ready( function() {
+
   reviewsLoad();
     if (window.location.pathname == '/'|| window.location.pathname == '/host/firstapartment/create') {
         // ALGOLIA INDEX
@@ -36,7 +37,7 @@ $(document).ready( function() {
       var apartments = $('.card_apartment_search');
       var arrayApartments = [];
       for (let i = 0; i < apartments.length; i++) {
-        arrayApartments.push({lat : apartments[i].dataset.lat,lng : apartments[i].dataset.lng,id : apartments[i].dataset.id});
+        arrayApartments.push({lat : apartments[i].dataset.lat,lng : apartments[i].dataset.lng,id : apartments[i].dataset.id,cover : apartments[i].dataset.img,title : apartments[i].dataset.title,description : apartments[i].dataset.description,address : apartments[i].dataset.address,beds : apartments[i].dataset.beds,rooms : apartments[i].dataset.rooms,bathrooms : apartments[i].dataset.bathrooms});
       }
       var markers = [];
       var startMap = mapShow($('#map_container').data('lat'),$('#map_container').data('lng'),arrayApartments);
@@ -67,6 +68,10 @@ $(document).ready( function() {
           },
           success: function(data) {
             $('.bs-example').empty();
+            if (data.apartments.total == 0) {
+              $('.apartment_searched').html("<h3 class='text-center'>oops..sembra che non ci siano appartamenti</h3>");
+              return;
+            }
             refreshApartments(data);
           }
         });
@@ -133,7 +138,7 @@ $(document).ready( function() {
       }
     }
     // MAPPA SHOW
-    mapShow($('.card_show').data('lat'),$('.card_show').data('lng'),apartments);
+    mapShow($('.card_show').data('lat'),$('.card_show').data('lng'));
     function mapShow(lat,lng,apartments) { 
         var map = L.map("map_container").setView([lat,lng], 13);
         var osmLayer = new L.TileLayer(
@@ -150,34 +155,29 @@ $(document).ready( function() {
         if (apartments) {
           for (var i = 0; i < apartments.length; i++) {
             var marker = L.marker([apartments[i].lat,apartments[i].lng]).addTo(map);
-            $.ajax({
-              type: "GET",
-              url: "http://localhost:8000/api/apartments/" + apartments[i].id,
-              success: function (data) {
+            
               marker.bindPopup(`
-              <a href="http://localhost:8000/apartments/show/` + data[0].id + `">
-                        <img class="card-img-top" src="` + data[0].imgurl + `"alt="` + data[0].imgurl + `">
+              <a href="http://localhost:8000/apartments/show/` + apartments[i].id + `">
+                        <img class="card-img-top" src="` + apartments[i].cover + `"alt="` + apartments[i].cover + `">
                         <div class="card-body">
-                        <h5 class="card-title">` + data[0].title + `</h5>
-                        <p class="card-text">` + data[0].description + `</p>
-                        <p class="card text p-2">` + data[0].address + `</p>
+                        <h5 class="card-title">` + apartments[i].title + `</h5>
+                        <p class="card-text">` + apartments[i].description + `</p>
+                        <p class="card text p-2">` + apartments[i].address + `</p>
                         <div class="card-footer d-flex justify-content-between align-items -center">
                           <div class="d-flex justify-content-center align-items">
-                            <i class="fas fa-bed"> ` + data[0].n_beds + ` </i>
+                            <i class="fas fa-bed"> ` + apartments[i].beds + ` </i>
                           </div>
                           <div class="d-flex justify-content-center align-items">
-                            <i class="fas fa-door-closed"> ` + data[0].n_rooms + ` </i>
+                            <i class="fas fa-door-closed"> ` + apartments[i].rooms + ` </i>
                           </div>
                           <div class="d-flex justify-content-center align-items">
-                            <i class="fas fa-toilet"> ` + data[0].n_bathrooms + ` </i>
+                            <i class="fas fa-toilet"> ` + apartments[i].bathrooms + ` </i>
                           </div>
                         </div>
                       </div>
                     </div>
               </a>      
-              `)
-              }
-            });
+              `);
             markers.push(marker);
           }
         }

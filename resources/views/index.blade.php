@@ -83,10 +83,8 @@
                 </div>
             </div>
 
-            <div class="col-md-4 d-flex flex-column wow animate__animated animate__fadeInUp">
-                <div class="welcome-icon">
-                    <img src="{{ Storage::url('img/welcome.png') }}" alt="welcome-icon">
-                </div>
+            <div class="col-12 col-md-4 d-flex flex-column wow animate__animated animate__fadeInUp">
+                <div class="icon"><i class="fas fa-home"></i></i></div>
                 <div class="txt">
                     <h5>
                        Diventa un <span>Host</span>
@@ -95,6 +93,7 @@
                     <p> <span><i class="far fa-smile-beam"></i></span> 65.000 città presenti su BoolBnB</p>
                 </div>
             </div>
+
 
             <div class="col-md-4 d-flex flex-column wow animate__animated animate__fadeInRight">
                 <div class="icon"><i class="fab fa-connectdevelop"></i></div>

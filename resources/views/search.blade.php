@@ -97,13 +97,19 @@
         </div>  
       </form>  
 
-      <div class="bs-example m-4 rounded">
-        <div class="text center">
-          <h4 class="results"></h4>
-        </div>
+      <div class="bs-example apartment_searched m-4 rounded">
+
+        @if (count($apartments) <= 0)
+                
+              <h3 class="text-center">Non ci sono risultati..</h3>
+
+         @endif
+
           @foreach ($apartments as $apartment)
 
-            <div class="card card_apartment_search" data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}">
+            <div class="card card_apartment_search" data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}" 
+              data-img="{{$apartment->cover->imgurl}}"
+              data-title="{{$apartment->title}}" data-description="{{$apartment->description}}" data-address="{{$apartment->address}}" data-beds="{{$apartment->n_beds}}" data-rooms="{{$apartment->n_rooms}}" data-bathrooms="{{$apartment->n_bathrooms}}">
                 <div class="row no-gutters">
                     <div class="col-sm-5">
                         <img src="{{$apartment->cover->imgurl}}" class="card-img-top img-fluid" alt="{{$apartment->cover->imgurl}}">
