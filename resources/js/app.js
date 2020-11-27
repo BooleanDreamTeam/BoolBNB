@@ -156,7 +156,7 @@ $(document).ready( function() {
               success: function (data) {
                 marker.bindPopup(
                   `
-              <div class="card card_popup d-flex" style="width: 10rem;">
+                  <a href="http://localhost:8000/apartments/show/` + data[0].id + `">
                         <img class="card-img-top" src="` + data[0].imgurl + `"alt="` + data[0].imgurl + `">
                         <div class="card-body">
                         <h5 class="card-title">` + data[0].title + `</h5>
@@ -174,7 +174,8 @@ $(document).ready( function() {
                           </div>
                         </div>
                       </div>
-                    </div>`)
+                    </a>
+                `)
               }
             });
             markers.push(marker);

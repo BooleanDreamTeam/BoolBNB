@@ -2,6 +2,12 @@
 
 @section('script')
     <script src="{{ asset('js/input-validation.js') }}"></script>
+    <script src="{{ asset('js/extranet.js') }}"></script>
+@endsection
+
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+    <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
 @endsection
 
 @section('content')
@@ -96,16 +102,20 @@
                             id="Descrizione" required>{{ $apartment->description }}</textarea>
                     </div>
                 </div>
-                <div class="form-group">
-                    @foreach ($services as $service)
-                        <input class="form-check-input-inline" type="checkbox" name="services[]" value="{{ $service->id }}"
-                            {{ $apartment->services->contains($service->id) ? 'checked' : '' }}>
-                        <label class="form-check-label" for="gridCheck">
-                            {{ $service->name }}
-                        </label>
-                    @endforeach
+                <div class="form-row">
+                    <div class="form-group">
+                        @foreach ($services as $service)
+                            <input class="form-check-input-inline" type="checkbox" name="services[]" value="{{ $service->id }}"
+                                {{ $apartment->services->contains($service->id) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="gridCheck">
+                                {{ $service->name }}
+                            </label>
+                        @endforeach
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Modifica</button>
+                <div class="form-row">
+                    <button type="submit" class="btn btn-primary">Modifica</button>
+                </div>
             </form>
         </div>
     </div>

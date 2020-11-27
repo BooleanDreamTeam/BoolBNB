@@ -17075,7 +17075,7 @@ readers do not read off random characters that represent icons */
   cursor: pointer;
 }
 
-a {
+.leaflet-container a {
   color: black;
   text-decoration: none;
 }
@@ -17197,11 +17197,10 @@ section#intro {
 
 .promo {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  height: 380px;
 }
 
 .promo .title {
-  height: 130px;
+  padding-bottom: 30px;
   background-color: #00B3B3;
   color: white;
 }
@@ -17217,7 +17216,32 @@ section#intro {
 }
 
 .promo .promo-center {
-  height: calc(380px - 130px);
+  padding: 40px;
+}
+
+.promo .promo-center p {
+  font-size: 12px;
+}
+
+.promo .promo-center p span {
+  color: #00B3B3;
+}
+
+.promo .promo-center .icon {
+  font-size: 35px;
+  color: #00B3B3;
+}
+
+.promo .promo-center .txt {
+  padding-top: 35px;
+}
+
+.promo .promo-center .txt h5 {
+  padding-bottom: 12px;
+}
+
+.promo .promo-center .txt h5 span {
+  color: #00B3B3;
 }
 
 section#simple-ap {
@@ -17342,7 +17366,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 /*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
-how to remove the virtical space around the range input in IE*/
+  how to remove the virtical space around the range input in IE*/
 
 @supports (-ms-ime-align: auto) {
   /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
@@ -17350,6 +17374,28 @@ how to remove the virtical space around the range input in IE*/
   input[type=range] {
     margin: 0;
     /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
+}
+
+@media screen and (max-width: 823px) {
+  .search-wrapper {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+  }
+
+  .search-wrapper h2 {
+    height: 51px;
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    margin-bottom: 120px;
+  }
+
+  .main-search {
+    width: 300px;
   }
 }
 
@@ -17364,6 +17410,10 @@ how to remove the virtical space around the range input in IE*/
 
 .info ul li {
   padding-top: 8px;
+}
+
+.info ul li a {
+  color: #00B3B3;
 }
 
 .info ul li a:hover {
@@ -17389,5 +17439,12 @@ how to remove the virtical space around the range input in IE*/
 
 .credits .jm_social-icon a:hover {
   color: #00B3B3;
+}
+
+@media screen and (max-width: 575px) {
+  .info h6,
+  ul li {
+    text-align: center;
+  }
 }
 

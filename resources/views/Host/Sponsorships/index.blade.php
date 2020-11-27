@@ -40,12 +40,12 @@
                     <p class="card-text">{{$apartment->address}}</p>
                 @foreach ($apartment->sponsorships as $sponsor)
                     <p class="card-text">Sponsorizzazione: {{$sponsor->name}}</p>
-                    <p class="card-text">Scadenza: {{$sponsor->pivot->expiration_date}}</p>
+                    <p class="card-text"></p>
+                    <div class="s-time d-flex justify-content-center align-items-center">
+                        <i class="fas fa-hourglass-half pr-3"></i>
+                        <span class="expiration_date_output">Scadenza: {{now()->diff($sponsor->pivot->expiration_date)->format('%H')}}H</span>
+                    </div>
                 @endforeach
-                </div>
-                <div class="s-time d-flex justify-content-center align-items-center">
-                    <i class="fas fa-hourglass-half pr-3"></i>
-                    <span>05:04:00</span>
                 </div>
             </div>
             @endif
