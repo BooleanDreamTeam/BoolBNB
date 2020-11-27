@@ -29,7 +29,7 @@ class ApartmentController extends Controller
         })->pluck('id');
 
         // estraggo 4 appartamenti sottraendo gli id degli appartamenti con spons. attiva
-        $apartments = Apartment::where('is_active', true)->whereNotIn('id', $toremove)->inRandomOrder()->take(8)->get();
+        $apartments = Apartment::where('is_active', true)->whereNotIn('id', $toremove)->inRandomOrder()->paginate(8);
 
         return view('index',compact('sponsored', 'apartments'));
     }

@@ -46,13 +46,13 @@
 
 {{-- Blocco di immagini per appartamenti in evidenza --}}
 
-    <section id="highlighted" class="pt-4">
+    <section id="highlighted" class="pt-4 mt-4">
 
         <div class="d-flex flex-row featured">
 
             <h2 class="d-flex flex-row text-center">
                 <i class="far fa-star"></i>
-                Sponsorizzati
+
                 <span><i class="far fa-star"></i></span>
             </h2>
 
@@ -122,6 +122,10 @@
 
     </section>
 
+</div>
+
+<div class="pagination justify-content-center">
+    {{ $apartments->links()}}
 </div>
 
 {{-- @include('partials.footer') --}}
