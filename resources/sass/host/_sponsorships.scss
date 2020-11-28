@@ -24,9 +24,13 @@
     }
 
     .s-time{
+      width: 100%;
       background-color: #00B3B3;
       color: white;
       font-size: 20px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
 
   }

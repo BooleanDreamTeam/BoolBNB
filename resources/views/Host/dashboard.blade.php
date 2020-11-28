@@ -34,11 +34,11 @@ DashBoard
 <div class="box col-12 ">
     <!-- appartamenti -->
     <div class="d-cont-left d-flex flex-column">
-        <div id="charts" class="chart d-flex col-12 flex-column flex-md-row">
-            <div class=" col-12 col-sm-12 col-md-6 doughnut">
+        <div id="charts" class="chart d-flex flex-column flex-md-row">
+            <div class=" col-12 col-md-6 doughnut">
                 <canvas id="myChart2"></canvas>
             </div>
-            <div class="col-12 col-sm-12 col-md-6 line">
+            <div class="col-12 col-md-6 line">
                 <canvas id="myChart"></canvas>
             </div>
         </div>

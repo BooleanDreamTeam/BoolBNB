@@ -118,11 +118,11 @@
                 </div>
             {{-- SONO SEGNAPOSTI PER LE NOSTRE FOTO TONDE --}}
                 <div class="credits-dream-team col-12 col-md-4 d-flex justify-content-center px-4">
-                    <img src="{{Storage::url('img/jm-avatar.jpeg')}}" alt="jm-avatar" class="rounded-circle" style="height: 60px">
-                    <img src="{{Storage::url('img/vs-avatar.jpg')}}" alt="vs-avatar" class="rounded-circle" style="height: 60px">
-                    <img src="{{Storage::url('img/ga-avatar.jpg')}}" alt="ga-avatar" class="rounded-circle" style="height: 60px">
-                    <img src="{{Storage::url('img/cz-avatar.jpeg')}}" alt="cz-avatar" class="rounded-circle" style="height: 60px">
-                    <img src="{{Storage::url('img/gs-avatar.jpg')}}" alt="gs-avatar" class="rounded-circle giorgio" style="height: 60px">
+                    <a href="https://github.com/Jo-Mel"><img src="{{Storage::url('img/jm-avatar.jpeg')}}" alt="jm-avatar" class="rounded-circle" style="height: 60px"></a>
+                    <a href="https://github.com/Vincent9o9"><img src="{{Storage::url('img/vs-avatar.jpg')}}" alt="vs-avatar" class="rounded-circle" style="height: 60px"></a>
+                    <a href="https://github.com/geffen007"><img src="{{Storage::url('img/ga-avatar.jpg')}}" alt="ga-avatar" class="rounded-circle" style="height: 60px"></a>
+                    <a href="https://github.com/CarmeloZavaglia11"><img src="{{Storage::url('img/cz-avatar.jpeg')}}" alt="cz-avatar" class="rounded-circle" style="height: 60px"></a>
+                    <a href="https://github.com/Giosco95"><img src="{{Storage::url('img/gs-avatar.jpg')}}" alt="gs-avatar" class="rounded-circle giorgio" style="height: 60px"></a>
                 </div>
 
                 <div class="col-12 col-md-4">

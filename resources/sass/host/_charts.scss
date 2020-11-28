@@ -1,9 +1,15 @@
 #charts{
-  height: 400px;
+  position: relative;
+  width: 100%;
+  padding: 0 !important;
 }
 
-@media screen and(max-width: 468px) {
-    #charts{
-        height: 0;
-    }
+.card-body {
+  position: relative;
+}
+
+.doughnut,.line {
+  position: relative;
+  width: 100%;
+  padding: 0;
 }
