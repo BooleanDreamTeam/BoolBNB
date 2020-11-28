@@ -69,6 +69,18 @@ a {
 .list-icon-card-search i {
     color: #00B3B3;
 }
+
+#card_popup{
+    color: black;
+}
+
+.star-sponsored {
+    right: 0;
+    bottom: 0;
+    background-color: gold;
+    color: #fff;
+    border-top-left-radius: 25px;
+}
 //--------------//
 /* media query */
 @media screen and (max-width: 768px) {

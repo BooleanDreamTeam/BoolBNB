@@ -125,7 +125,7 @@
                             <ul class="list-group d-flex flex-row">
                                 @foreach ($apartment->services as $service)
 
-                                    <li>{{$service->name}} | </li>
+                                    <li class="list-group-item">{{$service->name}}</li>
 
                                 @endforeach
                             </ul>

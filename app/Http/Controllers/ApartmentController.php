@@ -94,9 +94,43 @@ class ApartmentController extends Controller
             ")
             )
             ->having('distance', '<=', $radius)
-            ->get();
+            ->get(); 
 
-            return view('search', compact('arrayCordinates','apartments','services','lat','lng','RangeRooms','RangeBeds','addressSearch'));
+        $apartmentsSponsored = Apartment::select(
+            // https://gis.stackexchange.com/a/31629  // il codice 6371 serve per il calcolo in km
+            DB::raw("
+            *, (
+            6371 * acos (
+            cos ( radians($lat) )
+            * cos( radians( latitude ) )
+            * cos( radians( longitude ) - radians($lng) )
+            + sin ( radians($lat) )
+            * sin( radians( latitude ) )
+            )
+            ) AS distance
+            ")
+            )
+            ->having('distance', '<=', $radius)
+            ->get();     
+
+        $sponsored = Apartment::select(
+                // https://gis.stackexchange.com/a/31629  // il codice 6371 serve per il calcolo in km
+                DB::raw("
+                *, (
+                6371 * acos (
+                cos ( radians($lat) )
+                * cos( radians( latitude ) )
+                * cos( radians( longitude ) - radians($lng) )
+                + sin ( radians($lat) )
+                * sin( radians( latitude ) )
+                )
+                ) AS distance
+                ")
+        )->where('is_active', true)->whereHas('sponsorships', function (Builder $query) {
+            $query->where('expiration_date', '>', DB::raw('now()'));
+        })->get();    
+
+        return view('search', compact('arrayCordinates','sponsored','apartments','services','lat','lng','RangeRooms','RangeBeds','addressSearch'));
 
         }
 

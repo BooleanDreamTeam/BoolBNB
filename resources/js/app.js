@@ -88,7 +88,7 @@ $(document).ready( function() {
             latitude: apartment.latitude,
             longitude: apartment.longitude,
             title: apartment.title,
-            description: apartment.description,
+            description: apartment.description.substr(0,100) + '..',
             cover: apartment.imgurl,
             id: apartment.id,
             rooms: apartment.n_rooms,
@@ -116,11 +116,11 @@ $(document).ready( function() {
       function addMarker(apartment) {
         var marker = L.marker([apartment.latitude,apartment.longitude]).addTo(startMap);
         marker.bindPopup(`
-              <a href="http://localhost:8000/apartments/show/` + apartment.id + `">
-                <img class="card-img-top" src="` + apartment.imgurl + `"alt="` + apartment.imgurl + `">
+              <a id="card_popup" href="http://localhost:8000/apartments/show/` + apartment.id + `">
+                <div class="card-img-top" style="background-image: url('` + apartment.imgurl + `'); height: 200px;"></div>
                 <div class="card-body">
                 <h5 class="card-title">` + apartment.title + `</h5>
-                <p class="card-text">` + apartment.description + `</p>
+                <p class="card-text">` + apartment.description.substr(0,100) + `</p>
                 <p class="card text p-2">` + apartment.address + `</p>
                 <div class="card-footer d-flex justify-content-between align-items -center">
                   <div class="d-flex justify-content-center align-items">
@@ -162,11 +162,11 @@ $(document).ready( function() {
             var marker = L.marker([apartments[i].lat,apartments[i].lng]).addTo(map);
             
               marker.bindPopup(`
-              <a href="http://localhost:8000/apartments/show/` + apartments[i].id + `">
-                        <img class="card-img-top" src="` + apartments[i].cover + `"alt="` + apartments[i].cover + `">
+              <a id="card_popup" href="http://localhost:8000/apartments/show/` + apartments[i].id + `">
+                        <div class="card-img-top" style="background-image: url('` + apartments[i].cover + `'); height: 200px;"></div>
                         <div class="card-body">
                         <h5 class="card-title">` + apartments[i].title + `</h5>
-                        <p class="card-text">` + apartments[i].description + `</p>
+                        <p class="card-text">` + apartments[i].description.substr(0,100)+ `</p>
                         <p class="card text p-2">` + apartments[i].address + `</p>
                         <div class="card-footer d-flex justify-content-between align-items -center">
                           <div class="d-flex justify-content-center align-items">
