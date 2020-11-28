@@ -117,7 +117,7 @@ $(document).ready( function() {
         var marker = L.marker([apartment.latitude,apartment.longitude]).addTo(startMap);
         marker.bindPopup(`
               <a id="card_popup" href="http://localhost:8000/apartments/show/` + apartment.id + `">
-                <div class="card-img-top" style="background-image: url('` + apartment.imgurl + `'); height: 200px;"></div>
+                <div class="card-img-top" style="background-image: url('` + apartment.imgurl + `'); height: 200px; background-size: cover;"></div>
                 <div class="card-body">
                 <h5 class="card-title">` + apartment.title + `</h5>
                 <p class="card-text">` + apartment.description.substr(0,100) + `</p>
@@ -163,7 +163,7 @@ $(document).ready( function() {
             
               marker.bindPopup(`
               <a id="card_popup" href="http://localhost:8000/apartments/show/` + apartments[i].id + `">
-                        <div class="card-img-top" style="background-image: url('` + apartments[i].cover + `'); height: 200px;"></div>
+                        <div class="card-img-top" style="background-image: url('` + apartments[i].cover + `'); height: 200px; background-size: cover;"></div>
                         <div class="card-body">
                         <h5 class="card-title">` + apartments[i].title + `</h5>
                         <p class="card-text">` + apartments[i].description.substr(0,100)+ `</p>

@@ -69,8 +69,6 @@
                                     @else
                                         @if(strpos(Auth::user()->user_details->avatar, 'storage') !== false)
                                             <img class="avatar rounded-circle" src="{{Auth::user()->user_details->avatar}}" alt="profile-img">
-                                        @else
-                                            <img class="avatar rounded-circle" src="{{Storage::url(Auth::user()->user_details->avatar)}}" alt="profile-img">
                                         @endif
                                     @endif
 
