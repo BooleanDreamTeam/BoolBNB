@@ -80,7 +80,35 @@ a,a:hover{
     background-color: gold;
     color: #fff;
     border-bottom-right-radius: 25px;
-    z-index: 9999;
+    z-index: 1;
+}
+
+.border_sponsor{
+
+    transition: 0.8s all ease-in-out;
+
+    &:hover{
+        transform: scale(1.01);
+        box-shadow: 0 0 14px gold;
+        border: 1px solid gold;
+    }
+    
+}
+
+.border_apartment {
+
+    transition: 0.8s all ease-in-out;
+
+    &:hover{
+        transform: scale(1.01);
+        box-shadow: 0 0 14px #00B3B3;
+        border: 1px solid #00B3B3;
+    }
+
+}
+
+.list-icon-card-search i.item-sponsored {
+    color: gold;
 }
 //--------------//
 /* media query */
