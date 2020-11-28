@@ -17,10 +17,10 @@
 @section('content')
 
     @if($n > 3)
-    <div class="name-apartment my-">
+    <div class="name-apartment ">
         </div>
 
-        <section id="up" class="d-none d-md-flex m-5">
+        <section id="up" class="container d-none d-md-flex my-5">
             <div class="ctn-first col-6 py-2 pl-2 pr-1">
                 <div class="img p-5" style="background-image: url({{$cover[0]->imgurl}})">
 
@@ -47,7 +47,7 @@
                 </div>
             </div>
         </section>
-        <section id="mobile" class="container d-block d-md-none p-0 mb-5">
+        <section id="mobile" class="container d-block d-md-none p-0 my-5">
             <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
                   <div class="carousel-inner">
 
@@ -81,7 +81,7 @@
 
         </section>
     @else
-        <section id="mobile" class="container d-block p-0 mb-5">
+        <section id="mobile" class="container d-block p-0 my-5">
             <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
                 <div class="carousel-inner">
 
@@ -110,9 +110,9 @@
 
         </section>
     @endif
-        <h2 class="text-center text-primary" >{{$apartment->title}}</h2>
-        <section id="" class="container  d-md-flex p-0">
-        
+        <h2 class="text-center text-primary my-5" >{{$apartment->title}}</h2>
+        <section id="" class="container  d-md-flex p-0 my-5">
+
             <div class="col-lg-12 col-md-12 col-sm-12 p-2">
                 <div class="card card_show" data-lat="{{$apartment->latitude}}"  data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}">
                     <div class="card-body">
@@ -142,7 +142,7 @@
         <section id="" class="container  d-md-flex flex-column p-0 mb-5">
             <div class="col-lg-12 col-md-12 col-sm-12 p-2">
 
-                    <div id="map_container" style="height:600px;">
+                    <div id="map_container">
 
                 </div>
             </div>

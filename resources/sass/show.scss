@@ -5,6 +5,11 @@
     padding: 0;
 }
 
+#up {
+    height: 500px;
+    padding: 0;
+}
+
 #map_container {
     height: 400px;
 }
@@ -35,7 +40,7 @@
 }
 
 .d-block {
-    height: 300px;
+    height: 500px;
 }
 
 .list-group {
@@ -59,4 +64,10 @@
 
 .name-apartment {
     text-transform: uppercase;
+}
+
+@media screen and (max-width: 768px) {
+    .d-block {
+        height: 400px;
+    }
 }
