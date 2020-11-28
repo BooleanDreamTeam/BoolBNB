@@ -111,14 +111,32 @@
         </section>
     @endif
         <h2 class="text-center text-primary my-5" >{{$apartment->title}}</h2>
-        <section id="" class="container  d-md-flex p-0 my-5">
+        <section id="info" class="container  d-md-flex p-0 my-5">
 
             <div class="col-lg-12 col-md-12 col-sm-12 p-2">
                 <div class="card card_show" data-lat="{{$apartment->latitude}}"  data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}">
                     <div class="card-body">
                         <div class="description">
                             <h5 class="card-title">Descrizione</h5>
+                            <div class="d-flex flex-row featured">
+
+                                <h2 class="d-flex flex-row text-center">
+                                    <i class="fas fa-edit"></i>
+
+                                    <span><i class="fas fa-edit"></i></span>
+                                </h2>
+
+                            </div>
                             <p class="card-text">{{$apartment->description}}</p>
+                            <div class="d-flex flex-row featured">
+
+                                <h2 class="d-flex flex-row text-center">
+                                    <i class="fab fa-innosoft"></i>
+
+                                    <span><i class="fab fa-innosoft"></i></span>
+                                </h2>
+
+                            </div>
                         </div>
                         <div class="services mt-3">
                             <h5 class="card-title">Servizi</h5>

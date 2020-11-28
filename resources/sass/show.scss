@@ -3,16 +3,13 @@
 #up {
     height: 500px;
     padding: 0;
-}
-
-#up {
-    height: 500px;
-    padding: 0;
+    box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
 }
 
 #map_container {
     height: 400px;
 }
+
 
 .card_show {
     background-color: #f8fafc;
@@ -56,6 +53,10 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     overflow-y: scroll;
+}
+
+.description {
+    line-height: 2;
 }
 
 .review::-webkit-scrollbar {
