@@ -85,17 +85,16 @@
             <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
                 <div class="carousel-inner">
 
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{$cover[0]->imgurl}}" alt="First slide">
+                    </div>
+
                     @foreach ($images as $key => $image)
 
-                        @if ($key == 0)
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
-                            </div>
-                        @else
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
-                            </div>
-                        @endif
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{$image->imgurl}}" alt="First slide">
+                        </div>
+
                     @endforeach
 
                   </div>
@@ -152,7 +151,7 @@
         <section id="" class="container  d-md-flex p-0">
 
 
-                <form method="post" action="{{route('sendMessage')}}" class="col-lg-6 col-md-6 col-sm-12 p-2 mb-4  wow animate__animated animate__fadeInLeft animate__delay-1s">
+                <form method="post" action="{{route('sendMessage')}}" class="col-lg-6 col-md-6 col-sm-12 p-2 mb-4  wow animate__animated animate__fadeInLeft">
                     @csrf
                     <div class="jumbotron">
                         <h3 class="mt-2"><i class="fas fa-envelope"></i> Write to us:</h3>
@@ -174,7 +173,7 @@
                     </div>
                 </form>
 
-                <div class="col-lg-6 col-md-6 col-sm-12 p-2 wow animate__animated animate__fadeInRight animate__delay-1s">
+                <div class="col-lg-6 col-md-6 col-sm-12 p-2 wow animate__animated animate__fadeInRight">
                     <div class="jumbotron review">
                         <form oninput='outputvote.value = vote_review.valueAsNumber'>
                             <input type="hidden" id="id_apartment_review" value="{{$apartment->id}}">

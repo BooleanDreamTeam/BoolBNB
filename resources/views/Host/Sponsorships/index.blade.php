@@ -43,10 +43,18 @@
                     <p class="card-text"></p>
                     <div class="s-time d-flex justify-content-center align-items-center">
                         <i class="fas fa-hourglass-half pr-3"></i>
-                        @if (now()->diff($sponsor->pivot->expiration_date)->format('%H') < 1)
-                            <span class="expiration_date_output">Scade tra {{now()->diff($sponsor->pivot->expiration_date)->format('%I')}} minuti</span> 
-                            @else
-                            <span class="expiration_date_output">Scade tra {{now()->diff($sponsor->pivot->expiration_date)->format('%H')}} ore</span>
+                        @if ($sponsor->pivot->expiration_date < now())
+                            <span class="expiration_date_output">SCADUTO!</span> 
+                        @elseif(now()->diff($sponsor->pivot->expiration_date)->format('%D') >= 1)
+                            <span class="expiration_date_output">Scade tra circa {{now()->diff($sponsor->pivot->expiration_date)->format('%D')}} giorni</span>
+                        @elseif(now()->diff($sponsor->pivot->expiration_date)->format('%D') > 1 && now()->diff($sponsor->pivot->expiration_date)->format('%D') < 24)
+                            <span class="expiration_date_output">Scade tra circa {{now()->diff($sponsor->pivot->expiration_date)->format('%H')}} ore</span>    
+                        @elseif(now()->diff($sponsor->pivot->expiration_date)->format('%H') <= 1)
+                        <span class="expiration_date_output">Scade tra circa {{now()->diff($sponsor->pivot->expiration_date)->format('%I')}} minuti</span>
+                        @elseif(now()->diff($sponsor->pivot->expiration_date)->format('%I') < 1 )
+                            <span class="expiration_date_output">Scade tra qualche secondo..</span>                             
+                        @else
+                            <span class="expiration_date_output">Scade tra circa {{now()->diff($sponsor->pivot->expiration_date)->format('%H')}} ore</span>    
                         @endif
                     </div>
                 @endforeach

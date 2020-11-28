@@ -52,7 +52,7 @@
 
             <h2 class="d-flex flex-row text-center">
                 <i class="far fa-star"></i>
-
+                
                 <span><i class="far fa-star"></i></span>
             </h2>
 
