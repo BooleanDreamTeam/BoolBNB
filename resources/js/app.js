@@ -67,6 +67,7 @@ $(document).ready( function() {
             'cordinates' : $('input[name=cordinates]').val(),
           },
           success: function(data) {
+            console.log(data);
             $('.bs-example').empty();
             if (data.apartments.total == 0) {
               $('.apartment_searched').html("<h3 class='text-center wow animate__animated animate__pulse'>oops..<i class='far fa-grin-beam-sweat'></i> sembra che non ci siano appartamenti!</h3>");

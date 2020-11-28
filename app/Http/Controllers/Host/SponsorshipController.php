@@ -105,9 +105,9 @@ class SponsorshipController extends Controller
 
 
             if ($result) {
-                return back()->with('status', 'Sposorizzazione avvenuta con successo!');
+                return back()->with('status', 'Sponsorizzazione avvenuta con successo!');
             } else {
-                return back()->with('error', 'Sposorizzazione negata!');
+                return back()->with('error', 'Sponsorizzazione negata!');
             }
 
     }

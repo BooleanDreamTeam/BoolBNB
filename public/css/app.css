@@ -1,6 +1,11 @@
-@import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;
+@import url(https://fonts.googleapis.com/css2?family=Raleway&display=swap);@charset "UTF-8";
 
-400&display=swap);@charset "UTF-8";
+/*!
+ * Bootstrap v4.5.3 (https://getbootstrap.com/)
+ * Copyright 2011-2020 The Bootstrap Authors
+ * Copyright 2011-2020 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 
 :root {
   --blue: #3490dc;
@@ -29,7 +34,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Source Sans Pro", sans-serif;
+  --font-family-sans-serif: "Raleway";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -61,7 +66,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Raleway";
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -6369,7 +6374,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Raleway";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -6494,7 +6499,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Raleway";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -17079,6 +17084,15 @@ readers do not read off random characters that represent icons */
   cursor: pointer;
 }
 
+.voto {
+  width: 50px !important;
+}
+
+.voto .d-vote {
+  color: white;
+  background-color: #00b3b3;
+}
+
 .leaflet-container a {
   color: black;
   text-decoration: none;
@@ -17468,5 +17482,13 @@ input[type=range]:focus::-ms-fill-upper {
   ul li {
     text-align: center;
   }
+}
+
+.giorgio {
+  opacity: 0;
+}
+
+.giorgio:hover {
+  opacity: 1;
 }
 

@@ -147,7 +147,7 @@ class ApartmentController extends Controller
             INNER JOIN services ON services.id = apartment_service.service_id
             INNER JOIN apartments AS apconcat ON apconcat.id = apartment_service.apartment_id
             WHERE apartment_service.apartment_id = apartments.id
-            ) AS servizi,(
+        ) AS servizi,(
         6371 * acos (
         cos ( radians($lat) )
         * cos( radians( latitude ) )
