@@ -93,68 +93,72 @@
         @endif
 
         @foreach ($sponsored as $apartment)
-            
-        <div class="card card_apartment_search my-5 position-relative" data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}"
-          data-img="{{$apartment->cover->imgurl}}"
-          data-title="{{$apartment->title}}" data-description="{{$apartment->description}}" data-address="{{$apartment->address}}" data-beds="{{$apartment->n_beds}}" data-rooms="{{$apartment->n_rooms}}" data-bathrooms="{{$apartment->n_bathrooms}}">
-            <div class="star-sponsored p-3 position-absolute">
-              <span>Sponsorizzato</span>
-              <i class="fas fa-star"></i>
-            </div>
-            <div class="row no-gutters">
-                <div class="card-img-search col-lg-7 col-md-7 col-sm-7 card-img-top img-fluid" style="background-image: url('{{$apartment->cover->imgurl}}')">
 
-                </div>
-                <div class="col-lg-5 col-md-5 col-sm-5 d-flex flex-column justify-content-between">
+        <a href="{{route('apartment.show',['id' => $apartment->id])}}">        
+          <div class="card card_apartment_search my-5 position-relative" data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}"
+            data-img="{{$apartment->cover->imgurl}}"
+            data-title="{{$apartment->title}}" data-description="{{$apartment->description}}" data-address="{{$apartment->address}}" data-beds="{{$apartment->n_beds}}" data-rooms="{{$apartment->n_rooms}}" data-bathrooms="{{$apartment->n_bathrooms}}">
+              <div class="star-sponsored p-3 position-absolute">
+                <span>Sponsorizzato</span>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="row no-gutters">
+                  <div class="card-img-search col-lg-7 col-md-7 col-sm-7 card-img-top img-fluid" style="background-image: url('{{$apartment->cover->imgurl}}')">
 
-                        <h3 class="card-title ml-3 mt-3">{{$apartment->title}}</h3>
-                        <p class="card-text ml-3">{{substr($apartment->description, 0, 100 ).'....'}}</p>
-                        <ul class="list-inline ml-3 list-icon-card-search p-2">
-                            <li class="list-inline-item"><i class="fas fa-bed"></i> {{$apartment->n_beds}}</li>
-                            <li class="list-inline-item"><i class="fas fa-door-open"></i> {{$apartment->n_rooms}}</li>
-                            <li class="list-inline-item"><i class="fas fa-toilet"></i> {{$apartment->n_bathrooms}}</li>
-                        </ul>
-                        <ul class="list-inline ml-3">
-                          @foreach ($apartment->services as $service)
-                            <li class="list-inline-item text-uppercase">{{$service->name}}</li>
-                          @endforeach
-                        </ul>
+                  </div>
+                  <div class="col-lg-5 col-md-5 col-sm-5 d-flex flex-column justify-content-between">
+
+                          <h3 class="card-title ml-3 mt-3">{{$apartment->title}}</h3>
+                          <p class="card-text ml-3">{{substr($apartment->description, 0, 100 ).'....'}}</p>
+                          <ul class="list-inline ml-3 list-icon-card-search p-2">
+                              <li class="list-inline-item"><i class="fas fa-bed"></i> {{$apartment->n_beds}}</li>
+                              <li class="list-inline-item"><i class="fas fa-door-open"></i> {{$apartment->n_rooms}}</li>
+                              <li class="list-inline-item"><i class="fas fa-toilet"></i> {{$apartment->n_bathrooms}}</li>
+                          </ul>
+                          <ul class="list-inline ml-3">
+                            @foreach ($apartment->services as $service)
+                              <li class="list-inline-item text-uppercase">{{$service->name}}</li>
+                            @endforeach
+                          </ul>
 
 
-                </div>
-            </div>
-        </div>
+                  </div>
+              </div>
+          </div>
+        </a>  
 
         @endforeach
 
           @foreach ($apartments as $apartment)
 
-            <div class="card card_apartment_search my-5" data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}"
-              data-img="{{$apartment->cover->imgurl}}"
-              data-title="{{$apartment->title}}" data-description="{{$apartment->description}}" data-address="{{$apartment->address}}" data-beds="{{$apartment->n_beds}}" data-rooms="{{$apartment->n_rooms}}" data-bathrooms="{{$apartment->n_bathrooms}}">
-                <div class="row no-gutters">
-                    <div class="card-img-search col-lg-7 col-md-7 col-sm-7 card-img-top img-fluid" style="background-image: url('{{$apartment->cover->imgurl}}')">
+            <a href="{{route('apartment.show',['id' => $apartment->id])}}">
+              <div class="card card_apartment_search my-5" data-lat="{{$apartment->latitude}}" data-lng="{{$apartment->longitude}}" data-id="{{$apartment->id}}"
+                data-img="{{$apartment->cover->imgurl}}"
+                data-title="{{$apartment->title}}" data-description="{{$apartment->description}}" data-address="{{$apartment->address}}" data-beds="{{$apartment->n_beds}}" data-rooms="{{$apartment->n_rooms}}" data-bathrooms="{{$apartment->n_bathrooms}}">
+                  <div class="row no-gutters">
+                      <div class="card-img-search col-lg-7 col-md-7 col-sm-7 card-img-top img-fluid" style="background-image: url('{{$apartment->cover->imgurl}}')">
 
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-sm-5 d-flex flex-column justify-content-between">
+                      </div>
+                      <div class="col-lg-5 col-md-5 col-sm-5 d-flex flex-column justify-content-between">
 
-                            <h3 class="card-title ml-3 mt-3">{{$apartment->title}}</h3>
-                            <p class="card-text ml-3">{{substr($apartment->description, 0, 100 ).'....'}}</p>
-                            <ul class="list-inline ml-3 list-icon-card-search p-2">
-                                <li class="list-inline-item"><i class="fas fa-bed"></i> {{$apartment->n_beds}}</li>
-                                <li class="list-inline-item"><i class="fas fa-door-open"></i> {{$apartment->n_rooms}}</li>
-                                <li class="list-inline-item"><i class="fas fa-toilet"></i> {{$apartment->n_bathrooms}}</li>
-                            </ul>
-                            <ul class="list-inline ml-3">
-                              @foreach ($apartment->services as $service)
-                                <li class="list-inline-item text-uppercase">{{$service->name}}</li>
-                              @endforeach
-                            </ul>
+                              <h3 class="card-title ml-3 mt-3">{{$apartment->title}}</h3>
+                              <p class="card-text ml-3">{{substr($apartment->description, 0, 100 ).'....'}}</p>
+                              <ul class="list-inline ml-3 list-icon-card-search p-2">
+                                  <li class="list-inline-item"><i class="fas fa-bed"></i> {{$apartment->n_beds}}</li>
+                                  <li class="list-inline-item"><i class="fas fa-door-open"></i> {{$apartment->n_rooms}}</li>
+                                  <li class="list-inline-item"><i class="fas fa-toilet"></i> {{$apartment->n_bathrooms}}</li>
+                              </ul>
+                              <ul class="list-inline ml-3">
+                                @foreach ($apartment->services as $service)
+                                  <li class="list-inline-item text-uppercase">{{$service->name}}</li>
+                                @endforeach
+                              </ul>
 
 
-                    </div>
-                </div>
-            </div>
+                      </div>
+                  </div>
+              </div>
+            </a>  
           @endforeach
       </div>
     </div>
@@ -167,6 +171,7 @@
     {{-- TEMPLATE HANDLEBARS --}}
 <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 <script id="template" type="text/x-handlebars-template">
+    <a href="http://localhost:8000/apartments/show/@{{id}}">
       <div class="card card_apartment_search my-5" data-lat="@{{latitude}}" data-lng="@{{longitude}}" data-id="@{{id}}">
           <div class="row no-gutters">
               <div class="card-img-search col-lg-7 col-md-7 col-sm-7 card-img-top img-fluid " style="background-image: url('@{{cover}}')">
@@ -187,6 +192,7 @@
               </div>
           </div>
       </div>
+    </a>    
 </script>
 </section>
 @endsection

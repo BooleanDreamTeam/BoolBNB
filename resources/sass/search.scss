@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-a {
+a,a:hover{
     color: black;
     text-decoration: none;
 }
@@ -75,11 +75,12 @@ a {
 }
 
 .star-sponsored {
-    right: 0;
-    bottom: 0;
+    left: 0;
+    top: 0;
     background-color: gold;
     color: #fff;
-    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    z-index: 9999;
 }
 //--------------//
 /* media query */

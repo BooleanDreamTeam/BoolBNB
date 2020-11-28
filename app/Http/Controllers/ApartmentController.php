@@ -94,24 +94,8 @@ class ApartmentController extends Controller
             ")
             )
             ->having('distance', '<=', $radius)
+            ->doesntHave('sponsorships')
             ->get(); 
-
-        $apartmentsSponsored = Apartment::select(
-            // https://gis.stackexchange.com/a/31629  // il codice 6371 serve per il calcolo in km
-            DB::raw("
-            *, (
-            6371 * acos (
-            cos ( radians($lat) )
-            * cos( radians( latitude ) )
-            * cos( radians( longitude ) - radians($lng) )
-            + sin ( radians($lat) )
-            * sin( radians( latitude ) )
-            )
-            ) AS distance
-            ")
-            )
-            ->having('distance', '<=', $radius)
-            ->get();     
 
         $sponsored = Apartment::select(
                 // https://gis.stackexchange.com/a/31629  // il codice 6371 serve per il calcolo in km
