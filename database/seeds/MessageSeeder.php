@@ -17,7 +17,7 @@ class MessageSeeder extends Seeder
 
         $apartments = Apartment::all();
 
-        for ($i=0; $i < 50; $i++) {
+        for ($i=0; $i < 100; $i++) {
             $message = new Message;
             $message->message = $faker->text();
             $message->apartment_id = $apartments->random()->id;

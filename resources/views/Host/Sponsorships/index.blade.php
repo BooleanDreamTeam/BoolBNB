@@ -1,5 +1,9 @@
 @extends('layouts.extranet')
 
+@section('title')
+I tuoi appartamenti in Evidenza
+@endsection
+
 @section('content')
 <span id="under">Sponsorships</span>
 

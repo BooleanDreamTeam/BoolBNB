@@ -1,5 +1,10 @@
 @extends('layouts.extranet')
 
+@section('title')
+Metti in Evidenza
+@endsection
+
+
 @section('js')
 <script src="https://js.braintreegateway.com/web/dropin/1.25.0/js/dropin.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>

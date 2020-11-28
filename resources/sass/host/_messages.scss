@@ -1,3 +1,24 @@
+#messages{
+  thead{
+      tr{
+          th{
+              color:  #00b3b3;
+          }
+      }
+  }
+  tbody{
+      tr{
+          max-height: 60px; 
+          td{
+              img{
+                  height:60px;
+                  
+              }
+          }
+      }
+  }
+}
+
 #under {
   position: fixed;
   bottom: 50px;

@@ -1,5 +1,10 @@
 @extends('layouts.extranet')
 
+@section('title')
+Modifica Appartamento
+@endsection
+
+
 @section('script')
     <script src="{{ asset('js/input-validation.js') }}"></script>
     <script src="{{ asset('js/extranet.js') }}"></script>

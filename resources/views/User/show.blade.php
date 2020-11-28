@@ -1,4 +1,9 @@
 @extends('layouts.extranet')
+
+@section('title')
+Il tuo profilo
+@endsection
+
 @section('script')
     
 @endsection

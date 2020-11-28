@@ -1,5 +1,10 @@
 @extends('layouts.extranet')
 
+@section('title')
+I miei appartamenti
+@endsection
+
+
 @section ('css')
 
 @endsection

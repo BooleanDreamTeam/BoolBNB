@@ -1,19 +1,24 @@
 @extends('layouts.extranet')   
 
+@section('title')
+Messaggi
+@endsection
+
+
 @section('content')
 
-<span id="under">My messages</span>
+<span id="under">I miei Messaggi</span>
 
-<div id="reviews" class="container">
-    <h1 class="text-primary">My Messages</h1>
+<div id="messages" class="container">
+    <h1 class="text-primary">I miei Messaggi</h1>
     <div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
-                    <th class="d-none d-lg-table-cell" scope="col">Apartment</th>
-                    <th class="d-none d-md-table-cell" scope="col">Received</th>
+                    <th class="d-none d-lg-table-cell" scope="col">Appartamento</th>
+                    <th class="d-none d-md-table-cell" scope="col">Ricevuto il </th>
                     <th class="d-none d-lg-table-cell" scope="col">Email</th>
-                    <th scope="col">Message</th>
+                    <th scope="col">Messaggi</th>
                 </tr> 
             </thead>
             <tbody> 

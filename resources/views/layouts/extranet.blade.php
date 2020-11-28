@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Extranet</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
@@ -46,16 +46,16 @@
                             
                 <a href="{{route('user.show', ['user' => Auth::id()])}}" class="nav-link" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                     <i class="fas fa-fw fa-user-alt"></i>
-                    <span class="d-none d-sm-inline">Profile</span>
+                    <span class="d-none d-sm-inline">Profilo</span>
                 </a>
                 <a href="{{ Route('mymessages') }}" class="nav-link" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                     <i class="fas fa-fw fa-envelope"></i>
-                    <span class="d-none d-sm-inline">Messages</span>
+                    <span class="d-none d-sm-inline">Messaggi</span>
                 </a>
                 <a href="{{ Route('apartments.index') }}" class="nav-link" id="v-pills-apartments-tab" role="tab"
                     aria-controls="v-pills-apartments" aria-selected="false">
                     <i class="fas fa-fw fa-home"></i>
-                    <span class="d-none d-sm-inline">My Apartments</span>
+                    <span class="d-none d-sm-inline">Appartmenti</span>
                 </a>
                 <a href="{{ route('sponsorship.index') }}" class="nav-link" id="v-pills-sponsorship-tab" role="tab"
                     aria-controls="v-pills-sponsorship" aria-selected="false">
@@ -65,7 +65,7 @@
                 <a href="{{ route('myreviews') }}" class="nav-link id=" v-pills-reviews-tab" href="#v-pills-reviews"
                     role="tab" aria-controls="v-pills-reviews" aria-selected="false">
                     <i class="fas fa-fw fa-pencil-alt"></i>
-                    <span class="d-none d-sm-inline">Reviews</span>
+                    <span class="d-none d-sm-inline">Recensioni</span>
                 </a>
 
             </div>
@@ -80,7 +80,7 @@
 
                     <!-- Nav Item - Messages -->
                     <li class="nav-item dropdown no-arrow mx-1 d-flex align-items-center">
-                        <div class="nav-link">Hi {{ Auth::user()->name }}</div>
+                        <div class="nav-link">Ciao {{ Auth::user()->name }}!</div>
                         <a class="nav-link messages dropdown-toggle" href="#" id="messagesDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="little-env fas fa-envelope fa-fw"></i>
@@ -148,14 +148,11 @@
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-                                <a class="dropdown-item" href="">
-                                    Completa il tuo profilo
-                                </a>
                                 <a class="dropdown-item" href="{{ route('apartments.create') }}">
                                     Nuovo Appartamento
                                 </a>
                                 <a class="dropdown-item" href="{{ route('sponsorship.create') }}">
-                                    Nuova sponsorizzazione
+                                    Nuova Sponsorizzazione
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf

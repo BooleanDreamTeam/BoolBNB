@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('title')
+Inserisci il tuo primo appartamento!
+@endsection
+
+
 @section('js')
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>   
     <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>

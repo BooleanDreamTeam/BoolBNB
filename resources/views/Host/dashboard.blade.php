@@ -1,6 +1,8 @@
+@extends('layouts.extranet') 
 
-
-@extends('layouts.extranet')    
+@section('title')
+DashBoard
+@endsection
 
 @section('script')
     <script src="{{ asset('js/input-validation.js') }}"></script>

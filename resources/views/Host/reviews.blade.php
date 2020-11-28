@@ -1,8 +1,12 @@
-@extends('layouts.extranet')   
+@extends('layouts.extranet') 
+
+@section('title')
+Recensioni
+@endsection
 
 @section('content')
 
-<span id="under">My Reviews</span>
+<span id="under">Le mie Recensioni</span>
 
 <div id="reviews" class="container">
     <h1 class="text-primary">My Reviews</h1>
