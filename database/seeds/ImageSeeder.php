@@ -15,7 +15,7 @@ class ImageSeeder extends Seeder
     {
         $apartments = Apartment::all();
 
-        for ($i=0; $i < count($apartments) - 1; $i++) 
+        for ($i=0; $i < count($apartments); $i++) 
         {   
       
             for($j=0; $j < 4; $j++)
@@ -24,12 +24,12 @@ class ImageSeeder extends Seeder
                 $imageNew->apartment_id = $i + 1;
                 if ($j == 0){       
                     $imageNew->cover = true;
-                    $imageNew->imgurl = 'https://picsum.photos/300/300?random='. $i . $j;
+                    $imageNew->imgurl = '/storage/apartments/bool_'. rand(1, 99).'.jpg';
                     $imageNew->save();
 
                 }else{
                     $imageNew->cover = false;
-                    $imageNew->imgurl = 'https://picsum.photos/300/300?random='. $i . $j;
+                    $imageNew->imgurl = '/storage/apartments/bool_'. rand(1, 99) . '.jpg';
                     $imageNew->save();
                 }
 
