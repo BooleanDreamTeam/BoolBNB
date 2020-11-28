@@ -43,7 +43,7 @@ DashBoard
             </div>
         </div>
         <hr>
-        <h2 class="text-center">My Appartments</h2>
+        <h2 class="text-center">I miei Appartamenti</h2>
         <div id="apartments" class="apartments mb-4 pb-4 border-bottom card-group d-flex flex-column flex-md-row">
         @foreach($apartments as $apartment)
             <div class="d-cont d-flex col-12 col-sm-12 col-md-12 col-lg-3 text-center">
@@ -105,24 +105,24 @@ DashBoard
         @endforeach
         </div>
           <div class="d-flex flex-md-row flex-column">
-                <div id="reviews" class="col-12 col-md-6">
-                <h2>Last Reviews</h2>
+            <div id="reviews" class="col-12 col-md-6">
+                <h2>Ultime Recensioni</h2>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Apartment</th>
-                                <th scope="col">Received</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Text</th>
+                                <th class="d-none d-lg-table-cell img rounded" scope="col">Appartamento</th>
+                                <th class="d-none d-lg-table-cell" scope="col">Ricevuta il</th>
+                                <th class="d-none d-md-table-cell" scope="col">Da</th>
+                                <th scope="col">Testo</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($reviews as $review)
                             <tr>
-                                <td scope="row"><img class="rounded rev-img" src="{{$review->imgurl}}" alt="image"></td>
-                                <td>{{$review->created_at}}</td>
-                                <td>{{$review->name}}</td>
+                                <td class="d-none d-lg-table-cell img rounded " scope="row" style="background-image:url('{{$review->imgurl}}')"></td>
+                                <td class="d-none d-lg-table-cell">{{$review->created_at}}</td>
+                                <td class="d-none d-md-table-cell">{{$review->name}}</td>
                                 <td>{{$review->message}}</td>
                             </tr>
                             @endforeach
@@ -132,7 +132,7 @@ DashBoard
             </div>
             <div class=" d-flex col-12 col-md-6">
                 <div id="geoarea" class="geo col-12 col-md-12">
-                    <h2>Geo Area Views</h2>
+                    <h2>I tuoi visitatori provengono da...</h2>
                     <table class="table">
                         <thead>
                             <tr>

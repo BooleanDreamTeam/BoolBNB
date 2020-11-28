@@ -24,7 +24,7 @@ Recensioni
             <tbody> 
                 @foreach ($reviews as $review)
                 <tr>
-                    <td class="d-none d-md-table-cell" scope="row"><img class="rounded rev-img" src="{{$review->imgurl}}" alt="image"></td>
+                    <td class="d-none d-md-table-cell img rounded " scope="row" style="background-image:url('{{$review->imgurl}}')"></td>
                     <td class="d-none d-lg-table-cell">{{$review->created_at}}</td>
                     <td class="">{{$review->name}}</td>
                     <td class="">{{$review->message}}</td>

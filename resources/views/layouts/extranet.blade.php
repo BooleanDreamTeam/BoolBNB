@@ -30,7 +30,7 @@
 <body>
     <!-- sidebar -->
     <div class="row row-main d-flex" id="all">
-        <div id="sidebar" class="sidebar-nav d-flex px-sm-1 px-md-3 px-lg-4 col-2 col-sm-4 col-lg-3 col-xl-2">
+        <div id="sidebar" class="sidebar-nav d-flex px-sm-1 px-md-3 px-lg-4 col-2 col-sm-4 col-lg-3 col-xl-2 pr-0">
             <div class="nav flex-column align-center nav-pills" id="v-pills-tab" role="tablist"
                 aria-orientation="vertical">
                 <a class="navbar-brand m-0 d-flex align-items-center justify-content-center" href="{{ url('/') }}">

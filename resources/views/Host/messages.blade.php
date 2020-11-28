@@ -24,7 +24,7 @@ Messaggi
             <tbody> 
                 @foreach ($allmessages as $message)
                 <tr>
-                    <td class="d-none d-lg-table-cell" scope="row"><img class="rounded rev-img" src="{{$message->imgurl}}" alt="image"></td>
+                    <td class="d-none d-md-table-cell img rounded " scope="row" style="background-image:url('{{$message->imgurl}}')"></td>
                     <td class="d-none d-md-table-cell">{{$message->created_at}}</td>
                     <td class="d-none d-lg-table-cell">{{$message->email}}</td>
                     <td>{{$message->message}}

@@ -33,7 +33,7 @@ I tuoi appartamenti in Evidenza
     
             @foreach ($apartments as $apartment)
             @if (count($apartment->sponsorships) > 0)
-            <div class="s-card p-0 m-2 rounded">
+            <div class="s-card p-0 m-2 rounded col-lg-4">
                 <div class="s-image rounded" style="background-image: url({{$apartment->cover->imgurl}})">
 
                 </div>

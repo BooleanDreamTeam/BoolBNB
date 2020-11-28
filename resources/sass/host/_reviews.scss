@@ -10,10 +10,11 @@
         tr{
             max-height: 60px; 
             td{
-                img{
-                    height:60px;
-                    
-                }
+                
+            }
+            td.img{
+                background-position: center;
+                background-size: cover;
             }
         }
     }
