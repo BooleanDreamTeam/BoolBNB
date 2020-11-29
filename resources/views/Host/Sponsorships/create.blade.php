@@ -75,8 +75,8 @@ Metti in Evidenza
                     <h5 class="card-description">Metti in risalto il tuo appartamento per le prossime {{$sponsor->time}} ore!</h5>
                     
                     <p class="card-text"><i class="fas fa-shopping-cart"></i>{{$sponsor->price}}€</p>
-                    <a data-price="{{$sponsor->price}}" data-id="{{$sponsor->id}}" class="card-link">
-                        <button class="btn btn-primary ">Acquista</button>  
+                    <a class="btn btn-primary" data-price="{{$sponsor->price}}" data-id="{{$sponsor->id}}" class="card-link">
+                        Acquista
                     </a>
                 </div>
             </div>
