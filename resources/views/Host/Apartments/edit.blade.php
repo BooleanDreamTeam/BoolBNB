@@ -27,8 +27,7 @@ Modifica Appartamento
 
     <div class="advise content w-100">
         <div class="container-fluid">
-            <form method="post" action="{{ route('apartments.update', $apartment->id) }}" enctype="multipart/form-data"
-                novalidate>
+            <form method="post" action="{{ route('apartments.update', $apartment->id) }}" enctype="multipart/form-data" novalidate>
                 @csrf
                 @method('PATCH')
                 <div class="form-row">

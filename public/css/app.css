@@ -17470,7 +17470,11 @@ input[type=range]:focus::-ms-fill-upper {
   font-size: 12px;
 }
 
-.credits .credits-dream-team img {
+.credits .credits-dream-team {
+  margin-left: 77px;
+}
+
+.credits .credits-dream-team .credits-dream-team img {
   padding-right: 8px;
 }
 
