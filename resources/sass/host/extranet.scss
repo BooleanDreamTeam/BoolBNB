@@ -7,6 +7,9 @@
 @import '_charts';
 @import '_sponsorships';
 
+body{
+    overflow-x: hidden;
+}
 #all{
     width: 100vw;
     overflow-x: hidden;
@@ -132,5 +135,7 @@ a {
     .sidebar-nav .nav a.navbar-brand{
         width: 100%;
     }
+
+    
 }
 

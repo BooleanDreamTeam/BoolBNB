@@ -14,12 +14,16 @@ I miei appartamenti
 
 <span id="under">My Apartments</span>
 
-<div id="apartment" class="apartments col-12">
-<h1 class="text-primary">I miei Appartamenti</h2>
-    <div class="row d-flex flewx-wrap">
+<div id="apartment" class="apartments container p-2">
+    <div class="d-flex justify-content-between">
+        <h1 class="text-primary">I miei Appartamenti</h1>
+        <a href="{{ route('apartments.create') }}" class="btn btn-primary my-auto">AGGIUNGI UN APPARTMENTO</a>
+    </div>
+
+    <div class="row d-flex flex-wrap justify-content-between pl-sm-3">
     @foreach($apartments as $apartment)
     <a href="{{route('apartment.show',['id' => $apartment->id])}}">
-        <div class="i-card-e mb-3 rounded p-0 d-flex align-items-start col-12 col-lg-5 mr-4">
+        <div class="i-card-e mb-3 rounded p-0 d-flex flex-column align-items-start col-12 col-lg-5 mx-auto">
             <div class="i-card-e-img-top" style="background-image: url({{$apartment->cover->imgurl}}"></div>
             <div class="i-card-body p-2 w-100 h-100 d-flex justify-content-between">
                 <div class="i-left d-flex flex-column justify-content-between h-100">
@@ -30,7 +34,7 @@ I miei appartamenti
                         <small>Numero stanze {{$apartment->n_rooms}}</small>
                         <small>Numero letti {{$apartment->n_beds}}</small>
                         <small>Numero bagni {{$apartment->n_bathrooms}}</small>
-                        <strong class="text-primary m-0 p-0">Indirizzo {{$apartment->address}}</strong>
+                        <strong class="text-primary text-capitalize m-0 p-0">Indirizzo {{$apartment->address}}</strong>
                     </div>
                 </div>
                 <div class="i-right d-flex flex-column justify-content-between align-items-end ">

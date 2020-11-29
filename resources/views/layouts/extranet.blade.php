@@ -30,39 +30,39 @@
 <body>
     <!-- sidebar -->
     <div class="row row-main d-flex" id="all">
-        <div id="sidebar" class="sidebar-nav d-flex px-sm-1 px-md-3 px-lg-4 col-2 col-sm-4 col-lg-3 col-xl-2 pr-0">
+        <div id="sidebar" class="sidebar-nav d-flex px-sm-2 px-md-3 px-lg-4 col-2 col-sm-4 col-lg-3 col-xl-2 pr-0">
             <div class="nav flex-column align-center nav-pills" id="v-pills-tab" role="tablist"
                 aria-orientation="vertical">
-                <a class="navbar-brand m-0 d-flex align-items-center justify-content-center" href="{{ url('/') }}">
+                <a class="navbar-brand mx-auto d-flex align-items-center justify-content-center" href="{{ url('/') }}">
                     <img class="" src="{{ Storage::url('img/logo.png') }}" alt="logo">
                     <!-- <img class="img-fluid write d-none d-sm-block" id="bnb" src="{{ Storage::url('img/boolbnb-white.png') }}" alt="Boolbnb"> -->
                 </a>
 
-                <a href="{{ Route('dashboard') }}" class="nav_item nav-link active" id="v-pills-home-tab" role="tab"
+                <a href="{{ Route('dashboard') }}" class="nav_item nav-link active text-center text-sm-left" id="v-pills-home-tab" role="tab"
                     aria-controls="v-pills-home" aria-selected="true">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span class="d-none d-sm-inline">Dashboard</span>
                 </a>
                             
-                <a href="{{route('user.show', ['user' => Auth::id()])}}" class="nav-link" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                <a href="{{route('user.show', ['user' => Auth::id()])}}" class="nav-link text-center text-sm-left" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false">
                     <i class="fas fa-fw fa-user-alt"></i>
                     <span class="d-none d-sm-inline">Profilo</span>
                 </a>
-                <a href="{{ Route('mymessages') }}" class="nav-link" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                <a href="{{ Route('mymessages') }}" class="nav-link text-center text-sm-left" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false">
                     <i class="fas fa-fw fa-envelope"></i>
                     <span class="d-none d-sm-inline">Messaggi</span>
                 </a>
-                <a href="{{ Route('apartments.index') }}" class="nav-link" id="v-pills-apartments-tab" role="tab"
+                <a href="{{ Route('apartments.index') }}" class="nav-link text-center text-sm-left" id="v-pills-apartments-tab" role="tab"
                     aria-controls="v-pills-apartments" aria-selected="false">
                     <i class="fas fa-fw fa-home"></i>
                     <span class="d-none d-sm-inline">Appartmenti</span>
                 </a>
-                <a href="{{ route('sponsorship.index') }}" class="nav-link" id="v-pills-sponsorship-tab" role="tab"
+                <a href="{{ route('sponsorship.index') }}" class="nav-link text-center text-sm-left" id="v-pills-sponsorship-tab" role="tab"
                     aria-controls="v-pills-sponsorship" aria-selected="false">
                     <i class="fas fa-star"></i>
                     <span class="d-none d-sm-inline">Sponsorships</span>
                 </a>
-                <a href="{{ route('myreviews') }}" class="nav-link id=" v-pills-reviews-tab" href="#v-pills-reviews"
+                <a href="{{ route('myreviews') }}" class="nav-link text-center text-sm-left" id="v-pills-reviews-tab" href="#v-pills-reviews"
                     role="tab" aria-controls="v-pills-reviews" aria-selected="false">
                     <i class="fas fa-fw fa-pencil-alt"></i>
                     <span class="d-none d-sm-inline">Recensioni</span>
@@ -164,7 +164,7 @@
             </nav>
 
             <!-- contents -->
-            <div class="row col-xl-12 p-4">
+            <div class="row col-xl-12 pr-0">
                 @yield('content')
             </div>
         </div>

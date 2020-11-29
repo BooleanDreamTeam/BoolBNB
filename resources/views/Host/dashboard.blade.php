@@ -46,7 +46,7 @@ DashBoard
         <h2 class="text-center">I miei Appartamenti</h2>
         <div id="apartments" class="apartments mb-4 pb-4 border-bottom card-group d-flex flex-column flex-md-row">
         @foreach($apartments as $apartment)
-            <div class="d-cont d-flex col-12 col-sm-12 col-md-12 col-lg-3 text-center">
+            <div class="d-cont d-flex col-12 col-sm-12 col-md-6 col-lg-3 text-center">
                 <div class="d-card-e m-2">
                     <a href="{{route('apartment.show',['id' => $apartment->id])}}">
                     <div class="card-e-img-top d-flex justify-content-end" style="background-image: url({{ $apartment->cover->imgurl }}">

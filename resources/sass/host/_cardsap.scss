@@ -2,15 +2,20 @@
     .i-card-e{
         padding-right: 5px;
         box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
+        position: relative;
 
         .i-card-e-img-top{
-            width: 200px;
-            height: 180px;
-            border-radius: 5px 0 0 5px;
+            position: absolute;
+            left: 0;
+            right: 0; 
+            top: 0;            
+            height: 150px;
+            border-radius: 5px 5px 0 0;
             background-position: center;
             background-size: cover;
         }
         .i-card-body{
+            margin-top: 150px;
             .i-left{
                 .i-top-card{
                     h6{
@@ -41,3 +46,19 @@
     color: rgba($color: #00B3B3, $alpha: 0.1);
     z-index: -1;
 }
+
+@media screen and (axn-width: 768px) {
+    .i-card-e{
+
+        
+        .i-card-e-img-top{
+            width: 160px;
+            height: 160px;
+            border-radius: 5px 0 0 5px;
+            background-position: center;
+            background-size: cover;
+        }
+
+    }
+        
+  }
