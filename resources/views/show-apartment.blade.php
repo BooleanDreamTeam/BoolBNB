@@ -17,8 +17,6 @@
 @section('content')
 
     @if($n > 3)
-    <div class="name-apartment ">
-        </div>
 
         <section id="up" class="container d-none d-md-flex my-5">
             <div class="ctn-first col-6 py-2 pl-2 pr-1">

@@ -34,10 +34,14 @@ Metti in Evidenza
 </div>
 @endif
 
-@if (session('error'))
-<div class="alert alert-danger status mx-auto fixed-top m-5">
-    {{ session('error') }}
-</div>
+@if ($errors->any())
+            <div class="alert alert-danger status mx-auto fixed-top m-5">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
 @endif
 {{-- ERROR--}}
 
