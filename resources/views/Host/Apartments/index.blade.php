@@ -14,13 +14,13 @@ I miei appartamenti
 
 <span id="under">My Apartments</span>
 
-<div id="apartment" class="apartments container p-2">
+<div id="apartment" class="apartments container p-sm-3">
     <div class="d-flex justify-content-between">
         <h1 class="text-primary">I miei Appartamenti</h1>
         <a href="{{ route('apartments.create') }}" class="btn btn-primary my-auto">AGGIUNGI UN APPARTMENTO</a>
     </div>
 
-    <div class="row d-flex flex-wrap justify-content-between pl-sm-3">
+    <div class="row d-flex flex-wrap justify-content-between pr-2">
     @foreach($apartments as $apartment)
     <a href="{{route('apartment.show',['id' => $apartment->id])}}">
         <div class="i-card-e mb-3 rounded p-0 d-flex flex-column align-items-start col-12 col-lg-5 mx-auto">
