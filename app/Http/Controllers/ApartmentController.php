@@ -29,7 +29,7 @@ class ApartmentController extends Controller
         })->pluck('id');
 
         // estraggo 4 appartamenti sottraendo gli id degli appartamenti con spons. attiva
-        $apartments = Apartment::where('is_active', true)->whereNotIn('id', $toremove)->inRandomOrder()->paginate(8);
+        $apartments = Apartment::where('is_active', true)->whereNotIn('id', $toremove)->inRandomOrder()->take(8)->get();
 
         return view('index',compact('sponsored', 'apartments'));
     }
@@ -95,7 +95,7 @@ class ApartmentController extends Controller
             )
             ->having('distance', '<=', $radius)
             ->doesntHave('sponsorships')
-            ->get(); 
+            ->get();
 
         $sponsored = Apartment::select(
                 // https://gis.stackexchange.com/a/31629  // il codice 6371 serve per il calcolo in km
@@ -112,7 +112,7 @@ class ApartmentController extends Controller
                 ")
         )->where('is_active', true)->whereHas('sponsorships', function (Builder $query) {
             $query->where('expiration_date', '>', DB::raw('now()'));
-        })->get();    
+        })->get();
 
         return view('search', compact('arrayCordinates','sponsored','apartments','services','lat','lng','RangeRooms','RangeBeds','addressSearch'));
 
