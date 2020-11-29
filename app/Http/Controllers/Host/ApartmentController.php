@@ -111,11 +111,8 @@ class ApartmentController extends Controller
                         'imgurl' => $urlImg,
                         'cover' => 0,
                     ]);
-
                 }
-
             }
-
         }
 
         return redirect()->route('dashboard')->with('status', "Appartamento $apartment->title creato!");

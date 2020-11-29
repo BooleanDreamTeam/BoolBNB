@@ -23,6 +23,13 @@ Modifica Appartamento
 </div>
 @endif
 
+@if (session('error'))
+<div class="alert alert-danger status mx-auto fixed-top m-5">
+    {{ session('error') }}
+</div>
+@endif
+
+
     {{-- MODIFY APARTMENT --}}
 
     <div class="advise content w-100">
