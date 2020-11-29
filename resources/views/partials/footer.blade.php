@@ -110,14 +110,14 @@
     </section>
 
     <section class="bg-fluid pb-3">
-        <div class="credits container col-md-8 pb-3">
+        <div class="credits container col-md-8 pb-3 text-sm-center">
             <div class="row pt-2 d-flex justify-content-between">
-                <div class="jm_logo col-md-4 col-xs-12">
+                <div class="jm_logo col-md-4 col-xs-12 text-center">
                     <img src="{{Storage::url('img/logo.png')}}" alt="logo-boolbnb" style="height: 25px">
                     <span>© 2020 BoolBnB. All rights reserved.</span>
                 </div>
             {{-- SONO SEGNAPOSTI PER LE NOSTRE FOTO TONDE --}}
-                <div class="credits-dream-team col-12 col-md-4 d-flex justify-content-center px-4">
+                <div class="credits-dream-team col-12 col-md-4 d-flex justify-content-center px-4 text-center">
                     <a href="https://github.com/Jo-Mel"><img src="{{Storage::url('img/jm-avatar.jpeg')}}" alt="jm-avatar" class="rounded-circle" style="height: 60px"></a>
                     <a href="https://github.com/Vincent9o9"><img src="{{Storage::url('img/vs-avatar.jpg')}}" alt="vs-avatar" class="rounded-circle" style="height: 60px"></a>
                     <a href="https://github.com/geffen007"><img src="{{Storage::url('img/ga-avatar.jpg')}}" alt="ga-avatar" class="rounded-circle" style="height: 60px"></a>

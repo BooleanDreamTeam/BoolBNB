@@ -141,6 +141,9 @@
                         <div class="services mt-3">
                             <h5 class="card-title">Servizi</h5>
                             <ul class="list-group d-flex flex-row">
+                                @if (count($apartment->services) <= 0)
+                                    <li class="list-group-item">Nessun Servizio</li>
+                                @endif
                                 @foreach ($apartment->services as $service)
 
                                     <li class="list-group-item">{{$service->name}}</li>
@@ -219,7 +222,6 @@
                                         <tr>
                                             <th scope="col">Name</th>
                                             <th scope="col">Text</th>
-                                            <th scope="col">Received</th>
                                             <th scope="col">Vote</th>
                                         </tr>
                                     </thead>
@@ -241,8 +243,7 @@
 
     <tr>
         <td>@{{name}}</td>
-        <td>@{{message}}</td>
-        <td>@{{created_at}}</td>
+        <td class="text-break">@{{message}}</td>
         <td>@{{vote}}</td>
     </tr>
 

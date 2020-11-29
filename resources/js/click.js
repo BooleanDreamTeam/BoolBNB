@@ -1,5 +1,7 @@
 // CHIAMATA IP E INVIO API CLICK
 
+const ipServer = 'localhost';
+
 $(document).ready(function() {
 
     var id_apartment = $('.card_show').data('id');
@@ -37,7 +39,7 @@ function getDetailsIp(ip,browser,id_apartment) {
 function postClick(data) {
     $.ajax({
         method: 'POST',
-        url: 'http://localhost:8000/api/clicks',
+        url: 'http://'+ ipServer +':8000/api/clicks',
         data: {
             'id_apartment' : data['id_apartment'],
             'browser' : data['browser'],

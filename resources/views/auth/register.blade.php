@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+            <div class="card card-login animate__animated animate__fadeIn">
+                <div class="card-header card-header-login">{{ __('Register') }}</div>
 
                 <div class="card-body">
                     <form method="POST" enctype="multipart/form-data" action="{{ route('register') }}">

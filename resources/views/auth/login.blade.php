@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-md-8 col_login">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            <div class="card card-login animate__animated animate__fadeIn">
+                <div class="card-header card-header-login">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -67,6 +67,9 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                            </div>
+                            <div class="col-md-8 offset-md-4">
+                                <a href="{{ route('register') }}">{{ __('You are not a user? Register!') }}</a>
                             </div>
                         </div>
                     </form>

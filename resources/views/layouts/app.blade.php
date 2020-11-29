@@ -54,13 +54,6 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </button>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <button class="btn-nav">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    </button>
-                                </li>
-                            @endif
                         @else
                             <li class="nav-item p-0 dropdown">
                                 <a id="navbarDropdown" class="nav-link p-0 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

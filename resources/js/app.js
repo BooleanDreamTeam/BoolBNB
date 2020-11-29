@@ -8,6 +8,8 @@ new WOW.WOW().init();
 //------//
 $(document).ready( function() {
 
+  const ipServer = 'localhost';
+
   reviewsLoad();
     if (window.location.pathname == '/'|| window.location.pathname == '/host/firstapartment/create') {
         // ALGOLIA INDEX
@@ -57,7 +59,7 @@ $(document).ready( function() {
         });
         $.ajax({
           method: 'GET',
-          url: 'http://localhost:8000/api/search',
+          url: 'http://' + ipServer + ':8000/api/search',
           data: {
             'stanze' : $('input[name=stanze]').val(), 
             'services' : services,
@@ -116,7 +118,7 @@ $(document).ready( function() {
       function addMarker(apartment) {
         var marker = L.marker([apartment.latitude,apartment.longitude]).addTo(startMap);
         marker.bindPopup(`
-              <a id="card_popup" href="http://localhost:8000/apartments/show/` + apartment.id + `">
+              <a id="card_popup" href="http://` + ipServer + `:8000/apartments/show/` + apartment.id + `">
                 <div class="card-img-top" style="background-image: url('` + apartment.imgurl + `'); height: 200px; background-size: cover;"></div>
                 <div class="card-body">
                 <h5 class="card-title">` + apartment.title + `</h5>
@@ -148,7 +150,7 @@ $(document).ready( function() {
         var map = L.map("map_container").setView([lat,lng], 13);
         var osmLayer = new L.TileLayer(
             'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-              minZoom: 10,
+              minZoom: 5,
               maxZoom: 20,
               attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
             }
@@ -162,7 +164,7 @@ $(document).ready( function() {
             var marker = L.marker([apartments[i].lat,apartments[i].lng]).addTo(map);
             
               marker.bindPopup(`
-              <a id="card_popup" href="http://localhost:8000/apartments/show/` + apartments[i].id + `">
+              <a id="card_popup" href="http://` + ipServer + `:8000/apartments/show/` + apartments[i].id + `">
                         <div class="card-img-top" style="background-image: url('` + apartments[i].cover + `'); height: 200px; background-size: cover;"></div>
                         <div class="card-body">
                         <h5 class="card-title">` + apartments[i].title + `</h5>
@@ -191,7 +193,7 @@ $(document).ready( function() {
     function reviewsLoad() {
       $.ajax({
         method: 'GET',
-        url: 'http://localhost:8000/api/reviews',
+        url: 'http://' + ipServer + ':8000/api/reviews',
         data: {
           'id' : $('input[name=apartment_id]').val() 
         },
@@ -221,7 +223,7 @@ $(document).ready( function() {
     function ajaxReview(user_name) {
       $.ajax({
         method: 'POST',
-        url: 'http://localhost:8000/api/reviews',
+        url: 'http://' + ipServer + ':8000/api/reviews',
         data: {
           'id_apartment' : $('input#id_apartment_review').val(),
           'message' : $('#message_review').val(),
