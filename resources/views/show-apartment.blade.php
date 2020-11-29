@@ -140,7 +140,7 @@
                         </div>
                         <div class="services mt-3">
                             <h5 class="card-title">Servizi</h5>
-                            <ul class="list-group d-flex flex-row">
+                            <ul class="list-group list-group-horizontal d-flex flex-row">
                                 @if (count($apartment->services) <= 0)
                                     <li class="list-group-item">Nessun Servizio</li>
                                 @endif

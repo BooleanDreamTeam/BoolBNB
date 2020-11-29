@@ -155,11 +155,10 @@ class ApartmentController extends Controller
     {
 
         $data = $request->all();
-    
-        if($data['latlng']) {
-            $latlng = $data['latlng'];
 
+        $latlng = $data['latlng'];
 
+        if($latlng) {
             $arrayCordinates = explode(",", $latlng);
 
             $lat = $arrayCordinates[0];
@@ -177,9 +176,14 @@ class ApartmentController extends Controller
             'n_beds' => 'required|min:1|max:4',
             'n_bathrooms' => 'required|min:1|max:4',
             'squaremeters' => 'required|min:1|max:6',
-            'description' => 'required|min:5|max:3000',
+            'description' => 'required|min:5|max:300',
             'host_id' => 'numeric|exists:users,id'
         ]);
+
+        if($data['cover_image_id']) {
+            Image::where('apartment_id', $apartment->id)->update(['cover' => 0]);
+            Image::where('id', $data['cover_image_id'])->update(['cover' => 1]);
+        }
 
         if ((array_key_exists('images', $data))) {
             foreach ($data['images'] as $key => $image) {
@@ -192,12 +196,9 @@ class ApartmentController extends Controller
                     'imgurl' => $urlImg,
                     'cover' => 0,
                 ]);
-            }
-        }
 
-        if($data['cover_image_id']) {
-            Image::where('apartment_id', $apartment->id)->update(['cover' => 0]);
-            Image::where('id', $data['cover_image_id'])->update(['cover' => 1]);
+            }
+
         }
 
         if (!empty($data['services'])){
