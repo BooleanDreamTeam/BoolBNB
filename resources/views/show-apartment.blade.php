@@ -53,7 +53,7 @@
         <section id="up" class="container d-none d-md-flex my-5">
             <div class="ctn-first col-6 py-2 pl-2 pr-1">
                 <div class="img cover-show p-5 d-flex justify-content-center align-items-center" style="background-image: url({{$cover[0]->imgurl}})">
-                    <div class="overlay-cover-show p-3">Vedi tutte le foto!</div>
+                    <div class="overlay-cover-show p-3 text-white">Vedi tutte le foto!</div>
                 </div>
             </div>
 
