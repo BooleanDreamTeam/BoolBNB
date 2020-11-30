@@ -8,6 +8,19 @@ new WOW.WOW().init();
 //------//
 $(document).ready( function() {
 
+  $('.overlay-cover-show').click(function() {
+
+    $('.all-view-show').css('opacity','1').css('pointer-events','visible');
+    $('.all-view-show').removeClass('animate__fadeOutUp').addClass('animate__animated animate__fadeInUp');
+
+  });
+
+  $('.delete-carousel').click(function() {
+
+    $('.all-view-show').removeClass('animate__fadeInUp').addClass('animate__fadeOutUp');
+
+  });
+
   const ipServer = 'localhost';
 
   reviewsLoad();

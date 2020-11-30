@@ -18,10 +18,42 @@
 
     @if($n > 3)
 
+        <div class="all-view-show p-3 d-flex justify-content-center align-items-center">
+            <div class="delete-carousel p-3">
+                <i class="fas fa-times"></i>
+            </div>
+            <div id="carouselExampleControls" class="carousel slide p-2" data-ride="carousel">
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <img class="d-block " src="{{$cover[0]->imgurl}}" alt="First slide">
+                    </div>
+
+                    @foreach ($images as $key => $image)
+
+                        <div class="carousel-item">
+                            <img class="d-block" src="{{$image->imgurl}}" alt="First slide">
+                        </div>
+
+                    @endforeach
+
+
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+        </div>
+
         <section id="up" class="container d-none d-md-flex my-5">
             <div class="ctn-first col-6 py-2 pl-2 pr-1">
-                <div class="img p-5" style="background-image: url({{$cover[0]->imgurl}})">
-
+                <div class="img cover-show p-5 d-flex justify-content-center align-items-center" style="background-image: url({{$cover[0]->imgurl}})">
+                    <div class="overlay-cover-show p-3">Vedi tutte le foto!</div>
                 </div>
             </div>
 

@@ -67,6 +67,41 @@
     text-transform: uppercase;
 }
 
+.cover-show:hover  .overlay-cover-show{
+    display: block;
+}
+
+.overlay-cover-show {
+    display: none;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+.all-view-show {
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+
+    .carousel-item img {
+        width: 50vw;
+    }
+}
+
+.delete-carousel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+}
+
 @media screen and (max-width: 768px) {
     .d-block {
         height: 400px;
