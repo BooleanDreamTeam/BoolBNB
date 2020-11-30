@@ -176,7 +176,7 @@ class ApartmentController extends Controller
             'n_beds' => 'required|min:1|max:4',
             'n_bathrooms' => 'required|min:1|max:4',
             'squaremeters' => 'required|min:1|max:6',
-            'description' => 'required|min:5|max:300',
+            'description' => 'required|min:5|max:3000',
             'host_id' => 'numeric|exists:users,id'
         ]);
 

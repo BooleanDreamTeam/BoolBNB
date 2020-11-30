@@ -26,11 +26,10 @@ I tuoi appartamenti in Evidenza
 
     
     <div id="sponsorships" class="container">
-    <div class="d-flex justify-content-between">
-        <h1 class="text-primary">My Sponsorships</h1>
-        <a href="{{ route('sponsorship.create') }}" class="btn btn-primary m-auto">METTI IN EVIDENZA UN ALTRO APPARTAMENTO</a>
-
-    </div>
+        <div class="d-flex justify-content-between">
+            <h1 class="text-primary">Sponsorizzazioni</h1>
+            <a href="{{ route('sponsorship.create') }}" class="btn btn-primary m-auto">EVIDENZIA</a>
+        </div>
 
         <div class="row col-md-12 d-flex flex-wrap">
 
