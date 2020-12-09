@@ -33,8 +33,8 @@ class ApartmentSeeder extends Seeder
             $apartment->n_bathrooms = $faker->numberBetween(1, 4);
             $apartment->squaremeters = $faker->numberBetween(50, 400);
             $apartment->address = Arr::random($way_a). ' ' . Arr::random($way_b) . ', ' . rand(1,100). ', '. Arr::random($city);
-            $apartment->latitude = $faker->randomFloat($nbMaxDecimals = 4, $min = 38, $max = 40);
-            $apartment->longitude = $faker->randomFloat($nbMaxDecimals = 4, $min = 15, $max = 17);
+            $apartment->latitude = $faker->randomFloat($nbMaxDecimals = 4, $min = 45, $max = 46);
+            $apartment->longitude = $faker->randomFloat($nbMaxDecimals = 4, $min = 8, $max = 10);
             $apartment->is_active = $faker->boolean();
             $apartment->created_at = now();
             $apartment->updated_at = now();

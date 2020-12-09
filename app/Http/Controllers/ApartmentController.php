@@ -77,7 +77,7 @@ class ApartmentController extends Controller
         $lng = $arrayCordinates[1];
 
 
-        $radius = 10;
+        $radius = 50;
 
         $apartments = Apartment::select(
             // https://gis.stackexchange.com/a/31629  // il codice 6371 serve per il calcolo in km
