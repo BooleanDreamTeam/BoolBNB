@@ -1,3 +1,5 @@
 <h1>Boolbnb</h1>
 
-<img src="boolbnb.gif">
+<video controls width="700" src="boolbnb.mp4" muted autoplay>
+
+</video>
